@@ -1,0 +1,51 @@
+# write_to_subjects
+write_to_subjects <- function(df) {
+  # insert validations here
+  # each column must exist
+  # each column's contents must match the appropriate datatype
+  
+  
+  if (file.exists(here::here("processed_data/subjects.csv"))) {
+    subjects <- read_csv(here::here("processed_data/subjects.csv"))
+    subjects <- bind_rows(subjects, df)
+  } else {
+    subjects <- df 
+  }
+  
+  write_csv(subjects, here::here("processed_data/subjects.csv"))
+}
+
+# write_to_datasets
+write_to_datasets <- function(df) {
+  # insert validations here
+  # each column must exist
+  # each column's contents must match the appropriate datatype
+  
+  
+  if (file.exists(here::here("processed_data/datasets.csv"))) {
+    datasets <- read_csv(here::here("processed_data/datasets.csv"))
+    datasets <- bind_rows(datasets, df)
+  } else {
+    datasets <- df 
+  }
+  
+  write_csv(datasets, here::here("processed_data/datasets.csv"))
+}
+
+
+# write_to_trials
+write_to_trials <- function(df) {
+  # insert validations here
+  # each column must exist
+  # each column's contents must match the appropriate datatype
+  
+  
+  if (file.exists(here::here("processed_data/trials.csv"))) {
+    trials <- read_csv(here::here("processed_data/trials.csv"))
+    trials <- bind_rows(trials, df)
+  } else {
+    trials <- df 
+  }
+  
+  write_csv(trials, here::here("processed_data/trials.csv"))
+}
