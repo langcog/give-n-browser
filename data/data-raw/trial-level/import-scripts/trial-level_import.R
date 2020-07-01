@@ -1,5 +1,5 @@
 ##Cleaning and processing script for trial-level give-n data
-## Convention = Experiment; Subject; Language; Age; Age_years; Query; Response
+## Convention = Experiment; Subject; Language; Age_months; Age_years; Query; Response
 
 ##set up
 rm(list = ls())
@@ -120,7 +120,11 @@ all.data <- bind_rows(almoammer2013,
                       sarnecka2019, 
                       krajcsi2018, 
                       boni20xx_ordered, 
-                      boni20xx_random)
+                      boni20xx_random)%>%
+  dplyr::rename('Age_months'='Age')%>%
+  mutate(Age_months = round(as.numeric(as.character(Age_months), 4)), 
+         Age_years = floor(Age_months)/12)%>%
+  dplyr::select(Experiment, Language, Subject, Age_months, Age_years, method, Query, Response)
 
 # Save and export ----
 write.csv(all.data, '../../../processed-data/trial_level_processed_data.csv')
