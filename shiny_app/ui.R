@@ -6,7 +6,7 @@ ui <- fluidPage(
   theme = shinytheme("spacelab"),
   
   bsCollapse(id = "doc", open = "title",
-             bsCollapsePanel(title = h3("PeekBank Analyses"),
+             bsCollapsePanel(title = h3("Numberbank"),
                              # includeMarkdown("../docs/peekbank.md"),
                              value = "title",
                              style = "default")
@@ -14,7 +14,8 @@ ui <- fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      uiOutput("age_range_selector")
+      uiOutput("age_range_selector"),
+      uiOutput("query_range_selector")
     ),
     
     mainPanel(
