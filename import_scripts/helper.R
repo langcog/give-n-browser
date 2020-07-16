@@ -5,14 +5,14 @@ write_to_subjects <- function(df) {
   # each column's contents must match the appropriate datatype
   
   
-  if (file.exists(here::here("processed_data/subjects.csv"))) {
-    subjects <- read_csv(here::here("processed_data/subjects.csv"))
+  if (file.exists(here::here("data/processed-data/subjects.csv"))) {
+    subjects <- read_csv(here::here("data/processed-data/subjects.csv"))
     subjects <- bind_rows(subjects, df)
   } else {
     subjects <- df 
   }
   
-  write_csv(subjects, here::here("processed_data/subjects.csv"))
+  write_csv(subjects, here::here("data/processed-data/subjects.csv"))
 }
 
 # write_to_datasets
@@ -22,14 +22,14 @@ write_to_datasets <- function(df) {
   # each column's contents must match the appropriate datatype
   
   
-  if (file.exists(here::here("processed_data/datasets.csv"))) {
-    datasets <- read_csv(here::here("processed_data/datasets.csv"))
+  if (file.exists(here::here("data/processed-data/datasets.csv"))) {
+    datasets <- read_csv(here::here("data/processed-data/datasets.csv"))
     datasets <- bind_rows(datasets, df)
   } else {
     datasets <- df 
   }
   
-  write_csv(datasets, here::here("processed_data/datasets.csv"))
+  write_csv(datasets, here::here("data/processed-data/datasets.csv"))
 }
 
 
@@ -40,12 +40,13 @@ write_to_trials <- function(df) {
   # each column's contents must match the appropriate datatype
   
   
-  if (file.exists(here::here("processed_data/trials.csv"))) {
-    trials <- read_csv(here::here("processed_data/trials.csv"))
+  if (file.exists(here::here("data/processed-data/trials.csv"))) {
+    trials <- read_csv(here::here("data/processed-data/trials.csv"))
     trials <- bind_rows(trials, df)
   } else {
     trials <- df 
   }
   
-  write_csv(trials, here::here("processed_data/trials.csv"))
+  write_csv(trials, here::here("data/processed-data/trials.csv"))
 }
+
