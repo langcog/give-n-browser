@@ -2,7 +2,6 @@
 ## Convention = Experiment; Subject; Language; Age_months; Age_years; Query; Response
 
 ##set up
-rm(list = ls())
 library(tidylog)
 library(tidyverse)
 
@@ -127,4 +126,4 @@ all.data <- bind_rows(almoammer2013,
   dplyr::select(Experiment, Language, Subject, Age_months, Age_years, method, Query, Response)
 
 # Save and export ----
-write.csv(all.data, '../../../processed-data/trial_level_processed_data.csv')
+write_csv(all.data, here("data/processed-data/kl_data.csv"))

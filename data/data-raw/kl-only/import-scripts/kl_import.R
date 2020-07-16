@@ -2,9 +2,10 @@
 #Experiment, Language, SID, KL, Age_months, method, cite, Age_years 
 
 #load libraries
-rm(list = ls())
+# rm(list = ls())
 library(tidyverse)
 library(tidylog)
+library(here)
 
 # Read in all data from kl-only raw data ----
 ##TO-DO: add column for sex
@@ -39,5 +40,4 @@ data.raw %<>%
   mutate(lab = NA)
 
 # Save and export ----
-write.csv(data.raw, '../../../processed-data/kl_data.csv', 
-          row.names = FALSE)
+write_csv(data.raw, here("data/processed-data/kl_data.csv"))
