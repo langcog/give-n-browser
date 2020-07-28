@@ -21,7 +21,8 @@ almoammer2013_english <- read_csv(here::here('data/data-raw/trial-level/data-raw
                values_to = "Response")%>%
   dplyr::select(Experiment, Participant, Language, Age_months, method, cite, SEX, Query, Response)%>%
   mutate(Query = str_remove(Query, "_1"), 
-         Query = str_remove(Query, "_2"))%>%
+         Query = str_remove(Query, "_2"), 
+         lab = "Barner")%>%
   rename("Subject" = "Participant", 
                 "Age" = "Age_months", 
                 "Sex" = "SEX")%>%
@@ -39,7 +40,8 @@ piantadosi2014 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Pianta
   mutate(Age = Age*12, 
          Subject = as.character(Subject), 
          Query = as.integer(Query), 
-         Response = as.integer(Response))##Age is in years, convert to rounded months, I guess
+         Response = as.integer(Response), 
+         lab = "Piantadosi")##Age is in years, convert to rounded months, I guess
 
 ## pull out KL data, send to raw data for processing
 piantadosi2014_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/Piantadosi2014.csv'))%>%
@@ -47,7 +49,8 @@ piantadosi2014_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/Pia
   dplyr::select(Experiment, Participant, Language, `Knower-level`, Sex, Age, method, cite)%>%
   rename("Subject" = "Participant")%>%
   mutate(Age = Age*12, 
-         Subject = as.character(Subject))
+         Subject = as.character(Subject), 
+         lab = "Piantadosi")
 
 write_csv(piantadosi2014_kl, 'data/data-raw/kl-only/data-raw/piantadosi_2014.csv')
 
@@ -64,7 +67,8 @@ sarnecka2007 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Sarnecka
                 "Sex" = "SEX", 
                 "Age" = "Age_months") %>%
   mutate(Query = as.integer(Query), 
-         Response = as.integer(Response))
+         Response = as.integer(Response), 
+         lab = "Sarnecka")
 
 ## ... wagner2016 ----
 wagner2016 <- read.csv(here::here('data/data-raw/trial-level/data-raw/Wagner2016.csv'))%>%
@@ -78,7 +82,8 @@ wagner2016 <- read.csv(here::here('data/data-raw/trial-level/data-raw/Wagner2016
                 "Age" = "Age_months", 
                 "Sex" = "SEX")%>%
   mutate(Query = as.integer(Query), 
-         Response = as.integer(Response))
+         Response = as.integer(Response),
+         lab = "Barner")
 
 ## ...boni (unpublished, ordered Give) ----
 boni20xx_ordered <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni20XX.csv')) %>%
@@ -94,7 +99,8 @@ boni20xx_ordered <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni
   mutate(Age = 12*Age, 
          Query = as.integer(str_remove(Query, "OrderedGiveN")), 
          Response = as.integer(str_remove(str_remove(Response, "\\d_"), "_")), 
-         Subject = as.character(Subject))%>%
+         Subject = as.character(Subject), 
+         lab= "Piantadosi")%>%
   dplyr::rename("Sex" = "Gender")
 
 ## ...boni (unpublished, random Give) ----
@@ -111,7 +117,8 @@ boni20xx_random <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni2
   mutate(Age = 12*Age, 
          Query = as.integer(str_remove(str_remove(Query, "GiveNRandom"), "B")), 
          Response = as.integer(str_remove(str_remove(Response, "\\d_"), "_")), 
-         Subject = as.character(Subject))%>%
+         Subject = as.character(Subject), 
+         lab= "Piantadosi")%>%
   dplyr::rename("Sex" = "Gender")
 
 ## now read in the more typical conventions
@@ -119,7 +126,8 @@ krajcsi2018 <- read_csv(here::here("data/data-raw/trial-level//data-raw/Krajcsi2
   mutate(Query = as.integer(Query), 
          Response = as.integer(Response))%>%
   rename("Subject" = "Participant")%>%
-  mutate(Subject = as.character(Subject))
+  mutate(Subject = as.character(Subject), 
+         lab = "Krajcsi")
 
 sarnecka2019 <- read_csv(here::here('data/data-raw/trial-level/data-raw/SarneckaNegen2019.csv'))%>%
   dplyr::rename("Sex" = "Gender", 
@@ -128,7 +136,9 @@ sarnecka2019 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Sarnecka
   mutate(Language = "English", 
          Subject = as.character(Subject), 
          Query = as.integer(Query), 
-         Response = as.integer(Response))%>%
+         Response = as.integer(Response), 
+         lab = "Sarnecka", 
+         Experiment = "SarneckaNegen2019")%>%
   dplyr::select(-Task)
 
 ## schneider & barner --- 
@@ -139,7 +149,8 @@ schneider_barner_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw
          Experiment = cite,
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
-         Response = as.integer(Response))%>%
+         Response = as.integer(Response), 
+         lab = "Barner")%>%
   filter(!is.na(Task_item))%>%
   dplyr::select(-Task, -Trial_number, -Knower_level)%>%
   rename("Query" = "Task_item", 
@@ -150,7 +161,8 @@ schneider_barner_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-
   mutate(method = 'titrated', 
          cite = 'SchneiderBarner_20xx', 
          Experiment = cite,
-         Age = Age*12)%>%
+         Age = Age*12, 
+         lab = "Barner")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, Subject, Age, Sex, Language, Knower_level, method, cite)
 
@@ -164,7 +176,8 @@ schneider_barner_2020 <- read_csv(here::here('data/data-raw/trial-level/data-raw
          Experiment = cite,
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
-         Response = as.integer(Response))%>%
+         Response = as.integer(Response), 
+         lab = "Barner")%>%
   dplyr::select(-Task, -Trial_number, -Knower_level)%>%
   rename("Query" = "Task_item", 
          "Subject" = "SID")
@@ -174,7 +187,8 @@ schneider_barner_2020_kl <- read_csv(here::here('data/data-raw/trial-level/data-
   mutate(method = 'titrated', 
          cite = 'SchneiderBarner_2020', 
          Experiment = cite,
-         Age = Age*12)%>%
+         Age = Age*12, 
+         lab = "Barner")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, Subject, Age, Sex, Language, Knower_level, method, cite)
 
@@ -188,7 +202,8 @@ schneider_etal_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/s
          Experiment = cite,
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
-         Response = as.integer(Response))%>%
+         Response = as.integer(Response), 
+         lab = "Barner")%>%
   dplyr::select(-Task, -Trial_number, -Knower_level)%>%
   rename("Query" = "Task_item", 
          "Subject" = "SID")
@@ -198,7 +213,8 @@ schneider_etal_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-ra
 mutate(method = 'titrated', 
        cite = 'SchneiderEtAl_20xx', 
        Experiment = cite,
-       Age = Age*12)%>%
+       Age = Age*12, 
+       lab = "Barner")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, Subject, Age, Sex, Language, Knower_level, method, cite)
 
@@ -212,7 +228,8 @@ schneider_etal_20xx_2 <- read_csv(here::here('data/data-raw/trial-level/data-raw
          Experiment = cite,
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
-         Response = as.integer(Response))%>%
+         Response = as.integer(Response), 
+         lab = "Barner")%>%
   dplyr::select(-Task, -Trial_number, -Knower_level)%>%
   rename("Query" = "Task_item", 
          "Subject" = "SID")
@@ -222,7 +239,8 @@ schneider_etal_20xx_2_kl <- read_csv(here::here('data/data-raw/trial-level/data-
   mutate(method = 'titrated', 
          cite = 'SchneiderEtAl_20xx', 
          Experiment = cite,
-         Age = Age*12)%>%
+         Age = Age*12, 
+         lab = "Barner")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, Subject, Age, Sex, Language, Knower_level, method, cite)
 
@@ -236,7 +254,8 @@ schneider_yen_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/sc
          Experiment = cite,
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
-         Response = as.integer(Response))%>%
+         Response = as.integer(Response), 
+         lab = "Barner")%>%
   dplyr::select(-Task, -Trial_number, -Knower_level)%>%
   rename("Query" = "Task_item", 
          "Subject" = "SID")
@@ -247,7 +266,8 @@ schneider_yen_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw
   mutate(method = 'titrated', 
          cite = 'SchneiderYen_20xx', 
          Experiment = cite,
-         Age = Age*12)%>%
+         Age = Age*12, 
+         lab = "Barner")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, Subject, Age, Sex, Language, Knower_level, method, cite)
 
@@ -272,7 +292,7 @@ all.data <- bind_rows(almoammer2013_english,
          !is.na(Age_months))%>% ##get rid of NAs 
   mutate(Age_months = round(as.numeric(as.character(Age_months), 4)), 
          Age_years = floor(Age_months)/12)%>%
-  dplyr::select(Experiment, Language, Subject, Age_months, Age_years, method, Query, Response, cite)
+  dplyr::select(Experiment, lab, Language, Subject, Age_months, Age_years, method, Query, Response, cite)
 
 # Save and export ----
 write_csv(all.data, here::here('data/processed-data/trial_level_processed_data.csv'))
