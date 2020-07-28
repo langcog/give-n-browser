@@ -1,0 +1,76 @@
+---
+title: "Untitled"
+author: "Mike"
+date: "7/16/2020"
+output: html_document
+---
+
+Goals:
+
+
+# Preliminaries
+
+```{r}  
+library(tidyverse)
+library(ggthemes)
+library(langcog)
+```
+
+Read data
+
+```{r}
+trials <- read_csv(here::here("data/processed-data/trials.csv"))
+subjects <- read_csv(here::here("data/processed-data/subjects.csv"))
+datasets <- read_csv(here::here("data/processed-data/datasets.csv"))
+
+```
+
+Merge data
+
+```{r}
+#note that this doesn't include anyone who *only* has KL data
+#looks like we have an NA dataset, not sure why that might be
+
+all_data <- left_join(trials, subjects) %>%
+  left_join(datasets) %>%
+  distinct(dataset_id, trial_id, subject_id, Query, 
+           Response, language, age_months, KL, lab, method, cite) %>% #some weird duplication, fix this
+  mutate(Response = ifelse(Response > 10, 10, as.numeric(Response)))
+
+```
+
+# Plots
+
+What data do we have?
+
+```{r}
+all_data %>%
+  group_by(dataset_id, subject_id) %>%
+  summarise(age_months = age_months[1]) %>%
+  ggplot(aes(x = age_months)) + 
+  geom_histogram(binwidth = 6) + 
+  facet_wrap(~dataset_id)
+```
+
+What knower-levels do we have?
+
+```{r}
+all_data %>%
+  group_by(dataset_id, subject_id) %>%
+  summarise(KL = KL[1]) %>%
+  ggplot(aes(x = KL)) + 
+  geom_histogram(stat = "count") + 
+  facet_wrap(~dataset_id)
+```
+
+Responses given for quantities
+By age (mos)
+By KL (allow for different levels of classification)
+By method (titrated vs. non-titrated)
+By language
+By dataset
+
+Age at which KL achieved
+By method
+By language
+By dataset

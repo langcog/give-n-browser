@@ -50,3 +50,11 @@ write_to_trials <- function(df) {
   write_csv(trials, here::here("data/processed-data/trials.csv"))
 }
 
+## function for trial_id
+create_zero_index <- function(data, id_column_name="Subject") {
+  data <- data %>%
+    mutate(query_lag = lag(Query), 
+           temp = ifelse(Query != query_lag, 1, 0), 
+           temp_id = cumsum(c(0, temp[!is.na(temp)])), 
+           trial_id = temp_id)
+}
