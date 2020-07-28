@@ -25,7 +25,7 @@ data.raw %<>%
          Age_months = ifelse((is.na(Age) & !is.na(Age.Mos)), Age.Mos, Age), 
          KL = ifelse((is.na(KL) & !is.na(Knower.Level)), Knower.Level, KL), 
          KL = ifelse(is.na(KL), Knower_level, KL), 
-         KL = ifelse(is.na(KL), `Knower-level`, KL)%>%
+         KL = ifelse(is.na(KL), `Knower-level`, KL),
          Language = ifelse(is.na(Dual), Language, 
                       ifelse(Dual == "Dual", "Slovenian_dual", "Slovenian_nonDual")), 
          Sex = NA)%>%
@@ -35,11 +35,7 @@ data.raw %<>%
 data.raw %<>%
   mutate(Age_months = round(as.numeric(as.character(Age_months), 4)), 
          Age_years = floor(Age_months)/12)%>%
-  dplyr::select(Experiment, Language, Subject, KL, Age_months, Age_years, method, cite)
-
-##TO-DO: Add 'lab' column when importing data
-data.raw %<>%
-  mutate(lab = NA)
+  dplyr::select(Experiment, lab, Language, Subject, KL, Age_months, Age_years, method, cite)
 
 # Save and export ----
 write_csv(data.raw, here::here("data/processed-data/kl_data_processed.csv"))
