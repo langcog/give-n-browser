@@ -2,21 +2,20 @@
 #Experiment, Language, SID, KL, Age_months, method, cite, Age_years 
 
 #load libraries
-# rm(list = ls())
+rm(list = ls())
 library(tidyverse)
 library(tidylog)
-library(here)
+library(magrittr)
 
 # Read in all data from kl-only raw data ----
 ##TO-DO: add column for sex
 data.raw <-
-  list.files(path = "../data-raw/",
+  list.files(path = "data/data-raw/kl-only/data-raw/",
              pattern = "*.csv", 
              full.names = T) %>% 
   map_df(~read_csv(., col_types = cols(.default = "c"))) 
 
 # Wrangling and cleaning ----
-### TO-DO: when copying data, rename columns to fit general template
 
 #mostly renaming
 data.raw %<>%
@@ -25,9 +24,12 @@ data.raw %<>%
                           ifelse((is.na(Subject) & !is.na(Participant)), Participant, Subject)), 
          Age_months = ifelse((is.na(Age) & !is.na(Age.Mos)), Age.Mos, Age), 
          KL = ifelse((is.na(KL) & !is.na(Knower.Level)), Knower.Level, KL), 
+         KL = ifelse(is.na(KL), Knower_level, KL), 
+         KL = ifelse(is.na(KL), `Knower-level`, KL)%>%
          Language = ifelse(is.na(Dual), Language, 
                       ifelse(Dual == "Dual", "Slovenian_dual", "Slovenian_nonDual")), 
-         Sex = NA)
+         Sex = NA)%>%
+  filter(KL != "ChangeMe")
 
 #select relevant columns, round for age and mutate years
 data.raw %<>%
@@ -40,4 +42,4 @@ data.raw %<>%
   mutate(lab = NA)
 
 # Save and export ----
-write_csv(data.raw, here("data/processed-data/kl_data.csv"))
+write_csv(data.raw, here::here("data/processed-data/kl_data_processed.csv"))
