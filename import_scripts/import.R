@@ -2,6 +2,7 @@
 # 1. datasets: dataset_id, lab, method, cite  
 # 2. subjects: subject_id, dataset_id, age, sex, language, kl (computed)
 # 3. trials: trial_id, subject_id, quantity, response
+rm(list = ls())
 library(here)
 library(magrittr)
 library(tidyverse)
@@ -13,8 +14,8 @@ source(here("import_scripts/helper.R"))
 ## NB: in some cases, KL for participants will have to be added later
 
 ## read in processed data
-kl_only_data <- read_csv(here::here("data/processed-data/kl_data.csv")) #data is cleaned and processed in another script
-trial_level_data <- read_csv(here::here('data/processed-data/trial_level_processed_data.csv'))
+kl_only_data <- read_csv(here("data/processed-data/kl_data_processed.csv")) #data is cleaned and processed in another script
+trial_level_data <- read_csv(here('data/processed-data/trial_level_processed_data.csv'))
 
 ## ------------------- reformat and factor data to schema
 
@@ -23,9 +24,12 @@ file.remove(here::here("data/processed-data/datasets.csv"))
 file.remove(here::here("data/processed-data/subjects.csv"))
 file.remove(here::here("data/processed-data/trials.csv"))
 
-# KL-only data ----
+## combine trial level and kl only data
+all_data <- combine_data(kl_only_data, trial_level_data)
+
+# Write data -----
 ##datasets
-kl_only_data %>%
+all_data %>%
   select(Experiment, lab, method, cite) %>%
   distinct() %>%
   rename(dataset_id = Experiment) %>%
@@ -33,7 +37,7 @@ kl_only_data %>%
 
 ##subjects
 ##To-DO: Get Sex information
-kl_only_data %>% 
+all_data %>% 
   select(Experiment, Subject, Language, Age_months, KL) %>%
   distinct() %>%
   rename(dataset_id = Experiment, 
@@ -42,7 +46,7 @@ kl_only_data %>%
          age_months = Age_months) %>%
   write_to_subjects()
 
-## Trial-level data ----
+## trials
 trial_level_data <- create_zero_index(trial_level_data)
 
 trial_level_data %>%
@@ -51,6 +55,4 @@ trial_level_data %>%
                 subject_id = Subject)%>%
   write_to_trials()
 
-## ------------------- run KL models on everyone and add data to subjects
-
-#
+# --- run KL models on everyone
