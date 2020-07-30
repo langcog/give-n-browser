@@ -76,7 +76,8 @@ wagner2016 <- read.csv(here::here('data/data-raw/trial-level/data-raw/Wagner2016
                         -PrimaryLang, -Age_months, -SEX, -method, -cite), 
                names_to = "Query", 
                values_to = "Response")%>%
-  mutate(Query = str_remove(str_remove(str_remove(Query, "X"), ".1"), ".2"))%>%
+  mutate(Query = str_remove(str_remove(str_remove(Query, "X"), ".1"), ".2"), 
+         Experiment = ifelse(Experiment == "Excluded", "Wagner2019", "Wagner2019"))%>%
   dplyr::select(Experiment, Participant, Language, Age_months, method, cite, SEX, Query, Response)%>%
   dplyr::rename("Subject" = "Participant", 
                 "Age" = "Age_months", 
@@ -164,7 +165,7 @@ schneider_barner_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-
          Age = Age*12, 
          lab = "Barner")%>%
   rename("Subject" = "SID")%>%
-  distinct(Experiment, Subject, Age, Sex, Language, Knower_level, method, cite)
+  distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
 write_csv(schneider_barner_20xx_kl, 'data/data-raw/kl-only/data-raw/schneider_barner_20xx_kl.csv')
 
@@ -190,7 +191,7 @@ schneider_barner_2020_kl <- read_csv(here::here('data/data-raw/trial-level/data-
          Age = Age*12, 
          lab = "Barner")%>%
   rename("Subject" = "SID")%>%
-  distinct(Experiment, Subject, Age, Sex, Language, Knower_level, method, cite)
+  distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
 write_csv(schneider_barner_2020_kl, 'data/data-raw/kl-only/data-raw/schneider_barner_2020.csv')
 
@@ -216,7 +217,7 @@ mutate(method = 'titrated',
        Age = Age*12, 
        lab = "Barner")%>%
   rename("Subject" = "SID")%>%
-  distinct(Experiment, Subject, Age, Sex, Language, Knower_level, method, cite)
+  distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
 write_csv(schneider_etal_20xx_kl, 'data/data-raw/kl-only/data-raw/schneider_etal_20xx_kl.csv')
 
@@ -242,7 +243,7 @@ schneider_etal_20xx_2_kl <- read_csv(here::here('data/data-raw/trial-level/data-
          Age = Age*12, 
          lab = "Barner")%>%
   rename("Subject" = "SID")%>%
-  distinct(Experiment, Subject, Age, Sex, Language, Knower_level, method, cite)
+  distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
 write_csv(schneider_etal_20xx_2_kl, 'data/data-raw/kl-only/data-raw/schneider_etal_20xx_2_kl.csv')
 
@@ -269,7 +270,7 @@ schneider_yen_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw
          Age = Age*12, 
          lab = "Barner")%>%
   rename("Subject" = "SID")%>%
-  distinct(Experiment, Subject, Age, Sex, Language, Knower_level, method, cite)
+  distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
 write_csv(schneider_yen_20xx_kl, 'data/data-raw/kl-only/data-raw/schneider_yen_20xx_kl.csv')
 
