@@ -58,3 +58,24 @@ create_zero_index <- function(data, id_column_name="Subject") {
            temp_id = cumsum(c(0, temp[!is.na(temp)])), 
            trial_id = temp_id)
 }
+
+#combining trial level and kl level data 
+combine_data <- function(df1, df2) {
+  ##strip KL data down 
+  kls <- kl_only_data %>%
+    dplyr::select(Experiment, Subject, KL)
+  
+  ##join matching rows
+  ##so this df has the trial-level data, and trial-level data that has KLs
+  ##but otherwise it does not have the KL data
+  ##so we need to pull that in
+  trial_with_kl <- left_join(trial_level_data, kls, by = c("Experiment", "Subject"))
+  
+  ##so now we need the kl data that does not have a match in trial_level data
+  kls_without_trial <- anti_join(kl_only_data, trial_level_data, by = c("Experiment", "Subject"))
+  
+  ##now we can put these together
+  all_data <- full_join(trial_with_kl, kls_without_trial)
+  
+  return(all_data)
+}
