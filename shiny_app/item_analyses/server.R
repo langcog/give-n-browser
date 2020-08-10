@@ -19,7 +19,7 @@ all_data <- full_join(subjects, trials) %>%
 age_min <- floor(min(all_data$age_months, na.rm = TRUE))
 age_max <- ceiling(max(all_data$age_months, na.rm = TRUE))
 queries <- c(as.character(sort(unique(all_data$Query))))
-kls <- c("0", "1", "2", "3", "4", "5", "CP")
+# kls <- c("0", "1", "2", "3", "4", "5", "CP")
 
 # MAIN SHINY SERVER
 server <- function(input, output, session) {
@@ -31,8 +31,7 @@ server <- function(input, output, session) {
              !is.na(KL),
              age_months >= input$age_range[1], 
              age_months <= input$age_range[2], 
-             Query == as.numeric(input$query_range), 
-             KL %in% input$kl_range)
+             Query == as.numeric(input$query_range))
   })
  
   ## ----------------------- SELECTORS -----------------------
@@ -53,13 +52,13 @@ server <- function(input, output, session) {
                        multiple = TRUE)
   })
   
-  output$kl_range_selector <- renderUI({
-    selectInput("kl_range", 
-                label = "Knower levels to include:", 
-                choices = kls, 
-                selected = c("1", "2", "3", "CP"), 
-                multiple = TRUE)
-  })
+  # output$kl_range_selector <- renderUI({
+  #   selectInput("kl_range", 
+  #               label = "Knower levels to include:", 
+  #               choices = kls, 
+  #               selected = c("1", "2", "3", "CP"), 
+  #               multiple = TRUE)
+  # })
   
   # output$language_selector <- renderUI({
   #   selectInput("language", "Language:", 
@@ -74,12 +73,12 @@ server <- function(input, output, session) {
     req(filtered_data())
     
     ggplot(filtered_data(), 
-           aes(x = Response, fill = KL)) + 
+           aes(x = Response, fill = as.factor(Query))) + 
       geom_histogram(binwidth = 1, color = 'black') + 
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
       scale_fill_solarized() +
       theme_bw() + 
-      theme(legend.position = "right") +
+      theme(legend.position = "none") +
       labs(y = "Frequency", x = "Number given")+
       facet_wrap(~Query)
   })
