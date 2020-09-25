@@ -29,7 +29,13 @@ data.raw %<>%
          Language = ifelse(is.na(Dual), Language, 
                       ifelse(Dual == "Dual", "Slovenian_dual", "Slovenian_nonDual")), 
          Sex = NA)%>%
-  filter(KL != "ChangeMe")
+  filter(KL != "ChangeMe", 
+         KL != "X")%>%
+  mutate(KL = ifelse((KL == "5" & (Experiment == "Marusic2016" | Experiment == "Almoammer2013")), "CP", 
+                           as.character(KL)), 
+         KL = ifelse(KL == "5K", "5", as.character(KL)),
+         KL = ifelse(KL == "4K", "4", as.character(KL)), 
+         KL = ifelse(KL == "Non", "0", as.character(KL)))
 
 #select relevant columns, round for age and mutate years
 data.raw %<>%
