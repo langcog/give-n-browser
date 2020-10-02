@@ -122,9 +122,49 @@ server <- function(input, output, session) {
              age_months <= input$age_range_item[2], 
              Query %in% as.numeric(input$query_range_item), 
              language %in% input$language_choice_item, 
-             method %in% input$method_choice_item)
+             method %in% input$method_choice_item)%>%
+      group_by(Query, Response)%>%
+      summarise(n = n())%>%
+      mutate(total.n = sum(n), 
+             prop = n/total.n)
+      
   })
-  
+    
+    filtered_data_item_method <- reactive({
+      all_data %>%
+        filter(!is.na(Query),
+               !is.na(age_months),
+               age_months >= input$age_range_item[1], 
+               age_months <= input$age_range_item[2], 
+               Query %in% as.numeric(input$query_range_item), 
+               language %in% input$language_choice_item, 
+               method %in% input$method_choice_item)%>%
+        group_by(Query, Response, method)%>%
+        summarise(n = n())%>%
+        group_by(method)%>%
+        mutate(total.n = sum(n), 
+               prop = n/total.n)
+      
+    })
+    
+    filtered_data_item_language <- reactive({
+      all_data %>%
+        filter(!is.na(Query),
+               !is.na(age_months),
+               age_months >= input$age_range_item[1], 
+               age_months <= input$age_range_item[2], 
+               Query %in% as.numeric(input$query_range_item), 
+               language %in% input$language_choice_item, 
+               method %in% input$method_choice_item)%>%
+        group_by(Query, Response, language)%>%
+        summarise(n = n())%>%
+        group_by(Query, language)%>%
+        mutate(total.n = sum(n), 
+               prop = n/total.n)
+      
+    })
+    
+    
  
   ## ----------------------- SELECTORS -----------------------
   
@@ -260,49 +300,50 @@ server <- function(input, output, session) {
     req(filtered_data_item())
     
     ggplot(filtered_data_item(), 
-           aes(x = Response, fill = as.factor(Query))) +
+           aes(x = Response, y = prop, fill = as.factor(Query))) +
       geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'grey') +
-      geom_histogram(binwidth = 1, color = 'black') + 
+      geom_bar(stat = 'identity', position = position_dodge(), color = 'black') + 
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
       scale_fill_solarized() +
       theme_bw(base_size=14) + 
       theme(legend.position = "none", 
             panel.grid = element_blank()) +
-      labs(y = "Frequency", x = "Number given")+
+      labs(y = "Proportion of responses", x = "Number given")+
       facet_wrap(~Query)
   })
   
   ## .... LANG HISTOGRAM ----
   output$lang_histogram <- renderPlot({
-    req(filtered_data_item())
+    req(filtered_data_item_language())
     
-    ggplot(filtered_data_item(), 
-           aes(x = Response, fill = as.factor(Query))) + 
+    ggplot(filtered_data_item_language(), 
+           aes(x = Response, y = prop, fill = as.factor(Query))) + 
       geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'grey') +
-      geom_histogram(binwidth = 1, color = 'black') + 
+      geom_bar(stat = 'identity', position = position_dodge(), color = 'black') + 
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
       scale_fill_solarized() +
       theme_bw(base_size=14) +
       theme(legend.position = "none", 
             panel.grid = element_blank()) +
-      labs(y = "Frequency", x = "Number given")+
+      labs(y = "Proportion of responses", x = "Number given")+
       facet_grid(language~Query)
   })
   
   ## .... METHOD HISTOGRAM ----
   output$method_histogram <- renderPlot({
-    req(filtered_data_item())
+    req(filtered_data_item_method())
     
-    ggplot(filtered_data_item(), 
-           aes(x = Response, fill = method)) + 
+    ggplot(filtered_data_item_method(), 
+           aes(x = Response, y = prop, fill = method)) + 
       geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'grey') +
-      geom_histogram(binwidth = 1, color = 'black') + 
+      geom_bar(stat = 'identity', position = position_dodge(), 
+               color = 'black') + 
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-      scale_fill_solarized() +
+      scale_fill_solarized("Method") +
       theme_bw(base_size=14) +
       theme(legend.position = "right", 
             panel.grid = element_blank()) +
-      labs(y = "Frequency", x = "Number given")+
+      labs(y = "Proportion of responses", x = "Number given")+
       facet_grid(~Query)
   })
 }
