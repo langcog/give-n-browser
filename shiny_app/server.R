@@ -1,6 +1,7 @@
 library(tidyverse)
 library(ggthemes)
 library(langcog)
+library(ggridges)
 
 # read data
 trials <- read_csv(here::here("data/processed-data/trials.csv"))
@@ -14,14 +15,51 @@ all_data <- full_join(subjects, trials) %>%
                      ifelse(KL == "4K", "4",
                             ifelse(KL == "5K", "5", 
                                    ifelse(KL == "X", NA, as.character(KL))))),
-         language = ifelse(str_detect(language, "English"), "English", as.character(language)))
+         language = ifelse(str_detect(language, "English"), "English", 
+                           ifelse(language == "Saudi", "Arabic", as.character(language))))
 
+## set variables
 age_min <- floor(min(all_data$age_months, na.rm = TRUE))
 age_max <- ceiling(max(all_data$age_months, na.rm = TRUE))
 kls <- c("0", "1", "2", "3", "4", "5", "CP")
 ##get only language for which we have KLs
-languages <- c(unique(subset(all_data, !is.na(KL))$language))
+languages_KL <- c(unique(subset(all_data, !is.na(KL))$language))
+##get only language for which we have Queries
+languages_item <- c(unique(subset(all_data, !is.na(Query))$language))
 methods <- c("titrated", "non-titrated")
+queries <- c(as.character(sort(unique(all_data$Query))))
+n.samps <- 100
+
+##static data that will be filtered below for sampling
+ns <- all_data %>%
+  filter(!is.na(age_months), 
+         !is.na(KL))%>%
+  select(KL, language, age_months)
+##sampling function
+sample.ns <- function(df) {
+  df %<>% 
+    sample_n(nrow(df), replace=TRUE) %>%
+    group_by(KL, language, age_months) %>%
+    summarise(n = n()) %>%
+    mutate(cum.n = cumsum(n),
+           prop = cum.n / sum(n))
+  return(df)
+}
+
+#sample
+samps <- bind_rows(replicate(n.samps, sample.ns(ns), simplify=FALSE)) %>%
+  group_by(KL, language, age_months) %>%
+  summarise(ci.low = quantile(prop, .025), 
+            ci.high = quantile(prop, .975))
+
+#get ns, cumulative sums, and props
+ns %<>% group_by(KL, language, age_months) %>%
+  summarise(n = n()) %>%
+  mutate(cum.n = cumsum(n),
+         prop = cum.n / sum(n))
+
+#left join with samples
+ns <- left_join(ns, samps)
 
 # MAIN SHINY SERVER
 server <- function(input, output, session) {
@@ -42,23 +80,38 @@ server <- function(input, output, session) {
       
   })
   
-  filtered_data_prop_kl <- reactive({
-    all_data %>%
-      distinct(dataset_id, subject_id, age_months, method, KL, language)%>%
-      filter(!is.na(KL),
-             !is.na(age_months),
-             age_months >= input$age_range_kl[1], 
-             age_months <= input$age_range_kl[2], 
-             KL %in% input$kl_range_kl, 
-             language %in% input$language_choice_kl, 
-             method %in% input$method_choice_kl)%>%
-      group_by(language, KL, age_months)%>%
-      summarise(n = n())%>%
-      group_by(language, age_months)%>%
-      mutate(total.n = sum(n), 
-             prop = n/total.n)
-    
-  })
+    ##cumulative probability 
+    ##get age_months, KL, and language points
+    cumul_prob <- reactive({ 
+      ns %>% 
+        filter(!is.na(KL),
+               !is.na(age_months),
+               age_months >= input$age_range_kl[1], 
+               age_months <= input$age_range_kl[2], 
+               KL %in% input$kl_range_kl, 
+               language %in% input$language_choice_kl)%>%
+    dplyr::select(age_months, KL, language, n, cum.n, prop, 
+                  ci.low, ci.high)
+    })
+  
+  
+  # filtered_data_prop_kl <- reactive({
+  #   all_data %>%
+  #     distinct(dataset_id, subject_id, age_months, method, KL, language)%>%
+  #     filter(!is.na(KL),
+  #            !is.na(age_months),
+  #            age_months >= input$age_range_kl[1], 
+  #            age_months <= input$age_range_kl[2], 
+  #            KL %in% input$kl_range_kl, 
+  #            language %in% input$language_choice_kl, 
+  #            method %in% input$method_choice_kl)%>%
+  #     group_by(language, KL, age_months)%>%
+  #     summarise(n = n())%>%
+  #     group_by(language, age_months)%>%
+  #     mutate(total.n = sum(n), 
+  #            prop = n/total.n)
+  #   
+  # })
   
   ## ... ITEM DATA -----
   filtered_data_item <- reactive({
@@ -88,7 +141,7 @@ server <- function(input, output, session) {
   output$language_selector <- renderUI({
     selectInput("language_choice_kl", 
                 label = "Languages to include:", 
-                choices = languages, 
+                choices = languages_KL, 
                 selected = "English", 
                 multiple = TRUE)
   })
@@ -121,12 +174,12 @@ server <- function(input, output, session) {
   output$language_selector_item <- renderUI({
     selectInput("language_choice_item", 
                 label = "Languages to include:", 
-                choices = languages, 
+                choices = languages_item, 
                 selected = "English", 
                 multiple = TRUE)
   })
   
-  output$query_range_selector <- renderUI({
+  output$query_range_selector_item <- renderUI({
     selectInput("query_range_item", 
                 label = "Queried numbers to include:", 
                 choices = queries, 
@@ -135,11 +188,11 @@ server <- function(input, output, session) {
   })
   
   output$method_selector_item <- renderUI({
-    selectInput("method_choice_item", 
-                label = "Method", 
-                choices = methods, 
-                selected = methods, 
-                multiple = TRUE)
+    checkboxGroupInput("method_choice_item", 
+                       "Method",
+                       choices = methods, 
+                       selected = methods,
+                       inline = TRUE)
   })
 
   
@@ -154,8 +207,8 @@ server <- function(input, output, session) {
              aes(x = language, y=age_months, fill = KL))+
       geom_boxplot(alpha = .5, 
                    color = "black") +
-        theme_bw() + 
-        scale_fill_solarized() + 
+        theme_bw(base_size=14) +
+        scale_fill_solarized("Knower level") + 
         labs(x = 'Language', 
              y = "Age (months)") +
       coord_flip()
@@ -169,27 +222,35 @@ server <- function(input, output, session) {
            aes(x = language, y=age_months, fill = KL))+
       geom_boxplot(alpha = .5, 
                    color = "black") +
-      theme_bw() + 
-      scale_fill_solarized() + 
+      theme_bw(base_size=14) +
+      scale_fill_solarized("Knower level") + 
       labs(x = 'Language', 
            y = "Age (months)") +
       facet_grid(~method) +
       coord_flip()
   })
   
-  ##----BARPLOT OF PROP OF KIDS AT PARTICULAR KL AT AGE BY LANGUAGE
-  output$prop_barplot <- renderPlot({
-    req(filtered_data_prop_kl())
+  ##----CUMULATIVE PROBABILITY OF BEING N-KNOWER
+  #plot
+  output$cumulative_prob <- renderPlot({
+    req(cumul_prob)
     
-    ggplot(filtered_data_prop_kl(),
-           aes(x = age_months, y=prop, fill = KL))+
-      geom_bar(stat = 'identity', color = 'black') +
-      theme_bw() +
-      scale_fill_solarized() +
-      theme(legend.position = "right") +
-      labs(x = 'Age (months)',
-           y = "Proportion of children") +
-      facet_wrap(~language, ncol = 2, scales = "free_x")
+    ggplot(cumul_prob(), 
+           aes(x = age_months, y = prop, colour=KL, fill=KL,
+               group=KL))+
+    geom_line(size=1) + 
+    xlab("Age (months)") + 
+    geom_ribbon(aes(ymin = ci.low, ymax= ci.high), 
+                alpha = .2,show_guide=FALSE,linetype=0) + 
+    # geom_vline(aes(xintercept=age_months[prop>.75][1]), lty=3) +
+    # scale_x_continuous(breaks=seq(0,24,4))+
+    scale_color_solarized("Knower level")+
+    scale_fill_solarized()+
+    scale_y_continuous(limits = c(0,1),
+                       name = "Cumulative Probability of Knower Level")+
+    theme_bw(base_size=14) +
+    theme(legend.position="right") + 
+    facet_wrap(~language, scales = "free_x")
   })
   
  ## ... ITEM PLOTS ----
@@ -204,7 +265,7 @@ server <- function(input, output, session) {
       geom_histogram(binwidth = 1, color = 'black') + 
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
       scale_fill_solarized() +
-      theme_bw() + 
+      theme_bw(base_size=14) + 
       theme(legend.position = "none", 
             panel.grid = element_blank()) +
       labs(y = "Frequency", x = "Number given")+
@@ -221,7 +282,7 @@ server <- function(input, output, session) {
       geom_histogram(binwidth = 1, color = 'black') + 
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
       scale_fill_solarized() +
-      theme_bw() + 
+      theme_bw(base_size=14) +
       theme(legend.position = "none", 
             panel.grid = element_blank()) +
       labs(y = "Frequency", x = "Number given")+
@@ -238,11 +299,22 @@ server <- function(input, output, session) {
       geom_histogram(binwidth = 1, color = 'black') + 
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
       scale_fill_solarized() +
-      theme_bw() + 
+      theme_bw(base_size=14) +
       theme(legend.position = "right", 
             panel.grid = element_blank()) +
       labs(y = "Frequency", x = "Number given")+
       facet_grid(~Query)
   })
 }
+
+
+
+
+
+
+
+
+
+
+
 

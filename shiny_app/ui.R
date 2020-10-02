@@ -34,9 +34,9 @@ ui <- fluidPage(
                            plotOutput("method_boxplot"))
   
                   ), 
-      tabsetPanel(selected = "All KLs by age, language", 
-                  tabPanel("All KLs by age, language",
-                           plotOutput("prop_barplot"))
+      tabsetPanel(selected = "Cumulative probability of KL", 
+                  tabPanel("Cumulative probability of KL",
+                           plotOutput("cumulative_prob"))
                   ) 
               )
         )
@@ -48,8 +48,8 @@ ui <- fluidPage(
                         sidebarPanel(
                           uiOutput("age_range_selector_item"),
                           uiOutput("language_selector_item"),
-                          uiOutput("method_selector_item"),
-                          uiOutput("query_range_selector")
+                          uiOutput("method_selector_item"), 
+                          uiOutput("query_range_selector_item")
                         ),
 
               mainPanel(

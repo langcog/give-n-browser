@@ -78,4 +78,5 @@ combine_data <- function(df1, df2) {
   all_data <- full_join(trial_with_kl, kls_without_trial)
   
   return(all_data)
-}
+
+
