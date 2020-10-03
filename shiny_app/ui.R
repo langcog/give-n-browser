@@ -29,10 +29,7 @@ ui <- fluidPage(
                  ".shiny-output-error:before { visibility: hidden; }"),
       tabsetPanel(selected = "KL by age, language", 
                   tabPanel("KL by age, language",
-                           plotOutput("age_boxplot")), 
-                  tabPanel("KL by age, language, method",
-                           plotOutput("method_boxplot"))
-  
+                           plotOutput("age_boxplot"))
                   ), 
       tabsetPanel(selected = "Cumulative probability of KL", 
                   tabPanel("Cumulative probability of KL",

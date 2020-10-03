@@ -75,8 +75,7 @@ server <- function(input, output, session) {
              age_months >= input$age_range_kl[1], 
              age_months <= input$age_range_kl[2], 
              KL %in% input$kl_range_kl, 
-             language %in% input$language_choice_kl, 
-             method %in% input$method_choice_kl)
+             language %in% input$language_choice_kl)
       
   })
   
@@ -107,23 +106,6 @@ server <- function(input, output, session) {
              language %in% input$language_choice_item)
              # method %in% input$method_choice_item)
   })
-    
-    # filtered_data_item_method <- reactive({
-    #   all_data %>%
-    #     filter(!is.na(Query),
-    #            !is.na(age_months),
-    #            age_months >= input$age_range_item[1], 
-    #            age_months <= input$age_range_item[2], 
-    #            Query %in% as.numeric(input$query_range_item), 
-    #            language %in% input$language_choice_item, 
-    #            method %in% input$method_choice_item)%>%
-    #     group_by(Query, Response, method)%>%
-    #     summarise(n = n())%>%
-    #     group_by(method)%>%
-    #     mutate(total.n = sum(n), 
-    #            prop = n/total.n)
-    #   
-    # })
     
     filtered_data_item_language <- reactive({
       all_data %>%
@@ -164,11 +146,9 @@ server <- function(input, output, session) {
   })
   
   output$method_selector <- renderUI({
-    checkboxGroupInput("method_choice_kl", 
-                "Method",
-                choices = methods, 
-                selected = methods,
-                inline = TRUE)
+    prettySwitch("method_choice_kl",
+                 label = "Facet by method",
+                 value = FALSE)
   })
   
   output$age_range_selector <- renderUI({
@@ -217,33 +197,47 @@ server <- function(input, output, session) {
   ## ---------- BOXPLOT OF KL AND AGE BY LANGUAGE
   output$age_boxplot <- renderPlot({
     req(filtered_data_kl())
-  
-      ggplot(filtered_data_kl(), 
-             aes(x = language, y=age_months, fill = KL))+
-      geom_boxplot(alpha = .5, 
-                   color = "black") +
+    
+    if (input$method_choice_kl) {
+       p <- ggplot(filtered_data_kl(), 
+                   aes(x = language, y=age_months, fill = KL))+
+         geom_boxplot(alpha = .5, 
+                      color = "black") +
+         theme_bw(base_size=14) +
+         scale_fill_solarized("Knower level") + 
+         labs(x = 'Language', 
+              y = "Age (months)") +
+         facet_grid(~method) +
+         coord_flip()
+    } else {
+      p <- ggplot(filtered_data_kl(), 
+                  aes(x = language, y=age_months, fill = KL))+
+        geom_boxplot(alpha = .5, 
+                     color = "black") +
         theme_bw(base_size=14) +
         scale_fill_solarized("Knower level") + 
         labs(x = 'Language', 
              y = "Age (months)") +
-      coord_flip()
+        coord_flip()
+    }
+    p
   })
   
-  ## ---- BOXPLOT OF KL BY AGE BY LANGUAGE BY METHOD
-  output$method_boxplot <- renderPlot({
-    req(filtered_data_kl())
-    
-    ggplot(filtered_data_kl(), 
-           aes(x = language, y=age_months, fill = KL))+
-      geom_boxplot(alpha = .5, 
-                   color = "black") +
-      theme_bw(base_size=14) +
-      scale_fill_solarized("Knower level") + 
-      labs(x = 'Language', 
-           y = "Age (months)") +
-      facet_grid(~method) +
-      coord_flip()
-  })
+  # ## ---- BOXPLOT OF KL BY AGE BY LANGUAGE BY METHOD
+  # output$method_boxplot <- renderPlot({
+  #   req(filtered_data_kl())
+  #   
+  #   ggplot(filtered_data_kl(), 
+  #          aes(x = language, y=age_months, fill = KL))+
+  #     geom_boxplot(alpha = .5, 
+  #                  color = "black") +
+  #     theme_bw(base_size=14) +
+  #     scale_fill_solarized("Knower level") + 
+  #     labs(x = 'Language', 
+  #          y = "Age (months)") +
+  #     facet_grid(~method) +
+  #     coord_flip()
+  # })
   
   ##----CUMULATIVE PROBABILITY OF BEING N-KNOWER
   #plot
