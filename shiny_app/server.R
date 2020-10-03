@@ -11,17 +11,20 @@ datasets <- read_csv(here::here("data/processed-data/datasets.csv"))
 all_data <- full_join(subjects, trials) %>%
   left_join(datasets)%>%
   mutate(Response = ifelse(Response > 10, 10, as.numeric(Response)), 
-         KL = ifelse(KL == "Non", "0", 
-                     ifelse(KL == "4K", "4",
-                            ifelse(KL == "5K", "5", 
-                                   ifelse(KL == "X", NA, as.character(KL))))),
+         KL = ifelse((KL == "Non" | KL == "0"), "0-knower", 
+                     ifelse((KL == "4K" | KL == "4"), "4-knower",
+                            ifelse((KL == "5K" | KL == "5"), "5-knower", 
+                                   ifelse(KL == "X", NA, 
+                                          ifelse(KL == "1", "1-knower", 
+                                                 ifelse(KL == "2", "2-knower", 
+                                                        ifelse(KL == "3", "3-knower", "CP-knower"))))))),
          language = ifelse(str_detect(language, "English"), "English", 
                            ifelse(language == "Saudi", "Arabic", as.character(language))))
 
 ## set variables
 age_min <- floor(min(all_data$age_months, na.rm = TRUE))
 age_max <- ceiling(max(all_data$age_months, na.rm = TRUE))
-kls <- c("0", "1", "2", "3", "4", "5", "CP")
+kls <- c("0-knower", "1-knower", "2-knower", "3-knower", "4-knower", "5-knower", "CP-knower")
 ##get only language for which we have KLs
 languages_KL <- c(unique(subset(all_data, !is.na(KL))$language))
 ##get only language for which we have Queries
@@ -100,28 +103,15 @@ server <- function(input, output, session) {
     all_data %>%
       filter(!is.na(Query),
              !is.na(age_months),
+             !is.na(KL),
              age_months >= input$age_range_item[1], 
              age_months <= input$age_range_item[2], 
              Query %in% as.numeric(input$query_range_item), 
-             language %in% input$language_choice_item)
+             language %in% input$language_choice_item, 
+             KL %in% input$kl_range_item)
              # method %in% input$method_choice_item)
   })
     
-    filtered_data_item_language <- reactive({
-      all_data %>%
-        filter(!is.na(Query),
-               !is.na(age_months),
-               age_months >= input$age_range_item[1], 
-               age_months <= input$age_range_item[2], 
-               Query %in% as.numeric(input$query_range_item), 
-               language %in% input$language_choice_item)%>%
-        group_by(Query, Response, language)%>%
-        summarise(n = n())%>%
-        group_by(Query, language)%>%
-        mutate(total.n = sum(n), 
-               prop = n/total.n)
-      
-    })
     
     
  
@@ -133,7 +123,7 @@ server <- function(input, output, session) {
     selectInput("kl_range_kl", 
                 label = "Knower levels to include:", 
                 choices = kls, 
-                selected = c("1", "2", "3", "CP"), 
+                selected = c("1-knower", "2-knower", "3-knower", "CP-knower"), 
                 multiple = TRUE)
   })
   
@@ -189,6 +179,16 @@ server <- function(input, output, session) {
                    label = "Method plotted as colors",
                    value = FALSE)
   })
+    
+    output$kl_range_selector_item <- renderUI({
+      selectInput("kl_range_item", 
+                  label = "Knower levels to include:", 
+                  choices = kls, 
+                  selected = c("1-knower", "2-knower", "3-knower", "CP-knower"), 
+                  multiple = TRUE)
+    })
+    
+    
 
   
   ## ----------------------- PLOTS -----------------------
@@ -222,22 +222,6 @@ server <- function(input, output, session) {
     }
     p
   })
-  
-  # ## ---- BOXPLOT OF KL BY AGE BY LANGUAGE BY METHOD
-  # output$method_boxplot <- renderPlot({
-  #   req(filtered_data_kl())
-  #   
-  #   ggplot(filtered_data_kl(), 
-  #          aes(x = language, y=age_months, fill = KL))+
-  #     geom_boxplot(alpha = .5, 
-  #                  color = "black") +
-  #     theme_bw(base_size=14) +
-  #     scale_fill_solarized("Knower level") + 
-  #     labs(x = 'Language', 
-  #          y = "Age (months)") +
-  #     facet_grid(~method) +
-  #     coord_flip()
-  # })
   
   ##----CUMULATIVE PROBABILITY OF BEING N-KNOWER
   #plot
@@ -284,7 +268,7 @@ server <- function(input, output, session) {
   if (input$method_choice_item) {
     p <- ggplot(method_df, 
                 aes(x = Response, y = prop, fill = method)) + 
-      geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'grey') +
+      geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
       geom_bar(stat = 'identity', position = position_dodge(), 
                color = 'black') + 
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
@@ -297,7 +281,7 @@ server <- function(input, output, session) {
   } else {
     p <- ggplot(avg_item, 
                 aes(x = Response, y = prop, fill = as.factor(Query))) +
-      geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'grey') +
+      geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
       geom_bar(stat = 'identity', position = position_dodge(), color = 'black') + 
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
       scale_fill_solarized() +
@@ -312,11 +296,18 @@ server <- function(input, output, session) {
   
   ## .... LANG HISTOGRAM ----
   output$lang_histogram <- renderPlot({
-    req(filtered_data_item_language())
+    req(filtered_data_item())
     
-    ggplot(filtered_data_item_language(), 
+    lang <- filtered_data_item() %>%
+      group_by(Query, Response, language)%>%
+      summarise(n = n())%>%
+      group_by(Query, language)%>%
+      mutate(total.n = sum(n), 
+             prop = n/total.n)
+    
+    ggplot(lang, 
            aes(x = Response, y = prop, fill = as.factor(Query))) + 
-      geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'grey') +
+      geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
       geom_bar(stat = 'identity', position = position_dodge(), color = 'black') + 
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
       scale_fill_solarized() +
@@ -327,23 +318,30 @@ server <- function(input, output, session) {
       facet_grid(language~Query)
   })
   
-  ## .... METHOD HISTOGRAM ----
-  # output$method_histogram <- renderPlot({
-  #   req(filtered_data_item_method())
-  #   
-  #   ggplot(filtered_data_item_method(), 
-  #          aes(x = Response, y = prop, fill = method)) + 
-  #     geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'grey') +
-  #     geom_bar(stat = 'identity', position = position_dodge(), 
-  #              color = 'black') + 
-  #     scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-  #     scale_fill_solarized("Method") +
-  #     theme_bw(base_size=14) +
-  #     theme(legend.position = "right", 
-  #           panel.grid = element_blank()) +
-  #     labs(y = "Proportion of responses", x = "Number given")+
-  #     facet_grid(~Query)
-  # })
+  ## .... HISTOGRAM BY KL ----
+  output$kl_histogram <- renderPlot({
+    req(filtered_data_item())
+    
+    kl_hist <- filtered_data_item() %>%
+      group_by(Query, Response, KL)%>%
+      summarise(n = n())%>%
+      group_by(Query, KL)%>%
+      mutate(total.n = sum(n), 
+             prop = n/total.n)
+    
+    ggplot(kl_hist, 
+           aes(x = Response, y = prop, fill = as.factor(Query))) + 
+      geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+      geom_bar(stat = 'identity', position = position_dodge(), color = 'black') + 
+      scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+      scale_fill_solarized() +
+      theme_bw(base_size=14) +
+      theme(legend.position = "none", 
+            panel.grid = element_blank()) +
+      labs(y = "Proportion of responses", x = "Number given")+
+      facet_grid(KL~Query)
+  })
+  
 }
 
 

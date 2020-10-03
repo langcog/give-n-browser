@@ -46,7 +46,8 @@ ui <- fluidPage(
                           uiOutput("age_range_selector_item"),
                           uiOutput("language_selector_item"),
                           uiOutput("method_selector_item"), 
-                          uiOutput("query_range_selector_item")
+                          uiOutput("query_range_selector_item"), 
+                          uiOutput("kl_range_selector_item")
                         ),
 
               mainPanel(
@@ -60,7 +61,11 @@ ui <- fluidPage(
                 tabsetPanel(selected = "Responses by language", 
                             tabPanel("Responses by language",
                                      plotOutput("lang_histogram"))
-                            )
+                            ), 
+                tabsetPanel(selected = "Responses by KL", 
+                            tabPanel("Responses by KL",
+                                     plotOutput("kl_histogram"))
+                )
               )
           )
         )
