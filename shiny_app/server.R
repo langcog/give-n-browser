@@ -296,7 +296,7 @@ server <- function(input, output, session) {
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
       scale_fill_solarized("Method") +
       theme_bw(base_size=14) +
-      theme(legend.position = "top", 
+      theme(legend.position = "right", 
             panel.grid = element_blank()) +
       labs(y = "Proportion of responses", x = "Number given")+
       facet_grid(~Query)
