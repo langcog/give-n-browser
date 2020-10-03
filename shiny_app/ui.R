@@ -58,9 +58,7 @@ ui <- fluidPage(
                            ".shiny-output-error:before { visibility: hidden; }"),
                 tabsetPanel(selected = "Averaged responses", 
                             tabPanel("Averaged responses",
-                                     plotOutput("avg_histogram")), 
-                            tabPanel("Responses by method",
-                                     plotOutput("method_histogram"))
+                                     plotOutput("avg_histogram")) 
                             ), 
                 tabsetPanel(selected = "Responses by language", 
                             tabPanel("Responses by language",

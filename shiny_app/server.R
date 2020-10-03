@@ -1,7 +1,7 @@
 library(tidyverse)
 library(ggthemes)
 library(langcog)
-library(ggridges)
+library(shinyWidgets)
 
 # read data
 trials <- read_csv(here::here("data/processed-data/trials.csv"))
@@ -95,23 +95,6 @@ server <- function(input, output, session) {
     })
   
   
-  # filtered_data_prop_kl <- reactive({
-  #   all_data %>%
-  #     distinct(dataset_id, subject_id, age_months, method, KL, language)%>%
-  #     filter(!is.na(KL),
-  #            !is.na(age_months),
-  #            age_months >= input$age_range_kl[1], 
-  #            age_months <= input$age_range_kl[2], 
-  #            KL %in% input$kl_range_kl, 
-  #            language %in% input$language_choice_kl, 
-  #            method %in% input$method_choice_kl)%>%
-  #     group_by(language, KL, age_months)%>%
-  #     summarise(n = n())%>%
-  #     group_by(language, age_months)%>%
-  #     mutate(total.n = sum(n), 
-  #            prop = n/total.n)
-  #   
-  # })
   
   ## ... ITEM DATA -----
   filtered_data_item <- reactive({
@@ -121,31 +104,26 @@ server <- function(input, output, session) {
              age_months >= input$age_range_item[1], 
              age_months <= input$age_range_item[2], 
              Query %in% as.numeric(input$query_range_item), 
-             language %in% input$language_choice_item, 
-             method %in% input$method_choice_item)%>%
-      group_by(Query, Response)%>%
-      summarise(n = n())%>%
-      mutate(total.n = sum(n), 
-             prop = n/total.n)
-      
+             language %in% input$language_choice_item)
+             # method %in% input$method_choice_item)
   })
     
-    filtered_data_item_method <- reactive({
-      all_data %>%
-        filter(!is.na(Query),
-               !is.na(age_months),
-               age_months >= input$age_range_item[1], 
-               age_months <= input$age_range_item[2], 
-               Query %in% as.numeric(input$query_range_item), 
-               language %in% input$language_choice_item, 
-               method %in% input$method_choice_item)%>%
-        group_by(Query, Response, method)%>%
-        summarise(n = n())%>%
-        group_by(method)%>%
-        mutate(total.n = sum(n), 
-               prop = n/total.n)
-      
-    })
+    # filtered_data_item_method <- reactive({
+    #   all_data %>%
+    #     filter(!is.na(Query),
+    #            !is.na(age_months),
+    #            age_months >= input$age_range_item[1], 
+    #            age_months <= input$age_range_item[2], 
+    #            Query %in% as.numeric(input$query_range_item), 
+    #            language %in% input$language_choice_item, 
+    #            method %in% input$method_choice_item)%>%
+    #     group_by(Query, Response, method)%>%
+    #     summarise(n = n())%>%
+    #     group_by(method)%>%
+    #     mutate(total.n = sum(n), 
+    #            prop = n/total.n)
+    #   
+    # })
     
     filtered_data_item_language <- reactive({
       all_data %>%
@@ -154,8 +132,7 @@ server <- function(input, output, session) {
                age_months >= input$age_range_item[1], 
                age_months <= input$age_range_item[2], 
                Query %in% as.numeric(input$query_range_item), 
-               language %in% input$language_choice_item, 
-               method %in% input$method_choice_item)%>%
+               language %in% input$language_choice_item)%>%
         group_by(Query, Response, language)%>%
         summarise(n = n())%>%
         group_by(Query, language)%>%
@@ -227,12 +204,10 @@ server <- function(input, output, session) {
                 multiple = TRUE)
   })
   
-  output$method_selector_item <- renderUI({
-    checkboxGroupInput("method_choice_item", 
-                       "Method",
-                       choices = methods, 
-                       selected = methods,
-                       inline = TRUE)
+    output$method_selector_item <- renderUI({
+      prettySwitch("method_choice_item",
+                   label = "Method plotted as colors",
+                   value = FALSE)
   })
 
   
@@ -299,8 +274,35 @@ server <- function(input, output, session) {
   output$avg_histogram <- renderPlot({
     req(filtered_data_item())
     
-    ggplot(filtered_data_item(), 
-           aes(x = Response, y = prop, fill = as.factor(Query))) +
+    avg_item <- filtered_data_item() %>%
+      group_by(Query, Response)%>%
+      summarise(n = n())%>%
+      mutate(total.n = sum(n), 
+             prop = n/total.n)
+    
+    method_df <- filtered_data_item() %>%
+      group_by(Query, Response, method)%>%
+      summarise(n = n())%>%
+      group_by(method)%>%
+      mutate(total.n = sum(n), 
+             prop = n/total.n)
+  
+  if (input$method_choice_item) {
+    p <- ggplot(method_df, 
+                aes(x = Response, y = prop, fill = method)) + 
+      geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'grey') +
+      geom_bar(stat = 'identity', position = position_dodge(), 
+               color = 'black') + 
+      scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+      scale_fill_solarized("Method") +
+      theme_bw(base_size=14) +
+      theme(legend.position = "top", 
+            panel.grid = element_blank()) +
+      labs(y = "Proportion of responses", x = "Number given")+
+      facet_grid(~Query)
+  } else {
+    p <- ggplot(avg_item, 
+                aes(x = Response, y = prop, fill = as.factor(Query))) +
       geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'grey') +
       geom_bar(stat = 'identity', position = position_dodge(), color = 'black') + 
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
@@ -310,6 +312,8 @@ server <- function(input, output, session) {
             panel.grid = element_blank()) +
       labs(y = "Proportion of responses", x = "Number given")+
       facet_wrap(~Query)
+  }
+    p
   })
   
   ## .... LANG HISTOGRAM ----
@@ -330,22 +334,22 @@ server <- function(input, output, session) {
   })
   
   ## .... METHOD HISTOGRAM ----
-  output$method_histogram <- renderPlot({
-    req(filtered_data_item_method())
-    
-    ggplot(filtered_data_item_method(), 
-           aes(x = Response, y = prop, fill = method)) + 
-      geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'grey') +
-      geom_bar(stat = 'identity', position = position_dodge(), 
-               color = 'black') + 
-      scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-      scale_fill_solarized("Method") +
-      theme_bw(base_size=14) +
-      theme(legend.position = "right", 
-            panel.grid = element_blank()) +
-      labs(y = "Proportion of responses", x = "Number given")+
-      facet_grid(~Query)
-  })
+  # output$method_histogram <- renderPlot({
+  #   req(filtered_data_item_method())
+  #   
+  #   ggplot(filtered_data_item_method(), 
+  #          aes(x = Response, y = prop, fill = method)) + 
+  #     geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'grey') +
+  #     geom_bar(stat = 'identity', position = position_dodge(), 
+  #              color = 'black') + 
+  #     scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+  #     scale_fill_solarized("Method") +
+  #     theme_bw(base_size=14) +
+  #     theme(legend.position = "right", 
+  #           panel.grid = element_blank()) +
+  #     labs(y = "Proportion of responses", x = "Number given")+
+  #     facet_grid(~Query)
+  # })
 }
 
 
