@@ -8,6 +8,7 @@ trials <- read_csv(here::here("data/processed-data/trials.csv"))
 subjects <- read_csv(here::here("data/processed-data/subjects.csv"))
 datasets <- read_csv(here::here("data/processed-data/datasets.csv"))
 
+## join the data, rename KLs
 all_data <- full_join(subjects, trials) %>%
   left_join(datasets)%>%
   mutate(Response = ifelse(Response > 10, 10, as.numeric(Response)), 
@@ -29,10 +30,15 @@ kls <- c("0-knower", "1-knower", "2-knower", "3-knower", "4-knower", "5-knower",
 languages_KL <- c(unique(subset(all_data, !is.na(KL))$language))
 ##get only language for which we have Queries
 languages_item <- c(unique(subset(all_data, !is.na(Query))$language))
+# #get only datasets for which we have KLs
+# datasets_KL <- c(unique(subset(all_data, !is.na(KL))$dataset_id))
+# #get only datasets for which we have queries
+# datasets_item <- c(unique(subset(all_data, !is.na(Query))$dataset_id))
 methods <- c("titrated", "non-titrated")
 queries <- c(as.character(sort(unique(all_data$Query))))
 n.samps <- 100
 
+### CDF ###
 ##static data that will be filtered below for sampling
 ns <- all_data %>%
   filter(!is.na(age_months), 
@@ -64,6 +70,7 @@ ns %<>% group_by(KL, language, age_months) %>%
 #left join with samples
 ns <- left_join(ns, samps)
 
+
 # MAIN SHINY SERVER
 server <- function(input, output, session) {
   
@@ -77,7 +84,7 @@ server <- function(input, output, session) {
              !is.na(age_months),
              age_months >= input$age_range_kl[1], 
              age_months <= input$age_range_kl[2], 
-             KL %in% input$kl_range_kl, 
+             KL %in% input$kl_range_kl,
              language %in% input$language_choice_kl)
       
   })
@@ -90,7 +97,7 @@ server <- function(input, output, session) {
                !is.na(age_months),
                age_months >= input$age_range_kl[1], 
                age_months <= input$age_range_kl[2], 
-               KL %in% input$kl_range_kl, 
+               KL %in% input$kl_range_kl,
                language %in% input$language_choice_kl)%>%
     dplyr::select(age_months, KL, language, n, cum.n, prop, 
                   ci.low, ci.high)
@@ -126,6 +133,7 @@ server <- function(input, output, session) {
                 selected = c("1-knower", "2-knower", "3-knower", "CP-knower"), 
                 multiple = TRUE)
   })
+    
   
   output$language_selector <- renderUI({
     selectInput("language_choice_kl", 
@@ -157,6 +165,7 @@ server <- function(input, output, session) {
                 step = 1,
                 min = age_min, max = age_max)
   })
+  
   
   output$language_selector_item <- renderUI({
     selectInput("language_choice_item", 
@@ -222,6 +231,21 @@ server <- function(input, output, session) {
     }
     p
   })
+    
+  ## ---- CITATIONS FOR KL BOXPLOT ----
+    output$citations <- renderUI({
+      # str1 <- "Please cite the following datasets:"
+      
+      req(filtered_data_kl())
+      
+      cites <- filtered_data_kl()%>%
+        distinct(dataset_id)
+      
+      cites_all <- paste(as.vector(unique(cites$dataset_id)), collapse = " <br/>")
+      
+      str2 <- as.character(cites_all)
+      HTML(paste("<b>Please cite:</b> <br/>", str2))
+    })
   
   ##----CUMULATIVE PROBABILITY OF BEING N-KNOWER
   #plot

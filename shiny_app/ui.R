@@ -12,7 +12,7 @@ ui <- fluidPage(
   #                            style = "default")
   # ),
   
-  navbarPage("Numberbank", theme = shinytheme("lumen"),
+  navbarPage("Numberbank", theme = shinytheme("paper"),
              tabPanel("Knower levels", fluid = TRUE,
                       # Sidebar layout with a input and output definitions
                       sidebarLayout(
@@ -29,7 +29,9 @@ ui <- fluidPage(
                  ".shiny-output-error:before { visibility: hidden; }"),
       tabsetPanel(selected = "KL by age, language", 
                   tabPanel("KL by age, language",
-                           plotOutput("age_boxplot"))
+                           plotOutput("age_boxplot")), 
+                  tabPanel("Datasets",
+                           htmlOutput("citations"))
                   ), 
       tabsetPanel(selected = "Cumulative probability of KL", 
                   tabPanel("Cumulative probability of KL",
