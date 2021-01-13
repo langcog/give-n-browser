@@ -1,8 +1,8 @@
 ##Cleaning and processing script for trial-level give-n data
-## Convention = Experiment; Subject; Language; Age_months; Age_years; Query; Response
+## Convention = Experiment; Subject; Language; Age_months; Age_years; Query; Response; cite
 
 ##set up
-rm(list =)
+rm(list = ls())
 library(tidylog)
 library(tidyverse)
 
@@ -22,7 +22,8 @@ almoammer2013_english <- read_csv(here::here('data/data-raw/trial-level/data-raw
   dplyr::select(Experiment, Participant, Language, Age_months, method, cite, SEX, Query, Response)%>%
   mutate(Query = str_remove(Query, "_1"), 
          Query = str_remove(Query, "_2"), 
-         lab = "Barner")%>%
+         lab = "Barner", 
+         cite = "Almoammer, A., Sullivan, J., Donlan, C., Marusic, F., O’Donnell, T., & Barner, D. (2013). Grammatical morphology as a source of early number word meanings. Proceedings of the National Academy of Sciences, 110(46), 18448-18453.")%>%
   rename("Subject" = "Participant", 
                 "Age" = "Age_months", 
                 "Sex" = "SEX")%>%
@@ -41,7 +42,8 @@ piantadosi2014 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Pianta
          Subject = as.character(Subject), 
          Query = as.integer(Query), 
          Response = as.integer(Response), 
-         lab = "Piantadosi")##Age is in years, convert to rounded months, I guess
+         lab = "Piantadosi", 
+         cite = "Piantadosi, S. T., Jara‐Ettinger, J., & Gibson, E. (2014). Children's learning of number words in an indigenous farming‐foraging group. Developmental Science, 17(4), 553-563.")##Age is in years, convert to rounded months, I guess
 
 ## pull out KL data, send to raw data for processing
 piantadosi2014_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/Piantadosi2014.csv'))%>%
@@ -50,7 +52,8 @@ piantadosi2014_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/Pia
   rename("Subject" = "Participant")%>%
   mutate(Age = Age*12, 
          Subject = as.character(Subject), 
-         lab = "Piantadosi")
+         lab = "Piantadosi", 
+         cite = "Piantadosi, S. T., Jara_Ettinger, J., & Gibson, E. (2014). Children's learning of number words in an indigenous farming_foraging group. Developmental Science, 17(4), 553-563.")
 
 write_csv(piantadosi2014_kl, 'data/data-raw/kl-only/data-raw/piantadosi_2014.csv')
 
@@ -68,7 +71,8 @@ sarnecka2007 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Sarnecka
                 "Age" = "Age_months") %>%
   mutate(Query = as.integer(Query), 
          Response = as.integer(Response), 
-         lab = "Sarnecka")
+         lab = "Sarnecka", 
+         cite = "Sarnecka, B. W., Kamenskaya, V. G., Yamana, Y., Ogura, T., & Yudovina, Y. B. (2007). From grammatical number to exact numbers: Early meanings of ‘one’,‘two’, and ‘three’in English, Russian, and Japanese. Cognitive psychology, 55(2), 136-168.")
 
 ## ... wagner2016 ----
 wagner2016 <- read.csv(here::here('data/data-raw/trial-level/data-raw/Wagner2016.csv'))%>%
@@ -84,7 +88,8 @@ wagner2016 <- read.csv(here::here('data/data-raw/trial-level/data-raw/Wagner2016
                 "Sex" = "SEX")%>%
   mutate(Query = as.integer(Query), 
          Response = as.integer(Response),
-         lab = "Barner")
+         lab = "Barner", 
+         cite = "Wagner, K., Chu, J., & Barner, D. (2019). Do children's number words begin noisy?. Developmental science, 22(1), e12752.")
 
 ## ...boni (unpublished, ordered Give) ----
 boni20xx_ordered <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni20XX.csv')) %>%
@@ -101,7 +106,8 @@ boni20xx_ordered <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni
          Query = as.integer(str_remove(Query, "OrderedGiveN")), 
          Response = as.integer(str_remove(str_remove(Response, "\\d_"), "_")), 
          Subject = as.character(Subject), 
-         lab= "Piantadosi")%>%
+         lab= "Piantadosi", 
+         cite = "Boni et al. (unpublished data)")%>%
   dplyr::rename("Sex" = "Gender")
 
 ## ...boni (unpublished, random Give) ----
@@ -119,7 +125,8 @@ boni20xx_random <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni2
          Query = as.integer(str_remove(str_remove(Query, "GiveNRandom"), "B")), 
          Response = as.integer(str_remove(str_remove(Response, "\\d_"), "_")), 
          Subject = as.character(Subject), 
-         lab= "Piantadosi")%>%
+         lab= "Piantadosi", 
+         cite = "Boni et al. (unpublished data)")%>%
   dplyr::rename("Sex" = "Gender")
 
 ## now read in the more typical conventions
@@ -128,7 +135,8 @@ krajcsi2018 <- read_csv(here::here("data/data-raw/trial-level//data-raw/Krajcsi2
          Response = as.integer(Response))%>%
   rename("Subject" = "Participant")%>%
   mutate(Subject = as.character(Subject), 
-         lab = "Krajcsi")
+         lab = "Krajcsi", 
+         cite = "Krajcsi, A. (2019, March 19). Follow-up questions influence the measured number knowledge in the Give a number task. https://doi.org/10.31234/osf.io/fky69")
 
 sarnecka2019 <- read_csv(here::here('data/data-raw/trial-level/data-raw/SarneckaNegen2019.csv'))%>%
   dplyr::rename("Sex" = "Gender", 
@@ -139,19 +147,20 @@ sarnecka2019 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Sarnecka
          Query = as.integer(Query), 
          Response = as.integer(Response), 
          lab = "Sarnecka", 
-         Experiment = "SarneckaNegen2019")%>%
+         Experiment = "SarneckaNegen2019", 
+         cite = "Sarnecka, B. W., & Negen, J. (2019, May 30). Longitudinal Number-Knower Data. https://doi.org/10.17605/OSF.IO/EZNHT")%>%
   dplyr::select(-Task)
 
 ## schneider & barner --- 
 ##1-1 sharing
 schneider_barner_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_barner_20xx.csv'))%>%
   mutate(method = 'titrated', 
-         cite = 'SchneiderBarner_20xx', 
-         Experiment = cite,
+         Experiment = 'SchneiderBarner_20xx',
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
          Response = as.integer(Response), 
-         lab = "Barner")%>%
+         lab = "Barner", 
+         cite = "Schneider, R.M., Feiman, R., & Barner, D. (unpublished dataset).")%>%
   filter(!is.na(Task_item))%>%
   dplyr::select(-Task, -Trial_number, -Knower_level)%>%
   rename("Query" = "Task_item", 
@@ -160,10 +169,10 @@ schneider_barner_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw
 ##output KL data to data-raw 
 schneider_barner_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_barner_20xx.csv'))%>%
   mutate(method = 'titrated', 
-         cite = 'SchneiderBarner_20xx', 
-         Experiment = cite,
+         Experiment = 'SchneiderBarner_20xx',
          Age = Age*12, 
-         lab = "Barner")%>%
+         lab = "Barner", 
+         cite = "Schneider, R.M., Feiman, R., & Barner, D. (unpublished dataset).")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
@@ -173,12 +182,12 @@ write_csv(schneider_barner_20xx_kl, 'data/data-raw/kl-only/data-raw/schneider_ba
 schneider_barner_2020 <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_barner_2020.csv'))%>%
   filter(!is.na(Task_item))%>%
   mutate(method = 'titrated', 
-         cite = 'SchneiderBarner_2020', 
-         Experiment = cite,
+         Experiment = 'SchneiderBarner_2020',
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
          Response = as.integer(Response), 
-         lab = "Barner")%>%
+         lab = "Barner", 
+         cite = "Schneider, R.M., & Barner, D. (2020). Children use one-to-one correspondence to establish equality after learning to count. 42nd Annual Meeting of the Cognitive Science Society.")%>%
   dplyr::select(-Task, -Trial_number, -Knower_level)%>%
   rename("Query" = "Task_item", 
          "Subject" = "SID")
@@ -186,10 +195,10 @@ schneider_barner_2020 <- read_csv(here::here('data/data-raw/trial-level/data-raw
 ##output KL data to data-raw 
 schneider_barner_2020_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_barner_2020.csv'))%>%
   mutate(method = 'titrated', 
-         cite = 'SchneiderBarner_2020', 
-         Experiment = cite,
+         Experiment = 'SchneiderBarner_2020', 
          Age = Age*12, 
-         lab = "Barner")%>%
+         lab = "Barner", 
+         cite = "Schneider, R.M., & Barner, D. (2020). Children use one-to-one correspondence to establish equality after learning to count. 42nd Annual Meeting of the Cognitive Science Society.")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
@@ -199,12 +208,12 @@ write_csv(schneider_barner_2020_kl, 'data/data-raw/kl-only/data-raw/schneider_ba
 schneider_etal_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_etal_20xx.csv'))%>%
   filter(!is.na(Task_item))%>%
   mutate(method = 'titrated', 
-         cite = 'SchneiderEtAl_20xx', 
-         Experiment = cite,
+         Experiment = 'SchneiderEtAl_20xx',
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
          Response = as.integer(Response), 
-         lab = "Barner")%>%
+         lab = "Barner", 
+         cite = "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.")%>%
   dplyr::select(-Task, -Trial_number, -Knower_level)%>%
   rename("Query" = "Task_item", 
          "Subject" = "SID")
@@ -212,10 +221,10 @@ schneider_etal_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/s
 ##output KL data to data-raw 
 schneider_etal_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_etal_20xx.csv'))%>%
 mutate(method = 'titrated', 
-       cite = 'SchneiderEtAl_20xx', 
-       Experiment = cite,
+       Experiment = 'SchneiderEtAl_20xx',
        Age = Age*12, 
-       lab = "Barner")%>%
+       lab = "Barner", 
+       cite = "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
@@ -225,12 +234,12 @@ write_csv(schneider_etal_20xx_kl, 'data/data-raw/kl-only/data-raw/schneider_etal
 schneider_etal_20xx_2 <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_etal_20xx_2.csv'))%>%
   filter(!is.na(Task_item))%>%
   mutate(method = 'titrated', 
-         cite = 'SchneiderEtAl_20xx', 
-         Experiment = cite,
+         Experiment = 'SchneiderEtAl_20xx', 
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
          Response = as.integer(Response), 
-         lab = "Barner")%>%
+         lab = "Barner", 
+         cite = "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.")%>%
   dplyr::select(-Task, -Trial_number, -Knower_level)%>%
   rename("Query" = "Task_item", 
          "Subject" = "SID")
@@ -238,10 +247,10 @@ schneider_etal_20xx_2 <- read_csv(here::here('data/data-raw/trial-level/data-raw
 ##output KL data to data-raw
 schneider_etal_20xx_2_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_etal_20xx_2.csv'))%>%
   mutate(method = 'titrated', 
-         cite = 'SchneiderEtAl_20xx', 
-         Experiment = cite,
+         Experiment = 'SchneiderEtAl_20xx',
          Age = Age*12, 
-         lab = "Barner")%>%
+         lab = "Barner", 
+         cite = "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
@@ -251,12 +260,12 @@ write_csv(schneider_etal_20xx_2_kl, 'data/data-raw/kl-only/data-raw/schneider_et
 schneider_yen_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_yen_barner_20xx.csv'))%>%
   filter(Task_item != "Enter Number!")%>%
   mutate(method = 'titrated', 
-         cite = 'SchneiderYen_20xx', 
-         Experiment = cite,
+         Experiment = 'SchneiderYen_20xx', 
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
          Response = as.integer(Response), 
-         lab = "Barner")%>%
+         lab = "Barner", 
+         cite = "Schneider, R.M., Yen, A., & Barner, D. (unpublished dataset).")%>%
   dplyr::select(-Task, -Trial_number, -Knower_level)%>%
   rename("Query" = "Task_item", 
          "Subject" = "SID")
@@ -265,10 +274,10 @@ schneider_yen_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/sc
 schneider_yen_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_yen_barner_20xx.csv'))%>%
   filter(Task_item != "Enter Number!")%>%
   mutate(method = 'titrated', 
-         cite = 'SchneiderYen_20xx', 
-         Experiment = cite,
+         Experiment = 'SchneiderYen_20xx', 
          Age = Age*12, 
-         lab = "Barner")%>%
+         lab = "Barner", 
+         cite = "Schneider, R.M., Yen, A., & Barner, D. (unpublished dataset).")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 

@@ -41,7 +41,16 @@ data.raw %<>%
 data.raw %<>%
   mutate(Age_months = round(as.numeric(as.character(Age_months), 4)), 
          Age_years = floor(Age_months)/12)%>%
-  dplyr::select(Experiment, lab, Language, Subject, KL, Age_months, Age_years, method, cite)
+  dplyr::select(Experiment, lab, Language, Subject, KL, Age_months, Age_years, method)%>%
+  mutate(cite = ifelse(Experiment == "Almoammer2013", "Almoammer, A., Sullivan, J., Donlan, C., Marusic, F., O’Donnell, T., & Barner, D. (2013). Grammatical morphology as a source of early number word meanings. Proceedings of the National Academy of Sciences, 110(46), 18448-18453.", 
+                       ifelse((Experiment == "BarnerChowYoungE1" | Experiment == "BarnerChowYoungE2"), "Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.", 
+                              ifelse(Experiment == "BarnerTakasaki2009", "Barner, D., Libenson, A., Cheung, P., & Takasaki, M. (2009). Cross-linguistic relations between quantifiers and numerals in language acquisition: Evidence from Japanese. Journal of experimental child psychology, 103(4), 421-440.", 
+                                     ifelse(Experiment == "Marusic2016", "Marusic, F., Zaucer, R., Plesnicar, V., Razborsek, T., Sullivan, J., & Barner, D. (2016). Does grammatical structure accelerate number word learning? Evidence from learners of dual and non-dual dialects of Slovenian. PloS one, 11(8), e0159208.", 
+                                            ifelse(Experiment == "Piantadosi2014", "Piantadosi, S. T., Jara‐Ettinger, J., & Gibson, E. (2014). Children's learning of number words in an indigenous farming‐foraging group. Developmental Science, 17(4), 553-563.", 
+                                                   ifelse(Experiment == "SchneiderBarner2020", "Schneider, R.M., & Barner, D. (2020). Children use one-to-one correspondence to establish equality after learning to count. 42nd Annual Meeting of the Cognitive Science Society.", 
+                                                          ifelse(Experiment == "SchneiderBarner_20xx", "Schneider, R.M., Feiman, R., & Barner, D. (unpublished dataset).", 
+                                                                 ifelse(Experiment == "SchneiderEtAl_20xx", "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.",
+                                                                        "Schneider, R.M., Yen, A., & Barner, D. (unpublished dataset).")))))))))
 
 # Save and export ----
 write_csv(data.raw, here::here("data/processed-data/kl_data_processed.csv"))

@@ -1348,7 +1348,7 @@ SchneiderBarner_2020,012419-RV,English,53,CP
 SchneiderBarner_2020,012519-ML,English,44,1
 SchneiderBarner_2020,012819-DS,English,45,CP
 SchneiderBarner_2020,020619-DG,English,54,CP
-SchneiderBarner_2020,020619-JG,English/Portugese,50,CP
+SchneiderBarner_2020,020619-JG,English,50,CP
 SchneiderBarner_2020,020619-DH,English,56,CP
 SchneiderBarner_2020,020619-TF,English,56,CP
 SchneiderBarner_2020,020619-RA,English,59,CP
@@ -1367,11 +1367,11 @@ SchneiderBarner_2020,021119-KO,English,53,CP
 SchneiderBarner_2020,021119-LW,English,52,3
 SchneiderBarner_2020,021119-EB,English,51,CP
 SchneiderBarner_2020,021119-MM,English,44,CP
-SchneiderBarner_2020,021219-KT,English/French,43,CP
+SchneiderBarner_2020,021219-KT,English,43,CP
 SchneiderBarner_2020,021319-WB,English,47,3
 SchneiderBarner_2020,021319-KO,English,37,2
 SchneiderBarner_2020,021319-CH,English,55,CP
-SchneiderBarner_2020,021319-AU,English/Spanish,42,2
+SchneiderBarner_2020,021319-AU,English,42,2
 SchneiderBarner_2020,021319-AM,English,42,2
 SchneiderBarner_2020,021419-DP,English,45,1
 SchneiderBarner_2020,022019-DR,English,45,CP
@@ -1592,7 +1592,7 @@ SchneiderEtAl_20xx,030119-B,English,47,2
 SchneiderEtAl_20xx,030119-HR,English,46,2
 SchneiderEtAl_20xx,030119-L,English,47,3
 SchneiderEtAl_20xx,030119-S,English,42,CP
-SchneiderEtAl_20xx,030119-S2,"English, French",38,1
+SchneiderEtAl_20xx,030119-S2,English,38,1
 SchneiderEtAl_20xx,030119-SW,English,41,CP
 SchneiderEtAl_20xx,030419-A,English,33,1
 SchneiderEtAl_20xx,030419-F,English,33,1
@@ -1614,7 +1614,7 @@ SchneiderEtAl_20xx,030619-M2,English,45,CP
 SchneiderEtAl_20xx,030619-M3,English,41,3
 SchneiderEtAl_20xx,030619-Q,English,43,CP
 SchneiderEtAl_20xx,030619-S,English,27,1
-SchneiderEtAl_20xx,030619-T,"English, French",46,4
+SchneiderEtAl_20xx,030619-T,English,46,4
 SchneiderEtAl_20xx,030719-HM,English,48,CP
 SchneiderEtAl_20xx,031219-RM,English,43,CP
 SchneiderEtAl_20xx,031819-MS,English,48,CP
@@ -1624,11 +1624,11 @@ SchneiderEtAl_20xx,032519-T,English,45,CP
 SchneiderEtAl_20xx,032519-V,English,44,CP
 SchneiderEtAl_20xx,032619-D,English,36,CP
 SchneiderEtAl_20xx,032619-B,English,47,CP
-SchneiderEtAl_20xx,032619-E,"English, Spanish",45,2
+SchneiderEtAl_20xx,032619-E,English,45,2
 SchneiderEtAl_20xx,032619-W,English,42,2
 SchneiderEtAl_20xx,032619-G,English,37,1
 SchneiderEtAl_20xx,032719-G,English,46,CP
-SchneiderEtAl_20xx,032919-C,"English, Mandarin",39,2
+SchneiderEtAl_20xx,032919-C,English,39,2
 SchneiderEtAl_20xx,032919-W,English,36,1
 SchneiderEtAl_20xx,032919-K,English,44,2
 SchneiderEtAl_20xx,040319-M,English,41,CP
@@ -1658,10 +1658,10 @@ SchneiderEtAl_20xx,070119-KT,English,47,CP
 SchneiderEtAl_20xx,062819-OF,English,46,2
 SchneiderEtAl_20xx,062819-GS,English,37,1
 SchneiderEtAl_20xx,062819-CB,English,47,CP
-SchneiderEtAl_20xx,062719-GA,"English, French",46,CP
+SchneiderEtAl_20xx,062719-GA,English,46,CP
 SchneiderEtAl_20xx,062719-AL,English,47,5
-SchneiderEtAl_20xx,062719-AC,"English, Cantonese",46,CP
-SchneiderEtAl_20xx,062519-AD,"English, Vietnamese",39,4
+SchneiderEtAl_20xx,062719-AC,English,46,CP
+SchneiderEtAl_20xx,062519-AD,English,39,4
 SchneiderEtAl_20xx,062419-MB,English,43,CP
 SchneiderEtAl_20xx,062119-RM,English,31,1
 SchneiderEtAl_20xx,062119-EG,English,29,1
@@ -1673,7 +1673,7 @@ SchneiderEtAl_20xx,061219-KH,English,38,3
 SchneiderEtAl_20xx,061219-IS,English,31,3
 SchneiderEtAl_20xx,061219-G,English,45,CP
 SchneiderEtAl_20xx,061219-FL,English,33,CP
-SchneiderEtAl_20xx,061219-DV,"English, Tamil",40,1
+SchneiderEtAl_20xx,061219-DV,English,40,1
 SchneiderEtAl_20xx,061219-DC,English,48,CP
 SchneiderEtAl_20xx,061219-BH,English,29,1
 SchneiderEtAl_20xx,061219-AL,English,32,3
@@ -1741,7 +1741,7 @@ SchneiderYen_20xx,011620-BT,English,59,4
 SchneiderYen_20xx,011620-TR,English,41,3
 SchneiderYen_20xx,011620-CF,English,50,4
 SchneiderYen_20xx,011620-AA,English,60,CP
-SchneiderYen_20xx,011620-EM,"English, Cantonese",51,CP
+SchneiderYen_20xx,011620-EM,English,51,CP
 SchneiderYen_20xx,011620-EC,English,53,5
 SchneiderYen_20xx,011620-EB,English,50,4
 SchneiderYen_20xx,011620-AM,English,53,CP

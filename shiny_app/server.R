@@ -79,7 +79,7 @@ server <- function(input, output, session) {
   ## ... KL DATA ----
   filtered_data_kl <- reactive({
     all_data %>%
-      distinct(dataset_id, subject_id, age_months, KL, method, language)%>%
+      distinct(dataset_id, subject_id, age_months, KL, method, language, cite)%>%
       filter(!is.na(KL),
              !is.na(age_months),
              age_months >= input$age_range_kl[1], 
@@ -239,9 +239,9 @@ server <- function(input, output, session) {
       req(filtered_data_kl())
       
       cites <- filtered_data_kl()%>%
-        distinct(dataset_id)
+        distinct(cite)
       
-      cites_all <- paste(as.vector(unique(cites$dataset_id)), collapse = " <br/>")
+      cites_all <- paste(as.vector(unique(cites$cite)), collapse = " <br/><br/>")
       
       str2 <- as.character(cites_all)
       HTML(paste("<b>Please cite:</b> <br/>", str2))
