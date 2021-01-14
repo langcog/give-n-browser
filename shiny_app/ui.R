@@ -70,10 +70,24 @@ ui <- fluidPage(
                 tabsetPanel(selected = "Responses by language", 
                             tabPanel("Responses by language",
                                      plotOutput("lang_histogram"))
-                            )
+                            ), 
+                tabsetPanel(selected = "Responses by KL", 
+                            tabPanel("Responses by KL",
+                                     plotOutput("kl_histogram"))
+                )
               )
           )
-        )
-    )
+        ) 
+    ), 
+   tabPanel("About Give-N", fluid = TRUE,
+            tabPanel("About Give-N", fluid = TRUE,
+              mainPanel("Description of Give-N")
+            )
+        ), 
+   tabPanel("Contributors", fluid = TRUE,
+            tabPanel("Contributors", fluid = TRUE,
+                     mainPanel("Contributors go here")
+            )
+      )
   )
 )
