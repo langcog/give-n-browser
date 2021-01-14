@@ -294,6 +294,8 @@ server <- function(input, output, session) {
   output$avg_histogram <- renderPlot({
     req(filtered_data_item())
     
+    #different dataframes for different plots
+    
     #full data
     avg_item <- filtered_data_item() %>%
       group_by(Query, Response)%>%
@@ -393,7 +395,28 @@ server <- function(input, output, session) {
       mutate(total.n = sum(n), 
              prop = n/total.n)
     
-    ggplot(lang, 
+    lang_kl <- filtered_data_item() %>%
+      group_by(Query, Response, language, KL)%>%
+      summarise(n = n())%>%
+      group_by(Query, KL, language)%>%
+      mutate(total.n = sum(n), 
+             prop = n/total.n)
+    
+  if (input$kl_selector) {
+    p <- ggplot(lang_kl, 
+                aes(x = Response, y = prop, fill = as.factor(language))) + 
+      geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+      geom_bar(stat = 'identity', position = position_dodge(), color = 'black') + 
+      scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+      scale_fill_brewer(palette = "Dark2") +
+      theme_bw(base_size=14) +
+      theme(legend.position = "top", 
+            legend.title = element_blank(),
+            panel.grid = element_blank()) +
+      labs(y = "Proportion of responses", x = "Number given")+
+      facet_grid(KL~Query, scale = "free_x")
+  } else {
+    p <- ggplot(lang, 
            aes(x = Response, y = prop, fill = as.factor(Query))) + 
       geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
       geom_bar(stat = 'identity', position = position_dodge(), color = 'black') + 
@@ -404,31 +427,10 @@ server <- function(input, output, session) {
             panel.grid = element_blank()) +
       labs(y = "Proportion of responses", x = "Number given")+
       facet_grid(language~Query)
+  }
+    p
   })
-  
-  ## .... HISTOGRAM BY KL ----
-  # output$kl_histogram <- renderPlot({
-  #   req(filtered_data_item())
-  #   
-  #   kl_hist <- filtered_data_item() %>%
-  #     group_by(Query, Response, KL)%>%
-  #     summarise(n = n())%>%
-  #     group_by(Query, KL)%>%
-  #     mutate(total.n = sum(n), 
-  #            prop = n/total.n)
-  #   
-  #   ggplot(kl_hist, 
-  #          aes(x = Response, y = prop, fill = as.factor(Query))) + 
-  #     geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-  #     geom_bar(stat = 'identity', position = position_dodge(), color = 'black') + 
-  #     scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-  #     scale_fill_solarized() +
-  #     theme_bw(base_size=14) +
-  #     theme(legend.position = "none", 
-  #           panel.grid = element_blank()) +
-  #     labs(y = "Proportion of responses", x = "Number given")+
-  #     facet_grid(KL~Query)
-  # })
+
   
   ## ---- DOWNLOADABLE DATA FOR ITEM-level ----
   output$downloadDataItem <- downloadHandler(

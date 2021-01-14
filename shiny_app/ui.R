@@ -70,11 +70,7 @@ ui <- fluidPage(
                 tabsetPanel(selected = "Responses by language", 
                             tabPanel("Responses by language",
                                      plotOutput("lang_histogram"))
-                            ), 
-                tabsetPanel(selected = "Responses by KL", 
-                            tabPanel("Responses by KL",
-                                     plotOutput("kl_histogram"))
-                )
+                            )
               )
           )
         )
