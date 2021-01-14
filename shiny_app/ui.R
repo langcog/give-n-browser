@@ -20,7 +20,9 @@ ui <- fluidPage(
                               uiOutput("age_range_selector"),
                               uiOutput("language_selector"),
                               uiOutput("method_selector") , 
-                              uiOutput("kl_range_selector")
+                              uiOutput("kl_range_selector"), 
+                              
+                              downloadButton("downloadData", "Download")
                             ),
     
     mainPanel(
@@ -49,7 +51,9 @@ ui <- fluidPage(
                           uiOutput("language_selector_item"),
                           uiOutput("method_selector_item"), 
                           uiOutput("query_range_selector_item"), 
-                          uiOutput("kl_range_selector_item")
+                          uiOutput("kl_range_selector_item"), 
+                          
+                          downloadButton("downloadDataItem", "Download")
                         ),
 
               mainPanel(
@@ -58,7 +62,9 @@ ui <- fluidPage(
                            ".shiny-output-error:before { visibility: hidden; }"),
                 tabsetPanel(selected = "Averaged responses", 
                             tabPanel("Averaged responses",
-                                     plotOutput("avg_histogram")) 
+                                     plotOutput("avg_histogram")), 
+                            tabPanel("Datasets",
+                                     htmlOutput("citationsItemAll"))
                             ), 
                 tabsetPanel(selected = "Responses by language", 
                             tabPanel("Responses by language",

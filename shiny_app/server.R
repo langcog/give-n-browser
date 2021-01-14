@@ -378,6 +378,31 @@ server <- function(input, output, session) {
       facet_grid(KL~Query)
   })
   
+  ## ---- DOWNLOADABLE DATA FOR ITEM-level ----
+  output$downloadDataItem <- downloadHandler(
+    filename = function() {
+      paste("item-data-", Sys.Date(), ".csv", sep="")
+    }, 
+    content = function(file) {
+      write.csv(filtered_data_item(), file)
+    }
+  )
+  
+  ## ---- CITATIONS FOR ITEM ANALYSES ----
+  output$citationsItemAll <- renderUI({
+    # str1 <- "Please cite the following datasets:"
+    
+    req(filtered_data_item())
+    
+    cites <- filtered_data_item()%>%
+      distinct(cite)
+    
+    cites_all <- paste(as.vector(unique(cites$cite)), collapse = " <br/><br/>")
+    
+    str2 <- as.character(cites_all)
+    HTML(paste("<b>Please cite:</b> <br/>", str2))
+  })
+  
 }
 
 
