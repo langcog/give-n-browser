@@ -77,6 +77,8 @@ server <- function(input, output, session) {
   ## ----------------------- DATA -----------------------
   
   ## ... KL DATA ----
+  test <- mtcars
+  
   filtered_data_kl <- reactive({
     all_data %>%
       distinct(dataset_id, subject_id, age_months, KL, method, language, cite)%>%
@@ -246,6 +248,16 @@ server <- function(input, output, session) {
       str2 <- as.character(cites_all)
       HTML(paste("<b>Please cite:</b> <br/>", str2))
     })
+    
+    ## ---- DOWNLOADABLE DATA FOR KL ----
+    output$downloadData <- downloadHandler(
+      filename = function() {
+        paste("KL-data-", Sys.Date(), ".csv", sep="")
+      }, 
+      content = function(file) {
+        write.csv(filtered_data_kl(), file)
+      }
+     )
   
   ##----CUMULATIVE PROBABILITY OF BEING N-KNOWER
   #plot
