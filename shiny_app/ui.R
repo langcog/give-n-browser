@@ -52,6 +52,7 @@ ui <- fluidPage(
                           uiOutput("method_selector_item"), 
                           uiOutput("query_range_selector_item"), 
                           uiOutput("kl_range_selector_item"), 
+                          uiOutput("kl_facet_selector"), 
                           
                           downloadButton("downloadDataItem", "Download")
                         ),
