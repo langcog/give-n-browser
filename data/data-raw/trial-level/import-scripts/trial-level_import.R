@@ -299,7 +299,8 @@ all.data <- bind_rows(almoammer2013_english,
                       schneider_yen_20xx)%>%
   dplyr::rename('Age_months'='Age')%>%
   filter(!is.na(Response),
-         !is.na(Age_months))%>% ##get rid of NAs 
+         !is.na(Age_months), 
+         Response >= 1)%>% ##get rid of NAs 
   mutate(Age_months = round(as.numeric(as.character(Age_months), 4)), 
          Age_years = floor(Age_months)/12)%>%
   dplyr::select(Experiment, lab, Language, Subject, Age_months, Age_years, method, Query, Response, cite)
