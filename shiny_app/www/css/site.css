@@ -1,0 +1,126 @@
+﻿.req
+        {
+            /*font-size:2em;*/
+        }
+
+        .num
+        {
+            color: #008B8B;
+            font-weight:bold;
+        }
+
+        .speech
+        {
+            /*border: 3px teal;*/
+            border-style: outset;
+            border-radius: 4px;
+            background-color: #f0f8ff;
+            font-style: italic;
+            padding: 5px;
+        }
+
+.footer
+{
+    font-size:.5em;
+    font-weight:normal;
+}
+
+/* --------- Tooltip Styles ---------- */
+
+.tooltip{
+position: relative;
+background: rgba(0,0,0,1);
+padding: 5px 12px;
+border-radius: 100%;
+font-size: 20px;
+cursor: help;
+}
+
+
+.tooltip::before, .tooltip::after{
+position: absolute;
+left: 50%;
+opacity: 0;
+transition: allease0.3s;
+}
+
+.tooltip::before{
+content: "";
+border-width: 10px 8px 08px;
+border-style: solid;
+border-color: rgba(0,0,0,1) transparent transparent transparent;
+top: -20px;
+margin-left: -8px;
+}
+
+
+.tooltip::after{
+content: attr(data-tooltip);
+background: rgba(0,0,0,1);
+top: -20px;
+transform: translateY(-100%);
+font-size: 14px;
+margin-left: -150px;
+width: 300px;
+border-radius: 10px;
+color: #fff;
+padding: 14px;
+}
+
+ 
+
+/* Hover states */
+ 
+.tooltip:hover::before, .tooltip:hover::after{
+opacity: 1;
+}
+
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
