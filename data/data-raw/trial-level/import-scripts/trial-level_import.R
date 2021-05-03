@@ -1,5 +1,5 @@
 ##Cleaning and processing script for trial-level give-n data
-## Convention = Experiment; Subject; Language; Age_months; Age_years; Query; Response; cite
+## Convention = Experiment; Subject; Language; Age (decimal); Query; Response; cite
 
 ##set up
 rm(list = ls())
@@ -45,7 +45,7 @@ piantadosi2014 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Pianta
          lab = "Piantadosi", 
          cite = "Piantadosi, S. T., Jara‐Ettinger, J., & Gibson, E. (2014). Children's learning of number words in an indigenous farming‐foraging group. Developmental Science, 17(4), 553-563.")##Age is in years, convert to rounded months, I guess
 
-## pull out KL data, send to raw data for processing
+## ..... pull out KL data, send to raw data for processing ----
 piantadosi2014_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/Piantadosi2014.csv'))%>%
   distinct(Experiment, Participant, Language, `Knower-level`, Sex, Age, method, cite)%>%
   dplyr::select(Experiment, Participant, Language, `Knower-level`, Sex, Age, method, cite)%>%
@@ -129,7 +129,8 @@ boni20xx_random <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni2
          cite = "Boni et al. (unpublished data)")%>%
   dplyr::rename("Sex" = "Gender")
 
-## now read in the more typical conventions
+## now read in the more typical conventions 
+## ...krajcsi2018 ----
 krajcsi2018 <- read_csv(here::here("data/data-raw/trial-level//data-raw/Krajcsi2018.csv"))%>%
   mutate(Query = as.integer(Query), 
          Response = as.integer(Response))%>%
@@ -138,6 +139,7 @@ krajcsi2018 <- read_csv(here::here("data/data-raw/trial-level//data-raw/Krajcsi2
          lab = "Krajcsi", 
          cite = "Krajcsi, A. (2019, March 19). Follow-up questions influence the measured number knowledge in the Give a number task. https://doi.org/10.31234/osf.io/fky69")
 
+## ...sarnecka2019 ----
 sarnecka2019 <- read_csv(here::here('data/data-raw/trial-level/data-raw/SarneckaNegen2019.csv'))%>%
   dplyr::rename("Sex" = "Gender", 
                 "Query" = "Test",
@@ -151,7 +153,7 @@ sarnecka2019 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Sarnecka
          cite = "Sarnecka, B. W., & Negen, J. (2019, May 30). Longitudinal Number-Knower Data. https://doi.org/10.17605/OSF.IO/EZNHT")%>%
   dplyr::select(-Task)
 
-## schneider & barner --- 
+## ... schneider & barner --- 
 ##1-1 sharing
 schneider_barner_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_barner_20xx.csv'))%>%
   mutate(method = 'titrated', 
@@ -166,7 +168,7 @@ schneider_barner_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw
   rename("Query" = "Task_item", 
          "Subject" = "SID")
 
-##output KL data to data-raw 
+## .....output KL data to data-raw -----
 schneider_barner_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_barner_20xx.csv'))%>%
   mutate(method = 'titrated', 
          Experiment = 'SchneiderBarner_20xx',
