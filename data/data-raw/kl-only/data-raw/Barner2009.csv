@@ -1,103 +1,103 @@
-Experiment,Language,Subject,KL,Age,method,cite
-BarnerChowYoungE1,English,4,2,35.7,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,5,2,34.8,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,6,2,33.2,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,7,0,35.3,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,8,0,33.1,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,9,3,33.1,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,10,2,34.1,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,10,2,30.3,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,11,2,35.4,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,12,2,39.8,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,13,2,37.6,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,14,2,33.9,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,15*,0,31.1,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,19,1,34,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,20,3,34.4,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,21,CP,36.9,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,22,1,36.6,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,23,CP,33.8,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,26,1,28.3,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,28,1,28.3,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,29,2,30.1,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,31,0,28.6,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,1,CP,67.1,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,3,CP,55.3,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,4,1,59.5,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,5,CP,59,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,6,CP,66.6,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,7,CP,66.3,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,8,0,56.4,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,9,0,44.2,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,10,3,40.9,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,11,2,38.7,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,12,3,40.6,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,13,2,38.9,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,14,CP,40.6,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,15,1,52.3,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,16,2,39.6,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,18,2,38.4,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,19,CP,51.9,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,20,2,41.3,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,21,1,45.9,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,22,CP,53.4,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,23,CP,42.1,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,24,CP,51.8,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,25,CP,53,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,26,2,45.4,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,27,CP,62,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,28,CP,63.7,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,29,CP,65.8,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,30,CP,60.4,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,31,CP,67.4,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,32,CP,60,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,33,CP,63.6,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,34,CP,52.6,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,35,CP,48.6,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,36,CP,53.6,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,37,CP,52.4,titrated,BarnerChowYoung_2009
-BarnerChowYoungE1,English,38,,48.5,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,1,1,30.07,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,5,1,31.16,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,14,1,29.87,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,18,0,29.74,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,22,2,31.67,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,24,0,34.95,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,28,3,26.98,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,34,1,26.72,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,3,1,24.82,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,9,1,29.97,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,12,0,25.02,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,20,0,33.18,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,21,1,29.57,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,25,2,24.1,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,29,0,29.9,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,33,2,28.56,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,2,0,27.84,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,6,0,27.38,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,10,1,29.41,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,19,1,33.7,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,23,2,26.75,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,26,0,32.85,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,30,3,24.72,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,4,0,26.52,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,11,2,27.38,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,13,1,29.05,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,17,1,28.03,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,27,1,31.51,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,32,1,30.07,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,1,1,28.49,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,2,1,29.31,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,3,4,28.82,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,4,0,29.25,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,5,1,34.62,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,6,2,,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,7,2,29.34,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,8,2,29.87,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,9,1,32.23,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,10,2,27.57,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,11,1,34.75,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,13,0,34.46,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,14,0,27.11,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,15,2,22.75,titrated,BarnerChowYoung_2009
-BarnerChowYoungE2,English,16,1,31.7,titrated,BarnerChowYoung_2009
+Experiment,Language,Subject,KL,Age,method,cite,lab
+BarnerChowYoungE1,English,4,2,35.7,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,5,2,34.8,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,6,2,33.2,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,7,0,35.3,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,8,0,33.1,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,9,3,33.1,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,10,2,34.1,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,10,2,30.3,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,11,2,35.4,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,12,2,39.8,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,13,2,37.6,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,14,2,33.9,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,15*,0,31.1,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,19,1,34,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,20,3,34.4,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,21,CP,36.9,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,22,1,36.6,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,23,CP,33.8,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,26,1,28.3,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,28,1,28.3,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,29,2,30.1,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,31,0,28.6,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,1,CP,67.1,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,3,CP,55.3,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,4,1,59.5,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,5,CP,59,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,6,CP,66.6,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,7,CP,66.3,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,8,0,56.4,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,9,0,44.2,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,10,3,40.9,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,11,2,38.7,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,12,3,40.6,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,13,2,38.9,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,14,CP,40.6,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,15,1,52.3,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,16,2,39.6,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,18,2,38.4,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,19,CP,51.9,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,20,2,41.3,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,21,1,45.9,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,22,CP,53.4,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,23,CP,42.1,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,24,CP,51.8,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,25,CP,53,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,26,2,45.4,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,27,CP,62,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,28,CP,63.7,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,29,CP,65.8,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,30,CP,60.4,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,31,CP,67.4,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,32,CP,60,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,33,CP,63.6,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,34,CP,52.6,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,35,CP,48.6,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,36,CP,53.6,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,37,CP,52.4,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE1,English,38,,48.5,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,1,1,30.07,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,5,1,31.16,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,14,1,29.87,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,18,0,29.74,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,22,2,31.67,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,24,0,34.95,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,28,3,26.98,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,34,1,26.72,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,3,1,24.82,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,9,1,29.97,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,12,0,25.02,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,20,0,33.18,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,21,1,29.57,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,25,2,24.1,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,29,0,29.9,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,33,2,28.56,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,2,0,27.84,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,6,0,27.38,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,10,1,29.41,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,19,1,33.7,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,23,2,26.75,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,26,0,32.85,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,30,3,24.72,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,4,0,26.52,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,11,2,27.38,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,13,1,29.05,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,17,1,28.03,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,27,1,31.51,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,32,1,30.07,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,1,1,28.49,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,2,1,29.31,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,3,4,28.82,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,4,0,29.25,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,5,1,34.62,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,6,2,,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,7,2,29.34,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,8,2,29.87,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,9,1,32.23,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,10,2,27.57,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,11,1,34.75,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,13,0,34.46,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,14,0,27.11,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,15,2,22.75,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
+BarnerChowYoungE2,English,16,1,31.7,titrated,"Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.",Barner
