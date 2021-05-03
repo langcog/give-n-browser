@@ -142,15 +142,20 @@ final_wynn_df <- create_wynn_df(trial_level_data) #hooray this works!
 ### Conditions for definitely unknown: 
 #### a. If number of successes/number of trials < 2/3
 #### b. If number of successes/(number of successes + number of false gives) < 2/3
+#### c. If number of successes/(number of failures + number of false gives) < 2/3
 
 ## Finally, I created a 'tracker' variable to make sure we were dealing with every case to make sure that we're uniquely assigning known/unknown
 ## So far this seems to be workng??
 
+##TODO: this is failing when there are false gives and failures
+
 tmp_assignment <- final_wynn_df %>%
   mutate(possibly_known = ifelse(((num_correct/num_trials >= 2/3) & num_false_give == 0), 1, #if they are successful 2/3 of the time with no false gives
-                                 ifelse(((num_correct/num_trials >= 2/3) & (num_correct/(num_correct+num_false_give)) >= 2/3), 1, 0)), #if they are successful 2/3 time and of times they gave n it was in response to n at least 2/3 of the time
+                                 ifelse((((num_correct/num_trials >= 2/3) & 
+                                           ((num_correct/(num_correct+num_false_give)) >= 2/3) & (num_correct/(num_false_give+num_failures)) >= 2/3)), 1, 0)), #if they are successful 2/3 time and of times they gave n it was in response to n at least 2/3 of the time
          definitely_unknown = ifelse(((num_correct/num_trials) < 2/3), 1, 
-                                     ifelse(((num_correct/(num_correct+num_false_give)) < 2/3), 1, 0)), 
+                                     ifelse(((num_correct/(num_correct+num_false_give)) < 2/3), 1,
+                                            ifelse((num_correct/(num_false_give + num_failures) < 2/3), 1, 0))), 
          ## the 'tracker' is using known and unknown to identify a particular number as DEFINITELY known or DEFINITELY unknown
          tracker = ifelse((possibly_known == 1 & definitely_unknown == 0), 1, # this is definitely known
                           ifelse((possibly_known == 0 & definitely_unknown == 1), 0, # this is definitely unknown
@@ -186,60 +191,75 @@ track_successes <- function(df) {
   ## Okay so now we have to do this for each subject
   ## Get all the unique subject IDs
   unique_subs <- as.vector(unique(tmp.df$Subject))
+  ## also need to do this by datasets because we have sometimes non-unique SIDs - this will be fixed when we switch to indexing participant ID from 0
+  unique_datasets <- as.vector(unique(tmp.df$dataset))
   ## Make a placeholder DF where we can push data
   tracker.df <- data.frame()
-  
-  ## Loop through each subject
-  for (s in unique_subs) {
-    s.df <- tmp.df %>%
-      filter(Subject == s)
-    
-    ## If the minimum of the success tracker is -100, they're a non-knower
-    if (min(s.df$success_tracker) == -100) {
-      tmp.s.df <- data.frame(Subject = s, 
-                     Assignment = '0')
-    ## Otherwise, if they haven't gotten anything wrong and there are no NAs, then they've succeeded on everything
-      ## so their KL assignment is the highest number tested
-    } else if (min(s.df$success_tracker) > 0) { #if they haven't gotten anything wrong, and there are no NAs
-      highest_num <- max(s.df$success_tracker)
-      tmp.s.df <- data.frame(Subject = s, 
-                             Assignment = as.character(highest_num))
-    ## If they've gotten something incorrect, then get the MINIMUM number for which they failed and filter out anything above this number (because KLs are contiguous)
-    ## Then get the maximum number in their success tracker after this
-    } else if (min(s.df$success_tracker) == -50) { #if they have gotten something incorrect 
-      #then we should get the *minimum* number for which they failed
-      min.fail <- s.df %>%
-        filter(success_tracker == -50)
+
+  ## Loop through each dataset
+  for (d in unique_datasets) {  
+    d.subset <- df %>%
+      filter(dataset == d)
+    ## Loop through each subject
+    for (s in unique_subs) {
+      s.df <- tmp.df %>%
+        filter(Subject == s)
       
-      min.fail.num <- min(min.fail$Query) #get the minimum number for which they failed
-      
-      #filter out anything in main df above this
-      s.df <- s.df %>%
-        filter(Query < min.fail.num)
-      
-      #now get the maximum number in their success tracker after this
-      max.succeed.num <- max(s.df$success_tracker)
-      
-      tmp.s.df <- data.frame(Subject = s, 
-                             Assignment = as.character(max.succeed.num))
-    ## If we get to the end and we haven't assigned a KL, it will be -500 for debugging  
-    } else {
-      tmp.s.df <- data.frame(Subject = s, 
-                             Assignment = '-500')
+      ## If the minimum of the success tracker is -100, they're a non-knower
+      if (min(s.df$success_tracker) == -100) {
+        tmp.s.df <- data.frame(Subject = s, 
+                       Assignment = '0', 
+                       Experiment = d)
+      ## Otherwise, if they haven't gotten anything wrong and there are no NAs, then they've succeeded on everything
+        ## so their KL assignment is the highest number tested
+      } else if (min(s.df$success_tracker) > 0) { #if they haven't gotten anything wrong, and there are no NAs
+        highest_num <- max(s.df$success_tracker)
+        tmp.s.df <- data.frame(Subject = s, 
+                               Assignment = as.character(highest_num), 
+                               Experiment = d)
+      ## If they've gotten something incorrect, then get the MINIMUM number for which they failed and filter out anything above this number (because KLs are contiguous)
+      ## Then get the maximum number in their success tracker after this
+      } else if (min(s.df$success_tracker) == -50) { #if they have gotten something incorrect 
+        #then we should get the *minimum* number for which they failed
+        min.fail <- s.df %>%
+          filter(success_tracker == -50)
+        
+        min.fail.num <- min(min.fail$Query) #get the minimum number for which they failed
+        
+        #filter out anything in main df above this
+        s.df <- s.df %>%
+          filter(Query < min.fail.num)
+        
+        #now get the maximum number in their success tracker after this
+        max.succeed.num <- max(s.df$success_tracker)
+        
+        tmp.s.df <- data.frame(Subject = s, 
+                               Assignment = as.character(max.succeed.num), 
+                               Experiment = d)
+      ## If we get to the end and we haven't assigned a KL, it will be -500 for debugging  
+      } else {
+        tmp.s.df <- data.frame(Subject = s, 
+                               Assignment = '-500', 
+                               Experiment = d)
+      }
+      #bind these suckers together
+      tracker.df <- bind_rows(tracker.df, tmp.s.df)
     }
-    #bind these suckers together
-    tracker.df <- bind_rows(tracker.df, tmp.s.df)
   }
   return(tracker.df)
-  }
+}
 
-checking_assignments <- track_successes(tmp_assignment) %>%
-  mutate(Assignment = ifelse(as.numeric(as.character(Assignment)) >= 6, "CP", as.character(Assignment)))
+checking_assignments <- track_successes(tmp_assignment) # this is taking a really long time and has a bunch of warnings, not sure why 
 
+## Add CP assignment
+checking_assignments <- checking_assignments %>%
+  mutate(Assignment = ifelse(((Experiment == "Almoammer2013" | Experiment == "Marusic2016") & as.numeric(as.character(Assignment)) >=5), "CP", 
+                             ifelse(as.numeric(as.character(Assignment)) >= 6, "CP", as.character(Assignment))))
+           
 ##TODO - special cases for CP??
 
 #bind with original for checking
-tmp_check <- left_join(all_data, checking_assignments, by = "Subject")%>%
+tmp_check <- left_join(all_data, checking_assignments, by = c("Subject", "Experiment"))%>%
   mutate(KL_check = ifelse(KL != Assignment, "FLAG", "Fine"))
 
 flags <- tmp_check %>%
