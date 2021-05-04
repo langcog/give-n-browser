@@ -54,6 +54,8 @@ shinyUI(navbarPage(title = "Numberbank",
         tabsetPanel(selected = "KL by age, language", 
                     tabPanel("KL by age, language",
                              plotOutput("age_boxplot")), 
+                    tabPanel("Table", 
+                             tableOutput('table')),
                     tabPanel("Datasets",
                              htmlOutput("citations"))
                     ), 

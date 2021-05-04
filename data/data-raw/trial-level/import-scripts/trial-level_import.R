@@ -285,6 +285,35 @@ schneider_yen_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw
 
 write_csv(schneider_yen_20xx_kl, 'data/data-raw/kl-only/data-raw/schneider_yen_20xx_kl.csv')
 
+## xculture
+schneider_etal_2020 <- read.csv('data/data-raw/trial-level/data-raw/SchneiderEtAl_2020.csv')%>%
+  filter(Age != "#VALUE!", 
+         Query != "TireHydrant",
+         Query != "DuckClover", 
+         Query != "CloverKite", 
+         !is.na(Query), 
+         !is.na(Response))%>%
+  mutate(Age = 12*as.numeric(as.character(Age)), 
+         Query = as.numeric(as.character(Query)), 
+         method = "Non-titrated")
+
+#calculate KL - this is either subset or CP
+xculture.kl <- schneider_etal_2020 %>%
+  mutate(Correct = ifelse(Query == Response, 1, 0))%>%
+  group_by(Subject)%>%
+  summarise(n_correct = sum(Correct))%>%
+  mutate(KL = ifelse(n_correct >= 4, "CP", "Subset"))%>%
+  select(-n_correct)
+
+## get demo information for KL
+schneider_etal_2020_kl <- schneider_etal_2020 %>%
+  distinct(Experiment, Subject, Age, Language, Sex)%>%
+  left_join(xculture.kl, by = "Subject")
+
+## write to KL 
+write.csv(schneider_etal_2020_kl, "data/data-raw/kl-only/data-raw/SchneiderEtAl_2020.csv")
+
+
 # Bind everything together ----
 all.data <- bind_rows(almoammer2013_english, 
                       wagner2016, 
@@ -298,7 +327,8 @@ all.data <- bind_rows(almoammer2013_english,
                       schneider_barner_20xx, 
                       schneider_etal_20xx, 
                       schneider_etal_20xx_2, 
-                      schneider_yen_20xx)%>%
+                      schneider_yen_20xx, 
+                      schneider_etal_2020)%>%
   dplyr::rename('Age_months'='Age')%>%
   filter(!is.na(Response),
          !is.na(Age_months), 

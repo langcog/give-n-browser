@@ -20,7 +20,8 @@ all_data <- full_join(subjects, trials) %>%
                                                  ifelse(KL == "2", "2-knower", 
                                                         ifelse(KL == "3", "3-knower", "CP-knower"))))))),
          language = ifelse(str_detect(language, "English"), "English", 
-                           ifelse(language == "Saudi", "Arabic", as.character(language))))
+                           ifelse(language == "Saudi", "Arabic", as.character(language))), 
+         method = ifelse(method == "Non-titrated", "non-titrated", as.character(method)))
 
 ## set variables
 age_min <- floor(min(all_data$age_months, na.rm = TRUE))
@@ -216,29 +217,57 @@ server <- function(input, output, session) {
     req(filtered_data_kl())
     
     if (input$method_choice_kl) {
+      ## get the number of observations
        p <- ggplot(filtered_data_kl(), 
-                   aes(x = language, y=age_months, fill = KL))+
-         geom_boxplot(alpha = .5, 
+                   aes(x = language, y=age_months, fill = KL, color = KL))+
+         geom_boxplot(alpha = .7, 
                       color = "black") +
+         geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
+                    show.legend = FALSE)+
          theme_bw(base_size=14) +
-         scale_fill_solarized("Knower level") + 
+         scale_fill_solarized("Knower level") +
+         scale_color_solarized("Knower level") + 
          labs(x = 'Language', 
               y = "Age (months)") +
          facet_grid(~method) +
          coord_flip()
     } else {
       p <- ggplot(filtered_data_kl(), 
-                  aes(x = language, y=age_months, fill = KL))+
-        geom_boxplot(alpha = .5, 
+                  aes(x = language, y=age_months, fill = KL, color = KL))+
+        geom_boxplot(alpha = .7, 
                      color = "black") +
+        geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
+                   show.legend = FALSE)+
         theme_bw(base_size=14) +
         scale_fill_solarized("Knower level") + 
+        scale_color_solarized("Knower level") + 
         labs(x = 'Language', 
              y = "Age (months)") +
         coord_flip()
     }
     p
   })
+    
+  ## ----- TABLE FOR KL BOXPLOT ----
+    output$table <- renderTable({
+      
+      if (input$method_choice_kl) {
+        kl_table <- filtered_data_kl() %>%
+          group_by(language, method, KL)%>%
+          summarise(n = n(), 
+                    `Mean age` = mean(age_months, na.rm = TRUE), 
+                    `SD age` = sd(age_months, na.rm = TRUE), 
+                    `Median age` = median(age_months, na.rm = TRUE))
+      } else {
+        kl_table <- filtered_data_kl() %>%
+          group_by(language, KL)%>%
+          summarise(n = n(), 
+                    `Mean age` = mean(age_months, na.rm = TRUE), 
+                    `SD age` = sd(age_months, na.rm = TRUE), 
+                    `Median age` = median(age_months, na.rm = TRUE))
+      }
+      kl_table
+    })
     
   ## ---- CITATIONS FOR KL BOXPLOT ----
     output$citations <- renderUI({

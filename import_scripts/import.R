@@ -9,7 +9,7 @@ library(tidyverse)
 
 source(here("import_scripts/helper.R"))
 
-## NB: in some cases, KL for participants will have to be added later
+## NB: in some cases, KL for participants will have to be added later. This will be done via Wynn KL (included at the end of this script)
 
 ## read in processed data
 kl_only_data <- read_csv(here("data/processed-data/kl_data_processed.csv")) #data is cleaned and processed in another script
@@ -24,6 +24,7 @@ file.remove(here::here("data/processed-data/trials.csv"))
 
 ## combine trial level and kl only data
 all_data <- combine_data(kl_only_data, trial_level_data)
+
 
 # Write data -----
 ##datasets
@@ -254,7 +255,8 @@ checking_assignments <- track_successes(tmp_assignment) # this is taking a reall
 ## Add CP assignment
 checking_assignments <- checking_assignments %>%
   mutate(Assignment = ifelse(((Experiment == "Almoammer2013" | Experiment == "Marusic2016") & as.numeric(as.character(Assignment)) >=5), "CP", 
-                             ifelse(as.numeric(as.character(Assignment)) >= 6, "CP", as.character(Assignment))))
+                             ifelse(as.numeric(as.character(Assignment)) >= 6, "CP", as.character(Assignment))), 
+         Assignment = ifelse(as.numeric(as.character(Assignment)) == 6, "CP", as.character(Assignment)))
            
 ##TODO - special cases for CP??
 
