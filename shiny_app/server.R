@@ -2,6 +2,7 @@ library(tidyverse)
 library(ggthemes)
 library(langcog)
 library(shinyWidgets)
+library(DT)
 
 # read data
 trials <- read_csv(here::here("data/processed-data/trials.csv"))
@@ -32,7 +33,7 @@ languages_KL <- c(unique(subset(all_data, !is.na(KL))$language))
 ##get only language for which we have Queries
 languages_item <- c(unique(subset(all_data, !is.na(Query))$language))
 # #get only datasets for which we have KLs
-# datasets_KL <- c(unique(subset(all_data, !is.na(KL))$dataset_id))
+datasets_KL <- c(unique(subset(all_data, !is.na(KL))$dataset_id))
 # #get only datasets for which we have queries
 # datasets_item <- c(unique(subset(all_data, !is.na(Query))$dataset_id))
 methods <- c("titrated", "non-titrated")
@@ -78,18 +79,36 @@ server <- function(input, output, session) {
   ## ----------------------- DATA -----------------------
   
   ## ... KL DATA ----
-  test <- mtcars
   
   filtered_data_kl <- reactive({
+    # if(input$dataset_selector) {
+    #   all_data %>%
+    #     distinct(dataset_id, subject_id, age_months, KL, method, language, cite)%>%
+    #     filter(!is.na(KL),
+    #            !is.na(age_months),
+    #            age_months >= input$age_range_kl[1], 
+    #            age_months <= input$age_range_kl[2], 
+    #            KL %in% input$kl_range_kl,
+    #            language %in% input$language_choice_kl, 
+    #            dataset_id %in% input$dataset_choice_kl)
+    # } else {
+    #   all_data %>%
+    #     distinct(dataset_id, subject_id, age_months, KL, method, language, cite)%>%
+    #     filter(!is.na(KL),
+    #            !is.na(age_months),
+    #            age_months >= input$age_range_kl[1], 
+    #            age_months <= input$age_range_kl[2], 
+    #            KL %in% input$kl_range_kl,
+    #            language %in% input$language_choice_kl)
+    # }
     all_data %>%
-      distinct(dataset_id, subject_id, age_months, KL, method, language, cite)%>%
-      filter(!is.na(KL),
-             !is.na(age_months),
-             age_months >= input$age_range_kl[1], 
-             age_months <= input$age_range_kl[2], 
-             KL %in% input$kl_range_kl,
-             language %in% input$language_choice_kl)
-      
+          distinct(dataset_id, subject_id, age_months, KL, method, language, cite)%>%
+          filter(!is.na(KL),
+                 !is.na(age_months),
+                 age_months >= input$age_range_kl[1],
+                 age_months <= input$age_range_kl[2],
+                 KL %in% input$kl_range_kl,
+                 language %in% input$language_choice_kl)
   })
   
     ##cumulative probability 
@@ -160,6 +179,17 @@ server <- function(input, output, session) {
                 min = age_min, max = age_max)
   })
   
+  # output$dataset_selector <- renderUI({
+  #   x <- filtered_data_kl()
+  #   y <- x$dataset_id
+  #   
+  #   selectInput("dataset_choice_kl", 
+  #               label = "Datasets to include:", 
+  #               choices = y, 
+  #               selected = as.list(y), 
+  #               multiple = TRUE) 
+  # })
+  
   ## ... Item selectors####
   output$age_range_selector_item <- renderUI({
     sliderInput("age_range_item",
@@ -225,15 +255,15 @@ server <- function(input, output, session) {
          geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
                     show.legend = FALSE)+
          theme_bw(base_size=14) +
-         scale_fill_solarized("Knower level") +
+         scale_fill_solarized("Knower level", rev) +
          scale_color_solarized("Knower level") + 
          labs(x = 'Language', 
               y = "Age (months)") +
          facet_grid(~method) +
-         coord_flip()
+         coord_flip() + guides(fill = guide_legend(reverse = TRUE))
     } else {
       p <- ggplot(filtered_data_kl(), 
-                  aes(x = language, y=age_months, fill = KL, color = KL))+
+                  aes(x = language, y=age_months, fill =KL, color = KL))+
         geom_boxplot(alpha = .7, 
                      color = "black") +
         geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
@@ -243,28 +273,29 @@ server <- function(input, output, session) {
         scale_color_solarized("Knower level") + 
         labs(x = 'Language', 
              y = "Age (months)") +
-        coord_flip()
+        coord_flip() + 
+        guides(fill = guide_legend(reverse = TRUE))
     }
     p
   })
     
   ## ----- TABLE FOR KL BOXPLOT ----
-    output$table <- renderTable({
+    output$table <- renderDataTable({
       
       if (input$method_choice_kl) {
         kl_table <- filtered_data_kl() %>%
           group_by(language, method, KL)%>%
           summarise(n = n(), 
-                    `Mean age` = mean(age_months, na.rm = TRUE), 
-                    `SD age` = sd(age_months, na.rm = TRUE), 
-                    `Median age` = median(age_months, na.rm = TRUE))
+                    `Mean age` = round(mean(age_months, na.rm = TRUE),2), 
+                    `SD age` = round(sd(age_months, na.rm = TRUE),2), 
+                    `Median age` = round(median(age_months, na.rm = TRUE), 2))
       } else {
         kl_table <- filtered_data_kl() %>%
           group_by(language, KL)%>%
           summarise(n = n(), 
-                    `Mean age` = mean(age_months, na.rm = TRUE), 
-                    `SD age` = sd(age_months, na.rm = TRUE), 
-                    `Median age` = median(age_months, na.rm = TRUE))
+                    `Mean age` = round(mean(age_months, na.rm = TRUE),2), 
+                    `SD age` = round(sd(age_months, na.rm = TRUE),2), 
+                    `Median age` = round(median(age_months, na.rm = TRUE), 2))
       }
       kl_table
     })
@@ -314,7 +345,8 @@ server <- function(input, output, session) {
                        name = "Cumulative Probability of Knower Level")+
     theme_bw(base_size=14) +
     theme(legend.position="right") + 
-    facet_wrap(~language, scales = "free_x")
+    facet_wrap(~language, scales = "free_x") + 
+      guides(color = guide_legend(reverse = TRUE))
   })
   
  ## ... ITEM PLOTS ----
@@ -412,6 +444,63 @@ server <- function(input, output, session) {
   } 
     p
 })
+  
+  ## .... TABLE FOR ITEM HISTOGRAM ----
+  
+  output$table_item <- renderDataTable({
+    #first, if there is kl selected
+    if(input$kl_selector) {
+      #if method selected
+      if(input$method_choice_item) {
+        item_table <- filtered_data_item() %>%
+          mutate(Query = as.integer(Query))%>%
+          group_by(Query, KL, method)%>%
+          summarise(n = n(), 
+                    `Mean age` = round(mean(age_months, na.rm = TRUE), 2), 
+                    `SD age` = round(sd(age_months, na.rm = TRUE), 2), 
+                    `Median age` = round(median(age_months, na.rm = TRUE), 2), 
+                    `Mean response` = round(mean(Response, na.rm = TRUE), 2), 
+                    `SD response` = round(sd(Response, na.rm = TRUE), 2), 
+                    `Median response` = round(median(Response, na.rm = TRUE), 2))
+      } else {
+        item_table <- filtered_data_item() %>%
+          mutate(Query = as.integer(Query))%>%
+          group_by(Query, KL)%>%
+          summarise(n = n(), 
+                    `Mean age` = round(mean(age_months, na.rm = TRUE), 2), 
+                    `SD age` = round(sd(age_months, na.rm = TRUE), 2), 
+                    `Median age` = round(median(age_months, na.rm = TRUE), 2), 
+                    `Mean response` = round(mean(Response, na.rm = TRUE), 2), 
+                    `SD response` = round(sd(Response, na.rm = TRUE), 2), 
+                    `Median response` = round(median(Response, na.rm = TRUE), 2))
+      }
+    } else {
+      if(input$method_choice_item) {
+        item_table <- filtered_data_item() %>%
+          mutate(Query = as.integer(Query))%>%
+          group_by(Query, method)%>%
+          summarise(n = n(), 
+                    `Mean age` = round(mean(age_months, na.rm = TRUE), 2), 
+                    `SD age` = round(sd(age_months, na.rm = TRUE), 2), 
+                    `Median age` = round(median(age_months, na.rm = TRUE), 2), 
+                    `Mean response` = round(mean(Response, na.rm = TRUE), 2), 
+                    `SD response` = round(sd(Response, na.rm = TRUE), 2), 
+                    `Median response` = round(median(Response, na.rm = TRUE), 2))
+      } else {
+        item_table <- filtered_data_item() %>%
+          mutate(Query = as.integer(Query))%>%
+          group_by(Query)%>%
+          summarise(n = n(), 
+                    `Mean age` = round(mean(age_months, na.rm = TRUE), 2), 
+                    `SD age` = round(sd(age_months, na.rm = TRUE), 2), 
+                    `Median age` = round(median(age_months, na.rm = TRUE), 2), 
+                    `Mean response` = round(mean(Response, na.rm = TRUE), 2), 
+                    `SD response` = round(sd(Response, na.rm = TRUE), 2), 
+                    `Median response` = round(median(Response, na.rm = TRUE), 2))
+      }
+    }
+    item_table
+  })
     
   ## .... LANG HISTOGRAM ----
   output$lang_histogram <- renderPlot({
@@ -460,6 +549,35 @@ server <- function(input, output, session) {
     p
   })
 
+  ## .... TABLE FOR ITEM LANGUAGE HISTOGRAM ----
+  
+  output$table_language_item <- renderDataTable({
+    #first, if there is kl selected
+    if(input$kl_selector) {
+        item_table_language <- filtered_data_item() %>%
+          mutate(Query = as.integer(Query))%>%
+          group_by(Query, language, KL)%>%
+          summarise(n = n(), 
+                    `Mean age` = round(mean(age_months, na.rm = TRUE), 2), 
+                    `SD age` = round(sd(age_months, na.rm = TRUE), 2), 
+                    `Median age` = round(median(age_months, na.rm = TRUE), 2), 
+                    `Mean response` = round(mean(Response, na.rm = TRUE), 2), 
+                    `SD response` = round(sd(Response, na.rm = TRUE), 2), 
+                    `Median response` = round(median(Response, na.rm = TRUE), 2))
+      } else {
+        item_table_language <- filtered_data_item() %>%
+          mutate(Query = as.integer(Query))%>%
+          group_by(Query, language)%>%
+          summarise(n = n(), 
+                    `Mean age` = round(mean(age_months, na.rm = TRUE), 2), 
+                    `SD age` = round(sd(age_months, na.rm = TRUE), 2), 
+                    `Median age` = round(median(age_months, na.rm = TRUE), 2), 
+                    `Mean response` = round(mean(Response, na.rm = TRUE), 2), 
+                    `SD response` = round(sd(Response, na.rm = TRUE), 2), 
+                    `Median response` = round(median(Response, na.rm = TRUE), 2))
+      }
+    item_table_language
+    })
   
   ## ---- DOWNLOADABLE DATA FOR ITEM-level ----
   output$downloadDataItem <- downloadHandler(

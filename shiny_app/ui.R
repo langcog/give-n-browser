@@ -5,6 +5,7 @@ library(leaflet)
 library(plotly)
 library(shinyjs)
 library(shinyBS)
+library(DT)
 
 ### . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ..
 ### Colors                                                                  ####
@@ -43,6 +44,7 @@ shinyUI(navbarPage(title = "Numberbank",
                     uiOutput("language_selector"),
                     uiOutput("method_selector") , 
                     uiOutput("kl_range_selector"), 
+                    uiOutput("dataset_selector"),
                     
                     downloadButton("downloadData", "Download")
                   ),
@@ -55,7 +57,7 @@ shinyUI(navbarPage(title = "Numberbank",
                     tabPanel("KL by age, language",
                              plotOutput("age_boxplot")), 
                     tabPanel("Table", 
-                             tableOutput('table')),
+                             dataTableOutput('table')),
                     tabPanel("Datasets",
                              htmlOutput("citations"))
                     ), 
@@ -88,12 +90,16 @@ shinyUI(navbarPage(title = "Numberbank",
                 tabsetPanel(selected = "Averaged responses", 
                             tabPanel("Averaged responses",
                                      plotOutput("avg_histogram")), 
+                            tabPanel("Table", 
+                                     dataTableOutput('table_item')),
                             tabPanel("Datasets",
                                      htmlOutput("citationsItemAll"))
                             ), 
                 tabsetPanel(selected = "Responses by language", 
                             tabPanel("Responses by language",
-                                     plotOutput("lang_histogram"))
+                                     plotOutput("lang_histogram")), 
+                            tabPanel("Table", 
+                                     dataTableOutput('table_language_item'))
                             )
               )
           )
