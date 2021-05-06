@@ -361,84 +361,86 @@ server <- function(input, output, session) {
     avg_item <- filtered_data_item() %>%
       group_by(Query, Response)%>%
       summarise(n = n())%>%
-      mutate(total.n = sum(n), 
+      mutate(total.n = sum(n),
              prop = n/total.n)
     #full data - method
     method_df <- filtered_data_item() %>%
       group_by(Query, Response, method)%>%
       summarise(n = n())%>%
       group_by(method)%>%
-      mutate(total.n = sum(n), 
+      mutate(total.n = sum(n),
              prop = n/total.n)
     #full data - kl
     kl_hist <- filtered_data_item() %>%
       group_by(Query, Response, KL)%>%
       summarise(n = n())%>%
       group_by(Query, KL)%>%
-      mutate(total.n = sum(n), 
+      mutate(total.n = sum(n),
              prop = n/total.n)
-    
+
     #full data - method
     method_df_kl <- filtered_data_item() %>%
       group_by(Query, Response, method, KL)%>%
       summarise(n = n())%>%
       group_by(Query, KL, method)%>%
-      mutate(total.n = sum(n), 
+      mutate(total.n = sum(n),
              prop = n/total.n)
     
   ### Conditional for if KL if method is selected and v.v.
   if (input$kl_selector) {
     if (input$method_choice_item) {
-      p <- ggplot(method_df_kl, 
-        aes(x = Response, y = prop, fill = method)) +
+      p <- ggplot(filtered_data_item(), 
+        aes(x = Response, fill = method)) +
         geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-        geom_bar(stat = 'identity', position = position_dodge(),
-                 color = 'black') +
+        geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+                       binwidth = 1) + 
         scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
         scale_fill_solarized("Method") +
         theme_bw(base_size=14) +
         theme(legend.position = "right",
               panel.grid = element_blank()) +
-        labs(y = "Proportion of responses", x = "Number given")+
+        labs(y = "Density of responses", x = "Number given")+
         facet_grid(KL~Query)
     } else {
-      p <- ggplot(kl_hist, 
-                      aes(x = Response, y = prop, fill = as.factor(Query))) + 
+      p <- ggplot(filtered_data_item(), 
+                      aes(x = Response, fill = as.factor(Query))) + 
         geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-        geom_bar(stat = 'identity', position = position_dodge(), color = 'black') + 
+        geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
         scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
         scale_fill_solarized() +
         theme_bw(base_size=14) +
         theme(legend.position = "none", 
               panel.grid = element_blank()) +
-        labs(y = "Proportion of responses", x = "Number given")+
+        labs(y = "Density of responses", x = "Number given")+
         facet_grid(KL~Query)
     }
   } else {
     if (input$method_choice_item) {
-      p <- ggplot(method_df, 
-          aes(x = Response, y = prop, fill = method)) +
+      p <- ggplot(filtered_data_item(), 
+          aes(x = Response, fill = method)) +
           geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-          geom_bar(stat = 'identity', position = position_dodge(),
-                   color = 'black') +
+          geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+                       binwidth = 1) 
           scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
           scale_fill_solarized("Method") +
           theme_bw(base_size=14) +
           theme(legend.position = "right",
                 panel.grid = element_blank()) +
-          labs(y = "Proportion of responses", x = "Number given")+
+          labs(y = "Density of responses", x = "Number given")+
           facet_grid(~Query)
     } else {
-      p <- ggplot(avg_item,
-                  aes(x = Response, y = prop, fill = as.factor(Query))) +
+      p <- ggplot(filtered_data_item(),
+                  aes(x = Response, fill = as.factor(Query))) +
         geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-        geom_bar(stat = 'identity', position = position_dodge(), color = 'black') +
+        geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
         scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
         scale_fill_solarized() +
         theme_bw(base_size=14) +
         theme(legend.position = "none",
               panel.grid = element_blank()) +
-        labs(y = "Proportion of responses", x = "Number given")+
+        labs(y = "Density of responses", x = "Number given")+
         facet_wrap(~Query)
     }
   } 
@@ -506,44 +508,46 @@ server <- function(input, output, session) {
   output$lang_histogram <- renderPlot({
     req(filtered_data_item())
     
-    lang <- filtered_data_item() %>%
-      group_by(Query, Response, language)%>%
-      summarise(n = n())%>%
-      group_by(Query, language)%>%
-      mutate(total.n = sum(n), 
-             prop = n/total.n)
-    
-    lang_kl <- filtered_data_item() %>%
-      group_by(Query, Response, language, KL)%>%
-      summarise(n = n())%>%
-      group_by(Query, KL, language)%>%
-      mutate(total.n = sum(n), 
-             prop = n/total.n)
+    # lang <- filtered_data_item() %>%
+    #   group_by(Query, Response, language)%>%
+    #   summarise(n = n())%>%
+    #   group_by(Query, language)%>%
+    #   mutate(total.n = sum(n), 
+    #          prop = n/total.n)
+    # 
+    # lang_kl <- filtered_data_item() %>%
+    #   group_by(Query, Response, language, KL)%>%
+    #   summarise(n = n())%>%
+    #   group_by(Query, KL, language)%>%
+    #   mutate(total.n = sum(n), 
+    #          prop = n/total.n)
     
   if (input$kl_selector) {
-    p <- ggplot(lang_kl, 
-                aes(x = Response, y = prop, fill = as.factor(language))) + 
+    p <- ggplot(filtered_data_item(), 
+                aes(x = Response, fill = as.factor(language))) + 
       geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-      geom_bar(stat = 'identity', position = position_dodge(), color = 'black') + 
+      geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+                     binwidth = 1) +
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
       scale_fill_brewer(palette = "Dark2") +
       theme_bw(base_size=14) +
       theme(legend.position = "top", 
             legend.title = element_blank(),
             panel.grid = element_blank()) +
-      labs(y = "Proportion of responses", x = "Number given")+
+      labs(y = "Density of responses", x = "Number given")+
       facet_grid(KL~Query, scale = "free_x")
   } else {
-    p <- ggplot(lang, 
-           aes(x = Response, y = prop, fill = as.factor(Query))) + 
+    p <- ggplot(filtered_data_item(), 
+           aes(x = Response,  fill = as.factor(Query))) + 
       geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-      geom_bar(stat = 'identity', position = position_dodge(), color = 'black') + 
+      geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+                     binwidth = 1) +
       scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
       scale_fill_solarized() +
       theme_bw(base_size=14) +
       theme(legend.position = "none", 
             panel.grid = element_blank()) +
-      labs(y = "Proportion of responses", x = "Number given")+
+      labs(y = "Density of responses", x = "Number given")+
       facet_grid(language~Query)
   }
     p
