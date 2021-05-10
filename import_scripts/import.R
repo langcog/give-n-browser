@@ -115,7 +115,7 @@ create_wynn_df <- function(df) {
     
     #Now, left join the correct and the false give summaries together: 
     ## This will give us: Subject, Query, num_trials (how many trials child was asked about n), num_correct (successes), num_false_gives, dataset
-    tmp_wynn_df <- left_join(correct_df, false_give_df, by = c("Subject", "Query"))%>%
+    tmp_wynn_df <- left_join(correct_df, false_give_df, by = c("Subject", "dataset_id", "Query"))%>% ## TODO check if this works!!!
       mutate(dataset = d)
     
     ## Push these to our placeholder df
