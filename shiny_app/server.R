@@ -22,7 +22,9 @@ all_data <- full_join(subjects, trials) %>%
                                                         ifelse(KL == "3", "3-knower", "CP-knower"))))))),
          language = ifelse(str_detect(language, "English"), "English", 
                            ifelse(language == "Saudi", "Arabic", as.character(language))), 
-         method = ifelse(method == "Non-titrated", "non-titrated", as.character(method)))
+         method = ifelse(method == "Non-titrated", "non-titrated", as.character(method)), 
+         CP_subset = ifelse(KL == "CP-knower", "CP-knower", "Subset-knower"), 
+         CP_subset = factor(CP_subset, levels = c("Subset-knower", "CP-knower")))
 
 ## set variables
 age_min <- floor(min(all_data$age_months, na.rm = TRUE))
@@ -102,7 +104,7 @@ server <- function(input, output, session) {
     #            language %in% input$language_choice_kl)
     # }
     all_data %>%
-          distinct(dataset_id, subject_id, age_months, KL, method, language, cite)%>%
+          distinct(dataset_id, subject_id, age_months, KL, method, language, cite, CP_subset)%>%
           filter(!is.na(KL),
                  !is.na(age_months),
                  age_months >= input$age_range_kl[1],
@@ -179,6 +181,12 @@ server <- function(input, output, session) {
                 min = age_min, max = age_max)
   })
   
+  output$cp_subset_selector <- renderUI({
+    prettySwitch("cp_subset_kl",
+                 label = "Group non-CP-knowers together",
+                 value = FALSE)
+  })
+  
   # output$dataset_selector <- renderUI({
   #   x <- filtered_data_kl()
   #   y <- x$dataset_id
@@ -247,6 +255,21 @@ server <- function(input, output, session) {
     req(filtered_data_kl())
     
     if (input$method_choice_kl) {
+      if (input$cp_subset_kl) {
+        p <- ggplot(filtered_data_kl(), 
+                    aes(x = language, y=age_months, fill = CP_subset, color = CP_subset))+
+          geom_boxplot(alpha = .7, 
+                       color = "black") +
+          geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
+                     show.legend = FALSE)+
+          theme_bw(base_size=14) +
+          scale_fill_solarized("CP-/Subset-knower", rev) +
+          scale_color_solarized("CP-/Subset-knower") + 
+          labs(x = 'Language', 
+               y = "Age (months)") +
+          facet_grid(~method) +
+          coord_flip() + guides(fill = guide_legend(reverse = FALSE))
+      } else {
       ## get the number of observations
        p <- ggplot(filtered_data_kl(), 
                    aes(x = language, y=age_months, fill = KL, color = KL))+
@@ -261,20 +284,36 @@ server <- function(input, output, session) {
               y = "Age (months)") +
          facet_grid(~method) +
          coord_flip() + guides(fill = guide_legend(reverse = TRUE))
+      }
     } else {
-      p <- ggplot(filtered_data_kl(), 
-                  aes(x = language, y=age_months, fill =KL, color = KL))+
-        geom_boxplot(alpha = .7, 
-                     color = "black") +
-        geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
-                   show.legend = FALSE)+
-        theme_bw(base_size=14) +
-        scale_fill_solarized("Knower level") + 
-        scale_color_solarized("Knower level") + 
-        labs(x = 'Language', 
-             y = "Age (months)") +
-        coord_flip() + 
-        guides(fill = guide_legend(reverse = TRUE))
+      if (input$cp_subset_kl) {
+        p <- ggplot(filtered_data_kl(), 
+                    aes(x = language, y=age_months, fill = CP_subset, color = CP_subset))+
+          geom_boxplot(alpha = .7, 
+                       color = "black") +
+          geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
+                     show.legend = FALSE)+
+          theme_bw(base_size=14) +
+          scale_fill_solarized("CP-/Subset-knower", rev) +
+          scale_color_solarized("CP-/Subset-knower") + 
+          labs(x = 'Language', 
+               y = "Age (months)") +
+          coord_flip() + guides(fill = guide_legend(reverse = FALSE))
+      } else {
+        p <- ggplot(filtered_data_kl(), 
+                    aes(x = language, y=age_months, fill =KL, color = KL))+
+          geom_boxplot(alpha = .7, 
+                       color = "black") +
+          geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
+                     show.legend = FALSE)+
+          theme_bw(base_size=14) +
+          scale_fill_solarized("Knower level") + 
+          scale_color_solarized("Knower level") + 
+          labs(x = 'Language', 
+               y = "Age (months)") +
+          coord_flip() + 
+          guides(fill = guide_legend(reverse = TRUE))
+      }
     }
     p
   })
