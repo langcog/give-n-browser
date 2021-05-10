@@ -101,22 +101,21 @@ create_wynn_df <- function(df) {
     
     ## First, for each subject and for each query we total up the number of trials and the number of times the child correctly gave on that trial
     correct_df <-  d.subset%>% #correct
-      group_by(Subject, Query)%>%
-      summarise(num_trials = n(), 
+      group_by(Experiment, Subject, Query)%>%
+      summarise(num_trials = n(),
                 num_correct = sum(correct))
-    
+
     ## Next, we look at the actual numbers that children were giving incorrectly on false gives
     ## This will let us sum up, for a given query, how often children gave that number falsely for another number
     false_give_df <- d.subset %>% # false gives
       filter(!is.na(resp_false_give))%>%
-      group_by(Subject, resp_false_give)%>%
+      group_by(Experiment, Subject, resp_false_give)%>%
       summarise(num_false_give = sum(false_give))%>%
       dplyr::rename("Query" = "resp_false_give")
-    
-    #Now, left join the correct and the false give summaries together: 
+
+    #Now, left join the correct and the false give summaries together:
     ## This will give us: Subject, Query, num_trials (how many trials child was asked about n), num_correct (successes), num_false_gives, dataset
-    tmp_wynn_df <- left_join(correct_df, false_give_df, by = c("Subject", "dataset_id", "Query"))%>% ## TODO check if this works!!!
-      mutate(dataset = d)
+    tmp_wynn_df <- left_join(correct_df, false_give_df, by = c("Subject", "Experiment", "Query")) ## TODO check if this works!!!
     
     ## Push these to our placeholder df
     full_wynn_df <- bind_rows(full_wynn_df, tmp_wynn_df)
@@ -133,7 +132,7 @@ create_wynn_df <- function(df) {
 
 ## Run all of this on the trial data
 final_wynn_df <- create_wynn_df(trial_level_data) #hooray this works!
-
+  
 
 ## Next! On the basis of these totals, we need to determine whether numbers are known or unknown
 ### Conditions for "possibly known" (all of these are on query-level basis) (these are reflected in order of ifelse statements below): 
