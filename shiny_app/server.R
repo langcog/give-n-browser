@@ -322,19 +322,37 @@ server <- function(input, output, session) {
     output$table <- renderDataTable({
       
       if (input$method_choice_kl) {
-        kl_table <- filtered_data_kl() %>%
-          group_by(language, method, KL)%>%
-          summarise(n = n(), 
-                    `Mean age` = round(mean(age_months, na.rm = TRUE),2), 
-                    `SD age` = round(sd(age_months, na.rm = TRUE),2), 
-                    `Median age` = round(median(age_months, na.rm = TRUE), 2))
+        if (input$cp_subset_kl) {
+          kl_table <- filtered_data_kl() %>%
+            group_by(language, method, CP_subset)%>%
+            summarise(n = n(), 
+                      `Mean age` = round(mean(age_months, na.rm = TRUE),2), 
+                      `SD age` = round(sd(age_months, na.rm = TRUE),2), 
+                      `Median age` = round(median(age_months, na.rm = TRUE), 2))
+        } else {
+          kl_table <- filtered_data_kl() %>%
+            group_by(language, method, KL)%>%
+            summarise(n = n(), 
+                      `Mean age` = round(mean(age_months, na.rm = TRUE),2), 
+                      `SD age` = round(sd(age_months, na.rm = TRUE),2), 
+                      `Median age` = round(median(age_months, na.rm = TRUE), 2))
+        }
       } else {
-        kl_table <- filtered_data_kl() %>%
-          group_by(language, KL)%>%
-          summarise(n = n(), 
-                    `Mean age` = round(mean(age_months, na.rm = TRUE),2), 
-                    `SD age` = round(sd(age_months, na.rm = TRUE),2), 
-                    `Median age` = round(median(age_months, na.rm = TRUE), 2))
+        if (input$cp_subset_kl) {
+          kl_table <- filtered_data_kl() %>%
+            group_by(language, CP_subset)%>%
+            summarise(n = n(), 
+                      `Mean age` = round(mean(age_months, na.rm = TRUE),2), 
+                      `SD age` = round(sd(age_months, na.rm = TRUE),2), 
+                      `Median age` = round(median(age_months, na.rm = TRUE), 2))
+        } else {
+          kl_table <- filtered_data_kl() %>%
+            group_by(language, KL)%>%
+            summarise(n = n(), 
+                      `Mean age` = round(mean(age_months, na.rm = TRUE),2), 
+                      `SD age` = round(sd(age_months, na.rm = TRUE),2), 
+                      `Median age` = round(median(age_months, na.rm = TRUE), 2))
+        }
       }
       kl_table
     })
@@ -428,47 +446,69 @@ server <- function(input, output, session) {
   ### Conditional for if KL if method is selected and v.v.
   if (input$kl_selector) {
     if (input$method_choice_item) {
-      p <- ggplot(filtered_data_item(), 
-        aes(x = Response, fill = method)) +
+      counts <- method_df_kl %>%
+        group_by(Query, KL)%>%
+        summarise(full.n = sum(total.n))
+      
+       p <-  ggplot(method_df_kl, 
+        aes(x = Response, y = prop, fill = method)) +
         geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-        geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+        geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
                        binwidth = 1) + 
         scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
         scale_fill_solarized("Method") +
         theme_bw(base_size=14) +
         theme(legend.position = "right",
               panel.grid = element_blank()) +
-        labs(y = "Density of responses", x = "Number given")+
-        facet_grid(KL~Query)
+        labs(y = "Proportion of responses", x = "Number given")+
+        facet_grid(KL~Query) + 
+        geom_text(data = counts, aes(x = max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
+                  size = 5, inherit.aes = FALSE, parse = FALSE)
     } else {
-      p <- ggplot(filtered_data_item(), 
-                      aes(x = Response, fill = as.factor(Query))) + 
+      counts <- kl_hist %>%
+        group_by(Query, KL)%>%
+        summarise(full.n = sum(total.n))
+      
+      p <- ggplot(kl_hist, 
+                      aes(x = Response, y = prop, fill = as.factor(Query))) + 
         geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-        geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+        geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
                        binwidth = 1) +
         scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
         scale_fill_solarized() +
         theme_bw(base_size=14) +
         theme(legend.position = "none", 
               panel.grid = element_blank()) +
-        labs(y = "Density of responses", x = "Number given")+
-        facet_grid(KL~Query)
+        labs(y = "Proportion of responses", x = "Number given")+
+        facet_grid(KL~Query) + 
+        geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
+                  size = 5, inherit.aes = FALSE, parse = FALSE)
     }
   } else {
     if (input$method_choice_item) {
-      p <- ggplot(filtered_data_item(), 
-          aes(x = Response, fill = method)) +
+      counts <- method_df %>%
+        group_by(Query)%>%
+        summarise(full.n = sum(total.n))
+      
+       p <- ggplot(method_df, 
+          aes(x = Response, y = prop, fill = method)) +
           geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-          geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
-                       binwidth = 1) 
+          geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
           scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
           scale_fill_solarized("Method") +
           theme_bw(base_size=14) +
           theme(legend.position = "right",
                 panel.grid = element_blank()) +
-          labs(y = "Density of responses", x = "Number given")+
-          facet_grid(~Query)
+          labs(y = "Proportion of responses", x = "Number given")+
+          facet_grid(~Query) + 
+            geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
+                      size = 5, inherit.aes = FALSE, parse = FALSE) 
     } else {
+      counts <- avg_item %>%
+        group_by(Query)%>%
+        summarise(full.n = sum(total.n))
+      
       p <- ggplot(filtered_data_item(),
                   aes(x = Response, fill = as.factor(Query))) +
         geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
@@ -480,7 +520,9 @@ server <- function(input, output, session) {
         theme(legend.position = "none",
               panel.grid = element_blank()) +
         labs(y = "Density of responses", x = "Number given")+
-        facet_wrap(~Query)
+        facet_wrap(~Query) + 
+        geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
+                  size = 5, inherit.aes = FALSE, parse = FALSE) 
     }
   } 
     p
