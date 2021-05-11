@@ -192,14 +192,14 @@ track_successes <- function(df) {
   ## Get all the unique subject IDs
   unique_subs <- as.vector(unique(tmp.df$Subject))
   ## also need to do this by datasets because we have sometimes non-unique SIDs - this will be fixed when we switch to indexing participant ID from 0
-  unique_datasets <- as.vector(unique(tmp.df$dataset))
+  unique_datasets <- as.vector(unique(tmp.df$Experiment))
   ## Make a placeholder DF where we can push data
   tracker.df <- data.frame()
 
   ## Loop through each dataset
   for (d in unique_datasets) {  
     d.subset <- df %>%
-      filter(dataset == d)
+      filter(Experiment == d)
     ## Loop through each subject
     for (s in unique_subs) {
       s.df <- tmp.df %>%
