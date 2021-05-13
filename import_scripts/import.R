@@ -147,6 +147,42 @@ final_wynn_df <- create_wynn_df(trial_level_data) #hooray this works!
 ## Finally, I created a 'tracker' variable to make sure we were dealing with every case to make sure that we're uniquely assigning known/unknown
 ## So far this seems to be workng??
 
+
+
+# LAO's re-creation of the function following the above rules
+## assign whether N known for each subject's N queried
+nKnow.df <- final_wynn_df %>% 
+  mutate(knowN = case_when(
+    num_correct / num_trials < 2/3 | 
+      num_correct / (num_correct+num_false_give) < 2/3 | 
+      num_correct / (num_failures+num_false_give) < 2/3 ~ -1, # definitely does not know N
+    num_correct / num_trials >= 2/3 & num_false_give == 0 |
+      num_correct / num_trials >= 2/3 & num_correct / (num_correct + num_false_give) >= 2/3 ~ Query, # maybe knows N
+    TRUE ~ NaN # if neither of the rules, then NaN appears ==> there's an Error
+  )) # no Errors seem to be occurring
+
+## assign KL by taking the lowest N failure and subtracting 1
+## note: this leaves assignments blank for subjs that pass all tests (we deal with this in next code chunk)
+lowestFail <- nKnow.df %>% 
+  filter(knowN == -1) %>%
+  group_by(Experiment, Subject) %>%
+  summarise(minKnown = min(Query) - 1)
+
+## joins KL with their by-Nquery results, and fills in CP knowers
+assignKL.LAO <- nKnow.df %>%
+  left_join(lowestFail) %>%
+  mutate(minKnown = ifelse(is.na(minKnown), "CP", as.character(minKnown))) %>% # assign KL of "CP" if passed all the tests
+  #distinct(Experiment, Subject, minKnown) %>% # uncomment to look at just subjects and assigned KL
+  filter(Subject %in% c("030320-CR", "020620-LM", "020620-TS", "020420-ZL")) # filter subjects that were suspected errors
+
+head(assignKL.LAO, 20)
+
+
+  
+  
+  
+  
+
 ##TODO: this is failing when there are false gives and failures
 
 tmp_assignment <- final_wynn_df %>%
@@ -162,6 +198,8 @@ tmp_assignment <- final_wynn_df %>%
                                  ifelse((possibly_known == 1 & definitely_unknown == 1), "HELP", # this is conflicting, seems to be known and unknown
                                         ifelse((possibly_known == 0 & definitely_unknown == 0), "CHECK", "Other")))))  #This would probably come up when we have no data for a trial
 
+
+unique(tmp_assignment$tracker)
 ##TODO - write function that checks for issues
 
 ## Okay and this is where the magic happens
