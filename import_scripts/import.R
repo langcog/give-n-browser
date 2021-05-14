@@ -168,6 +168,26 @@ lowestFail <- nKnow.df %>%
   group_by(Experiment, Subject) %>%
   summarise(minKnown = min(Query) - 1)
 
+### To assign KLs: 
+## 1. If there are no successes, then the kid is a non-knower
+## 2. If there are no failures, then the kid is a max number knower (w/e the max number is) 
+
+assignKL.RMS <- nKnow.df %>%
+  group_by(Experiment, Subject)%>%
+  mutate(KL.assign  = case_when(
+    max(knowN) <= -1 ~ "Non-knower", 
+    min(knowN) > 0 ~ "Max-knower", 
+    Query == min(Query) & knowN == -1 ~"Non-knower")
+  )%>%
+  group_by(Experiment, Subject)%>%
+  mutate(KL.assign = ifelse("Non-knower" %in% KL.assign, "Non-knower", as.character(KL.assign)))
+
+tricky <- assignKL.RMS %>%
+  filter(is.na(KL.assign))%>%
+  group_by(Experiment, Subject)%>% ## get the lowest number for which they failed
+  
+  
+
 ## joins KL with their by-Nquery results, and fills in CP knowers
 assignKL.LAO <- nKnow.df %>%
   left_join(lowestFail) %>%
