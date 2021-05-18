@@ -1331,7 +1331,7 @@ Boni20xx_random,129,Tsimane,48,NA
 Boni20xx_random,130,Tsimane,60,NA
 Boni20xx_random,131,Tsimane,72,NA
 SchneiderBarner_2020,011519-AS,English,49,CP
-SchneiderBarner_2020,011519-R,English,47,4
+SchneiderBarner_2020,011519-R,English,47,5
 SchneiderBarner_2020,011519-AC,English,43,4
 SchneiderBarner_2020,011519-VF,English,51,CP
 SchneiderBarner_2020,011619-TH,English,46,CP
@@ -1399,7 +1399,7 @@ SchneiderBarner_2020,022219-AB,English,47,1
 SchneiderBarner_2020,022219-JF,English,37,2
 SchneiderBarner_2020,022219-EL,English,42,CP
 SchneiderBarner_2020,022219-A,English,39,CP
-SchneiderBarner_2020,022219-BW,English,47,4
+SchneiderBarner_2020,022219-BW,English,47,3
 SchneiderBarner_2020,022219-ZA,English,59,CP
 SchneiderBarner_2020,022519-SW,English,47,2
 SchneiderBarner_2020,022619-AY,English,42,2
@@ -1543,7 +1543,7 @@ SchneiderBarner_20xx,2220-I,English,59,CP
 SchneiderBarner_20xx,2220-P,English,39,CP
 SchneiderBarner_20xx,020520-JB,English,43,1
 SchneiderBarner_20xx,020520-AM,English,45,0
-SchneiderBarner_20xx,020520-EM,English,44,3
+SchneiderBarner_20xx,020520-EM,English,44,0
 SchneiderBarner_20xx,020520-DE,English,46,3
 SchneiderBarner_20xx,020520-EMH,English,48,1
 SchneiderBarner_20xx,020520-JB2,English,38,3
@@ -1561,7 +1561,7 @@ SchneiderBarner_20xx,020720-E,English,56,CP
 SchneiderBarner_20xx,020720-JO,English,49,4
 SchneiderBarner_20xx,020720-AM,English,47,2
 SchneiderBarner_20xx,020720-LM,English,49,5
-SchneiderBarner_20xx,020720-TS,English,47,4
+SchneiderBarner_20xx,020720-TS,English,47,3
 SchneiderBarner_20xx,020720-CVC,English,65,CP
 SchneiderBarner_20xx,020720-SJ,English,52,CP
 SchneiderBarner_20xx,020720-PT,English,56,CP
@@ -1570,6 +1570,7 @@ SchneiderEtAl_20xx,022619-LD,English,39,2
 SchneiderEtAl_20xx,022619-LR,English,33,1
 SchneiderEtAl_20xx,022619-RG,English,35,1
 SchneiderEtAl_20xx,022619-T,English,41,2
+SchneiderEtAl_20xx,022619-D,English,32,1
 SchneiderEtAl_20xx,022619-D,English,32,3
 SchneiderEtAl_20xx,022719-B,English,43,2
 SchneiderEtAl_20xx,022719-CH,English,41,3
@@ -1629,7 +1630,7 @@ SchneiderEtAl_20xx,032619-W,English,42,2
 SchneiderEtAl_20xx,032619-G,English,37,1
 SchneiderEtAl_20xx,032719-G,English,46,CP
 SchneiderEtAl_20xx,032919-C,English,39,2
-SchneiderEtAl_20xx,032919-W,English,36,1
+SchneiderEtAl_20xx,032919-W,English,36,2
 SchneiderEtAl_20xx,032919-K,English,44,2
 SchneiderEtAl_20xx,040319-M,English,41,CP
 SchneiderEtAl_20xx,040219-NS,English,44,CP
@@ -1645,7 +1646,7 @@ SchneiderEtAl_20xx,071219-BG,English,30,2
 SchneiderEtAl_20xx,071019-W,English,45,CP
 SchneiderEtAl_20xx,071019-TR,English,47,CP
 SchneiderEtAl_20xx,071019-S,English,46,1
-SchneiderEtAl_20xx,071019-S2,English,32,3
+SchneiderEtAl_20xx,071019-S2,English,32,4
 SchneiderEtAl_20xx,071019-MF,English,43,CP
 SchneiderEtAl_20xx,071019-K,English,43,CP
 SchneiderEtAl_20xx,071019-C,English,41,2
@@ -1753,7 +1754,7 @@ SchneiderYen_20xx,010620-A,English,59,CP
 SchneiderYen_20xx,020420-DL,English,47,0
 SchneiderYen_20xx,020420-JB,English,50,3
 SchneiderYen_20xx,020420-FRJ,English,49,3
-SchneiderYen_20xx,020420-EMH,English,48,4
+SchneiderYen_20xx,020420-EMH,English,48,1
 SchneiderYen_20xx,020420-MK,English,55,2
 SchneiderYen_20xx,020420-AS,English,62,CP
 SchneiderYen_20xx,020420-ZL,English,60,CP
