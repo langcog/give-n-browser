@@ -11,7 +11,7 @@ source(here("import_scripts/helper.R"))
 
 ## NB: in some cases, KL for participants will have to be added later. This will be done via Wynn KL (included at the end of this script)
 
-## read in processed data
+## read in processed data fdsak
 kl_only_data <- read_csv(here("data/processed-data/kl_data_processed.csv")) #data is cleaned and processed in another script
 trial_level_data <- read_csv(here('data/processed-data/trial_level_processed_data.csv'))
 
@@ -115,7 +115,7 @@ create_wynn_df <- function(df) {
 
     #Now, left join the correct and the false give summaries together:
     ## This will give us: Subject, Query, num_trials (how many trials child was asked about n), num_correct (successes), num_false_gives, dataset
-    tmp_wynn_df <- left_join(correct_df, false_give_df, by = c("Subject", "Experiment", "Query")) ## TODO check if this works!!!
+    tmp_wynn_df <- left_join(correct_df, false_give_df, by = c("Subject", "Experiment", "Query")) 
     
     ## Push these to our placeholder df
     full_wynn_df <- bind_rows(full_wynn_df, tmp_wynn_df)
@@ -144,12 +144,6 @@ final_wynn_df <- create_wynn_df(trial_level_data) #hooray this works!
 #### b. If number of successes/(number of successes + number of false gives) < 2/3
 #### c. If number of successes/(number of failures + number of false gives) < 2/3
 
-## Finally, I created a 'tracker' variable to make sure we were dealing with every case to make sure that we're uniquely assigning known/unknown
-## So far this seems to be workng??
-
-
-
-# LAO's re-creation of the function following the above rules
 ## assign whether N known for each subject's N queried
 nKnow.df <- final_wynn_df %>% 
   mutate(knowN = case_when(
@@ -161,168 +155,62 @@ nKnow.df <- final_wynn_df %>%
     TRUE ~ NaN # if neither of the rules, then NaN appears ==> there's an Error
   )) # no Errors seem to be occurring
 
-## assign KL by taking the lowest N failure and subtracting 1
-## note: this leaves assignments blank for subjs that pass all tests (we deal with this in next code chunk)
-lowestFail <- nKnow.df %>% 
-  filter(knowN == -1) %>%
-  group_by(Experiment, Subject) %>%
-  summarise(minKnown = min(Query) - 1)
 
 ### To assign KLs: 
 ## 1. If there are no successes, then the kid is a non-knower
 ## 2. If there are no failures, then the kid is a max number knower (w/e the max number is) 
-
-assignKL.RMS <- nKnow.df %>%
+##this handles the easy cases above
+easyAssign <- nKnow.df %>%
   group_by(Experiment, Subject)%>%
   mutate(KL.assign  = case_when(
-    max(knowN) <= -1 ~ "Non-knower", 
-    min(knowN) > 0 ~ "Max-knower", 
-    Query == min(Query) & knowN == -1 ~"Non-knower")
+    Query == 1 & knowN == -1 ~ 0,
+    max(knowN) <= -1 ~ min(Query), 
+    min(knowN) > 0 ~ max(Query))
   )%>%
   group_by(Experiment, Subject)%>%
-  mutate(KL.assign = ifelse("Non-knower" %in% KL.assign, "Non-knower", as.character(KL.assign)))
+  mutate(KL.assign = ifelse(0 %in% KL.assign, 0, as.numeric(KL.assign)))
 
-tricky <- assignKL.RMS %>%
+## Now we need to handle kids who have a mix of successes and errors
+## We need to get contiguous KLs for kids, and need to only assign KLs on the basis of the numbers we've tested
+## First getting the lowest failure
+lowestFail <- easyAssign %>%
+  filter(is.na(KL.assign), 
+         knowN == -1)%>%
+  group_by(Experiment, Subject)%>%
+  summarise(minFail = min(Query))
+
+## Then using that lowest failure to get the highest number below that (that was queried) for which we have data
+highestSuccess <- easyAssign %>%
   filter(is.na(KL.assign))%>%
-  group_by(Experiment, Subject)%>% ## get the lowest number for which they failed
-  
-  
-
-## joins KL with their by-Nquery results, and fills in CP knowers
-assignKL.LAO <- nKnow.df %>%
   left_join(lowestFail) %>%
-  mutate(minKnown = ifelse(is.na(minKnown), "CP", as.character(minKnown))) %>% # assign KL of "CP" if passed all the tests
-  #distinct(Experiment, Subject, minKnown) %>% # uncomment to look at just subjects and assigned KL
-  filter(Subject %in% c("030320-CR", "020620-LM", "020620-TS", "020420-ZL")) # filter subjects that were suspected errors
+  group_by(Experiment, Subject)%>%
+  filter(Query < minFail)%>%
+  mutate(KL.assign = max(Query))%>%
+  select(-minFail)%>%
+  distinct(Experiment, Subject, KL.assign)
 
-head(assignKL.LAO, 20)
+## Now get everyone else
+nonMaxKnowers <- easyAssign%>%
+  filter(!is.na(KL.assign))%>%
+  distinct(Experiment, Subject, KL.assign)
 
+wynnAssignments <- bind_rows(nonMaxKnowers, highestSuccess)
 
-  
-  
-  
-  
+## now join these to the full dataset
+fullWynn <- all_data %>%
+  left_join(wynnAssignments)%>%
+  mutate(KL.assign = ifelse(((Experiment == "Almoammer2013" | Experiment == "Marusic2016") & as.numeric(as.character(KL.assign)) >=5), "CP", 
+                             ifelse(as.numeric(as.character(KL.assign)) >= 6, "CP", as.character(KL.assign))), 
+         KL.assign = ifelse(as.numeric(as.character(KL.assign)) == 6, "CP", as.character(KL.assign)))
 
-##TODO: this is failing when there are false gives and failures
+##check for issues - this will only show issues when there is an experimenter-assigned KL
+## TODO: spot check for other datasets
+flags <- fullWynn %>%
+  filter(KL != KL.assign)%>%
+  filter(KL != "Subset")%>%
+  distinct(Experiment, Subject)
 
-tmp_assignment <- final_wynn_df %>%
-  mutate(possibly_known = ifelse(((num_correct/num_trials >= 2/3) & num_false_give == 0), 1, #if they are successful 2/3 of the time with no false gives
-                                 ifelse((((num_correct/num_trials >= 2/3) & 
-                                           ((num_correct/(num_correct+num_false_give)) >= 2/3) & (num_correct/(num_false_give+num_failures)) >= 2/3)), 1, 0)), #if they are successful 2/3 time and of times they gave n it was in response to n at least 2/3 of the time
-         definitely_unknown = ifelse(((num_correct/num_trials) < 2/3), 1, 
-                                     ifelse(((num_correct/(num_correct+num_false_give)) < 2/3), 1,
-                                            ifelse((num_correct/(num_false_give + num_failures) < 2/3), 1, 0))), 
-         ## the 'tracker' is using known and unknown to identify a particular number as DEFINITELY known or DEFINITELY unknown
-         tracker = ifelse((possibly_known == 1 & definitely_unknown == 0), 1, # this is definitely known
-                          ifelse((possibly_known == 0 & definitely_unknown == 1), 0, # this is definitely unknown
-                                 ifelse((possibly_known == 1 & definitely_unknown == 1), "HELP", # this is conflicting, seems to be known and unknown
-                                        ifelse((possibly_known == 0 & definitely_unknown == 0), "CHECK", "Other")))))  #This would probably come up when we have no data for a trial
-
-
-unique(tmp_assignment$tracker)
-##TODO - write function that checks for issues
-
-## Okay and this is where the magic happens
-## For each subject, for each query that was tested within that dataset, we have it determined as known or unknown
-## Now we need to use that information to assign a knower level
-## The key assumption of this model is that we're assigning contiguous KLs - e.g., if kid knows 1, 2, and 4, they're credited as a 2-knower
-## We're doing this row by row (ie number by number); This is assuming that the values are sorted in ascending numerical order, which I believe is not enforced anywhere
-
-
-### NB will have to handle by dataset as well for SIDs that might have been tested twice but have different KLs
-track_successes <- function(df) {
-  
-  ## Okay this is a little messy, but what I'm trying to do is identify successes and uniquely identify them so we can assign KL using the following logic:
-  ## FYI I'm using -50 and -100 as numeric placeholder for failures, whereas successes are simply the queried number
-  ### a. If the queried number is 1 and the child failed it, they're a non-knower (because they failed 1); This is identified as -100 in the success tracker
-  ### b. Otherwise, we're keeping track of the last successful number
-  ### c. If the current tracker = 0 (ie the current number is not known) but the last number is known, success tracker is -50
-  ### d. if the current tracker = 0 and previous tracker = 0, success tracker is -50
-  tmp.df <- df %>%
-    mutate(success_tracker = ifelse((tracker == 0 & Query == 1), -100, #if this is the first # and tracker is 0, NON
-                                    ifelse(tracker == 1, Query, #otherwise, keep track of last successful number
-                                           ifelse((tracker == 0 & lag(tracker) == 1), -50, 
-                                                  ifelse((tracker == 0 & lag(tracker) == 0), -50, "help")))))
-  
-  ##TODO - add function that will throw error if there is a help in this df
-  
-  ## Okay so now we have to do this for each subject
-  ## Get all the unique subject IDs
-  unique_subs <- as.vector(unique(tmp.df$Subject))
-  ## also need to do this by datasets because we have sometimes non-unique SIDs - this will be fixed when we switch to indexing participant ID from 0
-  unique_datasets <- as.vector(unique(tmp.df$Experiment))
-  ## Make a placeholder DF where we can push data
-  tracker.df <- data.frame()
-
-  ## Loop through each dataset
-  for (d in unique_datasets) {  
-    d.subset <- df %>%
-      filter(Experiment == d)
-    ## Loop through each subject
-    for (s in unique_subs) {
-      s.df <- tmp.df %>%
-        filter(Subject == s)
-      
-      ## If the minimum of the success tracker is -100, they're a non-knower
-      if (min(s.df$success_tracker) == -100) {
-        tmp.s.df <- data.frame(Subject = s, 
-                       Assignment = '0', 
-                       Experiment = d)
-      ## Otherwise, if they haven't gotten anything wrong and there are no NAs, then they've succeeded on everything
-        ## so their KL assignment is the highest number tested
-      } else if (min(s.df$success_tracker) > 0) { #if they haven't gotten anything wrong, and there are no NAs
-        highest_num <- max(s.df$success_tracker)
-        tmp.s.df <- data.frame(Subject = s, 
-                               Assignment = as.character(highest_num), 
-                               Experiment = d)
-      ## If they've gotten something incorrect, then get the MINIMUM number for which they failed and filter out anything above this number (because KLs are contiguous)
-      ## Then get the maximum number in their success tracker after this
-      } else if (min(s.df$success_tracker) == -50) { #if they have gotten something incorrect 
-        #then we should get the *minimum* number for which they failed
-        min.fail <- s.df %>%
-          filter(success_tracker == -50)
-        
-        min.fail.num <- min(min.fail$Query) #get the minimum number for which they failed
-        
-        #filter out anything in main df above this
-        s.df <- s.df %>%
-          filter(Query < min.fail.num)
-        
-        #now get the maximum number in their success tracker after this
-        max.succeed.num <- max(s.df$success_tracker)
-        
-        tmp.s.df <- data.frame(Subject = s, 
-                               Assignment = as.character(max.succeed.num), 
-                               Experiment = d)
-      ## If we get to the end and we haven't assigned a KL, it will be -500 for debugging  
-      } else {
-        tmp.s.df <- data.frame(Subject = s, 
-                               Assignment = '-500', 
-                               Experiment = d)
-      }
-      #bind these suckers together
-      tracker.df <- bind_rows(tracker.df, tmp.s.df)
-    }
-  }
-  return(tracker.df)
-}
-
-checking_assignments <- track_successes(tmp_assignment) # this is taking a really long time and has a bunch of warnings, not sure why 
-
-## Add CP assignment
-checking_assignments <- checking_assignments %>%
-  mutate(Assignment = ifelse(((Experiment == "Almoammer2013" | Experiment == "Marusic2016") & as.numeric(as.character(Assignment)) >=5), "CP", 
-                             ifelse(as.numeric(as.character(Assignment)) >= 6, "CP", as.character(Assignment))), 
-         Assignment = ifelse(as.numeric(as.character(Assignment)) == 6, "CP", as.character(Assignment)))
-           
-##TODO - special cases for CP??
-
-#bind with original for checking
-tmp_check <- left_join(all_data, checking_assignments, by = c("Subject", "Experiment"))%>%
-  mutate(KL_check = ifelse(KL != Assignment, "FLAG", "Fine"))
-
-flags <- tmp_check %>%
-  filter(KL_check == "FLAG")%>%
-  distinct(Subject, Experiment, KL,Assignment)
+# ##write to csv for troubleshooting
+# write.csv(flags, "checks.csv")
 
 
