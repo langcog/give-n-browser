@@ -295,7 +295,8 @@ schneider_etal_2020 <- read.csv('data/data-raw/trial-level/data-raw/SchneiderEtA
          !is.na(Response))%>%
   mutate(Age = 12*as.numeric(as.character(Age)), 
          Query = as.numeric(as.character(Query)), 
-         method = "Non-titrated")
+         method = "Non-titrated", 
+         cite = "Schneider, R. M., Sullivan, J., Marusic, F., Biswas, P., Mismas, P., Plesnicar, V., & Barner, D. (2020). Do children use language structure to discover the recursive rules of counting?. Cognitive psychology, 117, 101263.")
 
 #calculate KL - this is either subset or CP
 xculture.kl <- schneider_etal_2020 %>%
@@ -335,7 +336,8 @@ all.data <- bind_rows(almoammer2013_english,
          Response >= 1)%>% ##get rid of NAs 
   mutate(Age_months = round(as.numeric(as.character(Age_months), 4)), 
          Age_years = floor(Age_months)/12)%>%
-  dplyr::select(Experiment, lab, Language, Subject, Age_months, Age_years, method, Query, Response, cite)
+  mutate(typical = ifelse(Experiment == "SchneiderEtAl_2020", "non-typical", "typical"))%>%
+  dplyr::select(Experiment, lab, Language, Subject, Age_months, Age_years, method, Query, Response, cite, typical)
 
 # Save and export ----
 write_csv(all.data, here::here('data/processed-data/trial_level_processed_data.csv'))

@@ -51,7 +51,8 @@ data.raw %<>%
                                                           ifelse(Experiment == "SchneiderBarner_20xx", "Schneider, R.M., Feiman, R., & Barner, D. (unpublished dataset).", 
                                                                  ifelse(Experiment == "SchneiderEtAl_20xx", "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.",
                                                                         ifelse(Experiment == "SchneiderEtAl_2020", "Schneider, R. M., Sullivan, J., Marusic, F., Biswas, P., Mismas, P., Plesnicar, V., & Barner, D. (2020). Do children use language structure to discover the recursive rules of counting?. Cognitive psychology, 117, 101263.",
-                                                                        "Schneider, R.M., Yen, A., & Barner, D. (unpublished dataset)."))))))))))
+                                                                        "Schneider, R.M., Yen, A., & Barner, D. (unpublished dataset)."))))))))))%>%
+  mutate(typical = ifelse(Experiment == "SchneiderEtAl_2020", "non-typical", "typical"))
 
 # Save and export ----
 write_csv(data.raw, here::here("data/processed-data/kl_data_processed.csv"))

@@ -199,18 +199,22 @@ wynnAssignments <- bind_rows(nonMaxKnowers, highestSuccess)
 ## now join these to the full dataset
 fullWynn <- all_data %>%
   left_join(wynnAssignments)%>%
-  mutate(KL.assign = ifelse(((Experiment == "Almoammer2013" | Experiment == "Marusic2016") & as.numeric(as.character(KL.assign)) >=5), "CP", 
-                             ifelse(as.numeric(as.character(KL.assign)) >= 6, "CP", as.character(KL.assign))), 
-         KL.assign = ifelse(as.numeric(as.character(KL.assign)) == 6, "CP", as.character(KL.assign)))
+  mutate(KL.assign = ifelse(((Experiment == "Almoammer2013" | Experiment == "Marusic2016") 
+                             & as.numeric(as.character(KL.assign)) >=5), "CP", 
+                             ifelse(as.numeric(as.character(KL.assign)) >= 6, "CP", as.character(KL.assign))))
 
 ##check for issues - this will only show issues when there is an experimenter-assigned KL
 ## TODO: spot check for other datasets
-flags <- fullWynn %>%
-  filter(KL != KL.assign)%>%
-  filter(KL != "Subset")%>%
-  distinct(Experiment, Subject)
+# flags <- fullWynn %>%
+#   filter(KL != KL.assign)%>%
+#   filter(KL != "Subset")%>%
+#   distinct(Experiment, Subject)
 
 # ##write to csv for troubleshooting
 # write.csv(flags, "checks.csv")
+
+## now need to do a spot check for other datasets
+spotCheck <- fullWynn %>%
+  filter(is.na(KL))
 
 
