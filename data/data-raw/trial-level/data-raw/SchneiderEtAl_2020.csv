@@ -1,0 +1,2541 @@
+Experiment,Subject,Language,Age,Sex,Query,Response
+SchneiderEtAl_2020,AM-10,English (India),3.81382615,M,6,4
+SchneiderEtAl_2020,AM-10,English (India),3.81382615,M,9,7
+SchneiderEtAl_2020,AM-10,English (India),3.81382615,M,7,4
+SchneiderEtAl_2020,AM-10,English (India),3.81382615,M,5,5
+SchneiderEtAl_2020,AM-11,English (India),3.60027379,M,6,1
+SchneiderEtAl_2020,AM-11,English (India),3.60027379,M,9,NA
+SchneiderEtAl_2020,AM-11,English (India),3.60027379,M,7,1
+SchneiderEtAl_2020,AM-11,English (India),3.60027379,M,5,1
+SchneiderEtAl_2020,AM-12,English (India),4.72826831,M,6,6
+SchneiderEtAl_2020,AM-12,English (India),4.72826831,M,9,9
+SchneiderEtAl_2020,AM-12,English (India),4.72826831,M,7,7
+SchneiderEtAl_2020,AM-12,English (India),4.72826831,M,5,5
+SchneiderEtAl_2020,AM-13,English (India),4.75290897,M,6,10
+SchneiderEtAl_2020,AM-13,English (India),4.75290897,M,9,9
+SchneiderEtAl_2020,AM-13,English (India),4.75290897,M,7,9
+SchneiderEtAl_2020,AM-13,English (India),4.75290897,M,5,9
+SchneiderEtAl_2020,AM-13-RS,English (India),3.90965092,M,6,7
+SchneiderEtAl_2020,AM-13-RS,English (India),3.90965092,M,9,NA
+SchneiderEtAl_2020,AM-13-RS,English (India),3.90965092,M,7,NA
+SchneiderEtAl_2020,AM-13-RS,English (India),3.90965092,M,5,4
+SchneiderEtAl_2020,AM-14,English (India),4.64613279,M,6,6
+SchneiderEtAl_2020,AM-14,English (India),4.64613279,M,9,10
+SchneiderEtAl_2020,AM-14,English (India),4.64613279,M,7,10
+SchneiderEtAl_2020,AM-14,English (India),4.64613279,M,5,5
+SchneiderEtAl_2020,AM-15,English (India),4.13963039,M,6,6
+SchneiderEtAl_2020,AM-15,English (India),4.13963039,M,9,9
+SchneiderEtAl_2020,AM-15,English (India),4.13963039,M,7,7
+SchneiderEtAl_2020,AM-15,English (India),4.13963039,M,5,5
+SchneiderEtAl_2020,AM-16,English (India),5.76317591,M,6,6
+SchneiderEtAl_2020,AM-16,English (India),5.76317591,M,9,9
+SchneiderEtAl_2020,AM-16,English (India),5.76317591,M,7,7
+SchneiderEtAl_2020,AM-16,English (India),5.76317591,M,5,5
+SchneiderEtAl_2020,AM-17,English (India),4.58590007,F,6,6
+SchneiderEtAl_2020,AM-17,English (India),4.58590007,F,9,9
+SchneiderEtAl_2020,AM-17,English (India),4.58590007,F,7,7
+SchneiderEtAl_2020,AM-17,English (India),4.58590007,F,5,5
+SchneiderEtAl_2020,AM-18,English (India),4.38056126,F,6,6
+SchneiderEtAl_2020,AM-18,English (India),4.38056126,F,9,9
+SchneiderEtAl_2020,AM-18,English (India),4.38056126,F,7,7
+SchneiderEtAl_2020,AM-18,English (India),4.38056126,F,5,5
+SchneiderEtAl_2020,AM-2,English (India),4.37782341,F,6,6
+SchneiderEtAl_2020,AM-2,English (India),4.37782341,F,9,9
+SchneiderEtAl_2020,AM-2,English (India),4.37782341,F,7,7
+SchneiderEtAl_2020,AM-2,English (India),4.37782341,F,5,5
+SchneiderEtAl_2020,AM-21,English (India),5.82067077,F,6,6
+SchneiderEtAl_2020,AM-21,English (India),5.82067077,F,9,9
+SchneiderEtAl_2020,AM-21,English (India),5.82067077,F,7,7
+SchneiderEtAl_2020,AM-21,English (India),5.82067077,F,5,5
+SchneiderEtAl_2020,AM-22,English (India),5.98220397,F,6,6
+SchneiderEtAl_2020,AM-22,English (India),5.98220397,F,9,9
+SchneiderEtAl_2020,AM-22,English (India),5.98220397,F,7,7
+SchneiderEtAl_2020,AM-22,English (India),5.98220397,F,5,5
+SchneiderEtAl_2020,AM-23,English (India),5.37166324,M,6,6
+SchneiderEtAl_2020,AM-23,English (India),5.37166324,M,9,9
+SchneiderEtAl_2020,AM-23,English (India),5.37166324,M,7,7
+SchneiderEtAl_2020,AM-23,English (India),5.37166324,M,5,5
+SchneiderEtAl_2020,AM-24,English (India),4.88706366,M,6,6
+SchneiderEtAl_2020,AM-24,English (India),4.88706366,M,9,9
+SchneiderEtAl_2020,AM-24,English (India),4.88706366,M,7,7
+SchneiderEtAl_2020,AM-24,English (India),4.88706366,M,5,5
+SchneiderEtAl_2020,AM-25,English (India),5.73305955,F,6,6
+SchneiderEtAl_2020,AM-25,English (India),5.73305955,F,9,9
+SchneiderEtAl_2020,AM-25,English (India),5.73305955,F,7,7
+SchneiderEtAl_2020,AM-25,English (India),5.73305955,F,5,5
+SchneiderEtAl_2020,AM-26,English (India),5.34702259,M,6,2
+SchneiderEtAl_2020,AM-26,English (India),5.34702259,M,9,NA
+SchneiderEtAl_2020,AM-26,English (India),5.34702259,M,7,NA
+SchneiderEtAl_2020,AM-26,English (India),5.34702259,M,5,2
+SchneiderEtAl_2020,AM-27,English (India),6.16290212,F,6,6
+SchneiderEtAl_2020,AM-27,English (India),6.16290212,F,9,9
+SchneiderEtAl_2020,AM-27,English (India),6.16290212,F,7,7
+SchneiderEtAl_2020,AM-27,English (India),6.16290212,F,5,5
+SchneiderEtAl_2020,AM-29,English (India),4.76386037,NA,6,3
+SchneiderEtAl_2020,AM-29,English (India),4.76386037,NA,9,NA
+SchneiderEtAl_2020,AM-29,English (India),4.76386037,NA,7,NA
+SchneiderEtAl_2020,AM-29,English (India),4.76386037,NA,5,4
+SchneiderEtAl_2020,AM-3,English (India),4.56399726,F,6,10
+SchneiderEtAl_2020,AM-3,English (India),4.56399726,F,9,NA
+SchneiderEtAl_2020,AM-3,English (India),4.56399726,F,7,NA
+SchneiderEtAl_2020,AM-3,English (India),4.56399726,F,5,10
+SchneiderEtAl_2020,AM-30,English (India),5.11704312,M,6,6
+SchneiderEtAl_2020,AM-30,English (India),5.11704312,M,9,9
+SchneiderEtAl_2020,AM-30,English (India),5.11704312,M,7,7
+SchneiderEtAl_2020,AM-30,English (India),5.11704312,M,5,5
+SchneiderEtAl_2020,AM-31,English (India),6.17659138,M,6,6
+SchneiderEtAl_2020,AM-31,English (India),6.17659138,M,9,9
+SchneiderEtAl_2020,AM-31,English (India),6.17659138,M,7,7
+SchneiderEtAl_2020,AM-31,English (India),6.17659138,M,5,5
+SchneiderEtAl_2020,AM-32,English (India),6.10540726,M,6,6
+SchneiderEtAl_2020,AM-32,English (India),6.10540726,M,9,9
+SchneiderEtAl_2020,AM-32,English (India),6.10540726,M,7,7
+SchneiderEtAl_2020,AM-32,English (India),6.10540726,M,5,5
+SchneiderEtAl_2020,AM-33,English (India),6.09445585,F,6,6
+SchneiderEtAl_2020,AM-33,English (India),6.09445585,F,9,9
+SchneiderEtAl_2020,AM-33,English (India),6.09445585,F,7,7
+SchneiderEtAl_2020,AM-33,English (India),6.09445585,F,5,5
+SchneiderEtAl_2020,AM-34,English (India),6.04243669,M,6,6
+SchneiderEtAl_2020,AM-34,English (India),6.04243669,M,9,9
+SchneiderEtAl_2020,AM-34,English (India),6.04243669,M,7,7
+SchneiderEtAl_2020,AM-34,English (India),6.04243669,M,5,5
+SchneiderEtAl_2020,AM-35,English (India),5.46475017,M,6,6
+SchneiderEtAl_2020,AM-35,English (India),5.46475017,M,9,9
+SchneiderEtAl_2020,AM-35,English (India),5.46475017,M,7,7
+SchneiderEtAl_2020,AM-35,English (India),5.46475017,M,5,5
+SchneiderEtAl_2020,AM-36,English (India),5.12251882,F,6,6
+SchneiderEtAl_2020,AM-36,English (India),5.12251882,F,9,9
+SchneiderEtAl_2020,AM-36,English (India),5.12251882,F,7,7
+SchneiderEtAl_2020,AM-36,English (India),5.12251882,F,5,5
+SchneiderEtAl_2020,AM-38,English (India),6.08350445,F,6,6
+SchneiderEtAl_2020,AM-38,English (India),6.08350445,F,9,9
+SchneiderEtAl_2020,AM-38,English (India),6.08350445,F,7,7
+SchneiderEtAl_2020,AM-38,English (India),6.08350445,F,5,5
+SchneiderEtAl_2020,AM-39,English (India),5.78234086,M,6,6
+SchneiderEtAl_2020,AM-39,English (India),5.78234086,M,9,9
+SchneiderEtAl_2020,AM-39,English (India),5.78234086,M,7,7
+SchneiderEtAl_2020,AM-39,English (India),5.78234086,M,5,5
+SchneiderEtAl_2020,AM-4,English (India),4.15605749,F,6,4
+SchneiderEtAl_2020,AM-4,English (India),4.15605749,F,9,7
+SchneiderEtAl_2020,AM-4,English (India),4.15605749,F,7,NA
+SchneiderEtAl_2020,AM-4,English (India),4.15605749,F,5,6
+SchneiderEtAl_2020,AM-40,English (India),5.48391513,F,6,6
+SchneiderEtAl_2020,AM-40,English (India),5.48391513,F,9,9
+SchneiderEtAl_2020,AM-40,English (India),5.48391513,F,7,7
+SchneiderEtAl_2020,AM-40,English (India),5.48391513,F,5,5
+SchneiderEtAl_2020,AM-41,English (India),5.35523614,F,6,6
+SchneiderEtAl_2020,AM-41,English (India),5.35523614,F,9,9
+SchneiderEtAl_2020,AM-41,English (India),5.35523614,F,7,7
+SchneiderEtAl_2020,AM-41,English (India),5.35523614,F,5,5
+SchneiderEtAl_2020,AM-42,English (India),6.091718,M,6,6
+SchneiderEtAl_2020,AM-42,English (India),6.091718,M,9,9
+SchneiderEtAl_2020,AM-42,English (India),6.091718,M,7,7
+SchneiderEtAl_2020,AM-42,English (India),6.091718,M,5,5
+SchneiderEtAl_2020,AM-43,English (India),5.33880903,M,6,6
+SchneiderEtAl_2020,AM-43,English (India),5.33880903,M,9,9
+SchneiderEtAl_2020,AM-43,English (India),5.33880903,M,7,7
+SchneiderEtAl_2020,AM-43,English (India),5.33880903,M,5,5
+SchneiderEtAl_2020,AM-44,English (India),4.92539357,F,6,6
+SchneiderEtAl_2020,AM-44,English (India),4.92539357,F,9,9
+SchneiderEtAl_2020,AM-44,English (India),4.92539357,F,7,7
+SchneiderEtAl_2020,AM-44,English (India),4.92539357,F,5,5
+SchneiderEtAl_2020,AM-45,English (India),5.45653662,M,6,6
+SchneiderEtAl_2020,AM-45,English (India),5.45653662,M,9,9
+SchneiderEtAl_2020,AM-45,English (India),5.45653662,M,7,7
+SchneiderEtAl_2020,AM-45,English (India),5.45653662,M,5,5
+SchneiderEtAl_2020,AM-46,English (India),6.00684463,M,6,6
+SchneiderEtAl_2020,AM-46,English (India),6.00684463,M,9,9
+SchneiderEtAl_2020,AM-46,English (India),6.00684463,M,7,7
+SchneiderEtAl_2020,AM-46,English (India),6.00684463,M,5,5
+SchneiderEtAl_2020,AM-47,English (India),5.48117728,F,6,6
+SchneiderEtAl_2020,AM-47,English (India),5.48117728,F,9,9
+SchneiderEtAl_2020,AM-47,English (India),5.48117728,F,7,7
+SchneiderEtAl_2020,AM-47,English (India),5.48117728,F,5,5
+SchneiderEtAl_2020,AM-48,English (India),4.66255989,F,6,6
+SchneiderEtAl_2020,AM-48,English (India),4.66255989,F,9,9
+SchneiderEtAl_2020,AM-48,English (India),4.66255989,F,7,7
+SchneiderEtAl_2020,AM-48,English (India),4.66255989,F,5,5
+SchneiderEtAl_2020,AM-49,English (India),5.4017796,M,6,10
+SchneiderEtAl_2020,AM-49,English (India),5.4017796,M,9,NA
+SchneiderEtAl_2020,AM-49,English (India),5.4017796,M,7,NA
+SchneiderEtAl_2020,AM-49,English (India),5.4017796,M,5,10
+SchneiderEtAl_2020,AM-5,English (India),5.06228611,NA,6,6
+SchneiderEtAl_2020,AM-5,English (India),5.06228611,NA,9,9
+SchneiderEtAl_2020,AM-5,English (India),5.06228611,NA,7,7
+SchneiderEtAl_2020,AM-5,English (India),5.06228611,NA,5,5
+SchneiderEtAl_2020,AM-51,English (India),5.07049966,M,6,6
+SchneiderEtAl_2020,AM-51,English (India),5.07049966,M,9,9
+SchneiderEtAl_2020,AM-51,English (India),5.07049966,M,7,7
+SchneiderEtAl_2020,AM-51,English (India),5.07049966,M,5,5
+SchneiderEtAl_2020,AM-52,English (India),5.08145106,M,6,6
+SchneiderEtAl_2020,AM-52,English (India),5.08145106,M,9,9
+SchneiderEtAl_2020,AM-52,English (India),5.08145106,M,7,7
+SchneiderEtAl_2020,AM-52,English (India),5.08145106,M,5,5
+SchneiderEtAl_2020,AM-53,English (India),4.85420945,F,6,6
+SchneiderEtAl_2020,AM-53,English (India),4.85420945,F,9,9
+SchneiderEtAl_2020,AM-53,English (India),4.85420945,F,7,7
+SchneiderEtAl_2020,AM-53,English (India),4.85420945,F,5,5
+SchneiderEtAl_2020,AM-54,English (India),4.38877481,F,6,6
+SchneiderEtAl_2020,AM-54,English (India),4.38877481,F,9,9
+SchneiderEtAl_2020,AM-54,English (India),4.38877481,F,7,7
+SchneiderEtAl_2020,AM-54,English (India),4.38877481,F,5,5
+SchneiderEtAl_2020,AM-57,English (India),4.67351129,M,6,6
+SchneiderEtAl_2020,AM-57,English (India),4.67351129,M,9,6
+SchneiderEtAl_2020,AM-57,English (India),4.67351129,M,7,5
+SchneiderEtAl_2020,AM-57,English (India),4.67351129,M,5,5
+SchneiderEtAl_2020,AM-6,English (India),3.77275838,F,6,NA
+SchneiderEtAl_2020,AM-6,English (India),3.77275838,F,9,NA
+SchneiderEtAl_2020,AM-6,English (India),3.77275838,F,7,NA
+SchneiderEtAl_2020,AM-6,English (India),3.77275838,F,5,NA
+SchneiderEtAl_2020,AM-65,English (India),5.045859,F,6,6
+SchneiderEtAl_2020,AM-65,English (India),5.045859,F,9,9
+SchneiderEtAl_2020,AM-65,English (India),5.045859,F,7,7
+SchneiderEtAl_2020,AM-65,English (India),5.045859,F,5,5
+SchneiderEtAl_2020,AM-67,English (India),5.73853525,F,6,6
+SchneiderEtAl_2020,AM-67,English (India),5.73853525,F,9,9
+SchneiderEtAl_2020,AM-67,English (India),5.73853525,F,7,7
+SchneiderEtAl_2020,AM-67,English (India),5.73853525,F,5,5
+SchneiderEtAl_2020,AM-7,English (India),3.90417522,M,6,6
+SchneiderEtAl_2020,AM-7,English (India),3.90417522,M,9,7
+SchneiderEtAl_2020,AM-7,English (India),3.90417522,M,7,9
+SchneiderEtAl_2020,AM-7,English (India),3.90417522,M,5,5
+SchneiderEtAl_2020,AM-73,English (India),6.65297741,F,6,6
+SchneiderEtAl_2020,AM-73,English (India),6.65297741,F,9,9
+SchneiderEtAl_2020,AM-73,English (India),6.65297741,F,7,7
+SchneiderEtAl_2020,AM-73,English (India),6.65297741,F,5,5
+SchneiderEtAl_2020,AM-74,English (India),6.11088296,M,6,6
+SchneiderEtAl_2020,AM-74,English (India),6.11088296,M,9,9
+SchneiderEtAl_2020,AM-74,English (India),6.11088296,M,7,7
+SchneiderEtAl_2020,AM-74,English (India),6.11088296,M,5,5
+SchneiderEtAl_2020,AM-75,English (India),5.63175907,F,6,6
+SchneiderEtAl_2020,AM-75,English (India),5.63175907,F,9,9
+SchneiderEtAl_2020,AM-75,English (India),5.63175907,F,7,7
+SchneiderEtAl_2020,AM-75,English (India),5.63175907,F,5,5
+SchneiderEtAl_2020,AM-76,English (India),5.80150582,M,6,6
+SchneiderEtAl_2020,AM-76,English (India),5.80150582,M,9,9
+SchneiderEtAl_2020,AM-76,English (India),5.80150582,M,7,7
+SchneiderEtAl_2020,AM-76,English (India),5.80150582,M,5,5
+SchneiderEtAl_2020,AM-8,English (India),4.06570842,F,6,10
+SchneiderEtAl_2020,AM-8,English (India),4.06570842,F,9,7
+SchneiderEtAl_2020,AM-8,English (India),4.06570842,F,7,7
+SchneiderEtAl_2020,AM-8,English (India),4.06570842,F,5,7
+SchneiderEtAl_2020,CH-AP-3,Gujarati,5.84257358,F,6,6
+SchneiderEtAl_2020,CH-AP-3,Gujarati,5.84257358,F,9,9
+SchneiderEtAl_2020,CH-AP-3,Gujarati,5.84257358,F,7,7
+SchneiderEtAl_2020,CH-AP-3,Gujarati,5.84257358,F,5,5
+SchneiderEtAl_2020,CH-AR-15,Gujarati,5.54962355,F,6,6
+SchneiderEtAl_2020,CH-AR-15,Gujarati,5.54962355,F,9,9
+SchneiderEtAl_2020,CH-AR-15,Gujarati,5.54962355,F,7,7
+SchneiderEtAl_2020,CH-AR-15,Gujarati,5.54962355,F,5,5
+SchneiderEtAl_2020,CH-AS-67,Gujarati,4.93634497,F,6,10
+SchneiderEtAl_2020,CH-AS-67,Gujarati,4.93634497,F,9,NA
+SchneiderEtAl_2020,CH-AS-67,Gujarati,4.93634497,F,7,NA
+SchneiderEtAl_2020,CH-AS-67,Gujarati,4.93634497,F,5,10
+SchneiderEtAl_2020,CH-BG-27,Gujarati,5.57700205,F,6,3
+SchneiderEtAl_2020,CH-BG-27,Gujarati,5.57700205,F,9,2
+SchneiderEtAl_2020,CH-BG-27,Gujarati,5.57700205,F,7,2
+SchneiderEtAl_2020,CH-BG-27,Gujarati,5.57700205,F,5,3
+SchneiderEtAl_2020,CH-BP-5,Gujarati,5.26214921,F,6,6
+SchneiderEtAl_2020,CH-BP-5,Gujarati,5.26214921,F,9,9
+SchneiderEtAl_2020,CH-BP-5,Gujarati,5.26214921,F,7,7
+SchneiderEtAl_2020,CH-BP-5,Gujarati,5.26214921,F,5,5
+SchneiderEtAl_2020,CH-BS-35,Gujarati,5.80424367,M,6,6
+SchneiderEtAl_2020,CH-BS-35,Gujarati,5.80424367,M,9,9
+SchneiderEtAl_2020,CH-BS-35,Gujarati,5.80424367,M,7,7
+SchneiderEtAl_2020,CH-BS-35,Gujarati,5.80424367,M,5,5
+SchneiderEtAl_2020,CH-DB-44,Gujarati,5.79329227,M,6,6
+SchneiderEtAl_2020,CH-DB-44,Gujarati,5.79329227,M,9,9
+SchneiderEtAl_2020,CH-DB-44,Gujarati,5.79329227,M,7,7
+SchneiderEtAl_2020,CH-DB-44,Gujarati,5.79329227,M,5,5
+SchneiderEtAl_2020,CH-DM-19,Gujarati,5.62902122,F,6,6
+SchneiderEtAl_2020,CH-DM-19,Gujarati,5.62902122,F,9,9
+SchneiderEtAl_2020,CH-DM-19,Gujarati,5.62902122,F,7,7
+SchneiderEtAl_2020,CH-DM-19,Gujarati,5.62902122,F,5,5
+SchneiderEtAl_2020,CH-DP-25,Gujarati,5.57700205,M,6,10
+SchneiderEtAl_2020,CH-DP-25,Gujarati,5.57700205,M,9,9
+SchneiderEtAl_2020,CH-DP-25,Gujarati,5.57700205,M,7,7
+SchneiderEtAl_2020,CH-DP-25,Gujarati,5.57700205,M,5,9
+SchneiderEtAl_2020,CH-DP-45,Gujarati,5.87816564,M,6,6
+SchneiderEtAl_2020,CH-DP-45,Gujarati,5.87816564,M,9,9
+SchneiderEtAl_2020,CH-DP-45,Gujarati,5.87816564,M,7,7
+SchneiderEtAl_2020,CH-DP-45,Gujarati,5.87816564,M,5,5
+SchneiderEtAl_2020,CH-DR-57,Gujarati,5.20465435,F,6,6
+SchneiderEtAl_2020,CH-DR-57,Gujarati,5.20465435,F,9,9
+SchneiderEtAl_2020,CH-DR-57,Gujarati,5.20465435,F,7,7
+SchneiderEtAl_2020,CH-DR-57,Gujarati,5.20465435,F,5,5
+SchneiderEtAl_2020,CH-DS-48,Gujarati,6.15742642,NA,6,4
+SchneiderEtAl_2020,CH-DS-48,Gujarati,6.15742642,NA,9,5
+SchneiderEtAl_2020,CH-DS-48,Gujarati,6.15742642,NA,7,5
+SchneiderEtAl_2020,CH-DS-48,Gujarati,6.15742642,NA,5,6
+SchneiderEtAl_2020,CH-DV-11,Gujarati,6.22861054,NA,6,6
+SchneiderEtAl_2020,CH-DV-11,Gujarati,6.22861054,NA,9,9
+SchneiderEtAl_2020,CH-DV-11,Gujarati,6.22861054,NA,7,4
+SchneiderEtAl_2020,CH-DV-11,Gujarati,6.22861054,NA,5,5
+SchneiderEtAl_2020,CH-HC-43,Gujarati,5.33607118,M,6,6
+SchneiderEtAl_2020,CH-HC-43,Gujarati,5.33607118,M,9,9
+SchneiderEtAl_2020,CH-HC-43,Gujarati,5.33607118,M,7,7
+SchneiderEtAl_2020,CH-HC-43,Gujarati,5.33607118,M,5,5
+SchneiderEtAl_2020,CH-HJ-37,Gujarati,5.45653662,M,6,6
+SchneiderEtAl_2020,CH-HJ-37,Gujarati,5.45653662,M,9,9
+SchneiderEtAl_2020,CH-HJ-37,Gujarati,5.45653662,M,7,7
+SchneiderEtAl_2020,CH-HJ-37,Gujarati,5.45653662,M,5,5
+SchneiderEtAl_2020,CH-HR-12,Gujarati,5.9028063,F,6,6
+SchneiderEtAl_2020,CH-HR-12,Gujarati,5.9028063,F,9,9
+SchneiderEtAl_2020,CH-HR-12,Gujarati,5.9028063,F,7,7
+SchneiderEtAl_2020,CH-HR-12,Gujarati,5.9028063,F,5,NA
+SchneiderEtAl_2020,CH-JP-10,Gujarati,5.93839836,NA,6,6
+SchneiderEtAl_2020,CH-JP-10,Gujarati,5.93839836,NA,9,9
+SchneiderEtAl_2020,CH-JP-10,Gujarati,5.93839836,NA,7,7
+SchneiderEtAl_2020,CH-JP-10,Gujarati,5.93839836,NA,5,5
+SchneiderEtAl_2020,CH-KB-42,Gujarati,6.07255305,M,6,6
+SchneiderEtAl_2020,CH-KB-42,Gujarati,6.07255305,M,9,5
+SchneiderEtAl_2020,CH-KB-42,Gujarati,6.07255305,M,7,5
+SchneiderEtAl_2020,CH-KB-42,Gujarati,6.07255305,M,5,8
+SchneiderEtAl_2020,CH-KB-58,Gujarati,4.89801506,F,6,10
+SchneiderEtAl_2020,CH-KB-58,Gujarati,4.89801506,F,9,NA
+SchneiderEtAl_2020,CH-KB-58,Gujarati,4.89801506,F,7,NA
+SchneiderEtAl_2020,CH-KB-58,Gujarati,4.89801506,F,5,10
+SchneiderEtAl_2020,CH-KC-17,Gujarati,5.46201232,F,6,6
+SchneiderEtAl_2020,CH-KC-17,Gujarati,5.46201232,F,9,2
+SchneiderEtAl_2020,CH-KC-17,Gujarati,5.46201232,F,7,7
+SchneiderEtAl_2020,CH-KC-17,Gujarati,5.46201232,F,5,5
+SchneiderEtAl_2020,CH-KP-65,Gujarati,4.95277207,F,6,10
+SchneiderEtAl_2020,CH-KP-65,Gujarati,4.95277207,F,9,NA
+SchneiderEtAl_2020,CH-KP-65,Gujarati,4.95277207,F,7,NA
+SchneiderEtAl_2020,CH-KP-65,Gujarati,4.95277207,F,5,7
+SchneiderEtAl_2020,CH-KT-38,Gujarati,5.27310062,M,6,NA
+SchneiderEtAl_2020,CH-KT-38,Gujarati,5.27310062,M,9,NA
+SchneiderEtAl_2020,CH-KT-38,Gujarati,5.27310062,M,7,NA
+SchneiderEtAl_2020,CH-KT-38,Gujarati,5.27310062,M,5,NA
+SchneiderEtAl_2020,CH-KU-13,Gujarati,5.45927447,F,6,6
+SchneiderEtAl_2020,CH-KU-13,Gujarati,5.45927447,F,9,9
+SchneiderEtAl_2020,CH-KU-13,Gujarati,5.45927447,F,7,7
+SchneiderEtAl_2020,CH-KU-13,Gujarati,5.45927447,F,5,NA
+SchneiderEtAl_2020,CH-KV-4,Gujarati,5.52772074,NA,6,10
+SchneiderEtAl_2020,CH-KV-4,Gujarati,5.52772074,NA,9,NA
+SchneiderEtAl_2020,CH-KV-4,Gujarati,5.52772074,NA,7,NA
+SchneiderEtAl_2020,CH-KV-4,Gujarati,5.52772074,NA,5,8
+SchneiderEtAl_2020,CH-KV-8,Gujarati,6.28062971,F,6,6
+SchneiderEtAl_2020,CH-KV-8,Gujarati,6.28062971,F,9,9
+SchneiderEtAl_2020,CH-KV-8,Gujarati,6.28062971,F,7,7
+SchneiderEtAl_2020,CH-KV-8,Gujarati,6.28062971,F,5,5
+SchneiderEtAl_2020,CH-MJ-6,Gujarati,6.10814511,F,6,6
+SchneiderEtAl_2020,CH-MJ-6,Gujarati,6.10814511,F,9,9
+SchneiderEtAl_2020,CH-MJ-6,Gujarati,6.10814511,F,7,7
+SchneiderEtAl_2020,CH-MJ-6,Gujarati,6.10814511,F,5,5
+SchneiderEtAl_2020,CH-MV-14,Gujarati,5.62628337,NA,6,6
+SchneiderEtAl_2020,CH-MV-14,Gujarati,5.62628337,NA,9,9
+SchneiderEtAl_2020,CH-MV-14,Gujarati,5.62628337,NA,7,7
+SchneiderEtAl_2020,CH-MV-14,Gujarati,5.62628337,NA,5,5
+SchneiderEtAl_2020,CH-NC-9,Gujarati,5.27583847,NA,6,6
+SchneiderEtAl_2020,CH-NC-9,Gujarati,5.27583847,NA,9,9
+SchneiderEtAl_2020,CH-NC-9,Gujarati,5.27583847,NA,7,7
+SchneiderEtAl_2020,CH-NC-9,Gujarati,5.27583847,NA,5,5
+SchneiderEtAl_2020,CH-NJ-20,Gujarati,5.72758385,F,6,10
+SchneiderEtAl_2020,CH-NJ-20,Gujarati,5.72758385,F,9,9
+SchneiderEtAl_2020,CH-NJ-20,Gujarati,5.72758385,F,7,7
+SchneiderEtAl_2020,CH-NJ-20,Gujarati,5.72758385,F,5,5
+SchneiderEtAl_2020,CH-NM-16,Gujarati,5.98767967,F,6,6
+SchneiderEtAl_2020,CH-NM-16,Gujarati,5.98767967,F,9,9
+SchneiderEtAl_2020,CH-NM-16,Gujarati,5.98767967,F,7,7
+SchneiderEtAl_2020,CH-NM-16,Gujarati,5.98767967,F,5,5
+SchneiderEtAl_2020,CH-NP-68,Gujarati,5.19644079,M,6,6
+SchneiderEtAl_2020,CH-NP-68,Gujarati,5.19644079,M,9,9
+SchneiderEtAl_2020,CH-NP-68,Gujarati,5.19644079,M,7,10
+SchneiderEtAl_2020,CH-NP-68,Gujarati,5.19644079,M,5,5
+SchneiderEtAl_2020,CH-PS-22,Gujarati,5.81519507,F,6,6
+SchneiderEtAl_2020,CH-PS-22,Gujarati,5.81519507,F,9,9
+SchneiderEtAl_2020,CH-PS-22,Gujarati,5.81519507,F,7,7
+SchneiderEtAl_2020,CH-PS-22,Gujarati,5.81519507,F,5,5
+SchneiderEtAl_2020,CH-PS-23,Gujarati,5.81519507,M,6,6
+SchneiderEtAl_2020,CH-PS-23,Gujarati,5.81519507,M,9,6
+SchneiderEtAl_2020,CH-PS-23,Gujarati,5.81519507,M,7,6
+SchneiderEtAl_2020,CH-PS-23,Gujarati,5.81519507,M,5,4
+SchneiderEtAl_2020,CH-PS-41,Gujarati,5.67008898,M,6,5
+SchneiderEtAl_2020,CH-PS-41,Gujarati,5.67008898,M,9,9
+SchneiderEtAl_2020,CH-PS-41,Gujarati,5.67008898,M,7,6
+SchneiderEtAl_2020,CH-PS-41,Gujarati,5.67008898,M,5,5
+SchneiderEtAl_2020,CH-PV-36,Gujarati,5.29500342,M,6,6
+SchneiderEtAl_2020,CH-PV-36,Gujarati,5.29500342,M,9,9
+SchneiderEtAl_2020,CH-PV-36,Gujarati,5.29500342,M,7,8
+SchneiderEtAl_2020,CH-PV-36,Gujarati,5.29500342,M,5,5
+SchneiderEtAl_2020,CH-PY-18,Gujarati,6.03696099,F,6,6
+SchneiderEtAl_2020,CH-PY-18,Gujarati,6.03696099,F,9,9
+SchneiderEtAl_2020,CH-PY-18,Gujarati,6.03696099,F,7,7
+SchneiderEtAl_2020,CH-PY-18,Gujarati,6.03696099,F,5,5
+SchneiderEtAl_2020,CH-RD-53,Gujarati,5.24845996,M,6,6
+SchneiderEtAl_2020,CH-RD-53,Gujarati,5.24845996,M,9,9
+SchneiderEtAl_2020,CH-RD-53,Gujarati,5.24845996,M,7,7
+SchneiderEtAl_2020,CH-RD-53,Gujarati,5.24845996,M,5,5
+SchneiderEtAl_2020,CH-RH-31,Gujarati,6.51608487,F,6,10
+SchneiderEtAl_2020,CH-RH-31,Gujarati,6.51608487,F,9,10
+SchneiderEtAl_2020,CH-RH-31,Gujarati,6.51608487,F,7,8
+SchneiderEtAl_2020,CH-RH-31,Gujarati,6.51608487,F,5,9
+SchneiderEtAl_2020,CH-RM-7,Gujarati,5.93292266,F,6,6
+SchneiderEtAl_2020,CH-RM-7,Gujarati,5.93292266,F,9,9
+SchneiderEtAl_2020,CH-RM-7,Gujarati,5.93292266,F,7,7
+SchneiderEtAl_2020,CH-RM-7,Gujarati,5.93292266,F,5,5
+SchneiderEtAl_2020,CH-RP-39,Gujarati,6.13826146,M,6,6
+SchneiderEtAl_2020,CH-RP-39,Gujarati,6.13826146,M,9,9
+SchneiderEtAl_2020,CH-RP-39,Gujarati,6.13826146,M,7,7
+SchneiderEtAl_2020,CH-RP-39,Gujarati,6.13826146,M,5,5
+SchneiderEtAl_2020,CH-RS-52,Gujarati,5.81793292,F,6,6
+SchneiderEtAl_2020,CH-RS-52,Gujarati,5.81793292,F,9,9
+SchneiderEtAl_2020,CH-RS-52,Gujarati,5.81793292,F,7,7
+SchneiderEtAl_2020,CH-RS-52,Gujarati,5.81793292,F,5,5
+SchneiderEtAl_2020,CH-RV-40,Gujarati,5.81245722,M,6,6
+SchneiderEtAl_2020,CH-RV-40,Gujarati,5.81245722,M,9,9
+SchneiderEtAl_2020,CH-RV-40,Gujarati,5.81245722,M,7,7
+SchneiderEtAl_2020,CH-RV-40,Gujarati,5.81245722,M,5,5
+SchneiderEtAl_2020,CH-SC-2,Gujarati,5.9137577,M,6,6
+SchneiderEtAl_2020,CH-SC-2,Gujarati,5.9137577,M,9,NA
+SchneiderEtAl_2020,CH-SC-2,Gujarati,5.9137577,M,7,NA
+SchneiderEtAl_2020,CH-SC-2,Gujarati,5.9137577,M,5,7
+SchneiderEtAl_2020,CH-SM-34,Gujarati,6.08898015,F,6,6
+SchneiderEtAl_2020,CH-SM-34,Gujarati,6.08898015,F,9,9
+SchneiderEtAl_2020,CH-SM-34,Gujarati,6.08898015,F,7,7
+SchneiderEtAl_2020,CH-SM-34,Gujarati,6.08898015,F,5,5
+SchneiderEtAl_2020,CH-SP-51,Gujarati,5.11704312,M,6,6
+SchneiderEtAl_2020,CH-SP-51,Gujarati,5.11704312,M,9,8
+SchneiderEtAl_2020,CH-SP-51,Gujarati,5.11704312,M,7,10
+SchneiderEtAl_2020,CH-SP-51,Gujarati,5.11704312,M,5,10
+SchneiderEtAl_2020,CH-SP-54,Gujarati,4.58042437,F,6,10
+SchneiderEtAl_2020,CH-SP-54,Gujarati,4.58042437,F,9,NA
+SchneiderEtAl_2020,CH-SP-54,Gujarati,4.58042437,F,7,NA
+SchneiderEtAl_2020,CH-SP-54,Gujarati,4.58042437,F,5,10
+SchneiderEtAl_2020,CH-SV-21,Gujarati,7.05544148,F,6,6
+SchneiderEtAl_2020,CH-SV-21,Gujarati,7.05544148,F,9,7
+SchneiderEtAl_2020,CH-SV-21,Gujarati,7.05544148,F,7,7
+SchneiderEtAl_2020,CH-SV-21,Gujarati,7.05544148,F,5,5
+SchneiderEtAl_2020,CH-TK-63,Gujarati,4.24093087,F,6,10
+SchneiderEtAl_2020,CH-TK-63,Gujarati,4.24093087,F,9,NA
+SchneiderEtAl_2020,CH-TK-63,Gujarati,4.24093087,F,7,NA
+SchneiderEtAl_2020,CH-TK-63,Gujarati,4.24093087,F,5,10
+SchneiderEtAl_2020,CH-TS-62,Gujarati,4.46817248,M,6,10
+SchneiderEtAl_2020,CH-TS-62,Gujarati,4.46817248,M,9,NA
+SchneiderEtAl_2020,CH-TS-62,Gujarati,4.46817248,M,7,NA
+SchneiderEtAl_2020,CH-TS-62,Gujarati,4.46817248,M,5,10
+SchneiderEtAl_2020,CH-VC-1,Gujarati,4.99931554,F,6,6
+SchneiderEtAl_2020,CH-VC-1,Gujarati,4.99931554,F,9,9
+SchneiderEtAl_2020,CH-VC-1,Gujarati,4.99931554,F,7,7
+SchneiderEtAl_2020,CH-VC-1,Gujarati,4.99931554,F,5,5
+SchneiderEtAl_2020,CH-VN-66,Gujarati,5.10061602,F,6,10
+SchneiderEtAl_2020,CH-VN-66,Gujarati,5.10061602,F,9,NA
+SchneiderEtAl_2020,CH-VN-66,Gujarati,5.10061602,F,7,NA
+SchneiderEtAl_2020,CH-VN-66,Gujarati,5.10061602,F,5,10
+SchneiderEtAl_2020,CH-VR-59,Gujarati,5.045859,F,6,6
+SchneiderEtAl_2020,CH-VR-59,Gujarati,5.045859,F,9,9
+SchneiderEtAl_2020,CH-VR-59,Gujarati,5.045859,F,7,7
+SchneiderEtAl_2020,CH-VR-59,Gujarati,5.045859,F,5,5
+SchneiderEtAl_2020,GV-12-HV,Gujarati,5.81245722,M,6,6
+SchneiderEtAl_2020,GV-12-HV,Gujarati,5.81245722,M,9,9
+SchneiderEtAl_2020,GV-12-HV,Gujarati,5.81245722,M,7,7
+SchneiderEtAl_2020,GV-12-HV,Gujarati,5.81245722,M,5,5
+SchneiderEtAl_2020,GV-16-KM,Gujarati,5.2073922,F,6,6
+SchneiderEtAl_2020,GV-16-KM,Gujarati,5.2073922,F,9,8
+SchneiderEtAl_2020,GV-16-KM,Gujarati,5.2073922,F,7,7
+SchneiderEtAl_2020,GV-16-KM,Gujarati,5.2073922,F,5,5
+SchneiderEtAl_2020,GV-17-IP,Gujarati,6.05065024,F,6,6
+SchneiderEtAl_2020,GV-17-IP,Gujarati,6.05065024,F,9,9
+SchneiderEtAl_2020,GV-17-IP,Gujarati,6.05065024,F,7,7
+SchneiderEtAl_2020,GV-17-IP,Gujarati,6.05065024,F,5,5
+SchneiderEtAl_2020,GV-19-KG,Gujarati,5.27036277,F,6,10
+SchneiderEtAl_2020,GV-19-KG,Gujarati,5.27036277,F,9,9
+SchneiderEtAl_2020,GV-19-KG,Gujarati,5.27036277,F,7,7
+SchneiderEtAl_2020,GV-19-KG,Gujarati,5.27036277,F,5,5
+SchneiderEtAl_2020,GV-2-MP,Gujarati,5.80150582,M,6,6
+SchneiderEtAl_2020,GV-2-MP,Gujarati,5.80150582,M,9,9
+SchneiderEtAl_2020,GV-2-MP,Gujarati,5.80150582,M,7,7
+SchneiderEtAl_2020,GV-2-MP,Gujarati,5.80150582,M,5,5
+SchneiderEtAl_2020,GV-21-SB,Gujarati,5.82340862,F,6,6
+SchneiderEtAl_2020,GV-21-SB,Gujarati,5.82340862,F,9,9
+SchneiderEtAl_2020,GV-21-SB,Gujarati,5.82340862,F,7,7
+SchneiderEtAl_2020,GV-21-SB,Gujarati,5.82340862,F,5,5
+SchneiderEtAl_2020,GV-25-JB,Gujarati,5.4017796,F,6,6
+SchneiderEtAl_2020,GV-25-JB,Gujarati,5.4017796,F,9,6
+SchneiderEtAl_2020,GV-25-JB,Gujarati,5.4017796,F,7,6
+SchneiderEtAl_2020,GV-25-JB,Gujarati,5.4017796,F,5,6
+SchneiderEtAl_2020,GV-31-NR,Gujarati,5.26762491,F,6,6
+SchneiderEtAl_2020,GV-31-NR,Gujarati,5.26762491,F,9,9
+SchneiderEtAl_2020,GV-31-NR,Gujarati,5.26762491,F,7,7
+SchneiderEtAl_2020,GV-31-NR,Gujarati,5.26762491,F,5,5
+SchneiderEtAl_2020,GV-38-VL,Gujarati,5.76043806,M,6,6
+SchneiderEtAl_2020,GV-38-VL,Gujarati,5.76043806,M,9,9
+SchneiderEtAl_2020,GV-38-VL,Gujarati,5.76043806,M,7,7
+SchneiderEtAl_2020,GV-38-VL,Gujarati,5.76043806,M,5,5
+SchneiderEtAl_2020,GV-39-KM,Gujarati,5.37166324,M,6,6
+SchneiderEtAl_2020,GV-39-KM,Gujarati,5.37166324,M,9,9
+SchneiderEtAl_2020,GV-39-KM,Gujarati,5.37166324,M,7,7
+SchneiderEtAl_2020,GV-39-KM,Gujarati,5.37166324,M,5,5
+SchneiderEtAl_2020,GV-42-KA,Gujarati,5.37166324,F,6,6
+SchneiderEtAl_2020,GV-42-KA,Gujarati,5.37166324,F,9,9
+SchneiderEtAl_2020,GV-42-KA,Gujarati,5.37166324,F,7,7
+SchneiderEtAl_2020,GV-42-KA,Gujarati,5.37166324,F,5,5
+SchneiderEtAl_2020,GV-43-MP,Gujarati,5.65913758,F,6,6
+SchneiderEtAl_2020,GV-43-MP,Gujarati,5.65913758,F,9,9
+SchneiderEtAl_2020,GV-43-MP,Gujarati,5.65913758,F,7,7
+SchneiderEtAl_2020,GV-43-MP,Gujarati,5.65913758,F,5,5
+SchneiderEtAl_2020,GV-44-DP,Gujarati,5.85900068,F,6,6
+SchneiderEtAl_2020,GV-44-DP,Gujarati,5.85900068,F,9,9
+SchneiderEtAl_2020,GV-44-DP,Gujarati,5.85900068,F,7,7
+SchneiderEtAl_2020,GV-44-DP,Gujarati,5.85900068,F,5,5
+SchneiderEtAl_2020,GV-46-PP,Gujarati,5.65092402,F,6,6
+SchneiderEtAl_2020,GV-46-PP,Gujarati,5.65092402,F,9,9
+SchneiderEtAl_2020,GV-46-PP,Gujarati,5.65092402,F,7,7
+SchneiderEtAl_2020,GV-46-PP,Gujarati,5.65092402,F,5,5
+SchneiderEtAl_2020,GV-47-LR,Gujarati,5.98767967,F,6,6
+SchneiderEtAl_2020,GV-47-LR,Gujarati,5.98767967,F,9,9
+SchneiderEtAl_2020,GV-47-LR,Gujarati,5.98767967,F,7,7
+SchneiderEtAl_2020,GV-47-LR,Gujarati,5.98767967,F,5,5
+SchneiderEtAl_2020,GV-48-MR,Gujarati,5.80971937,F,6,6
+SchneiderEtAl_2020,GV-48-MR,Gujarati,5.80971937,F,9,9
+SchneiderEtAl_2020,GV-48-MR,Gujarati,5.80971937,F,7,7
+SchneiderEtAl_2020,GV-48-MR,Gujarati,5.80971937,F,5,5
+SchneiderEtAl_2020,GV-49-NR,Gujarati,5.71389459,F,6,10
+SchneiderEtAl_2020,GV-49-NR,Gujarati,5.71389459,F,9,10
+SchneiderEtAl_2020,GV-49-NR,Gujarati,5.71389459,F,7,NA
+SchneiderEtAl_2020,GV-49-NR,Gujarati,5.71389459,F,5,10
+SchneiderEtAl_2020,GV-50-MR,Gujarati,6.11088296,F,6,6
+SchneiderEtAl_2020,GV-50-MR,Gujarati,6.11088296,F,9,9
+SchneiderEtAl_2020,GV-50-MR,Gujarati,6.11088296,F,7,7
+SchneiderEtAl_2020,GV-50-MR,Gujarati,6.11088296,F,5,5
+SchneiderEtAl_2020,GV-51-BR,Gujarati,5.33059548,F,6,8
+SchneiderEtAl_2020,GV-51-BR,Gujarati,5.33059548,F,9,10
+SchneiderEtAl_2020,GV-51-BR,Gujarati,5.33059548,F,7,7
+SchneiderEtAl_2020,GV-51-BR,Gujarati,5.33059548,F,5,5
+SchneiderEtAl_2020,GV-52-KR,Gujarati,5.80971937,F,6,6
+SchneiderEtAl_2020,GV-52-KR,Gujarati,5.80971937,F,9,9
+SchneiderEtAl_2020,GV-52-KR,Gujarati,5.80971937,F,7,7
+SchneiderEtAl_2020,GV-52-KR,Gujarati,5.80971937,F,5,5
+SchneiderEtAl_2020,GV-53-NR,Gujarati,5.67282683,F,6,6
+SchneiderEtAl_2020,GV-53-NR,Gujarati,5.67282683,F,9,9
+SchneiderEtAl_2020,GV-53-NR,Gujarati,5.67282683,F,7,7
+SchneiderEtAl_2020,GV-53-NR,Gujarati,5.67282683,F,5,5
+SchneiderEtAl_2020,GV-54-KR,Gujarati,5.73853525,F,6,6
+SchneiderEtAl_2020,GV-54-KR,Gujarati,5.73853525,F,9,9
+SchneiderEtAl_2020,GV-54-KR,Gujarati,5.73853525,F,7,7
+SchneiderEtAl_2020,GV-54-KR,Gujarati,5.73853525,F,5,5
+SchneiderEtAl_2020,GV-55-TR,Gujarati,6.0862423,NA,6,6
+SchneiderEtAl_2020,GV-55-TR,Gujarati,6.0862423,NA,9,9
+SchneiderEtAl_2020,GV-55-TR,Gujarati,6.0862423,NA,7,7
+SchneiderEtAl_2020,GV-55-TR,Gujarati,6.0862423,NA,5,5
+SchneiderEtAl_2020,GV-56-KS,Gujarati,5.51676934,F,6,6
+SchneiderEtAl_2020,GV-56-KS,Gujarati,5.51676934,F,9,9
+SchneiderEtAl_2020,GV-56-KS,Gujarati,5.51676934,F,7,7
+SchneiderEtAl_2020,GV-56-KS,Gujarati,5.51676934,F,5,5
+SchneiderEtAl_2020,GV-58-MU,Gujarati,5.65639973,F,6,6
+SchneiderEtAl_2020,GV-58-MU,Gujarati,5.65639973,F,9,9
+SchneiderEtAl_2020,GV-58-MU,Gujarati,5.65639973,F,7,7
+SchneiderEtAl_2020,GV-58-MU,Gujarati,5.65639973,F,5,5
+SchneiderEtAl_2020,GV-59-PV,Gujarati,6.17111567,F,6,6
+SchneiderEtAl_2020,GV-59-PV,Gujarati,6.17111567,F,9,9
+SchneiderEtAl_2020,GV-59-PV,Gujarati,6.17111567,F,7,7
+SchneiderEtAl_2020,GV-59-PV,Gujarati,6.17111567,F,5,5
+SchneiderEtAl_2020,GV-6-DP,Gujarati,5.39356605,M,6,6
+SchneiderEtAl_2020,GV-6-DP,Gujarati,5.39356605,M,9,9
+SchneiderEtAl_2020,GV-6-DP,Gujarati,5.39356605,M,7,7
+SchneiderEtAl_2020,GV-6-DP,Gujarati,5.39356605,M,5,5
+SchneiderEtAl_2020,GV-60-TV,Gujarati,6.19301848,F,6,6
+SchneiderEtAl_2020,GV-60-TV,Gujarati,6.19301848,F,9,6
+SchneiderEtAl_2020,GV-60-TV,Gujarati,6.19301848,F,7,10
+SchneiderEtAl_2020,GV-60-TV,Gujarati,6.19301848,F,5,10
+SchneiderEtAl_2020,GV-7-VS,Gujarati,5.74401095,M,6,6
+SchneiderEtAl_2020,GV-7-VS,Gujarati,5.74401095,M,9,9
+SchneiderEtAl_2020,GV-7-VS,Gujarati,5.74401095,M,7,7
+SchneiderEtAl_2020,GV-7-VS,Gujarati,5.74401095,M,5,5
+SchneiderEtAl_2020,GV-8-DS,Gujarati,5.99589322,M,6,6
+SchneiderEtAl_2020,GV-8-DS,Gujarati,5.99589322,M,9,9
+SchneiderEtAl_2020,GV-8-DS,Gujarati,5.99589322,M,7,7
+SchneiderEtAl_2020,GV-8-DS,Gujarati,5.99589322,M,5,5
+SchneiderEtAl_2020,GV-9-PS,Gujarati,5.71663244,M,6,6
+SchneiderEtAl_2020,GV-9-PS,Gujarati,5.71663244,M,9,9
+SchneiderEtAl_2020,GV-9-PS,Gujarati,5.71663244,M,7,7
+SchneiderEtAl_2020,GV-9-PS,Gujarati,5.71663244,M,5,5
+SchneiderEtAl_2020,SK-K-1-FP-G,Gujarati,6.38193018,M,6,6
+SchneiderEtAl_2020,SK-K-1-FP-G,Gujarati,6.38193018,M,9,9
+SchneiderEtAl_2020,SK-K-1-FP-G,Gujarati,6.38193018,M,7,7
+SchneiderEtAl_2020,SK-K-1-FP-G,Gujarati,6.38193018,M,5,5
+SchneiderEtAl_2020,SK-K-10-AP,Hindi,5.5797399,F,6,6
+SchneiderEtAl_2020,SK-K-10-AP,Hindi,5.5797399,F,9,9
+SchneiderEtAl_2020,SK-K-10-AP,Hindi,5.5797399,F,7,8
+SchneiderEtAl_2020,SK-K-10-AP,Hindi,5.5797399,F,5,NA
+SchneiderEtAl_2020,SK-K-11-SM,Hindi,5.90006845,M,6,10
+SchneiderEtAl_2020,SK-K-11-SM,Hindi,5.90006845,M,9,8
+SchneiderEtAl_2020,SK-K-11-SM,Hindi,5.90006845,M,7,8
+SchneiderEtAl_2020,SK-K-11-SM,Hindi,5.90006845,M,5,5
+SchneiderEtAl_2020,SK-K-12-RA,Hindi,6.42847365,M,6,3
+SchneiderEtAl_2020,SK-K-12-RA,Hindi,6.42847365,M,9,NA
+SchneiderEtAl_2020,SK-K-12-RA,Hindi,6.42847365,M,7,6
+SchneiderEtAl_2020,SK-K-12-RA,Hindi,6.42847365,M,5,5
+SchneiderEtAl_2020,SK-K-12B-AA,Hindi,6.5927447,M,6,6
+SchneiderEtAl_2020,SK-K-12B-AA,Hindi,6.5927447,M,9,9
+SchneiderEtAl_2020,SK-K-12B-AA,Hindi,6.5927447,M,7,7
+SchneiderEtAl_2020,SK-K-12B-AA,Hindi,6.5927447,M,5,5
+SchneiderEtAl_2020,SK-K-13-MP,Hindi,5.94113621,M,6,5
+SchneiderEtAl_2020,SK-K-13-MP,Hindi,5.94113621,M,9,7
+SchneiderEtAl_2020,SK-K-13-MP,Hindi,5.94113621,M,7,10
+SchneiderEtAl_2020,SK-K-13-MP,Hindi,5.94113621,M,5,6
+SchneiderEtAl_2020,SK-K-17-DP,Hindi,6.13004791,F,6,7
+SchneiderEtAl_2020,SK-K-17-DP,Hindi,6.13004791,F,9,10
+SchneiderEtAl_2020,SK-K-17-DP,Hindi,6.13004791,F,7,7
+SchneiderEtAl_2020,SK-K-17-DP,Hindi,6.13004791,F,5,5
+SchneiderEtAl_2020,SK-K-18-PY,Hindi,6.39288159,F,6,6
+SchneiderEtAl_2020,SK-K-18-PY,Hindi,6.39288159,F,9,9
+SchneiderEtAl_2020,SK-K-18-PY,Hindi,6.39288159,F,7,8
+SchneiderEtAl_2020,SK-K-18-PY,Hindi,6.39288159,F,5,5
+SchneiderEtAl_2020,SK-K-2-MB-G,Gujarati,4.63791923,M,6,2
+SchneiderEtAl_2020,SK-K-2-MB-G,Gujarati,4.63791923,M,9,NA
+SchneiderEtAl_2020,SK-K-2-MB-G,Gujarati,4.63791923,M,7,NA
+SchneiderEtAl_2020,SK-K-2-MB-G,Gujarati,4.63791923,M,5,1
+SchneiderEtAl_2020,SK-K-20-RP,Hindi,6.47775496,M,6,6
+SchneiderEtAl_2020,SK-K-20-RP,Hindi,6.47775496,M,9,9
+SchneiderEtAl_2020,SK-K-20-RP,Hindi,6.47775496,M,7,7
+SchneiderEtAl_2020,SK-K-20-RP,Hindi,6.47775496,M,5,5
+SchneiderEtAl_2020,SK-K-24-AS,Hindi,5.74401095,M,6,6
+SchneiderEtAl_2020,SK-K-24-AS,Hindi,5.74401095,M,9,9
+SchneiderEtAl_2020,SK-K-24-AS,Hindi,5.74401095,M,7,7
+SchneiderEtAl_2020,SK-K-24-AS,Hindi,5.74401095,M,5,5
+SchneiderEtAl_2020,SK-K-25-VV,Hindi,6.21765914,F,6,6
+SchneiderEtAl_2020,SK-K-25-VV,Hindi,6.21765914,F,9,9
+SchneiderEtAl_2020,SK-K-25-VV,Hindi,6.21765914,F,7,7
+SchneiderEtAl_2020,SK-K-25-VV,Hindi,6.21765914,F,5,5
+SchneiderEtAl_2020,SK-K-26-SS,Hindi,5.83436003,M,6,6
+SchneiderEtAl_2020,SK-K-26-SS,Hindi,5.83436003,M,9,9
+SchneiderEtAl_2020,SK-K-26-SS,Hindi,5.83436003,M,7,7
+SchneiderEtAl_2020,SK-K-26-SS,Hindi,5.83436003,M,5,5
+SchneiderEtAl_2020,SK-K-3-KK,Hindi,4.47912389,F,6,6
+SchneiderEtAl_2020,SK-K-3-KK,Hindi,4.47912389,F,9,9
+SchneiderEtAl_2020,SK-K-3-KK,Hindi,4.47912389,F,7,7
+SchneiderEtAl_2020,SK-K-3-KK,Hindi,4.47912389,F,5,5
+SchneiderEtAl_2020,SK-K-3B-RA,Hindi,6.56536619,M,6,6
+SchneiderEtAl_2020,SK-K-3B-RA,Hindi,6.56536619,M,9,9
+SchneiderEtAl_2020,SK-K-3B-RA,Hindi,6.56536619,M,7,7
+SchneiderEtAl_2020,SK-K-3B-RA,Hindi,6.56536619,M,5,5
+SchneiderEtAl_2020,SK-K-4-KU,Hindi,4.79945243,F,6,3
+SchneiderEtAl_2020,SK-K-4-KU,Hindi,4.79945243,F,9,2
+SchneiderEtAl_2020,SK-K-4-KU,Hindi,4.79945243,F,7,3
+SchneiderEtAl_2020,SK-K-4-KU,Hindi,4.79945243,F,5,3
+SchneiderEtAl_2020,SK-K-6-SM,Hindi,5.18275154,M,6,10
+SchneiderEtAl_2020,SK-K-6-SM,Hindi,5.18275154,M,9,8
+SchneiderEtAl_2020,SK-K-6-SM,Hindi,5.18275154,M,7,10
+SchneiderEtAl_2020,SK-K-6-SM,Hindi,5.18275154,M,5,10
+SchneiderEtAl_2020,SK-K-7-AK,Hindi,4.72826831,M,6,1
+SchneiderEtAl_2020,SK-K-7-AK,Hindi,4.72826831,M,9,NA
+SchneiderEtAl_2020,SK-K-7-AK,Hindi,4.72826831,M,7,NA
+SchneiderEtAl_2020,SK-K-7-AK,Hindi,4.72826831,M,5,1
+SchneiderEtAl_2020,SK-K-7B-RK,Hindi,6.23956194,M,6,6
+SchneiderEtAl_2020,SK-K-7B-RK,Hindi,6.23956194,M,9,9
+SchneiderEtAl_2020,SK-K-7B-RK,Hindi,6.23956194,M,7,7
+SchneiderEtAl_2020,SK-K-7B-RK,Hindi,6.23956194,M,5,5
+SchneiderEtAl_2020,SK-K-8-GP,Hindi,5.42368241,M,6,2
+SchneiderEtAl_2020,SK-K-8-GP,Hindi,5.42368241,M,9,2
+SchneiderEtAl_2020,SK-K-8-GP,Hindi,5.42368241,M,7,NA
+SchneiderEtAl_2020,SK-K-8-GP,Hindi,5.42368241,M,5,1
+SchneiderEtAl_2020,SK-M-1-MP,Hindi,5.7412731,F,6,6
+SchneiderEtAl_2020,SK-M-1-MP,Hindi,5.7412731,F,9,9
+SchneiderEtAl_2020,SK-M-1-MP,Hindi,5.7412731,F,7,7
+SchneiderEtAl_2020,SK-M-1-MP,Hindi,5.7412731,F,5,5
+SchneiderEtAl_2020,SK-M-10-CK,Hindi,6.36550308,F,6,6
+SchneiderEtAl_2020,SK-M-10-CK,Hindi,6.36550308,F,9,9
+SchneiderEtAl_2020,SK-M-10-CK,Hindi,6.36550308,F,7,7
+SchneiderEtAl_2020,SK-M-10-CK,Hindi,6.36550308,F,5,5
+SchneiderEtAl_2020,SK-M-12-DR,Hindi,6.52703628,M,6,6
+SchneiderEtAl_2020,SK-M-12-DR,Hindi,6.52703628,M,9,9
+SchneiderEtAl_2020,SK-M-12-DR,Hindi,6.52703628,M,7,7
+SchneiderEtAl_2020,SK-M-12-DR,Hindi,6.52703628,M,5,5
+SchneiderEtAl_2020,SK-M-13-RK,Hindi,5.69746749,M,6,10
+SchneiderEtAl_2020,SK-M-13-RK,Hindi,5.69746749,M,9,10
+SchneiderEtAl_2020,SK-M-13-RK,Hindi,5.69746749,M,7,10
+SchneiderEtAl_2020,SK-M-13-RK,Hindi,5.69746749,M,5,10
+SchneiderEtAl_2020,SK-M-14-AG,Hindi,5.90006845,F,6,10
+SchneiderEtAl_2020,SK-M-14-AG,Hindi,5.90006845,F,9,10
+SchneiderEtAl_2020,SK-M-14-AG,Hindi,5.90006845,F,7,7
+SchneiderEtAl_2020,SK-M-14-AG,Hindi,5.90006845,F,5,10
+SchneiderEtAl_2020,SK-M-15-NK,Hindi,5.89459274,M,6,6
+SchneiderEtAl_2020,SK-M-15-NK,Hindi,5.89459274,M,9,9
+SchneiderEtAl_2020,SK-M-15-NK,Hindi,5.89459274,M,7,7
+SchneiderEtAl_2020,SK-M-15-NK,Hindi,5.89459274,M,5,5
+SchneiderEtAl_2020,SK-M-16-KR,Hindi,5.32785763,M,6,6
+SchneiderEtAl_2020,SK-M-16-KR,Hindi,5.32785763,M,9,9
+SchneiderEtAl_2020,SK-M-16-KR,Hindi,5.32785763,M,7,7
+SchneiderEtAl_2020,SK-M-16-KR,Hindi,5.32785763,M,5,5
+SchneiderEtAl_2020,SK-M-17-MG,Hindi,5.81245722,M,6,6
+SchneiderEtAl_2020,SK-M-17-MG,Hindi,5.81245722,M,9,9
+SchneiderEtAl_2020,SK-M-17-MG,Hindi,5.81245722,M,7,7
+SchneiderEtAl_2020,SK-M-17-MG,Hindi,5.81245722,M,5,5
+SchneiderEtAl_2020,SK-M-19-LK,Hindi,5.46475017,F,6,6
+SchneiderEtAl_2020,SK-M-19-LK,Hindi,5.46475017,F,9,9
+SchneiderEtAl_2020,SK-M-19-LK,Hindi,5.46475017,F,7,7
+SchneiderEtAl_2020,SK-M-19-LK,Hindi,5.46475017,F,5,5
+SchneiderEtAl_2020,SK-M-2-NK,Hindi,5.69746749,M,6,5
+SchneiderEtAl_2020,SK-M-2-NK,Hindi,5.69746749,M,9,5
+SchneiderEtAl_2020,SK-M-2-NK,Hindi,5.69746749,M,7,5
+SchneiderEtAl_2020,SK-M-2-NK,Hindi,5.69746749,M,5,5
+SchneiderEtAl_2020,SK-M-22-AP,Hindi,5.70294319,M,6,6
+SchneiderEtAl_2020,SK-M-22-AP,Hindi,5.70294319,M,9,9
+SchneiderEtAl_2020,SK-M-22-AP,Hindi,5.70294319,M,7,7
+SchneiderEtAl_2020,SK-M-22-AP,Hindi,5.70294319,M,5,5
+SchneiderEtAl_2020,SK-M-23-UP,Hindi,6.12183436,F,6,5
+SchneiderEtAl_2020,SK-M-23-UP,Hindi,6.12183436,F,9,6
+SchneiderEtAl_2020,SK-M-23-UP,Hindi,6.12183436,F,7,6
+SchneiderEtAl_2020,SK-M-23-UP,Hindi,6.12183436,F,5,6
+SchneiderEtAl_2020,SK-M-24-KP,Hindi,5.91101985,F,6,10
+SchneiderEtAl_2020,SK-M-24-KP,Hindi,5.91101985,F,9,10
+SchneiderEtAl_2020,SK-M-24-KP,Hindi,5.91101985,F,7,10
+SchneiderEtAl_2020,SK-M-24-KP,Hindi,5.91101985,F,5,10
+SchneiderEtAl_2020,SK-M-26-NS,Hindi,6.45311431,F,6,6
+SchneiderEtAl_2020,SK-M-26-NS,Hindi,6.45311431,F,9,8
+SchneiderEtAl_2020,SK-M-26-NS,Hindi,6.45311431,F,7,7
+SchneiderEtAl_2020,SK-M-26-NS,Hindi,6.45311431,F,5,5
+SchneiderEtAl_2020,SK-M-27-DJ,Hindi,6.19028063,M,6,6
+SchneiderEtAl_2020,SK-M-27-DJ,Hindi,6.19028063,M,9,9
+SchneiderEtAl_2020,SK-M-27-DJ,Hindi,6.19028063,M,7,7
+SchneiderEtAl_2020,SK-M-27-DJ,Hindi,6.19028063,M,5,5
+SchneiderEtAl_2020,SK-M-28-VV,Hindi,5.9137577,M,6,6
+SchneiderEtAl_2020,SK-M-28-VV,Hindi,5.9137577,M,9,9
+SchneiderEtAl_2020,SK-M-28-VV,Hindi,5.9137577,M,7,7
+SchneiderEtAl_2020,SK-M-28-VV,Hindi,5.9137577,M,5,5
+SchneiderEtAl_2020,SK-M-30-NV,Hindi,6.05065024,F,6,6
+SchneiderEtAl_2020,SK-M-30-NV,Hindi,6.05065024,F,9,9
+SchneiderEtAl_2020,SK-M-30-NV,Hindi,6.05065024,F,7,7
+SchneiderEtAl_2020,SK-M-30-NV,Hindi,6.05065024,F,5,5
+SchneiderEtAl_2020,SK-M-32-PS,Hindi,5.13894593,M,6,2
+SchneiderEtAl_2020,SK-M-32-PS,Hindi,5.13894593,M,9,4
+SchneiderEtAl_2020,SK-M-32-PS,Hindi,5.13894593,M,7,4
+SchneiderEtAl_2020,SK-M-32-PS,Hindi,5.13894593,M,5,5
+SchneiderEtAl_2020,SK-M-34-AP,Hindi,4.88158795,M,6,4
+SchneiderEtAl_2020,SK-M-34-AP,Hindi,4.88158795,M,9,4
+SchneiderEtAl_2020,SK-M-34-AP,Hindi,4.88158795,M,7,3
+SchneiderEtAl_2020,SK-M-34-AP,Hindi,4.88158795,M,5,4
+SchneiderEtAl_2020,SK-M-35-JS,Hindi,4.91444216,F,6,NA
+SchneiderEtAl_2020,SK-M-35-JS,Hindi,4.91444216,F,9,NA
+SchneiderEtAl_2020,SK-M-35-JS,Hindi,4.91444216,F,7,NA
+SchneiderEtAl_2020,SK-M-35-JS,Hindi,4.91444216,F,5,NA
+SchneiderEtAl_2020,SK-M-38-AB,Hindi,4.42162902,M,6,7
+SchneiderEtAl_2020,SK-M-38-AB,Hindi,4.42162902,M,9,3
+SchneiderEtAl_2020,SK-M-38-AB,Hindi,4.42162902,M,7,7
+SchneiderEtAl_2020,SK-M-38-AB,Hindi,4.42162902,M,5,6
+SchneiderEtAl_2020,SK-M-39-SC,Hindi,4.31485284,F,6,3
+SchneiderEtAl_2020,SK-M-39-SC,Hindi,4.31485284,F,9,NA
+SchneiderEtAl_2020,SK-M-39-SC,Hindi,4.31485284,F,7,NA
+SchneiderEtAl_2020,SK-M-39-SC,Hindi,4.31485284,F,5,3
+SchneiderEtAl_2020,SK-M-4-GJ,Hindi,5.82614648,F,6,6
+SchneiderEtAl_2020,SK-M-4-GJ,Hindi,5.82614648,F,9,9
+SchneiderEtAl_2020,SK-M-4-GJ,Hindi,5.82614648,F,7,7
+SchneiderEtAl_2020,SK-M-4-GJ,Hindi,5.82614648,F,5,5
+SchneiderEtAl_2020,SK-M-40-SP,Hindi,4.90075291,M,6,4
+SchneiderEtAl_2020,SK-M-40-SP,Hindi,4.90075291,M,9,6
+SchneiderEtAl_2020,SK-M-40-SP,Hindi,4.90075291,M,7,NA
+SchneiderEtAl_2020,SK-M-40-SP,Hindi,4.90075291,M,5,5
+SchneiderEtAl_2020,SK-M-41-PR,Hindi,4.5229295,F,6,10
+SchneiderEtAl_2020,SK-M-41-PR,Hindi,4.5229295,F,9,NA
+SchneiderEtAl_2020,SK-M-41-PR,Hindi,4.5229295,F,7,NA
+SchneiderEtAl_2020,SK-M-41-PR,Hindi,4.5229295,F,5,10
+SchneiderEtAl_2020,SK-M-44-MV,Hindi,5.12251882,F,6,6
+SchneiderEtAl_2020,SK-M-44-MV,Hindi,5.12251882,F,9,8
+SchneiderEtAl_2020,SK-M-44-MV,Hindi,5.12251882,F,7,7
+SchneiderEtAl_2020,SK-M-44-MV,Hindi,5.12251882,F,5,7
+SchneiderEtAl_2020,SK-M-45-HP,Hindi,4.91991786,M,6,4
+SchneiderEtAl_2020,SK-M-45-HP,Hindi,4.91991786,M,9,NA
+SchneiderEtAl_2020,SK-M-45-HP,Hindi,4.91991786,M,7,NA
+SchneiderEtAl_2020,SK-M-45-HP,Hindi,4.91991786,M,5,3
+SchneiderEtAl_2020,SK-M-46-DP,Hindi,5.0294319,M,6,10
+SchneiderEtAl_2020,SK-M-46-DP,Hindi,5.0294319,M,9,10
+SchneiderEtAl_2020,SK-M-46-DP,Hindi,5.0294319,M,7,10
+SchneiderEtAl_2020,SK-M-46-DP,Hindi,5.0294319,M,5,10
+SchneiderEtAl_2020,SK-M-5-LS,Hindi,5.27583847,F,6,6
+SchneiderEtAl_2020,SK-M-5-LS,Hindi,5.27583847,F,9,9
+SchneiderEtAl_2020,SK-M-5-LS,Hindi,5.27583847,F,7,7
+SchneiderEtAl_2020,SK-M-5-LS,Hindi,5.27583847,F,5,5
+SchneiderEtAl_2020,SK-M-7-PK,Hindi,5.65639973,M,6,6
+SchneiderEtAl_2020,SK-M-7-PK,Hindi,5.65639973,M,9,3
+SchneiderEtAl_2020,SK-M-7-PK,Hindi,5.65639973,M,7,5
+SchneiderEtAl_2020,SK-M-7-PK,Hindi,5.65639973,M,5,5
+SchneiderEtAl_2020,SR-1-BS,Hindi,4.28473648,M,6,3
+SchneiderEtAl_2020,SR-1-BS,Hindi,4.28473648,M,9,NA
+SchneiderEtAl_2020,SR-1-BS,Hindi,4.28473648,M,7,NA
+SchneiderEtAl_2020,SR-1-BS,Hindi,4.28473648,M,5,3
+SchneiderEtAl_2020,SR-10B-NY,Hindi,5.52498289,F,6,10
+SchneiderEtAl_2020,SR-10B-NY,Hindi,5.52498289,F,9,NA
+SchneiderEtAl_2020,SR-10B-NY,Hindi,5.52498289,F,7,NA
+SchneiderEtAl_2020,SR-10B-NY,Hindi,5.52498289,F,5,6
+SchneiderEtAl_2020,SR-11-DL,Hindi,6.37097878,F,6,6
+SchneiderEtAl_2020,SR-11-DL,Hindi,6.37097878,F,9,10
+SchneiderEtAl_2020,SR-11-DL,Hindi,6.37097878,F,7,8
+SchneiderEtAl_2020,SR-11-DL,Hindi,6.37097878,F,5,5
+SchneiderEtAl_2020,SR-14B-KS,Hindi,5.52498289,F,6,5
+SchneiderEtAl_2020,SR-14B-KS,Hindi,5.52498289,F,9,NA
+SchneiderEtAl_2020,SR-14B-KS,Hindi,5.52498289,F,7,NA
+SchneiderEtAl_2020,SR-14B-KS,Hindi,5.52498289,F,5,5
+SchneiderEtAl_2020,SR-15B-SB,Hindi,6.48870637,F,6,8
+SchneiderEtAl_2020,SR-15B-SB,Hindi,6.48870637,F,9,NA
+SchneiderEtAl_2020,SR-15B-SB,Hindi,6.48870637,F,7,NA
+SchneiderEtAl_2020,SR-15B-SB,Hindi,6.48870637,F,5,7
+SchneiderEtAl_2020,SR-16-KK,Hindi,6.1026694,M,6,6
+SchneiderEtAl_2020,SR-16-KK,Hindi,6.1026694,M,9,9
+SchneiderEtAl_2020,SR-16-KK,Hindi,6.1026694,M,7,7
+SchneiderEtAl_2020,SR-16-KK,Hindi,6.1026694,M,5,5
+SchneiderEtAl_2020,SR-16B-BS,Hindi,6.03969884,M,6,6
+SchneiderEtAl_2020,SR-16B-BS,Hindi,6.03969884,M,9,9
+SchneiderEtAl_2020,SR-16B-BS,Hindi,6.03969884,M,7,7
+SchneiderEtAl_2020,SR-16B-BS,Hindi,6.03969884,M,5,5
+SchneiderEtAl_2020,SR-17B-SM,Hindi,6.40109514,M,6,10
+SchneiderEtAl_2020,SR-17B-SM,Hindi,6.40109514,M,9,9
+SchneiderEtAl_2020,SR-17B-SM,Hindi,6.40109514,M,7,7
+SchneiderEtAl_2020,SR-17B-SM,Hindi,6.40109514,M,5,5
+SchneiderEtAl_2020,SR-18B-RS,Hindi,5.82888433,M,6,6
+SchneiderEtAl_2020,SR-18B-RS,Hindi,5.82888433,M,9,9
+SchneiderEtAl_2020,SR-18B-RS,Hindi,5.82888433,M,7,7
+SchneiderEtAl_2020,SR-18B-RS,Hindi,5.82888433,M,5,5
+SchneiderEtAl_2020,SR-19B-AS,Hindi,5.16632444,F,6,2
+SchneiderEtAl_2020,SR-19B-AS,Hindi,5.16632444,F,9,NA
+SchneiderEtAl_2020,SR-19B-AS,Hindi,5.16632444,F,7,NA
+SchneiderEtAl_2020,SR-19B-AS,Hindi,5.16632444,F,5,2
+SchneiderEtAl_2020,SR-1B-SB,Hindi,5.19370294,M,6,6
+SchneiderEtAl_2020,SR-1B-SB,Hindi,5.19370294,M,9,9
+SchneiderEtAl_2020,SR-1B-SB,Hindi,5.19370294,M,7,7
+SchneiderEtAl_2020,SR-1B-SB,Hindi,5.19370294,M,5,5
+SchneiderEtAl_2020,SR-2-PS,Hindi,5.86721424,F,6,6
+SchneiderEtAl_2020,SR-2-PS,Hindi,5.86721424,F,9,9
+SchneiderEtAl_2020,SR-2-PS,Hindi,5.86721424,F,7,7
+SchneiderEtAl_2020,SR-2-PS,Hindi,5.86721424,F,5,5
+SchneiderEtAl_2020,SR-20B-AP,Hindi,6.05612594,M,6,6
+SchneiderEtAl_2020,SR-20B-AP,Hindi,6.05612594,M,9,9
+SchneiderEtAl_2020,SR-20B-AP,Hindi,6.05612594,M,7,7
+SchneiderEtAl_2020,SR-20B-AP,Hindi,6.05612594,M,5,5
+SchneiderEtAl_2020,SR-21B-JG,Hindi,6.03148528,F,6,10
+SchneiderEtAl_2020,SR-21B-JG,Hindi,6.03148528,F,9,NA
+SchneiderEtAl_2020,SR-21B-JG,Hindi,6.03148528,F,7,NA
+SchneiderEtAl_2020,SR-21B-JG,Hindi,6.03148528,F,5,6
+SchneiderEtAl_2020,SR-23-BS,Hindi,5.18001369,M,6,3
+SchneiderEtAl_2020,SR-23-BS,Hindi,5.18001369,M,9,3
+SchneiderEtAl_2020,SR-23-BS,Hindi,5.18001369,M,7,3
+SchneiderEtAl_2020,SR-23-BS,Hindi,5.18001369,M,5,3
+SchneiderEtAl_2020,SR-24-VR,Hindi,6.03696099,F,6,6
+SchneiderEtAl_2020,SR-24-VR,Hindi,6.03696099,F,9,9
+SchneiderEtAl_2020,SR-24-VR,Hindi,6.03696099,F,7,7
+SchneiderEtAl_2020,SR-24-VR,Hindi,6.03696099,F,5,5
+SchneiderEtAl_2020,SR-28-KS,Hindi,6.04791239,F,6,6
+SchneiderEtAl_2020,SR-28-KS,Hindi,6.04791239,F,9,9
+SchneiderEtAl_2020,SR-28-KS,Hindi,6.04791239,F,7,7
+SchneiderEtAl_2020,SR-28-KS,Hindi,6.04791239,F,5,5
+SchneiderEtAl_2020,SR-29-TR,Hindi,6.01505818,M,6,6
+SchneiderEtAl_2020,SR-29-TR,Hindi,6.01505818,M,9,9
+SchneiderEtAl_2020,SR-29-TR,Hindi,6.01505818,M,7,7
+SchneiderEtAl_2020,SR-29-TR,Hindi,6.01505818,M,5,5
+SchneiderEtAl_2020,SR-3-RS,Hindi,6.37371663,F,6,4
+SchneiderEtAl_2020,SR-3-RS,Hindi,6.37371663,F,9,8
+SchneiderEtAl_2020,SR-3-RS,Hindi,6.37371663,F,7,8
+SchneiderEtAl_2020,SR-3-RS,Hindi,6.37371663,F,5,5
+SchneiderEtAl_2020,SR-30-RP,Hindi,5.14442163,F,6,6
+SchneiderEtAl_2020,SR-30-RP,Hindi,5.14442163,F,9,9
+SchneiderEtAl_2020,SR-30-RP,Hindi,5.14442163,F,7,7
+SchneiderEtAl_2020,SR-30-RP,Hindi,5.14442163,F,5,5
+SchneiderEtAl_2020,SR-32-UP,Hindi,6.46132786,M,6,6
+SchneiderEtAl_2020,SR-32-UP,Hindi,6.46132786,M,9,9
+SchneiderEtAl_2020,SR-32-UP,Hindi,6.46132786,M,7,7
+SchneiderEtAl_2020,SR-32-UP,Hindi,6.46132786,M,5,5
+SchneiderEtAl_2020,SR-33-AC,Hindi,6.07255305,F,6,6
+SchneiderEtAl_2020,SR-33-AC,Hindi,6.07255305,F,9,9
+SchneiderEtAl_2020,SR-33-AC,Hindi,6.07255305,F,7,7
+SchneiderEtAl_2020,SR-33-AC,Hindi,6.07255305,F,5,5
+SchneiderEtAl_2020,SR-34-VS,Hindi,5.36892539,M,6,6
+SchneiderEtAl_2020,SR-34-VS,Hindi,5.36892539,M,9,10
+SchneiderEtAl_2020,SR-34-VS,Hindi,5.36892539,M,7,7
+SchneiderEtAl_2020,SR-34-VS,Hindi,5.36892539,M,5,5
+SchneiderEtAl_2020,SR-35-KM,Hindi,6.18480493,F,6,6
+SchneiderEtAl_2020,SR-35-KM,Hindi,6.18480493,F,9,9
+SchneiderEtAl_2020,SR-35-KM,Hindi,6.18480493,F,7,7
+SchneiderEtAl_2020,SR-35-KM,Hindi,6.18480493,F,5,5
+SchneiderEtAl_2020,SR-37-JP,Hindi,6.39288159,M,6,6
+SchneiderEtAl_2020,SR-37-JP,Hindi,6.39288159,M,9,9
+SchneiderEtAl_2020,SR-37-JP,Hindi,6.39288159,M,7,7
+SchneiderEtAl_2020,SR-37-JP,Hindi,6.39288159,M,5,5
+SchneiderEtAl_2020,SR-38-JY,Hindi,6.05612594,F,6,6
+SchneiderEtAl_2020,SR-38-JY,Hindi,6.05612594,F,9,9
+SchneiderEtAl_2020,SR-38-JY,Hindi,6.05612594,F,7,7
+SchneiderEtAl_2020,SR-38-JY,Hindi,6.05612594,F,5,5
+SchneiderEtAl_2020,SR-39-AT,Hindi,5.80971937,F,6,6
+SchneiderEtAl_2020,SR-39-AT,Hindi,5.80971937,F,9,9
+SchneiderEtAl_2020,SR-39-AT,Hindi,5.80971937,F,7,7
+SchneiderEtAl_2020,SR-39-AT,Hindi,5.80971937,F,5,5
+SchneiderEtAl_2020,SR-3B-SY,Hindi,5.17727584,F,6,6
+SchneiderEtAl_2020,SR-3B-SY,Hindi,5.17727584,F,9,9
+SchneiderEtAl_2020,SR-3B-SY,Hindi,5.17727584,F,7,7
+SchneiderEtAl_2020,SR-3B-SY,Hindi,5.17727584,F,5,5
+SchneiderEtAl_2020,SR-40-KS,Hindi,5.42642026,M,6,5
+SchneiderEtAl_2020,SR-40-KS,Hindi,5.42642026,M,9,NA
+SchneiderEtAl_2020,SR-40-KS,Hindi,5.42642026,M,7,NA
+SchneiderEtAl_2020,SR-40-KS,Hindi,5.42642026,M,5,3
+SchneiderEtAl_2020,SR-41-K,Hindi,4.06297057,M,6,2
+SchneiderEtAl_2020,SR-41-K,Hindi,4.06297057,M,9,NA
+SchneiderEtAl_2020,SR-41-K,Hindi,4.06297057,M,7,NA
+SchneiderEtAl_2020,SR-41-K,Hindi,4.06297057,M,5,1
+SchneiderEtAl_2020,SR-43-GS,Hindi,5.42642026,M,6,10
+SchneiderEtAl_2020,SR-43-GS,Hindi,5.42642026,M,9,NA
+SchneiderEtAl_2020,SR-43-GS,Hindi,5.42642026,M,7,NA
+SchneiderEtAl_2020,SR-43-GS,Hindi,5.42642026,M,5,7
+SchneiderEtAl_2020,SR-44-RP,Hindi,3.80835044,F,6,3
+SchneiderEtAl_2020,SR-44-RP,Hindi,3.80835044,F,9,NA
+SchneiderEtAl_2020,SR-44-RP,Hindi,3.80835044,F,7,NA
+SchneiderEtAl_2020,SR-44-RP,Hindi,3.80835044,F,5,2
+SchneiderEtAl_2020,SR-45-HB,Hindi,3.60848734,M,6,6
+SchneiderEtAl_2020,SR-45-HB,Hindi,3.60848734,M,9,6
+SchneiderEtAl_2020,SR-45-HB,Hindi,3.60848734,M,7,10
+SchneiderEtAl_2020,SR-45-HB,Hindi,3.60848734,M,5,5
+SchneiderEtAl_2020,SR-46-MM,Hindi,4.84599589,F,6,5
+SchneiderEtAl_2020,SR-46-MM,Hindi,4.84599589,F,9,NA
+SchneiderEtAl_2020,SR-46-MM,Hindi,4.84599589,F,7,NA
+SchneiderEtAl_2020,SR-46-MM,Hindi,4.84599589,F,5,6
+SchneiderEtAl_2020,SR-47-MS,Hindi,3.70704997,M,6,3
+SchneiderEtAl_2020,SR-47-MS,Hindi,3.70704997,M,9,NA
+SchneiderEtAl_2020,SR-47-MS,Hindi,3.70704997,M,7,NA
+SchneiderEtAl_2020,SR-47-MS,Hindi,3.70704997,M,5,4
+SchneiderEtAl_2020,SR-49-RS,Hindi,5.49760438,F,6,6
+SchneiderEtAl_2020,SR-49-RS,Hindi,5.49760438,F,9,9
+SchneiderEtAl_2020,SR-49-RS,Hindi,5.49760438,F,7,7
+SchneiderEtAl_2020,SR-49-RS,Hindi,5.49760438,F,5,5
+SchneiderEtAl_2020,SR-4B-GB,Hindi,5.73305955,M,6,6
+SchneiderEtAl_2020,SR-4B-GB,Hindi,5.73305955,M,9,9
+SchneiderEtAl_2020,SR-4B-GB,Hindi,5.73305955,M,7,7
+SchneiderEtAl_2020,SR-4B-GB,Hindi,5.73305955,M,5,5
+SchneiderEtAl_2020,SR-5-HS,Hindi,5.61259411,F,6,1
+SchneiderEtAl_2020,SR-5-HS,Hindi,5.61259411,F,9,1
+SchneiderEtAl_2020,SR-5-HS,Hindi,5.61259411,F,7,1
+SchneiderEtAl_2020,SR-5-HS,Hindi,5.61259411,F,5,1
+SchneiderEtAl_2020,SR-50-MS,Hindi,4.83778234,M,6,3
+SchneiderEtAl_2020,SR-50-MS,Hindi,4.83778234,M,9,NA
+SchneiderEtAl_2020,SR-50-MS,Hindi,4.83778234,M,7,NA
+SchneiderEtAl_2020,SR-50-MS,Hindi,4.83778234,M,5,4
+SchneiderEtAl_2020,SR-53-KG,Hindi,4.64887064,M,6,2
+SchneiderEtAl_2020,SR-53-KG,Hindi,4.64887064,M,9,NA
+SchneiderEtAl_2020,SR-53-KG,Hindi,4.64887064,M,7,NA
+SchneiderEtAl_2020,SR-53-KG,Hindi,4.64887064,M,5,3
+SchneiderEtAl_2020,SR-55-IS,Hindi,3.64134155,M,6,10
+SchneiderEtAl_2020,SR-55-IS,Hindi,3.64134155,M,9,NA
+SchneiderEtAl_2020,SR-55-IS,Hindi,3.64134155,M,7,NA
+SchneiderEtAl_2020,SR-55-IS,Hindi,3.64134155,M,5,10
+SchneiderEtAl_2020,SR-57-RN,Hindi,4.85420945,F,6,4
+SchneiderEtAl_2020,SR-57-RN,Hindi,4.85420945,F,9,NA
+SchneiderEtAl_2020,SR-57-RN,Hindi,4.85420945,F,7,NA
+SchneiderEtAl_2020,SR-57-RN,Hindi,4.85420945,F,5,9
+SchneiderEtAl_2020,SR-59-GP,Hindi,6.58726899,F,6,6
+SchneiderEtAl_2020,SR-59-GP,Hindi,6.58726899,F,9,9
+SchneiderEtAl_2020,SR-59-GP,Hindi,6.58726899,F,7,7
+SchneiderEtAl_2020,SR-59-GP,Hindi,6.58726899,F,5,5
+SchneiderEtAl_2020,SR-5B-RR,Hindi,5.05954825,M,6,2
+SchneiderEtAl_2020,SR-5B-RR,Hindi,5.05954825,M,9,NA
+SchneiderEtAl_2020,SR-5B-RR,Hindi,5.05954825,M,7,NA
+SchneiderEtAl_2020,SR-5B-RR,Hindi,5.05954825,M,5,2
+SchneiderEtAl_2020,SR-6-MS,Hindi,5.80971937,F,6,6
+SchneiderEtAl_2020,SR-6-MS,Hindi,5.80971937,F,9,10
+SchneiderEtAl_2020,SR-6-MS,Hindi,5.80971937,F,7,10
+SchneiderEtAl_2020,SR-6-MS,Hindi,5.80971937,F,5,10
+SchneiderEtAl_2020,SR-6B-BY,Hindi,5.9028063,M,6,6
+SchneiderEtAl_2020,SR-6B-BY,Hindi,5.9028063,M,9,9
+SchneiderEtAl_2020,SR-6B-BY,Hindi,5.9028063,M,7,7
+SchneiderEtAl_2020,SR-6B-BY,Hindi,5.9028063,M,5,5
+SchneiderEtAl_2020,SR-7B-RS,Hindi,5.98767967,F,6,10
+SchneiderEtAl_2020,SR-7B-RS,Hindi,5.98767967,F,9,NA
+SchneiderEtAl_2020,SR-7B-RS,Hindi,5.98767967,F,7,NA
+SchneiderEtAl_2020,SR-7B-RS,Hindi,5.98767967,F,5,10
+SchneiderEtAl_2020,SR-8-MP,Hindi,5.80971937,F,6,6
+SchneiderEtAl_2020,SR-8-MP,Hindi,5.80971937,F,9,9
+SchneiderEtAl_2020,SR-8-MP,Hindi,5.80971937,F,7,7
+SchneiderEtAl_2020,SR-8-MP,Hindi,5.80971937,F,5,5
+SchneiderEtAl_2020,SR-9-RK,Hindi,6.10540726,M,6,6
+SchneiderEtAl_2020,SR-9-RK,Hindi,6.10540726,M,9,9
+SchneiderEtAl_2020,SR-9-RK,Hindi,6.10540726,M,7,7
+SchneiderEtAl_2020,SR-9-RK,Hindi,6.10540726,M,5,5
+SchneiderEtAl_2020,SW-AD-3,English (India),6.13826146,F,6,6
+SchneiderEtAl_2020,SW-AD-3,English (India),6.13826146,F,9,9
+SchneiderEtAl_2020,SW-AD-3,English (India),6.13826146,F,7,7
+SchneiderEtAl_2020,SW-AD-3,English (India),6.13826146,F,5,5
+SchneiderEtAl_2020,SW-AS-7,English (India),5.46748802,M,6,6
+SchneiderEtAl_2020,SW-AS-7,English (India),5.46748802,M,9,9
+SchneiderEtAl_2020,SW-AS-7,English (India),5.46748802,M,7,7
+SchneiderEtAl_2020,SW-AS-7,English (India),5.46748802,M,5,5
+SchneiderEtAl_2020,SW-AT-5,English (India),6.56536619,F,6,6
+SchneiderEtAl_2020,SW-AT-5,English (India),6.56536619,F,9,9
+SchneiderEtAl_2020,SW-AT-5,English (India),6.56536619,F,7,7
+SchneiderEtAl_2020,SW-AT-5,English (India),6.56536619,F,5,5
+SchneiderEtAl_2020,SW-VP-12,English (India),4.93086927,F,6,10
+SchneiderEtAl_2020,SW-VP-12,English (India),4.93086927,F,9,10
+SchneiderEtAl_2020,SW-VP-12,English (India),4.93086927,F,7,7
+SchneiderEtAl_2020,SW-VP-12,English (India),4.93086927,F,5,5
+SchneiderEtAl_2020,SW-DB-24,English (India),6.06433949,F,6,6
+SchneiderEtAl_2020,SW-DB-24,English (India),6.06433949,F,9,9
+SchneiderEtAl_2020,SW-DB-24,English (India),6.06433949,F,7,7
+SchneiderEtAl_2020,SW-DB-24,English (India),6.06433949,F,5,5
+SchneiderEtAl_2020,SW-DB-31,English (India),4.5119781,NA,6,6
+SchneiderEtAl_2020,SW-DB-31,English (India),4.5119781,NA,9,9
+SchneiderEtAl_2020,SW-DB-31,English (India),4.5119781,NA,7,7
+SchneiderEtAl_2020,SW-DB-31,English (India),4.5119781,NA,5,5
+SchneiderEtAl_2020,SW-DJ-23,English (India),2.83093771,F,6,NA
+SchneiderEtAl_2020,SW-DJ-23,English (India),2.83093771,F,9,NA
+SchneiderEtAl_2020,SW-DJ-23,English (India),2.83093771,F,7,NA
+SchneiderEtAl_2020,SW-DJ-23,English (India),2.83093771,F,5,NA
+SchneiderEtAl_2020,SW-DV-27,English (India),4.00273785,NA,6,6
+SchneiderEtAl_2020,SW-DV-27,English (India),4.00273785,NA,9,8
+SchneiderEtAl_2020,SW-DV-27,English (India),4.00273785,NA,7,7
+SchneiderEtAl_2020,SW-DV-27,English (India),4.00273785,NA,5,5
+SchneiderEtAl_2020,SW-HP-21,English (India),4.53935661,M,6,5
+SchneiderEtAl_2020,SW-HP-21,English (India),4.53935661,M,9,NA
+SchneiderEtAl_2020,SW-HP-21,English (India),4.53935661,M,7,NA
+SchneiderEtAl_2020,SW-HP-21,English (India),4.53935661,M,5,6
+SchneiderEtAl_2020,SW-JM-4,English (India),6.51334702,F,6,6
+SchneiderEtAl_2020,SW-JM-4,English (India),6.51334702,F,9,9
+SchneiderEtAl_2020,SW-JM-4,English (India),6.51334702,F,7,7
+SchneiderEtAl_2020,SW-JM-4,English (India),6.51334702,F,5,5
+SchneiderEtAl_2020,SW-KD-16,English (India),5.47843943,F,6,6
+SchneiderEtAl_2020,SW-KD-16,English (India),5.47843943,F,9,9
+SchneiderEtAl_2020,SW-KD-16,English (India),5.47843943,F,7,7
+SchneiderEtAl_2020,SW-KD-16,English (India),5.47843943,F,5,5
+SchneiderEtAl_2020,SW-KM-26,English (India),3.73990418,F,6,6
+SchneiderEtAl_2020,SW-KM-26,English (India),3.73990418,F,9,9
+SchneiderEtAl_2020,SW-KM-26,English (India),3.73990418,F,7,7
+SchneiderEtAl_2020,SW-KM-26,English (India),3.73990418,F,5,5
+SchneiderEtAl_2020,SW-KP-18,English (India),4.92265572,M,6,10
+SchneiderEtAl_2020,SW-KP-18,English (India),4.92265572,M,9,NA
+SchneiderEtAl_2020,SW-KP-18,English (India),4.92265572,M,7,NA
+SchneiderEtAl_2020,SW-KP-18,English (India),4.92265572,M,5,10
+SchneiderEtAl_2020,SW-MDH-8,English (India),6.15742642,M,6,6
+SchneiderEtAl_2020,SW-MDH-8,English (India),6.15742642,M,9,9
+SchneiderEtAl_2020,SW-MDH-8,English (India),6.15742642,M,7,7
+SchneiderEtAl_2020,SW-MDH-8,English (India),6.15742642,M,5,5
+SchneiderEtAl_2020,SW-MP-1B,English (India),5.30047912,F,6,6
+SchneiderEtAl_2020,SW-MP-1B,English (India),5.30047912,F,9,9
+SchneiderEtAl_2020,SW-MP-1B,English (India),5.30047912,F,7,7
+SchneiderEtAl_2020,SW-MP-1B,English (India),5.30047912,F,5,5
+SchneiderEtAl_2020,SW-PP-22,English (India),3.91238877,M,6,10
+SchneiderEtAl_2020,SW-PP-22,English (India),3.91238877,M,9,NA
+SchneiderEtAl_2020,SW-PP-22,English (India),3.91238877,M,7,NA
+SchneiderEtAl_2020,SW-PP-22,English (India),3.91238877,M,5,10
+SchneiderEtAl_2020,SW-PS-2,English (India),5.94934976,M,6,6
+SchneiderEtAl_2020,SW-PS-2,English (India),5.94934976,M,9,9
+SchneiderEtAl_2020,SW-PS-2,English (India),5.94934976,M,7,7
+SchneiderEtAl_2020,SW-PS-2,English (India),5.94934976,M,5,5
+SchneiderEtAl_2020,SW-R-17,English (India),4.74743326,M,6,10
+SchneiderEtAl_2020,SW-R-17,English (India),4.74743326,M,9,NA
+SchneiderEtAl_2020,SW-R-17,English (India),4.74743326,M,7,NA
+SchneiderEtAl_2020,SW-R-17,English (India),4.74743326,M,5,10
+SchneiderEtAl_2020,SW-RG-19,English (India),4.74469541,M,6,6
+SchneiderEtAl_2020,SW-RG-19,English (India),4.74469541,M,9,9
+SchneiderEtAl_2020,SW-RG-19,English (India),4.74469541,M,7,7
+SchneiderEtAl_2020,SW-RG-19,English (India),4.74469541,M,5,5
+SchneiderEtAl_2020,SW-SB-3B,English (India),6.41204654,F,6,6
+SchneiderEtAl_2020,SW-SB-3B,English (India),6.41204654,F,9,9
+SchneiderEtAl_2020,SW-SB-3B,English (India),6.41204654,F,7,7
+SchneiderEtAl_2020,SW-SB-3B,English (India),6.41204654,F,5,5
+SchneiderEtAl_2020,SW-SM-13,English (India),5.69746749,F,6,6
+SchneiderEtAl_2020,SW-SM-13,English (India),5.69746749,F,9,9
+SchneiderEtAl_2020,SW-SM-13,English (India),5.69746749,F,7,7
+SchneiderEtAl_2020,SW-SM-13,English (India),5.69746749,F,5,5
+SchneiderEtAl_2020,SW-SS-33,English (India),3.93702943,F,6,10
+SchneiderEtAl_2020,SW-SS-33,English (India),3.93702943,F,9,NA
+SchneiderEtAl_2020,SW-SS-33,English (India),3.93702943,F,7,NA
+SchneiderEtAl_2020,SW-SS-33,English (India),3.93702943,F,5,10
+SchneiderEtAl_2020,SW-ST-20,English (India),4.57494867,M,6,10
+SchneiderEtAl_2020,SW-ST-20,English (India),4.57494867,M,9,NA
+SchneiderEtAl_2020,SW-ST-20,English (India),4.57494867,M,7,NA
+SchneiderEtAl_2020,SW-ST-20,English (India),4.57494867,M,5,10
+SchneiderEtAl_2020,SW-VM-15,English (India),5.7522245,F,6,6
+SchneiderEtAl_2020,SW-VM-15,English (India),5.7522245,F,9,9
+SchneiderEtAl_2020,SW-VM-15,English (India),5.7522245,F,7,7
+SchneiderEtAl_2020,SW-VM-15,English (India),5.7522245,F,5,5
+SchneiderEtAl_2020,SW-YD-10,English (India),5.08692676,M,6,6
+SchneiderEtAl_2020,SW-YD-10,English (India),5.08692676,M,9,9
+SchneiderEtAl_2020,SW-YD-10,English (India),5.08692676,M,7,7
+SchneiderEtAl_2020,SW-YD-10,English (India),5.08692676,M,5,5
+SchneiderEtAl_2020,SW-YT-1,English (India),4.32306639,F,6,6
+SchneiderEtAl_2020,SW-YT-1,English (India),4.32306639,F,9,9
+SchneiderEtAl_2020,SW-YT-1,English (India),4.32306639,F,7,7
+SchneiderEtAl_2020,SW-YT-1,English (India),4.32306639,F,5,5
+SchneiderEtAl_2020,SW-ZK-6,English (India),6.4421629,F,6,6
+SchneiderEtAl_2020,SW-ZK-6,English (India),6.4421629,F,9,9
+SchneiderEtAl_2020,SW-ZK-6,English (India),6.4421629,F,7,7
+SchneiderEtAl_2020,SW-ZK-6,English (India),6.4421629,F,5,5
+SchneiderEtAl_2020,10072018-A,Slovenian,4.810403833,F,6,9
+SchneiderEtAl_2020,10072018-A,Slovenian,4.810403833,F,9,6
+SchneiderEtAl_2020,10072018-A,Slovenian,4.810403833,F,7,5
+SchneiderEtAl_2020,10072018-A,Slovenian,4.810403833,F,5,4
+SchneiderEtAl_2020,10072018-D,Slovenian,4.969199179,M,6,6
+SchneiderEtAl_2020,10072018-D,Slovenian,4.969199179,M,9,9
+SchneiderEtAl_2020,10072018-D,Slovenian,4.969199179,M,7,7
+SchneiderEtAl_2020,10072018-D,Slovenian,4.969199179,M,5,5
+SchneiderEtAl_2020,10072018-J,Slovenian,5.092402464,M,6,6
+SchneiderEtAl_2020,10072018-J,Slovenian,5.092402464,M,9,7
+SchneiderEtAl_2020,10072018-J,Slovenian,5.092402464,M,7,8
+SchneiderEtAl_2020,10072018-J,Slovenian,5.092402464,M,5,4
+SchneiderEtAl_2020,10072018-V,Slovenian,5.445585216,M,6,6
+SchneiderEtAl_2020,10072018-V,Slovenian,5.445585216,M,9,9
+SchneiderEtAl_2020,10072018-V,Slovenian,5.445585216,M,7,7
+SchneiderEtAl_2020,10072018-V,Slovenian,5.445585216,M,5,5
+SchneiderEtAl_2020,11072018-J,Slovenian,5.163586585,M,6,6
+SchneiderEtAl_2020,11072018-J,Slovenian,5.163586585,M,9,10
+SchneiderEtAl_2020,11072018-J,Slovenian,5.163586585,M,7,7
+SchneiderEtAl_2020,11072018-J,Slovenian,5.163586585,M,5,4
+SchneiderEtAl_2020,11072018-JU,Slovenian,4.375085558,F,6,6
+SchneiderEtAl_2020,11072018-JU,Slovenian,4.375085558,F,9,8
+SchneiderEtAl_2020,11072018-JU,Slovenian,4.375085558,F,7,10
+SchneiderEtAl_2020,11072018-JU,Slovenian,4.375085558,F,5,5
+SchneiderEtAl_2020,11072018-L,Slovenian,3.961670089,F,6,10
+SchneiderEtAl_2020,11072018-L,Slovenian,3.961670089,F,9,10
+SchneiderEtAl_2020,11072018-L,Slovenian,3.961670089,F,7,10
+SchneiderEtAl_2020,11072018-L,Slovenian,3.961670089,F,5,5
+SchneiderEtAl_2020,11072018-M,Slovenian,6.414784394,M,6,6
+SchneiderEtAl_2020,11072018-M,Slovenian,6.414784394,M,9,9
+SchneiderEtAl_2020,11072018-M,Slovenian,6.414784394,M,7,7
+SchneiderEtAl_2020,11072018-M,Slovenian,6.414784394,M,5,5
+SchneiderEtAl_2020,11072018-T,Slovenian,4.273785079,F,6,5
+SchneiderEtAl_2020,11072018-T,Slovenian,4.273785079,F,9,4
+SchneiderEtAl_2020,11072018-T,Slovenian,4.273785079,F,7,4
+SchneiderEtAl_2020,11072018-T,Slovenian,4.273785079,F,5,6
+SchneiderEtAl_2020,11072018-V,Slovenian,4.793976728,M,6,6
+SchneiderEtAl_2020,11072018-V,Slovenian,4.793976728,M,9,9
+SchneiderEtAl_2020,11072018-V,Slovenian,4.793976728,M,7,7
+SchneiderEtAl_2020,11072018-V,Slovenian,4.793976728,M,5,5
+SchneiderEtAl_2020,12072018-I,Slovenian,4.010951403,M,6,4
+SchneiderEtAl_2020,12072018-I,Slovenian,4.010951403,M,9,7
+SchneiderEtAl_2020,12072018-I,Slovenian,4.010951403,M,7,10
+SchneiderEtAl_2020,12072018-I,Slovenian,4.010951403,M,5,10
+SchneiderEtAl_2020,12072018-J,Slovenian,3.887748118,F,6,7
+SchneiderEtAl_2020,12072018-J,Slovenian,3.887748118,F,9,9
+SchneiderEtAl_2020,12072018-J,Slovenian,3.887748118,F,7,7
+SchneiderEtAl_2020,12072018-J,Slovenian,3.887748118,F,5,5
+SchneiderEtAl_2020,12072018-M,Slovenian,3.646817248,M,6,6
+SchneiderEtAl_2020,12072018-M,Slovenian,3.646817248,M,9,10
+SchneiderEtAl_2020,12072018-M,Slovenian,3.646817248,M,7,7
+SchneiderEtAl_2020,12072018-M,Slovenian,3.646817248,M,5,10
+SchneiderEtAl_2020,12072018-Ž,Slovenian,3.764544832,F,6,3
+SchneiderEtAl_2020,12072018-Ž,Slovenian,3.764544832,F,9,9
+SchneiderEtAl_2020,12072018-Ž,Slovenian,3.764544832,F,7,3
+SchneiderEtAl_2020,12072018-Ž,Slovenian,3.764544832,F,5,5
+SchneiderEtAl_2020,18072018-B,Slovenian,4.254620123,F,6,5
+SchneiderEtAl_2020,18072018-B,Slovenian,4.254620123,F,9,6
+SchneiderEtAl_2020,18072018-B,Slovenian,4.254620123,F,7,7
+SchneiderEtAl_2020,18072018-B,Slovenian,4.254620123,F,5,10
+SchneiderEtAl_2020,18072018-D,Slovenian,6.231348392,F,6,6
+SchneiderEtAl_2020,18072018-D,Slovenian,6.231348392,F,9,9
+SchneiderEtAl_2020,18072018-D,Slovenian,6.231348392,F,7,7
+SchneiderEtAl_2020,18072018-D,Slovenian,6.231348392,F,5,5
+SchneiderEtAl_2020,18072018-G,Slovenian,5.207392197,M,6,6
+SchneiderEtAl_2020,18072018-G,Slovenian,5.207392197,M,9,9
+SchneiderEtAl_2020,18072018-G,Slovenian,5.207392197,M,7,7
+SchneiderEtAl_2020,18072018-G,Slovenian,5.207392197,M,5,5
+SchneiderEtAl_2020,18072018-IZ,Slovenian,4.481861739,F,6,10
+SchneiderEtAl_2020,18072018-IZ,Slovenian,4.481861739,F,9,9
+SchneiderEtAl_2020,18072018-IZ,Slovenian,4.481861739,F,7,7
+SchneiderEtAl_2020,18072018-IZ,Slovenian,4.481861739,F,5,5
+SchneiderEtAl_2020,19072018-B,Slovenian,5.514031485,F,6,6
+SchneiderEtAl_2020,19072018-B,Slovenian,5.514031485,F,9,9
+SchneiderEtAl_2020,19072018-B,Slovenian,5.514031485,F,7,7
+SchneiderEtAl_2020,19072018-B,Slovenian,5.514031485,F,5,5
+SchneiderEtAl_2020,19072018-E,Slovenian,6.15742642,M,6,6
+SchneiderEtAl_2020,19072018-E,Slovenian,6.15742642,M,9,9
+SchneiderEtAl_2020,19072018-E,Slovenian,6.15742642,M,7,7
+SchneiderEtAl_2020,19072018-E,Slovenian,6.15742642,M,5,5
+SchneiderEtAl_2020,19072018-J,Slovenian,3.811088296,M,6,10
+SchneiderEtAl_2020,19072018-J,Slovenian,3.811088296,M,9,10
+SchneiderEtAl_2020,19072018-J,Slovenian,3.811088296,M,7,10
+SchneiderEtAl_2020,19072018-J,Slovenian,3.811088296,M,5,10
+SchneiderEtAl_2020,19072018-M,Slovenian,5.281314168,F,6,6
+SchneiderEtAl_2020,19072018-M,Slovenian,5.281314168,F,9,9
+SchneiderEtAl_2020,19072018-M,Slovenian,5.281314168,F,7,7
+SchneiderEtAl_2020,19072018-M,Slovenian,5.281314168,F,5,5
+SchneiderEtAl_2020,19072018-P,Slovenian,4.361396304,F,6,6
+SchneiderEtAl_2020,19072018-P,Slovenian,4.361396304,F,9,8
+SchneiderEtAl_2020,19072018-P,Slovenian,4.361396304,F,7,6
+SchneiderEtAl_2020,19072018-P,Slovenian,4.361396304,F,5,4
+SchneiderEtAl_2020,19072018-T,Slovenian,3.775496235,F,6,10
+SchneiderEtAl_2020,19072018-T,Slovenian,3.775496235,F,9,10
+SchneiderEtAl_2020,19072018-T,Slovenian,3.775496235,F,7,10
+SchneiderEtAl_2020,19072018-T,Slovenian,3.775496235,F,5,10
+SchneiderEtAl_2020,20072018-Z,Slovenian,3.838466804,F,6,10
+SchneiderEtAl_2020,20072018-Z,Slovenian,3.838466804,F,9,10
+SchneiderEtAl_2020,20072018-Z,Slovenian,3.838466804,F,7,10
+SchneiderEtAl_2020,20072018-Z,Slovenian,3.838466804,F,5,10
+SchneiderEtAl_2020,21062018-A,Slovenian,6.269678303,F,6,6
+SchneiderEtAl_2020,21062018-A,Slovenian,6.269678303,F,9,9
+SchneiderEtAl_2020,21062018-A,Slovenian,6.269678303,F,7,7
+SchneiderEtAl_2020,21062018-A,Slovenian,6.269678303,F,5,5
+SchneiderEtAl_2020,21062018-DV,Slovenian,5.015742642,F,6,6
+SchneiderEtAl_2020,21062018-DV,Slovenian,5.015742642,F,9,9
+SchneiderEtAl_2020,21062018-DV,Slovenian,5.015742642,F,7,7
+SchneiderEtAl_2020,21062018-DV,Slovenian,5.015742642,F,5,5
+SchneiderEtAl_2020,21062018-PD,Slovenian,6.269678303,F,6,6
+SchneiderEtAl_2020,21062018-PD,Slovenian,5.015742642,F,9,9
+SchneiderEtAl_2020,21062018-PD,Slovenian,5.015742642,F,7,7
+SchneiderEtAl_2020,21062018-PD,Slovenian,5.015742642,F,5,5
+SchneiderEtAl_2020,21062018-TE,Slovenian,5.938398357,F,6,6
+SchneiderEtAl_2020,21062018-TE,Slovenian,5.938398357,F,9,9
+SchneiderEtAl_2020,21062018-TE,Slovenian,5.938398357,F,7,7
+SchneiderEtAl_2020,21062018-TE,Slovenian,5.938398357,F,5,5
+SchneiderEtAl_2020,21062018-U,Slovenian,5.681040383,F,6,6
+SchneiderEtAl_2020,21062018-U,Slovenian,5.681040383,F,9,9
+SchneiderEtAl_2020,21062018-U,Slovenian,5.681040383,F,7,7
+SchneiderEtAl_2020,21062018-U,Slovenian,5.681040383,F,5,5
+SchneiderEtAl_2020,21062018E,Slovenian,5.831622177,M,6,6
+SchneiderEtAl_2020,21062018E,Slovenian,5.831622177,M,9,9
+SchneiderEtAl_2020,21062018E,Slovenian,5.831622177,M,7,7
+SchneiderEtAl_2020,21062018E,Slovenian,5.831622177,M,5,5
+SchneiderEtAl_2020,21062018IL,Slovenian,5.87816564,M,6,6
+SchneiderEtAl_2020,21062018IL,Slovenian,5.87816564,M,9,9
+SchneiderEtAl_2020,21062018IL,Slovenian,5.87816564,M,7,7
+SchneiderEtAl_2020,21062018IL,Slovenian,5.87816564,M,5,5
+SchneiderEtAl_2020,21062018IZ,Slovenian,5.763175907,F,6,6
+SchneiderEtAl_2020,21062018IZ,Slovenian,5.763175907,F,9,9
+SchneiderEtAl_2020,21062018IZ,Slovenian,5.763175907,F,7,7
+SchneiderEtAl_2020,21062018IZ,Slovenian,5.763175907,F,5,5
+SchneiderEtAl_2020,21062018J,Slovenian,5.308692676,M,6,6
+SchneiderEtAl_2020,21062018J,Slovenian,5.308692676,M,9,9
+SchneiderEtAl_2020,21062018J,Slovenian,5.308692676,M,7,7
+SchneiderEtAl_2020,21062018J,Slovenian,5.308692676,M,5,5
+SchneiderEtAl_2020,21062018Ž,Slovenian,5.615331964,M,6,6
+SchneiderEtAl_2020,21062018Ž,Slovenian,5.615331964,M,9,9
+SchneiderEtAl_2020,21062018Ž,Slovenian,5.615331964,M,7,7
+SchneiderEtAl_2020,21062018Ž,Slovenian,5.615331964,M,5,5
+SchneiderEtAl_2020,21082018-PD,Slovenian,5.60164271,M,6,6
+SchneiderEtAl_2020,21082018-PD,Slovenian,5.60164271,M,9,9
+SchneiderEtAl_2020,21082018-PD,Slovenian,5.60164271,M,7,7
+SchneiderEtAl_2020,21082018-PD,Slovenian,5.60164271,M,5,5
+SchneiderEtAl_2020,22062018-DA,Slovenian,4.678986995,M,6,6
+SchneiderEtAl_2020,22062018-DA,Slovenian,4.678986995,M,9,9
+SchneiderEtAl_2020,22062018-DA,Slovenian,4.678986995,M,7,7
+SchneiderEtAl_2020,22062018-DA,Slovenian,4.678986995,M,5,5
+SchneiderEtAl_2020,22062018-ER,Slovenian,5.275838467,M,6,6
+SchneiderEtAl_2020,22062018-ER,Slovenian,5.275838467,M,9,9
+SchneiderEtAl_2020,22062018-ER,Slovenian,5.275838467,M,7,7
+SchneiderEtAl_2020,22062018-ER,Slovenian,5.275838467,M,5,5
+SchneiderEtAl_2020,22062018-LV,Slovenian,4.292950034,M,6,4
+SchneiderEtAl_2020,22062018-LV,Slovenian,4.292950034,M,9,8
+SchneiderEtAl_2020,22062018-LV,Slovenian,4.292950034,M,7,10
+SchneiderEtAl_2020,22062018-LV,Slovenian,4.292950034,M,5,5
+SchneiderEtAl_2020,22062018-MA,Slovenian,4.380561259,M,6,6
+SchneiderEtAl_2020,22062018-MA,Slovenian,4.380561259,M,9,10
+SchneiderEtAl_2020,22062018-MA,Slovenian,4.380561259,M,7,7
+SchneiderEtAl_2020,22062018-MA,Slovenian,4.380561259,M,5,5
+SchneiderEtAl_2020,28062018-E,Slovenian,6.343600274,F,6,6
+SchneiderEtAl_2020,28062018-E,Slovenian,6.343600274,F,9,9
+SchneiderEtAl_2020,28062018-E,Slovenian,6.343600274,F,7,7
+SchneiderEtAl_2020,28062018-E,Slovenian,6.343600274,F,5,5
+SchneiderEtAl_2020,28062018-L,Slovenian,6.023271732,F,6,6
+SchneiderEtAl_2020,28062018-L,Slovenian,6.023271732,F,9,9
+SchneiderEtAl_2020,28062018-L,Slovenian,6.023271732,F,7,7
+SchneiderEtAl_2020,28062018-L,Slovenian,6.023271732,F,5,5
+SchneiderEtAl_2020,28062018-M,Slovenian,4.906228611,M,6,6
+SchneiderEtAl_2020,28062018-M,Slovenian,4.906228611,M,9,7
+SchneiderEtAl_2020,28062018-M,Slovenian,4.906228611,M,7,8
+SchneiderEtAl_2020,28062018-M,Slovenian,4.906228611,M,5,6
+SchneiderEtAl_2020,29062018-N,Slovenian,5.650924025,F,6,6
+SchneiderEtAl_2020,29062018-N,Slovenian,5.650924025,F,9,9
+SchneiderEtAl_2020,29062018-N,Slovenian,5.650924025,F,7,8
+SchneiderEtAl_2020,29062018-N,Slovenian,5.650924025,F,5,5
+SchneiderEtAl_2020,29062018-P,Slovenian,5.618069815,F,6,6
+SchneiderEtAl_2020,29062018-P,Slovenian,5.618069815,F,9,9
+SchneiderEtAl_2020,29062018-P,Slovenian,5.618069815,F,7,7
+SchneiderEtAl_2020,29062018-P,Slovenian,5.618069815,F,5,5
+SchneiderEtAl_2020,30062018-T,Slovenian,4.980150582,M,6,6
+SchneiderEtAl_2020,30062018-T,Slovenian,4.980150582,M,9,9
+SchneiderEtAl_2020,30062018-T,Slovenian,4.980150582,M,7,7
+SchneiderEtAl_2020,30062018-T,Slovenian,4.980150582,M,5,6
+SchneiderEtAl_2020,Cic01,Slovenian,3.89596167,F,6,4
+SchneiderEtAl_2020,Cic01,Slovenian,3.89596167,F,9,4
+SchneiderEtAl_2020,Cic01,Slovenian,3.89596167,F,7,5
+SchneiderEtAl_2020,Cic01,Slovenian,3.89596167,F,5,5
+SchneiderEtAl_2020,CopyPasteMe,English,#VALUE!,ChangeMe,6,NA
+SchneiderEtAl_2020,CopyPasteMe,English,#VALUE!,ChangeMe,9,NA
+SchneiderEtAl_2020,CopyPasteMe,English,#VALUE!,ChangeMe,7,NA
+SchneiderEtAl_2020,CopyPasteMe,English,#VALUE!,ChangeMe,5,NA
+SchneiderEtAl_2020,Cv01,Slovenian,5.752224504,M,6,6
+SchneiderEtAl_2020,Cv01,Slovenian,5.752224504,M,9,9
+SchneiderEtAl_2020,Cv01,Slovenian,5.752224504,M,7,7
+SchneiderEtAl_2020,Cv01,Slovenian,5.752224504,M,5,5
+SchneiderEtAl_2020,Cv02,Macedonian,5.889117043,M,6,7
+SchneiderEtAl_2020,Cv02,Macedonian,5.889117043,M,9,8
+SchneiderEtAl_2020,Cv02,Macedonian,5.889117043,M,7,5
+SchneiderEtAl_2020,Cv02,Macedonian,5.889117043,M,5,4
+SchneiderEtAl_2020,Cv03,Slovenian,5.757700205,F,6,6
+SchneiderEtAl_2020,Cv03,Slovenian,5.757700205,F,9,9
+SchneiderEtAl_2020,Cv03,Slovenian,5.757700205,F,7,7
+SchneiderEtAl_2020,Cv03,Slovenian,5.757700205,F,5,5
+SchneiderEtAl_2020,Cv04,Slovenian,5.850787132,M,6,6
+SchneiderEtAl_2020,Cv04,Slovenian,5.850787132,M,9,9
+SchneiderEtAl_2020,Cv04,Slovenian,5.850787132,M,7,7
+SchneiderEtAl_2020,Cv04,Slovenian,5.850787132,M,5,5
+SchneiderEtAl_2020,Cv11,Slovenian,5.642710472,F,6,6
+SchneiderEtAl_2020,Cv11,Slovenian,5.642710472,F,9,9
+SchneiderEtAl_2020,Cv11,Slovenian,5.642710472,F,7,7
+SchneiderEtAl_2020,Cv11,Slovenian,5.642710472,F,5,5
+SchneiderEtAl_2020,Cv12,Slovenian,5.719370294,M,6,6
+SchneiderEtAl_2020,Cv12,Slovenian,5.719370294,M,9,10
+SchneiderEtAl_2020,Cv12,Slovenian,5.719370294,M,7,8
+SchneiderEtAl_2020,Cv12,Slovenian,5.719370294,M,5,5
+SchneiderEtAl_2020,Cv13,Slovenian,5.719370294,F,6,6
+SchneiderEtAl_2020,Cv13,Slovenian,5.719370294,F,9,9
+SchneiderEtAl_2020,Cv13,Slovenian,5.719370294,F,7,7
+SchneiderEtAl_2020,Cv13,Slovenian,5.719370294,F,5,5
+SchneiderEtAl_2020,Naj01,Slovenian,6.332648871,F,6,6
+SchneiderEtAl_2020,Naj01,Slovenian,6.332648871,F,9,9
+SchneiderEtAl_2020,Naj01,Slovenian,6.332648871,F,7,7
+SchneiderEtAl_2020,Naj01,Slovenian,6.332648871,F,5,5
+SchneiderEtAl_2020,Naj02,Slovenian,4.440793977,F,6,6
+SchneiderEtAl_2020,Naj02,Slovenian,4.440793977,F,9,9
+SchneiderEtAl_2020,Naj02,Slovenian,4.440793977,F,7,7
+SchneiderEtAl_2020,Naj02,Slovenian,4.440793977,F,5,5
+SchneiderEtAl_2020,Naj03,Slovenian,6.127310062,M,6,6
+SchneiderEtAl_2020,Naj03,Slovenian,6.127310062,M,9,9
+SchneiderEtAl_2020,Naj03,Slovenian,6.127310062,M,7,7
+SchneiderEtAl_2020,Naj03,Slovenian,6.127310062,M,5,5
+SchneiderEtAl_2020,Naj04,Slovenian,4.364134155,M,6,6
+SchneiderEtAl_2020,Naj04,Slovenian,4.364134155,M,9,9
+SchneiderEtAl_2020,Naj04,Slovenian,4.364134155,M,7,7
+SchneiderEtAl_2020,Naj04,Slovenian,4.364134155,M,5,5
+SchneiderEtAl_2020,Naj05,Slovenian,6.283367556,M,6,6
+SchneiderEtAl_2020,Naj05,Slovenian,6.283367556,M,9,9
+SchneiderEtAl_2020,Naj05,Slovenian,6.283367556,M,7,7
+SchneiderEtAl_2020,Naj05,Slovenian,6.283367556,M,5,5
+SchneiderEtAl_2020,Naj06,Slovenian,6.138261465,F,6,6
+SchneiderEtAl_2020,Naj06,Slovenian,6.138261465,F,9,9
+SchneiderEtAl_2020,Naj06,Slovenian,6.138261465,F,7,7
+SchneiderEtAl_2020,Naj06,Slovenian,6.138261465,F,5,5
+SchneiderEtAl_2020,Naj07,Slovenian,5.574264203,M,6,6
+SchneiderEtAl_2020,Naj07,Slovenian,5.574264203,M,9,9
+SchneiderEtAl_2020,Naj07,Slovenian,5.574264203,M,7,7
+SchneiderEtAl_2020,Naj07,Slovenian,5.574264203,M,5,5
+SchneiderEtAl_2020,Naj08,Slovenian,5.790554415,M,6,6
+SchneiderEtAl_2020,Naj08,Slovenian,5.790554415,M,9,9
+SchneiderEtAl_2020,Naj08,Slovenian,5.790554415,M,7,7
+SchneiderEtAl_2020,Naj08,Slovenian,5.790554415,M,5,5
+SchneiderEtAl_2020,Naj11,Slovenian,4.413415469,M,6,6
+SchneiderEtAl_2020,Naj11,Slovenian,4.413415469,M,9,9
+SchneiderEtAl_2020,Naj11,Slovenian,4.413415469,M,7,7
+SchneiderEtAl_2020,Naj11,Slovenian,4.413415469,M,5,5
+SchneiderEtAl_2020,Naj12,Slovenian,6.012320329,M,6,6
+SchneiderEtAl_2020,Naj12,Slovenian,6.012320329,M,9,9
+SchneiderEtAl_2020,Naj12,Slovenian,6.012320329,M,7,7
+SchneiderEtAl_2020,Naj12,Slovenian,6.012320329,M,5,5
+SchneiderEtAl_2020,Naj13,Slovenian,4.257357974,F,6,7
+SchneiderEtAl_2020,Naj13,Slovenian,4.257357974,F,9,7
+SchneiderEtAl_2020,Naj13,Slovenian,4.257357974,F,7,7
+SchneiderEtAl_2020,Naj13,Slovenian,4.257357974,F,5,5
+SchneiderEtAl_2020,Naj14,Slovenian,3.772758385,M,6,5
+SchneiderEtAl_2020,Naj14,Slovenian,3.772758385,M,9,5
+SchneiderEtAl_2020,Naj14,Slovenian,3.772758385,M,7,4
+SchneiderEtAl_2020,Naj14,Slovenian,3.772758385,M,5,5
+SchneiderEtAl_2020,Naj15,Slovenian,3.994524298,M,6,10
+SchneiderEtAl_2020,Naj15,Slovenian,3.994524298,M,9,10
+SchneiderEtAl_2020,Naj15,Slovenian,3.994524298,M,7,10
+SchneiderEtAl_2020,Naj15,Slovenian,3.994524298,M,5,10
+SchneiderEtAl_2020,Naj16,Slovenian,3.832991102,F,6,7
+SchneiderEtAl_2020,Naj16,Slovenian,3.832991102,F,9,4
+SchneiderEtAl_2020,Naj16,Slovenian,3.832991102,F,7,6
+SchneiderEtAl_2020,Naj16,Slovenian,3.832991102,F,5,9
+SchneiderEtAl_2020,Naj17,Serbian/Slovenian,3.852156057,M,6,10
+SchneiderEtAl_2020,Naj17,Serbian/Slovenian,3.852156057,M,9,10
+SchneiderEtAl_2020,Naj17,Serbian/Slovenian,3.852156057,M,7,10
+SchneiderEtAl_2020,Naj17,Serbian/Slovenian,3.852156057,M,5,10
+SchneiderEtAl_2020,Sol01,Slovenian,6.214921287,M,6,6
+SchneiderEtAl_2020,Sol01,Slovenian,6.214921287,M,9,9
+SchneiderEtAl_2020,Sol01,Slovenian,6.214921287,M,7,7
+SchneiderEtAl_2020,Sol01,Slovenian,6.214921287,M,5,5
+SchneiderEtAl_2020,Sol02,Slovenian,4.59137577,M,6,6
+SchneiderEtAl_2020,Sol02,Slovenian,4.59137577,M,9,9
+SchneiderEtAl_2020,Sol02,Slovenian,4.59137577,M,7,10
+SchneiderEtAl_2020,Sol02,Slovenian,4.59137577,M,5,5
+SchneiderEtAl_2020,Sol03,Slovenian,4.407939767,M,6,6
+SchneiderEtAl_2020,Sol03,Slovenian,4.407939767,M,9,10
+SchneiderEtAl_2020,Sol03,Slovenian,4.407939767,M,7,7
+SchneiderEtAl_2020,Sol03,Slovenian,4.407939767,M,5,5
+SchneiderEtAl_2020,Sol04,Slovenian,4.446269678,M,6,6
+SchneiderEtAl_2020,Sol04,Slovenian,4.446269678,M,9,9
+SchneiderEtAl_2020,Sol04,Slovenian,4.446269678,M,7,7
+SchneiderEtAl_2020,Sol04,Slovenian,4.446269678,M,5,5
+SchneiderEtAl_2020,Sol05,Slovenian,5.11156742,F,6,6
+SchneiderEtAl_2020,Sol05,Slovenian,5.11156742,F,9,9
+SchneiderEtAl_2020,Sol05,Slovenian,5.11156742,F,7,7
+SchneiderEtAl_2020,Sol05,Slovenian,5.11156742,F,5,5
+SchneiderEtAl_2020,Sol06,Slovenian,4.183436003,M,6,4
+SchneiderEtAl_2020,Sol06,Slovenian,4.183436003,M,9,3
+SchneiderEtAl_2020,Sol06,Slovenian,4.183436003,M,7,5
+SchneiderEtAl_2020,Sol06,Slovenian,4.183436003,M,5,4
+SchneiderEtAl_2020,Sol07,Slovenian,3.764544832,M,6,10
+SchneiderEtAl_2020,Sol07,Slovenian,3.764544832,M,9,10
+SchneiderEtAl_2020,Sol07,Slovenian,3.764544832,M,7,6
+SchneiderEtAl_2020,Sol07,Slovenian,3.764544832,M,5,5
+SchneiderEtAl_2020,Sol21,Slovenian,5.338809035,F,6,6
+SchneiderEtAl_2020,Sol21,Slovenian,5.338809035,F,9,9
+SchneiderEtAl_2020,Sol21,Slovenian,5.338809035,F,7,7
+SchneiderEtAl_2020,Sol21,Slovenian,5.338809035,F,5,5
+SchneiderEtAl_2020,Vip01,Slovenian,5.237508556,F,6,6
+SchneiderEtAl_2020,Vip01,Slovenian,5.237508556,F,9,9
+SchneiderEtAl_2020,Vip01,Slovenian,5.237508556,F,7,7
+SchneiderEtAl_2020,Vip01,Slovenian,5.237508556,F,5,5
+SchneiderEtAl_2020,Vip02,Slovenian,4.506502396,M,6,5
+SchneiderEtAl_2020,Vip02,Slovenian,4.506502396,M,9,9
+SchneiderEtAl_2020,Vip02,Slovenian,4.506502396,M,7,7
+SchneiderEtAl_2020,Vip02,Slovenian,4.506502396,M,5,5
+SchneiderEtAl_2020,Vip04,Slovenian,5.245722108,M,6,6
+SchneiderEtAl_2020,Vip04,Slovenian,5.245722108,M,9,8
+SchneiderEtAl_2020,Vip04,Slovenian,5.245722108,M,7,9
+SchneiderEtAl_2020,Vip04,Slovenian,5.245722108,M,5,10
+SchneiderEtAl_2020,Vip05,Slovenian,4.514715948,M,6,6
+SchneiderEtAl_2020,Vip05,Slovenian,4.514715948,M,9,9
+SchneiderEtAl_2020,Vip05,Slovenian,4.514715948,M,7,10
+SchneiderEtAl_2020,Vip05,Slovenian,4.514715948,M,5,5
+SchneiderEtAl_2020,RT01,Slovenian,6.105407255,M,6,6
+SchneiderEtAl_2020,RT01,Slovenian,6.105407255,M,9,9
+SchneiderEtAl_2020,RT01,Slovenian,6.105407255,M,7,7
+SchneiderEtAl_2020,RT01,Slovenian,6.105407255,M,5,5
+SchneiderEtAl_2020,RT02,Slovenian,6.001368925,M,6,6
+SchneiderEtAl_2020,RT02,Slovenian,6.001368925,M,9,9
+SchneiderEtAl_2020,RT02,Slovenian,6.001368925,M,7,7
+SchneiderEtAl_2020,RT02,Slovenian,6.001368925,M,5,5
+SchneiderEtAl_2020,RT03,Slovenian,6.160164271,F,6,6
+SchneiderEtAl_2020,RT03,Slovenian,6.160164271,F,9,9
+SchneiderEtAl_2020,RT03,Slovenian,6.160164271,F,7,7
+SchneiderEtAl_2020,RT03,Slovenian,6.160164271,F,5,5
+SchneiderEtAl_2020,RT04,Slovenian,6.151950719,M,6,6
+SchneiderEtAl_2020,RT04,Slovenian,6.151950719,M,9,9
+SchneiderEtAl_2020,RT04,Slovenian,6.151950719,M,7,7
+SchneiderEtAl_2020,RT04,Slovenian,6.151950719,M,5,5
+SchneiderEtAl_2020,RT05,Slovenian,6.020533881,F,6,6
+SchneiderEtAl_2020,RT05,Slovenian,6.020533881,F,9,9
+SchneiderEtAl_2020,RT05,Slovenian,6.020533881,F,7,7
+SchneiderEtAl_2020,RT05,Slovenian,6.020533881,F,5,5
+SchneiderEtAl_2020,RT06,Slovenian,5.886379192,F,6,6
+SchneiderEtAl_2020,RT06,Slovenian,5.886379192,F,9,9
+SchneiderEtAl_2020,RT06,Slovenian,5.886379192,F,7,7
+SchneiderEtAl_2020,RT06,Slovenian,5.886379192,F,5,5
+SchneiderEtAl_2020,RT07,Slovenian,6.105407255,M,6,6
+SchneiderEtAl_2020,RT07,Slovenian,6.105407255,M,9,9
+SchneiderEtAl_2020,RT07,Slovenian,6.105407255,M,7,7
+SchneiderEtAl_2020,RT07,Slovenian,6.105407255,M,5,5
+SchneiderEtAl_2020,RT08,Slovenian,6.29705681,M,6,6
+SchneiderEtAl_2020,RT08,Slovenian,6.29705681,M,9,9
+SchneiderEtAl_2020,RT08,Slovenian,6.29705681,M,7,7
+SchneiderEtAl_2020,RT08,Slovenian,6.29705681,M,5,5
+SchneiderEtAl_2020,RT09,Slovenian,6.255989049,F,6,6
+SchneiderEtAl_2020,RT09,Slovenian,6.255989049,F,9,9
+SchneiderEtAl_2020,RT09,Slovenian,6.255989049,F,7,7
+SchneiderEtAl_2020,RT09,Slovenian,6.255989049,F,5,5
+SchneiderEtAl_2020,Cv21,Slovenian,4.826830938,M,6,6
+SchneiderEtAl_2020,Cv21,Slovenian,4.826830938,M,9,9
+SchneiderEtAl_2020,Cv21,Slovenian,4.826830938,M,7,7
+SchneiderEtAl_2020,Cv21,Slovenian,4.826830938,M,5,5
+SchneiderEtAl_2020,SP02,Slovenian,5.270362765,F,6,6
+SchneiderEtAl_2020,SP02,Slovenian,5.270362765,F,9,9
+SchneiderEtAl_2020,SP02,Slovenian,5.270362765,F,7,7
+SchneiderEtAl_2020,SP02,Slovenian,5.270362765,F,5,5
+SchneiderEtAl_2020,SP03,Slovenian,4.928131417,F,6,6
+SchneiderEtAl_2020,SP03,Slovenian,4.928131417,F,9,9
+SchneiderEtAl_2020,SP03,Slovenian,4.928131417,F,7,7
+SchneiderEtAl_2020,SP03,Slovenian,4.928131417,F,5,5
+SchneiderEtAl_2020,05112018-T,Slovenian,5.880903491,F,6,6
+SchneiderEtAl_2020,05112018-T,Slovenian,5.880903491,F,9,9
+SchneiderEtAl_2020,05112018-T,Slovenian,5.880903491,F,7,7
+SchneiderEtAl_2020,05112018-T,Slovenian,5.880903491,F,5,5
+SchneiderEtAl_2020,05112018-ZA,Slovenian,4.227241615,F,6,10
+SchneiderEtAl_2020,05112018-ZA,Slovenian,4.227241615,F,9,10
+SchneiderEtAl_2020,05112018-ZA,Slovenian,4.227241615,F,7,10
+SchneiderEtAl_2020,05112018-ZA,Slovenian,4.227241615,F,5,10
+SchneiderEtAl_2020,Sol50,Slovenian,4.684462697,M,6,4
+SchneiderEtAl_2020,Sol50,Slovenian,4.684462697,M,9,3
+SchneiderEtAl_2020,Sol50,Slovenian,4.684462697,M,7,6
+SchneiderEtAl_2020,Sol50,Slovenian,4.684462697,M,5,3
+SchneiderEtAl_2020,12112018-TM,Slovenian,4.156057495,F,6,6
+SchneiderEtAl_2020,12112018-TM,Slovenian,4.156057495,F,9,9
+SchneiderEtAl_2020,12112018-TM,Slovenian,4.156057495,F,7,7
+SchneiderEtAl_2020,12112018-TM,Slovenian,4.156057495,F,5,5
+SchneiderEtAl_2020,Sol53,Slovenian,4.473648186,F,6,6
+SchneiderEtAl_2020,Sol53,Slovenian,4.473648186,F,9,10
+SchneiderEtAl_2020,Sol53,Slovenian,4.473648186,F,7,7
+SchneiderEtAl_2020,Sol53,Slovenian,4.473648186,F,5,5
+SchneiderEtAl_2020,SP13,Slovenian,5.193702943,F,6,6
+SchneiderEtAl_2020,SP13,Slovenian,5.193702943,F,9,9
+SchneiderEtAl_2020,SP13,Slovenian,5.193702943,F,7,7
+SchneiderEtAl_2020,SP13,Slovenian,5.193702943,F,5,8
+SchneiderEtAl_2020,SP14,Slovenian,5.544147844,M,6,6
+SchneiderEtAl_2020,SP14,Slovenian,5.544147844,M,9,9
+SchneiderEtAl_2020,SP14,Slovenian,5.544147844,M,7,7
+SchneiderEtAl_2020,SP14,Slovenian,5.544147844,M,5,5
+SchneiderEtAl_2020,SP15,Slovenian,5.667351129,M,6,6
+SchneiderEtAl_2020,SP15,Slovenian,5.667351129,M,9,9
+SchneiderEtAl_2020,SP15,Slovenian,5.667351129,M,7,7
+SchneiderEtAl_2020,SP15,Slovenian,5.667351129,M,5,5
+SchneiderEtAl_2020,SP16,Slovenian,5.859000684,F,6,6
+SchneiderEtAl_2020,SP16,Slovenian,5.859000684,F,9,9
+SchneiderEtAl_2020,SP16,Slovenian,5.859000684,F,7,8
+SchneiderEtAl_2020,SP16,Slovenian,5.859000684,F,5,5
+SchneiderEtAl_2020,SP20,Slovenian,4.410677618,F,6,5
+SchneiderEtAl_2020,SP20,Slovenian,4.410677618,F,9,5
+SchneiderEtAl_2020,SP20,Slovenian,4.410677618,F,7,5
+SchneiderEtAl_2020,SP20,Slovenian,4.410677618,F,5,5
+SchneiderEtAl_2020,SP22,Slovenian,4.747433265,F,6,6
+SchneiderEtAl_2020,SP22,Slovenian,4.747433265,F,9,9
+SchneiderEtAl_2020,SP22,Slovenian,4.747433265,F,7,7
+SchneiderEtAl_2020,SP22,Slovenian,4.747433265,F,5,5
+SchneiderEtAl_2020,SP23,Slovenian,4.295687885,M,6,10
+SchneiderEtAl_2020,SP23,Slovenian,4.295687885,M,9,10
+SchneiderEtAl_2020,SP23,Slovenian,4.295687885,M,7,10
+SchneiderEtAl_2020,SP23,Slovenian,4.295687885,M,5,10
+SchneiderEtAl_2020,SP24,Slovenian,4.082135524,M,6,10
+SchneiderEtAl_2020,SP24,Slovenian,4.082135524,M,9,7
+SchneiderEtAl_2020,SP24,Slovenian,4.082135524,M,7,10
+SchneiderEtAl_2020,SP24,Slovenian,4.082135524,M,5,5
+SchneiderEtAl_2020,SP12,Slovenian,5.686516085,M,6,6
+SchneiderEtAl_2020,SP12,Slovenian,5.686516085,M,9,9
+SchneiderEtAl_2020,SP12,Slovenian,5.686516085,M,7,7
+SchneiderEtAl_2020,SP12,Slovenian,5.686516085,M,5,5
+SchneiderEtAl_2020,SP10,Slovenian,5.648186174,M,6,6
+SchneiderEtAl_2020,SP10,Slovenian,5.648186174,M,9,9
+SchneiderEtAl_2020,SP10,Slovenian,5.648186174,M,7,7
+SchneiderEtAl_2020,SP10,Slovenian,5.648186174,M,5,5
+SchneiderEtAl_2020,JP01,Slovenian,4.821355236,F,6,6
+SchneiderEtAl_2020,JP01,Slovenian,4.821355236,F,9,5
+SchneiderEtAl_2020,JP01,Slovenian,4.821355236,F,7,7
+SchneiderEtAl_2020,JP01,Slovenian,4.821355236,F,5,5
+SchneiderEtAl_2020,JP02,Slovenian,4.399726215,F,6,6
+SchneiderEtAl_2020,JP02,Slovenian,4.399726215,F,9,5
+SchneiderEtAl_2020,JP02,Slovenian,4.399726215,F,7,5
+SchneiderEtAl_2020,JP02,Slovenian,4.399726215,F,5,5
+SchneiderEtAl_2020,JP03,Slovenian,5.377138946,M,6,6
+SchneiderEtAl_2020,JP03,Slovenian,5.377138946,M,9,9
+SchneiderEtAl_2020,JP03,Slovenian,5.377138946,M,7,7
+SchneiderEtAl_2020,JP03,Slovenian,5.377138946,M,5,5
+SchneiderEtAl_2020,Krom01,Slovenian,4.602327173,F,6,6
+SchneiderEtAl_2020,Krom01,Slovenian,4.602327173,F,9,9
+SchneiderEtAl_2020,Krom01,Slovenian,4.602327173,F,7,7
+SchneiderEtAl_2020,Krom01,Slovenian,4.602327173,F,5,5
+SchneiderEtAl_2020,Krom02,Slovenian,4.845995893,M,6,6
+SchneiderEtAl_2020,Krom02,Slovenian,4.845995893,M,9,9
+SchneiderEtAl_2020,Krom02,Slovenian,4.845995893,M,7,7
+SchneiderEtAl_2020,Krom02,Slovenian,4.845995893,M,5,5
+SchneiderEtAl_2020,Krom03,Slovenian,4.876112252,M,6,6
+SchneiderEtAl_2020,Krom03,Slovenian,4.876112252,M,9,9
+SchneiderEtAl_2020,Krom03,Slovenian,4.876112252,M,7,7
+SchneiderEtAl_2020,Krom03,Slovenian,4.876112252,M,5,5
+SchneiderEtAl_2020,Krom04,Slovenian,4.635181383,M,6,10
+SchneiderEtAl_2020,Krom04,Slovenian,4.635181383,M,9,10
+SchneiderEtAl_2020,Krom04,Slovenian,4.635181383,M,7,10
+SchneiderEtAl_2020,Krom04,Slovenian,4.635181383,M,5,10
+SchneiderEtAl_2020,Krom05,Slovenian,4.364134155,M,6,6
+SchneiderEtAl_2020,Krom05,Slovenian,4.364134155,M,9,10
+SchneiderEtAl_2020,Krom05,Slovenian,4.364134155,M,7,6
+SchneiderEtAl_2020,Krom05,Slovenian,4.364134155,M,5,5
+SchneiderEtAl_2020,070218-CW-01,Cantonese,4.41889117,M,6,6
+SchneiderEtAl_2020,070218-CW-01,Cantonese,4.41889117,M,9,9
+SchneiderEtAl_2020,070218-CW-01,Cantonese,4.41889117,M,7,7
+SchneiderEtAl_2020,070218-CW-01,Cantonese,4.41889117,M,5,5
+SchneiderEtAl_2020,070218-CW-02,Cantonese,4.164271047,M,6,6
+SchneiderEtAl_2020,070218-CW-02,Cantonese,4.164271047,M,9,9
+SchneiderEtAl_2020,070218-CW-02,Cantonese,4.164271047,M,7,7
+SchneiderEtAl_2020,070218-CW-02,Cantonese,4.164271047,M,5,5
+SchneiderEtAl_2020,070218-CW-03,Cantonese,4.610540726,M,6,6
+SchneiderEtAl_2020,070218-CW-03,Cantonese,4.610540726,M,9,9
+SchneiderEtAl_2020,070218-CW-03,Cantonese,4.610540726,M,7,7
+SchneiderEtAl_2020,070218-CW-03,Cantonese,4.610540726,M,5,5
+SchneiderEtAl_2020,070218-CW-05,Cantonese,4.435318275,F,6,6
+SchneiderEtAl_2020,070218-CW-05,Cantonese,4.435318275,F,9,9
+SchneiderEtAl_2020,070218-CW-05,Cantonese,4.435318275,F,7,7
+SchneiderEtAl_2020,070218-CW-05,Cantonese,4.435318275,F,5,5
+SchneiderEtAl_2020,070218-CW-06,Cantonese,4.281998631,F,6,6
+SchneiderEtAl_2020,070218-CW-06,Cantonese,4.281998631,F,9,9
+SchneiderEtAl_2020,070218-CW-06,Cantonese,4.281998631,F,7,7
+SchneiderEtAl_2020,070218-CW-06,Cantonese,4.281998631,F,5,5
+SchneiderEtAl_2020,070218-CW-08,Cantonese,4.45174538,F,6,6
+SchneiderEtAl_2020,070218-CW-08,Cantonese,4.45174538,F,9,9
+SchneiderEtAl_2020,070218-CW-08,Cantonese,4.45174538,F,7,7
+SchneiderEtAl_2020,070218-CW-08,Cantonese,4.45174538,F,5,5
+SchneiderEtAl_2020,070218-CW-09,Cantonese,4.005475702,M,6,6
+SchneiderEtAl_2020,070218-CW-09,Cantonese,4.005475702,M,9,9
+SchneiderEtAl_2020,070218-CW-09,Cantonese,4.005475702,M,7,7
+SchneiderEtAl_2020,070218-CW-09,Cantonese,4.005475702,M,5,5
+SchneiderEtAl_2020,070218-CW-10,Cantonese,4.17522245,M,6,10
+SchneiderEtAl_2020,070218-CW-10,Cantonese,4.17522245,M,9,7
+SchneiderEtAl_2020,070218-CW-10,Cantonese,4.17522245,M,7,10
+SchneiderEtAl_2020,070218-CW-10,Cantonese,4.17522245,M,5,5
+SchneiderEtAl_2020,070218-CW-11,Cantonese,4.547570157,M,6,6
+SchneiderEtAl_2020,070218-CW-11,Cantonese,4.547570157,M,9,10
+SchneiderEtAl_2020,070218-CW-11,Cantonese,4.547570157,M,7,10
+SchneiderEtAl_2020,070218-CW-11,Cantonese,4.547570157,M,5,10
+SchneiderEtAl_2020,070218-CW-12,Cantonese,4.098562628,M,6,6
+SchneiderEtAl_2020,070218-CW-12,Cantonese,4.098562628,M,9,8
+SchneiderEtAl_2020,070218-CW-12,Cantonese,4.098562628,M,7,7
+SchneiderEtAl_2020,070218-CW-12,Cantonese,4.098562628,M,5,5
+SchneiderEtAl_2020,070218-CW-14,Cantonese,4.446269678,F,6,5
+SchneiderEtAl_2020,070218-CW-14,Cantonese,4.446269678,F,9,5
+SchneiderEtAl_2020,070218-CW-14,Cantonese,4.446269678,F,7,5
+SchneiderEtAl_2020,070218-CW-14,Cantonese,4.446269678,F,5,5
+SchneiderEtAl_2020,070218-CW-17,Cantonese,5.229295003,M,6,6
+SchneiderEtAl_2020,070218-CW-17,Cantonese,5.229295003,M,9,9
+SchneiderEtAl_2020,070218-CW-17,Cantonese,5.229295003,M,7,7
+SchneiderEtAl_2020,070218-CW-17,Cantonese,5.229295003,M,5,5
+SchneiderEtAl_2020,070218-CW-18,Cantonese,4.640657084,M,6,6
+SchneiderEtAl_2020,070218-CW-18,Cantonese,4.640657084,M,9,9
+SchneiderEtAl_2020,070218-CW-18,Cantonese,4.640657084,M,7,7
+SchneiderEtAl_2020,070218-CW-18,Cantonese,4.640657084,M,5,5
+SchneiderEtAl_2020,070218-CW-21,Cantonese,4.83504449,F,6,6
+SchneiderEtAl_2020,070218-CW-21,Cantonese,4.83504449,F,9,9
+SchneiderEtAl_2020,070218-CW-21,Cantonese,4.83504449,F,7,7
+SchneiderEtAl_2020,070218-CW-21,Cantonese,4.83504449,F,5,5
+SchneiderEtAl_2020,070218-CW-22,Cantonese,4.569472964,F,6,6
+SchneiderEtAl_2020,070218-CW-22,Cantonese,4.569472964,F,9,9
+SchneiderEtAl_2020,070218-CW-22,Cantonese,4.569472964,F,7,7
+SchneiderEtAl_2020,070218-CW-22,Cantonese,4.569472964,F,5,5
+SchneiderEtAl_2020,070218-CW-23,Cantonese,5.097878166,F,6,6
+SchneiderEtAl_2020,070218-CW-23,Cantonese,5.097878166,F,9,9
+SchneiderEtAl_2020,070218-CW-23,Cantonese,5.097878166,F,7,7
+SchneiderEtAl_2020,070218-CW-23,Cantonese,5.097878166,F,5,5
+SchneiderEtAl_2020,070318-CW-13,Cantonese,4.375085558,F,6,6
+SchneiderEtAl_2020,070318-CW-13,Cantonese,4.375085558,F,9,9
+SchneiderEtAl_2020,070318-CW-13,Cantonese,4.375085558,F,7,7
+SchneiderEtAl_2020,070318-CW-13,Cantonese,4.375085558,F,5,5
+SchneiderEtAl_2020,070318-CW-15,Cantonese,4.314852841,M,6,7
+SchneiderEtAl_2020,070318-CW-15,Cantonese,4.314852841,M,9,10
+SchneiderEtAl_2020,070318-CW-15,Cantonese,4.314852841,M,7,NA
+SchneiderEtAl_2020,070318-CW-15,Cantonese,4.314852841,M,5,NA
+SchneiderEtAl_2020,070318-CW-16,Cantonese,4.251882272,F,6,6
+SchneiderEtAl_2020,070318-CW-16,Cantonese,4.251882272,F,9,8
+SchneiderEtAl_2020,070318-CW-16,Cantonese,4.251882272,F,7,8
+SchneiderEtAl_2020,070318-CW-16,Cantonese,4.251882272,F,5,5
+SchneiderEtAl_2020,070318-CW-19,Cantonese,6.009582478,M,6,6
+SchneiderEtAl_2020,070318-CW-19,Cantonese,6.009582478,M,9,9
+SchneiderEtAl_2020,070318-CW-19,Cantonese,6.009582478,M,7,7
+SchneiderEtAl_2020,070318-CW-19,Cantonese,6.009582478,M,5,5
+SchneiderEtAl_2020,070318-CW-24,Cantonese,5.013004791,M,6,6
+SchneiderEtAl_2020,070318-CW-24,Cantonese,5.013004791,M,9,9
+SchneiderEtAl_2020,070318-CW-24,Cantonese,5.013004791,M,7,7
+SchneiderEtAl_2020,070318-CW-24,Cantonese,5.013004791,M,5,5
+SchneiderEtAl_2020,070318-CW-25,Cantonese,5.01026694,M,6,6
+SchneiderEtAl_2020,070318-CW-25,Cantonese,5.01026694,M,9,9
+SchneiderEtAl_2020,070318-CW-25,Cantonese,5.01026694,M,7,7
+SchneiderEtAl_2020,070318-CW-25,Cantonese,5.01026694,M,5,5
+SchneiderEtAl_2020,070318-CW-26,Cantonese,5.442847365,M,6,6
+SchneiderEtAl_2020,070318-CW-26,Cantonese,5.442847365,M,9,9
+SchneiderEtAl_2020,070318-CW-26,Cantonese,5.442847365,M,7,7
+SchneiderEtAl_2020,070318-CW-26,Cantonese,5.442847365,M,5,5
+SchneiderEtAl_2020,070318-CW-27,Cantonese,5.472963723,F,6,6
+SchneiderEtAl_2020,070318-CW-27,Cantonese,5.472963723,F,9,9
+SchneiderEtAl_2020,070318-CW-27,Cantonese,5.472963723,F,7,7
+SchneiderEtAl_2020,070318-CW-27,Cantonese,5.472963723,F,5,5
+SchneiderEtAl_2020,070318-CW-28,Cantonese,4.574948665,F,6,6
+SchneiderEtAl_2020,070318-CW-28,Cantonese,4.574948665,F,9,9
+SchneiderEtAl_2020,070318-CW-28,Cantonese,4.574948665,F,7,7
+SchneiderEtAl_2020,070318-CW-28,Cantonese,4.574948665,F,5,5
+SchneiderEtAl_2020,070318-CW-29,Cantonese,5.42642026,F,6,6
+SchneiderEtAl_2020,070318-CW-29,Cantonese,5.42642026,F,9,9
+SchneiderEtAl_2020,070318-CW-29,Cantonese,5.42642026,F,7,7
+SchneiderEtAl_2020,070318-CW-29,Cantonese,5.42642026,F,5,5
+SchneiderEtAl_2020,070318-CW-30,Cantonese,5.407255305,M,6,6
+SchneiderEtAl_2020,070318-CW-30,Cantonese,5.407255305,M,9,9
+SchneiderEtAl_2020,070318-CW-30,Cantonese,5.407255305,M,7,7
+SchneiderEtAl_2020,070318-CW-30,Cantonese,5.407255305,M,5,5
+SchneiderEtAl_2020,070318-CW-31,Cantonese,5.889117043,M,6,6
+SchneiderEtAl_2020,070318-CW-31,Cantonese,5.889117043,M,9,9
+SchneiderEtAl_2020,070318-CW-31,Cantonese,5.889117043,M,7,7
+SchneiderEtAl_2020,070318-CW-31,Cantonese,5.889117043,M,5,5
+SchneiderEtAl_2020,070318-CW-32,Cantonese,6.258726899,M,6,6
+SchneiderEtAl_2020,070318-CW-32,Cantonese,6.258726899,M,9,9
+SchneiderEtAl_2020,070318-CW-32,Cantonese,6.258726899,M,7,7
+SchneiderEtAl_2020,070318-CW-32,Cantonese,6.258726899,M,5,5
+SchneiderEtAl_2020,070318-CW-33,Cantonese,5.793292266,M,6,6
+SchneiderEtAl_2020,070318-CW-33,Cantonese,5.793292266,M,9,9
+SchneiderEtAl_2020,070318-CW-33,Cantonese,5.793292266,M,7,7
+SchneiderEtAl_2020,070318-CW-33,Cantonese,5.793292266,M,5,5
+SchneiderEtAl_2020,070318-CW-34,Cantonese,5.585215606,M,6,6
+SchneiderEtAl_2020,070318-CW-34,Cantonese,5.585215606,M,9,9
+SchneiderEtAl_2020,070318-CW-34,Cantonese,5.585215606,M,7,7
+SchneiderEtAl_2020,070318-CW-34,Cantonese,5.585215606,M,5,5
+SchneiderEtAl_2020,070318-CW-35,Cantonese,5.883641342,M,6,6
+SchneiderEtAl_2020,070318-CW-35,Cantonese,5.883641342,M,9,9
+SchneiderEtAl_2020,070318-CW-35,Cantonese,5.883641342,M,7,7
+SchneiderEtAl_2020,070318-CW-35,Cantonese,5.883641342,M,5,5
+SchneiderEtAl_2020,070318-CW-36,Cantonese,6.0862423,M,6,6
+SchneiderEtAl_2020,070318-CW-36,Cantonese,6.0862423,M,9,9
+SchneiderEtAl_2020,070318-CW-36,Cantonese,6.0862423,M,7,7
+SchneiderEtAl_2020,070318-CW-36,Cantonese,6.0862423,M,5,5
+SchneiderEtAl_2020,070318-CW-37,Cantonese,6.075290897,M,6,6
+SchneiderEtAl_2020,070318-CW-37,Cantonese,6.075290897,M,9,9
+SchneiderEtAl_2020,070318-CW-37,Cantonese,6.075290897,M,7,7
+SchneiderEtAl_2020,070318-CW-37,Cantonese,6.075290897,M,5,5
+SchneiderEtAl_2020,070318-CW-38,Cantonese,6.209445585,F,6,6
+SchneiderEtAl_2020,070318-CW-38,Cantonese,6.209445585,F,9,9
+SchneiderEtAl_2020,070318-CW-38,Cantonese,6.209445585,F,7,7
+SchneiderEtAl_2020,070318-CW-38,Cantonese,6.209445585,F,5,5
+SchneiderEtAl_2020,070318-CW-39,Cantonese,6.286105407,F,6,6
+SchneiderEtAl_2020,070318-CW-39,Cantonese,6.286105407,F,9,9
+SchneiderEtAl_2020,070318-CW-39,Cantonese,6.286105407,F,7,7
+SchneiderEtAl_2020,070318-CW-39,Cantonese,6.286105407,F,5,5
+SchneiderEtAl_2020,070318-CW-43,Cantonese,5.659137577,F,6,6
+SchneiderEtAl_2020,070318-CW-43,Cantonese,5.659137577,F,9,9
+SchneiderEtAl_2020,070318-CW-43,Cantonese,5.659137577,F,7,7
+SchneiderEtAl_2020,070318-CW-43,Cantonese,5.659137577,F,5,5
+SchneiderEtAl_2020,070518-SWH-20,Cantonese,4.684462697,F,6,6
+SchneiderEtAl_2020,070518-SWH-20,Cantonese,4.684462697,F,9,9
+SchneiderEtAl_2020,070518-SWH-20,Cantonese,4.684462697,F,7,7
+SchneiderEtAl_2020,070518-SWH-20,Cantonese,4.684462697,F,5,5
+SchneiderEtAl_2020,070518-SWH-21,Cantonese,5.295003422,M,6,6
+SchneiderEtAl_2020,070518-SWH-21,Cantonese,5.295003422,M,9,9
+SchneiderEtAl_2020,070518-SWH-21,Cantonese,5.295003422,M,7,7
+SchneiderEtAl_2020,070518-SWH-21,Cantonese,5.295003422,M,5,5
+SchneiderEtAl_2020,070518-SWH-27,Cantonese,5.856262834,M,6,6
+SchneiderEtAl_2020,070518-SWH-27,Cantonese,5.856262834,M,9,9
+SchneiderEtAl_2020,070518-SWH-27,Cantonese,5.856262834,M,7,7
+SchneiderEtAl_2020,070518-SWH-27,Cantonese,5.856262834,M,5,5
+SchneiderEtAl_2020,070518-SWH-28,Cantonese,5.201916496,F,6,6
+SchneiderEtAl_2020,070518-SWH-28,Cantonese,5.201916496,F,9,9
+SchneiderEtAl_2020,070518-SWH-28,Cantonese,5.201916496,F,7,7
+SchneiderEtAl_2020,070518-SWH-28,Cantonese,5.201916496,F,5,5
+SchneiderEtAl_2020,070518-SWH-32,Cantonese,5.442847365,M,6,6
+SchneiderEtAl_2020,070518-SWH-32,Cantonese,5.442847365,M,9,9
+SchneiderEtAl_2020,070518-SWH-32,Cantonese,5.442847365,M,7,7
+SchneiderEtAl_2020,070518-SWH-32,Cantonese,5.442847365,M,5,5
+SchneiderEtAl_2020,070518-SWH-35,Cantonese,4.815879535,M,6,6
+SchneiderEtAl_2020,070518-SWH-35,Cantonese,4.815879535,M,9,9
+SchneiderEtAl_2020,070518-SWH-35,Cantonese,4.815879535,M,7,7
+SchneiderEtAl_2020,070518-SWH-35,Cantonese,4.815879535,M,5,5
+SchneiderEtAl_2020,070518-SWH-38,Cantonese,4.76659822,F,6,6
+SchneiderEtAl_2020,070518-SWH-38,Cantonese,4.76659822,F,9,9
+SchneiderEtAl_2020,070518-SWH-38,Cantonese,4.76659822,F,7,7
+SchneiderEtAl_2020,070518-SWH-38,Cantonese,4.76659822,F,5,5
+SchneiderEtAl_2020,070518-SWH-41,Cantonese,5.281314168,M,6,6
+SchneiderEtAl_2020,070518-SWH-41,Cantonese,5.281314168,M,9,9
+SchneiderEtAl_2020,070518-SWH-41,Cantonese,5.281314168,M,7,7
+SchneiderEtAl_2020,070518-SWH-41,Cantonese,5.281314168,M,5,5
+SchneiderEtAl_2020,070518-SWH-43,Cantonese,6.321697467,F,6,6
+SchneiderEtAl_2020,070518-SWH-43,Cantonese,6.321697467,F,9,9
+SchneiderEtAl_2020,070518-SWH-43,Cantonese,6.321697467,F,7,7
+SchneiderEtAl_2020,070518-SWH-43,Cantonese,6.321697467,F,5,5
+SchneiderEtAl_2020,070518-SWH-44,Cantonese,6.291581109,F,6,6
+SchneiderEtAl_2020,070518-SWH-44,Cantonese,6.291581109,F,9,9
+SchneiderEtAl_2020,070518-SWH-44,Cantonese,6.291581109,F,7,7
+SchneiderEtAl_2020,070518-SWH-44,Cantonese,6.291581109,F,5,5
+SchneiderEtAl_2020,070518-SWH-45,Cantonese,6.308008214,M,6,6
+SchneiderEtAl_2020,070518-SWH-45,Cantonese,6.308008214,M,9,9
+SchneiderEtAl_2020,070518-SWH-45,Cantonese,6.308008214,M,7,7
+SchneiderEtAl_2020,070518-SWH-45,Cantonese,6.308008214,M,5,5
+SchneiderEtAl_2020,070518-SWH-46,Cantonese,6.308008214,M,6,6
+SchneiderEtAl_2020,070518-SWH-46,Cantonese,6.308008214,M,9,9
+SchneiderEtAl_2020,070518-SWH-46,Cantonese,6.308008214,M,7,7
+SchneiderEtAl_2020,070518-SWH-46,Cantonese,6.308008214,M,5,5
+SchneiderEtAl_2020,070518-SWH-47,Cantonese,5.826146475,M,6,6
+SchneiderEtAl_2020,070518-SWH-47,Cantonese,5.826146475,M,9,9
+SchneiderEtAl_2020,070518-SWH-47,Cantonese,5.826146475,M,7,7
+SchneiderEtAl_2020,070518-SWH-47,Cantonese,5.826146475,M,5,5
+SchneiderEtAl_2020,070518-SWH-49,Cantonese,6.453114305,M,6,6
+SchneiderEtAl_2020,070518-SWH-49,Cantonese,6.453114305,M,9,9
+SchneiderEtAl_2020,070518-SWH-49,Cantonese,6.453114305,M,7,7
+SchneiderEtAl_2020,070518-SWH-49,Cantonese,6.453114305,M,5,5
+SchneiderEtAl_2020,070518-SWH-50,Cantonese,6.308008214,F,6,6
+SchneiderEtAl_2020,070518-SWH-50,Cantonese,6.308008214,F,9,9
+SchneiderEtAl_2020,070518-SWH-50,Cantonese,6.308008214,F,7,7
+SchneiderEtAl_2020,070518-SWH-50,Cantonese,6.308008214,F,5,5
+SchneiderEtAl_2020,070518-SWH-51,Cantonese,5.765913758,F,6,6
+SchneiderEtAl_2020,070518-SWH-51,Cantonese,5.765913758,F,9,9
+SchneiderEtAl_2020,070518-SWH-51,Cantonese,5.765913758,F,7,7
+SchneiderEtAl_2020,070518-SWH-51,Cantonese,5.765913758,F,5,5
+SchneiderEtAl_2020,070518-SWH-54,Cantonese,5.722108145,M,6,6
+SchneiderEtAl_2020,070518-SWH-54,Cantonese,5.722108145,M,9,9
+SchneiderEtAl_2020,070518-SWH-54,Cantonese,5.722108145,M,7,7
+SchneiderEtAl_2020,070518-SWH-54,Cantonese,5.722108145,M,5,5
+SchneiderEtAl_2020,070518-SWH-55,Cantonese,6.234086242,F,6,6
+SchneiderEtAl_2020,070518-SWH-55,Cantonese,6.234086242,F,9,9
+SchneiderEtAl_2020,070518-SWH-55,Cantonese,6.234086242,F,7,7
+SchneiderEtAl_2020,070518-SWH-55,Cantonese,6.234086242,F,5,5
+SchneiderEtAl_2020,070518-SWH-56,Cantonese,6.548939083,M,6,6
+SchneiderEtAl_2020,070518-SWH-56,Cantonese,6.548939083,M,9,9
+SchneiderEtAl_2020,070518-SWH-56,Cantonese,6.548939083,M,7,7
+SchneiderEtAl_2020,070518-SWH-56,Cantonese,6.548939083,M,5,5
+SchneiderEtAl_2020,070518-SWH-57,Cantonese,5.587953457,F,6,6
+SchneiderEtAl_2020,070518-SWH-57,Cantonese,5.587953457,F,9,9
+SchneiderEtAl_2020,070518-SWH-57,Cantonese,5.587953457,F,7,7
+SchneiderEtAl_2020,070518-SWH-57,Cantonese,5.587953457,F,5,5
+SchneiderEtAl_2020,070518-SWH-58,Cantonese,6.22587269,F,6,6
+SchneiderEtAl_2020,070518-SWH-58,Cantonese,6.22587269,F,9,9
+SchneiderEtAl_2020,070518-SWH-58,Cantonese,6.22587269,F,7,7
+SchneiderEtAl_2020,070518-SWH-58,Cantonese,6.22587269,F,5,5
+SchneiderEtAl_2020,070518-SWH-59,Cantonese,6.15742642,F,6,6
+SchneiderEtAl_2020,070518-SWH-59,Cantonese,6.15742642,F,9,9
+SchneiderEtAl_2020,070518-SWH-59,Cantonese,6.15742642,F,7,7
+SchneiderEtAl_2020,070518-SWH-59,Cantonese,6.15742642,F,5,5
+SchneiderEtAl_2020,070518-SWH-60,Cantonese,5.697467488,M,6,6
+SchneiderEtAl_2020,070518-SWH-60,Cantonese,5.697467488,M,9,9
+SchneiderEtAl_2020,070518-SWH-60,Cantonese,5.697467488,M,7,7
+SchneiderEtAl_2020,070518-SWH-60,Cantonese,5.697467488,M,5,5
+SchneiderEtAl_2020,070518-SWH-62,Cantonese,5.883641342,F,6,6
+SchneiderEtAl_2020,070518-SWH-62,Cantonese,5.883641342,F,9,9
+SchneiderEtAl_2020,070518-SWH-62,Cantonese,5.883641342,F,7,7
+SchneiderEtAl_2020,070518-SWH-62,Cantonese,5.883641342,F,5,5
+SchneiderEtAl_2020,070618-SWH-05,Cantonese,4.065708419,M,6,6
+SchneiderEtAl_2020,070618-SWH-05,Cantonese,4.065708419,M,7,9
+SchneiderEtAl_2020,070618-SWH-05,Cantonese,4.065708419,M,5,7
+SchneiderEtAl_2020,070618-SWH-05,Cantonese,4.065708419,M,9,5
+SchneiderEtAl_2020,070618-SWH-09,Cantonese,4.284736482,M,6,6
+SchneiderEtAl_2020,070618-SWH-09,Cantonese,4.284736482,M,5,9
+SchneiderEtAl_2020,070618-SWH-09,Cantonese,4.284736482,M,9,7
+SchneiderEtAl_2020,070618-SWH-09,Cantonese,4.284736482,M,7,5
+SchneiderEtAl_2020,070618-SWH-11,Cantonese,4.060232717,F,6,10
+SchneiderEtAl_2020,070618-SWH-11,Cantonese,4.060232717,F,9,10
+SchneiderEtAl_2020,070618-SWH-11,Cantonese,4.060232717,F,7,10
+SchneiderEtAl_2020,070618-SWH-11,Cantonese,4.060232717,F,5,10
+SchneiderEtAl_2020,070618-SWH-14,Cantonese,3.586584531,F,6,4
+SchneiderEtAl_2020,070618-SWH-14,Cantonese,3.586584531,F,9,3
+SchneiderEtAl_2020,070618-SWH-14,Cantonese,3.586584531,F,7,3
+SchneiderEtAl_2020,070618-SWH-14,Cantonese,3.586584531,F,5,5
+SchneiderEtAl_2020,070618-SWH-15,Cantonese,4.292950034,M,6,6
+SchneiderEtAl_2020,070618-SWH-15,Cantonese,4.292950034,M,9,8
+SchneiderEtAl_2020,070618-SWH-15,Cantonese,4.292950034,M,7,7
+SchneiderEtAl_2020,070618-SWH-15,Cantonese,4.292950034,M,5,7
+SchneiderEtAl_2020,070618-SWH-16,Cantonese,4.260095825,F,6,6
+SchneiderEtAl_2020,070618-SWH-16,Cantonese,4.260095825,F,9,9
+SchneiderEtAl_2020,070618-SWH-16,Cantonese,4.260095825,F,7,7
+SchneiderEtAl_2020,070618-SWH-16,Cantonese,4.260095825,F,5,5
+SchneiderEtAl_2020,070618-SWH-17,Cantonese,4.517453799,F,6,6
+SchneiderEtAl_2020,070618-SWH-17,Cantonese,4.517453799,F,9,9
+SchneiderEtAl_2020,070618-SWH-17,Cantonese,4.517453799,F,7,7
+SchneiderEtAl_2020,070618-SWH-17,Cantonese,4.517453799,F,5,5
+SchneiderEtAl_2020,070618-SWH-19,Cantonese,3.772758385,F,6,6
+SchneiderEtAl_2020,070618-SWH-19,Cantonese,3.772758385,F,9,8
+SchneiderEtAl_2020,070618-SWH-19,Cantonese,3.772758385,F,7,7
+SchneiderEtAl_2020,070618-SWH-19,Cantonese,3.772758385,F,5,5
+SchneiderEtAl_2020,070618-SWH-22,Cantonese,4.950034223,M,6,6
+SchneiderEtAl_2020,070618-SWH-22,Cantonese,4.950034223,M,DuckClover,9
+SchneiderEtAl_2020,070618-SWH-22,Cantonese,4.950034223,M,TireHydrant,7
+SchneiderEtAl_2020,070618-SWH-22,Cantonese,4.950034223,M,CloverKite,5
+SchneiderEtAl_2020,070618-SWH-23,Cantonese,4.621492129,F,6,6
+SchneiderEtAl_2020,070618-SWH-23,Cantonese,4.621492129,F,9,9
+SchneiderEtAl_2020,070618-SWH-23,Cantonese,4.621492129,F,7,7
+SchneiderEtAl_2020,070618-SWH-23,Cantonese,4.621492129,F,5,5
+SchneiderEtAl_2020,070618-SWH-24,Cantonese,4.539356605,F,6,6
+SchneiderEtAl_2020,070618-SWH-24,Cantonese,4.539356605,F,9,9
+SchneiderEtAl_2020,070618-SWH-24,Cantonese,4.539356605,F,7,7
+SchneiderEtAl_2020,070618-SWH-24,Cantonese,4.539356605,F,5,5
+SchneiderEtAl_2020,070618-SWH-25,Cantonese,4.917180014,M,6,6
+SchneiderEtAl_2020,070618-SWH-25,Cantonese,4.917180014,M,9,9
+SchneiderEtAl_2020,070618-SWH-25,Cantonese,4.917180014,M,7,7
+SchneiderEtAl_2020,070618-SWH-25,Cantonese,4.917180014,M,5,5
+SchneiderEtAl_2020,070618-SWH-26,Cantonese,6.40109514,M,6,6
+SchneiderEtAl_2020,070618-SWH-26,Cantonese,6.40109514,M,9,9
+SchneiderEtAl_2020,070618-SWH-26,Cantonese,6.40109514,M,7,7
+SchneiderEtAl_2020,070618-SWH-26,Cantonese,6.40109514,M,5,5
+SchneiderEtAl_2020,070618-SWH-29,Cantonese,4.580424367,F,6,6
+SchneiderEtAl_2020,070618-SWH-29,Cantonese,4.580424367,F,9,9
+SchneiderEtAl_2020,070618-SWH-29,Cantonese,4.580424367,F,7,7
+SchneiderEtAl_2020,070618-SWH-29,Cantonese,4.580424367,F,5,5
+SchneiderEtAl_2020,070618-SWH-31,Cantonese,5.248459959,F,6,6
+SchneiderEtAl_2020,070618-SWH-31,Cantonese,5.248459959,F,9,9
+SchneiderEtAl_2020,070618-SWH-31,Cantonese,5.248459959,F,7,7
+SchneiderEtAl_2020,070618-SWH-31,Cantonese,5.248459959,F,5,5
+SchneiderEtAl_2020,070618-SWH-33,Cantonese,5.308692676,M,6,6
+SchneiderEtAl_2020,070618-SWH-33,Cantonese,5.308692676,M,9,9
+SchneiderEtAl_2020,070618-SWH-33,Cantonese,5.308692676,M,7,7
+SchneiderEtAl_2020,070618-SWH-33,Cantonese,5.308692676,M,5,5
+SchneiderEtAl_2020,070618-SWH-34,Cantonese,4.714579055,F,6,6
+SchneiderEtAl_2020,070618-SWH-34,Cantonese,4.714579055,F,9,9
+SchneiderEtAl_2020,070618-SWH-34,Cantonese,4.714579055,F,7,7
+SchneiderEtAl_2020,070618-SWH-34,Cantonese,4.714579055,F,5,5
+SchneiderEtAl_2020,070618-SWH-36,Cantonese,4.843258042,M,6,6
+SchneiderEtAl_2020,070618-SWH-36,Cantonese,4.843258042,M,9,9
+SchneiderEtAl_2020,070618-SWH-36,Cantonese,4.843258042,M,7,7
+SchneiderEtAl_2020,070618-SWH-36,Cantonese,4.843258042,M,5,5
+SchneiderEtAl_2020,070618-SWH-39,Cantonese,4.706365503,M,6,6
+SchneiderEtAl_2020,070618-SWH-39,Cantonese,4.706365503,M,9,9
+SchneiderEtAl_2020,070618-SWH-39,Cantonese,4.706365503,M,7,7
+SchneiderEtAl_2020,070618-SWH-39,Cantonese,4.706365503,M,5,5
+SchneiderEtAl_2020,070618-SWH-04,Cantonese,3.789185489,M,6,10
+SchneiderEtAl_2020,070618-SWH-04,Cantonese,3.789185489,M,9,5
+SchneiderEtAl_2020,070618-SWH-04,Cantonese,3.789185489,M,7,NA
+SchneiderEtAl_2020,070618-SWH-04,Cantonese,3.789185489,M,5,NA
+SchneiderEtAl_2020,070618-SWH-40,Cantonese,4.876112252,M,6,6
+SchneiderEtAl_2020,070618-SWH-40,Cantonese,4.876112252,M,9,9
+SchneiderEtAl_2020,070618-SWH-40,Cantonese,4.876112252,M,7,7
+SchneiderEtAl_2020,070618-SWH-40,Cantonese,4.876112252,M,5,5
+SchneiderEtAl_2020,070618-SWH-42,Cantonese,4.728268309,F,6,6
+SchneiderEtAl_2020,070618-SWH-42,Cantonese,4.728268309,F,9,9
+SchneiderEtAl_2020,070618-SWH-42,Cantonese,4.728268309,F,7,7
+SchneiderEtAl_2020,070618-SWH-42,Cantonese,4.728268309,F,5,5
+SchneiderEtAl_2020,070918-LF-01,Cantonese,6.464065708,F,6,6
+SchneiderEtAl_2020,070918-LF-01,Cantonese,6.464065708,F,9,9
+SchneiderEtAl_2020,070918-LF-01,Cantonese,6.464065708,F,7,7
+SchneiderEtAl_2020,070918-LF-01,Cantonese,6.464065708,F,5,5
+SchneiderEtAl_2020,070918-LF-02,Cantonese,6.067077344,M,6,6
+SchneiderEtAl_2020,070918-LF-02,Cantonese,6.067077344,M,9,9
+SchneiderEtAl_2020,070918-LF-02,Cantonese,6.067077344,M,7,7
+SchneiderEtAl_2020,070918-LF-02,Cantonese,6.067077344,M,5,5
+SchneiderEtAl_2020,070918-LF-03,Cantonese,5.604380561,F,6,6
+SchneiderEtAl_2020,070918-LF-03,Cantonese,5.604380561,F,9,9
+SchneiderEtAl_2020,070918-LF-03,Cantonese,5.604380561,F,7,7
+SchneiderEtAl_2020,070918-LF-03,Cantonese,5.604380561,F,5,5
+SchneiderEtAl_2020,070918-LF-04,Cantonese,6.464065708,M,6,6
+SchneiderEtAl_2020,070918-LF-04,Cantonese,6.464065708,M,9,9
+SchneiderEtAl_2020,070918-LF-04,Cantonese,6.464065708,M,7,7
+SchneiderEtAl_2020,070918-LF-04,Cantonese,6.464065708,M,5,5
+SchneiderEtAl_2020,070918-LF-05,Cantonese,5.352498289,F,6,6
+SchneiderEtAl_2020,070918-LF-05,Cantonese,5.352498289,F,9,9
+SchneiderEtAl_2020,070918-LF-05,Cantonese,5.352498289,F,7,7
+SchneiderEtAl_2020,070918-LF-05,Cantonese,5.352498289,F,5,5
+SchneiderEtAl_2020,070918-LF-06,Cantonese,6.392881588,M,6,6
+SchneiderEtAl_2020,070918-LF-06,Cantonese,6.392881588,M,9,9
+SchneiderEtAl_2020,070918-LF-06,Cantonese,6.392881588,M,7,7
+SchneiderEtAl_2020,070918-LF-06,Cantonese,6.392881588,M,5,5
+SchneiderEtAl_2020,070918-LF-07,Cantonese,6.283367556,M,6,6
+SchneiderEtAl_2020,070918-LF-07,Cantonese,6.283367556,M,9,9
+SchneiderEtAl_2020,070918-LF-07,Cantonese,6.283367556,M,7,7
+SchneiderEtAl_2020,070918-LF-07,Cantonese,6.283367556,M,5,5
+SchneiderEtAl_2020,070918-SWH-01,Cantonese,3.961670089,F,6,6
+SchneiderEtAl_2020,070918-SWH-01,Cantonese,3.961670089,F,9,9
+SchneiderEtAl_2020,070918-SWH-01,Cantonese,3.961670089,F,7,7
+SchneiderEtAl_2020,070918-SWH-01,Cantonese,3.961670089,F,5,5
+SchneiderEtAl_2020,070918-SWH-02,Cantonese,4.027378508,F,6,6
+SchneiderEtAl_2020,070918-SWH-02,Cantonese,4.027378508,F,9,9
+SchneiderEtAl_2020,070918-SWH-02,Cantonese,4.027378508,F,7,7
+SchneiderEtAl_2020,070918-SWH-02,Cantonese,4.027378508,F,5,5
+SchneiderEtAl_2020,070918-SWH-03,Cantonese,3.709787817,F,6,3
+SchneiderEtAl_2020,070918-SWH-03,Cantonese,3.709787817,F,9,9
+SchneiderEtAl_2020,070918-SWH-03,Cantonese,3.709787817,F,7,4
+SchneiderEtAl_2020,070918-SWH-03,Cantonese,3.709787817,F,5,8
+SchneiderEtAl_2020,070918-SWH-06,Cantonese,4.164271047,M,6,6
+SchneiderEtAl_2020,070918-SWH-06,Cantonese,4.164271047,M,9,9
+SchneiderEtAl_2020,070918-SWH-06,Cantonese,4.164271047,M,7,7
+SchneiderEtAl_2020,070918-SWH-06,Cantonese,4.164271047,M,5,5
+SchneiderEtAl_2020,070918-SWH-07,Cantonese,4.821355236,F,6,10
+SchneiderEtAl_2020,070918-SWH-07,Cantonese,4.821355236,F,9,10
+SchneiderEtAl_2020,070918-SWH-07,Cantonese,4.821355236,F,7,10
+SchneiderEtAl_2020,070918-SWH-07,Cantonese,4.821355236,F,5,10
+SchneiderEtAl_2020,070918-SWH-08,Cantonese,4.052019165,F,6,6
+SchneiderEtAl_2020,070918-SWH-08,Cantonese,4.052019165,F,9,9
+SchneiderEtAl_2020,070918-SWH-08,Cantonese,4.052019165,F,7,7
+SchneiderEtAl_2020,070918-SWH-08,Cantonese,4.052019165,F,5,5
+SchneiderEtAl_2020,070918-SWH-10,Cantonese,4.511978097,F,6,6
+SchneiderEtAl_2020,070918-SWH-10,Cantonese,4.511978097,F,9,9
+SchneiderEtAl_2020,070918-SWH-10,Cantonese,4.511978097,F,7,7
+SchneiderEtAl_2020,070918-SWH-10,Cantonese,4.511978097,F,5,5
+SchneiderEtAl_2020,070918-SWH-12,Cantonese,4.369609856,M,6,6
+SchneiderEtAl_2020,070918-SWH-12,Cantonese,4.369609856,M,9,9
+SchneiderEtAl_2020,070918-SWH-12,Cantonese,4.369609856,M,7,7
+SchneiderEtAl_2020,070918-SWH-12,Cantonese,4.369609856,M,5,5
+SchneiderEtAl_2020,070918-SWH-13,Cantonese,4.531143053,M,6,10
+SchneiderEtAl_2020,070918-SWH-13,Cantonese,4.531143053,M,9,9
+SchneiderEtAl_2020,070918-SWH-13,Cantonese,4.531143053,M,7,10
+SchneiderEtAl_2020,070918-SWH-13,Cantonese,4.531143053,M,5,4
+SchneiderEtAl_2020,070918-SWH-18,Cantonese,4.257357974,M,6,6
+SchneiderEtAl_2020,070918-SWH-18,Cantonese,4.257357974,M,9,9
+SchneiderEtAl_2020,070918-SWH-18,Cantonese,4.257357974,M,7,7
+SchneiderEtAl_2020,070918-SWH-18,Cantonese,4.257357974,M,5,5
+SchneiderEtAl_2020,070918-SWH-37,Cantonese,5.308692676,M,6,6
+SchneiderEtAl_2020,070918-SWH-37,Cantonese,5.308692676,M,9,9
+SchneiderEtAl_2020,070918-SWH-37,Cantonese,5.308692676,M,7,7
+SchneiderEtAl_2020,070918-SWH-37,Cantonese,5.308692676,M,5,5
+SchneiderEtAl_2020,070918-SWH-53,Cantonese,6.529774127,F,6,6
+SchneiderEtAl_2020,070918-SWH-53,Cantonese,6.529774127,F,9,9
+SchneiderEtAl_2020,070918-SWH-53,Cantonese,6.529774127,F,7,7
+SchneiderEtAl_2020,070918-SWH-53,Cantonese,6.529774127,F,5,5
+SchneiderEtAl_2020,070918-SWH-61,Cantonese,6.253251198,M,6,6
+SchneiderEtAl_2020,070918-SWH-61,Cantonese,6.253251198,M,9,9
+SchneiderEtAl_2020,070918-SWH-61,Cantonese,6.253251198,M,7,7
+SchneiderEtAl_2020,070918-SWH-61,Cantonese,6.253251198,M,5,5
+SchneiderEtAl_2020,071018-LF-08,Cantonese,5.856262834,M,6,6
+SchneiderEtAl_2020,071018-LF-08,Cantonese,5.856262834,M,9,9
+SchneiderEtAl_2020,071018-LF-08,Cantonese,5.856262834,M,7,7
+SchneiderEtAl_2020,071018-LF-08,Cantonese,5.856262834,M,5,5
+SchneiderEtAl_2020,071018-LF-09,Cantonese,5.138945927,F,6,10
+SchneiderEtAl_2020,071018-LF-09,Cantonese,5.138945927,F,9,9
+SchneiderEtAl_2020,071018-LF-09,Cantonese,5.138945927,F,7,7
+SchneiderEtAl_2020,071018-LF-09,Cantonese,5.138945927,F,5,5
+SchneiderEtAl_2020,071018-LF-10,Cantonese,5.713894593,M,6,6
+SchneiderEtAl_2020,071018-LF-10,Cantonese,5.713894593,M,9,9
+SchneiderEtAl_2020,071018-LF-10,Cantonese,5.713894593,M,7,7
+SchneiderEtAl_2020,071018-LF-10,Cantonese,5.713894593,M,5,5
+SchneiderEtAl_2020,071018-LF-11,Cantonese,5.845311431,F,6,6
+SchneiderEtAl_2020,071018-LF-11,Cantonese,5.845311431,F,9,9
+SchneiderEtAl_2020,071018-LF-11,Cantonese,5.845311431,F,7,7
+SchneiderEtAl_2020,071018-LF-11,Cantonese,5.845311431,F,5,5
+SchneiderEtAl_2020,071018-LF-12,Cantonese,5.921971253,F,6,6
+SchneiderEtAl_2020,071018-LF-12,Cantonese,5.921971253,F,9,9
+SchneiderEtAl_2020,071018-LF-12,Cantonese,5.921971253,F,7,7
+SchneiderEtAl_2020,071018-LF-12,Cantonese,5.921971253,F,5,5
+SchneiderEtAl_2020,071018-LF-13,Cantonese,6.422997947,M,6,6
+SchneiderEtAl_2020,071018-LF-13,Cantonese,6.422997947,M,9,9
+SchneiderEtAl_2020,071018-LF-13,Cantonese,6.422997947,M,7,7
+SchneiderEtAl_2020,071018-LF-13,Cantonese,6.422997947,M,5,5
+SchneiderEtAl_2020,071018-LF-14,Cantonese,5.798767967,F,6,6
+SchneiderEtAl_2020,071018-LF-14,Cantonese,5.798767967,F,9,9
+SchneiderEtAl_2020,071018-LF-14,Cantonese,5.798767967,F,7,7
+SchneiderEtAl_2020,071018-LF-14,Cantonese,5.798767967,F,5,5
+SchneiderEtAl_2020,071018-LF-15,Cantonese,5.259411362,M,6,6
+SchneiderEtAl_2020,071018-LF-15,Cantonese,5.259411362,M,9,9
+SchneiderEtAl_2020,071018-LF-15,Cantonese,5.259411362,M,7,7
+SchneiderEtAl_2020,071018-LF-15,Cantonese,5.259411362,M,5,5
+SchneiderEtAl_2020,071018-LF-16,Cantonese,4.991101985,M,6,6
+SchneiderEtAl_2020,071018-LF-16,Cantonese,4.991101985,M,9,9
+SchneiderEtAl_2020,071018-LF-16,Cantonese,4.991101985,M,7,7
+SchneiderEtAl_2020,071018-LF-16,Cantonese,4.991101985,M,5,5
+SchneiderEtAl_2020,071018-LF-17,Cantonese,5.037645448,M,6,6
+SchneiderEtAl_2020,071018-LF-17,Cantonese,5.037645448,M,9,10
+SchneiderEtAl_2020,071018-LF-17,Cantonese,5.037645448,M,7,7
+SchneiderEtAl_2020,071018-LF-17,Cantonese,5.037645448,M,5,5
+SchneiderEtAl_2020,071118-LF-22,Cantonese,4.350444901,F,6,6
+SchneiderEtAl_2020,071118-LF-22,Cantonese,4.350444901,F,9,9
+SchneiderEtAl_2020,071118-LF-22,Cantonese,4.350444901,F,7,7
+SchneiderEtAl_2020,071118-LF-22,Cantonese,4.350444901,F,5,5
+SchneiderEtAl_2020,071118-LF-23,Cantonese,3.909650924,M,6,6
+SchneiderEtAl_2020,071118-LF-23,Cantonese,3.909650924,M,9,9
+SchneiderEtAl_2020,071118-LF-23,Cantonese,3.909650924,M,7,7
+SchneiderEtAl_2020,071118-LF-23,Cantonese,3.909650924,M,5,5
+SchneiderEtAl_2020,071118-LF-25,Cantonese,4.930869268,M,6,6
+SchneiderEtAl_2020,071118-LF-25,Cantonese,4.930869268,M,9,9
+SchneiderEtAl_2020,071118-LF-25,Cantonese,4.930869268,M,7,7
+SchneiderEtAl_2020,071118-LF-25,Cantonese,4.930869268,M,5,5
+SchneiderEtAl_2020,071118-LF-26,Cantonese,4.958247775,F,6,6
+SchneiderEtAl_2020,071118-LF-26,Cantonese,4.958247775,F,9,9
+SchneiderEtAl_2020,071118-LF-26,Cantonese,4.958247775,F,7,7
+SchneiderEtAl_2020,071118-LF-26,Cantonese,4.958247775,F,5,5
+SchneiderEtAl_2020,071118-LF-27,Cantonese,4.517453799,F,6,6
+SchneiderEtAl_2020,071118-LF-27,Cantonese,4.517453799,F,9,9
+SchneiderEtAl_2020,071118-LF-27,Cantonese,4.517453799,F,7,7
+SchneiderEtAl_2020,071118-LF-27,Cantonese,4.517453799,F,5,5
+SchneiderEtAl_2020,061318-JE,English (US),5.470225873,M,6,6
+SchneiderEtAl_2020,061318-JE,English (US),5.470225873,M,9,9
+SchneiderEtAl_2020,061318-JE,English (US),5.470225873,M,7,7
+SchneiderEtAl_2020,061318-JE,English (US),5.470225873,M,5,5
+SchneiderEtAl_2020,061318-MP,English (US),5.667351129,M,6,6
+SchneiderEtAl_2020,061318-MP,English (US),5.667351129,M,9,9
+SchneiderEtAl_2020,061318-MP,English (US),5.667351129,M,7,7
+SchneiderEtAl_2020,061318-MP,English (US),5.667351129,M,5,5
+SchneiderEtAl_2020,071118-LP,English (US),6.047912389,F,6,6
+SchneiderEtAl_2020,071118-LP,English (US),6.047912389,F,9,9
+SchneiderEtAl_2020,071118-LP,English (US),6.047912389,F,7,7
+SchneiderEtAl_2020,071118-LP,English (US),6.047912389,F,5,5
+SchneiderEtAl_2020,071218-GJ,English (US),6.395619439,M,6,6
+SchneiderEtAl_2020,071218-GJ,English (US),6.395619439,M,9,9
+SchneiderEtAl_2020,071218-GJ,English (US),6.395619439,M,7,7
+SchneiderEtAl_2020,071218-GJ,English (US),6.395619439,M,5,5
+SchneiderEtAl_2020,071818-KE,English (US),6.357289528,F,6,6
+SchneiderEtAl_2020,071818-KE,English (US),6.357289528,F,9,9
+SchneiderEtAl_2020,071818-KE,English (US),6.357289528,F,7,7
+SchneiderEtAl_2020,071818-KE,English (US),6.357289528,F,5,5
+SchneiderEtAl_2020,072018-LL,English (US),6.351813826,F,6,6
+SchneiderEtAl_2020,072018-LL,English (US),6.351813826,F,9,9
+SchneiderEtAl_2020,072018-LL,English (US),6.351813826,F,7,7
+SchneiderEtAl_2020,072018-LL,English (US),6.351813826,F,5,5
+SchneiderEtAl_2020,072318-AT,English (US),5.284052019,F,6,6
+SchneiderEtAl_2020,072318-AT,English (US),5.284052019,F,9,9
+SchneiderEtAl_2020,072318-AT,English (US),5.284052019,F,7,7
+SchneiderEtAl_2020,072318-AT,English (US),5.284052019,F,5,5
+SchneiderEtAl_2020,072318-EB,English (US),3.216974675,M,6,6
+SchneiderEtAl_2020,072318-EB,English (US),3.216974675,M,9,8
+SchneiderEtAl_2020,072318-EB,English (US),3.216974675,M,7,7
+SchneiderEtAl_2020,072318-EB,English (US),3.216974675,M,5,10
+SchneiderEtAl_2020,072318-HN,English (US),6.836413415,M,6,6
+SchneiderEtAl_2020,072318-HN,English (US),6.836413415,M,9,9
+SchneiderEtAl_2020,072318-HN,English (US),6.836413415,M,7,7
+SchneiderEtAl_2020,072318-HN,English (US),6.836413415,M,5,5
+SchneiderEtAl_2020,072318-JN,English (US),4.010951403,M,6,6
+SchneiderEtAl_2020,072318-JN,English (US),4.010951403,M,9,9
+SchneiderEtAl_2020,072318-JN,English (US),4.010951403,M,7,7
+SchneiderEtAl_2020,072318-JN,English (US),4.010951403,M,5,5
+SchneiderEtAl_2020,072318-KJ,English (US),4.950034223,F,6,6
+SchneiderEtAl_2020,072318-KJ,English (US),4.950034223,F,9,9
+SchneiderEtAl_2020,072318-KJ,English (US),4.950034223,F,7,7
+SchneiderEtAl_2020,072318-KJ,English (US),4.950034223,F,5,5
+SchneiderEtAl_2020,072318-LM,English (US),4.884325804,F,6,6
+SchneiderEtAl_2020,072318-LM,English (US),4.884325804,F,9,9
+SchneiderEtAl_2020,072318-LM,English (US),4.884325804,F,7,7
+SchneiderEtAl_2020,072318-LM,English (US),4.884325804,F,5,5
+SchneiderEtAl_2020,072318-W,English (US),4.777549624,M,6,6
+SchneiderEtAl_2020,072318-W,English (US),4.777549624,M,9,9
+SchneiderEtAl_2020,072318-W,English (US),4.777549624,M,7,9
+SchneiderEtAl_2020,072318-W,English (US),4.777549624,M,5,5
+SchneiderEtAl_2020,072318-XA,English (US),5.524982888,F,6,6
+SchneiderEtAl_2020,072318-XA,English (US),5.524982888,F,9,9
+SchneiderEtAl_2020,072318-XA,English (US),5.524982888,F,7,7
+SchneiderEtAl_2020,072318-XA,English (US),5.524982888,F,5,5
+SchneiderEtAl_2020,072418-AE,English (US),3.767282683,F,6,6
+SchneiderEtAl_2020,072418-AE,English (US),3.767282683,F,9,9
+SchneiderEtAl_2020,072418-AE,English (US),3.767282683,F,7,7
+SchneiderEtAl_2020,072418-AE,English (US),3.767282683,F,5,5
+SchneiderEtAl_2020,072418-GG,English (US),3.622176591,M,6,4
+SchneiderEtAl_2020,072418-GG,English (US),3.622176591,M,9,6
+SchneiderEtAl_2020,072418-GG,English (US),3.622176591,M,7,4
+SchneiderEtAl_2020,072418-GG,English (US),3.622176591,M,5,6
+SchneiderEtAl_2020,072418-GH,English (US),4.83504449,M,6,6
+SchneiderEtAl_2020,072418-GH,English (US),4.83504449,M,9,9
+SchneiderEtAl_2020,072418-GH,English (US),4.83504449,M,7,7
+SchneiderEtAl_2020,072418-GH,English (US),4.83504449,M,5,5
+SchneiderEtAl_2020,072418-PB,English (US),5.891854894,M,6,6
+SchneiderEtAl_2020,072418-PB,English (US),5.891854894,M,9,9
+SchneiderEtAl_2020,072418-PB,English (US),5.891854894,M,7,7
+SchneiderEtAl_2020,072418-PB,English (US),5.891854894,M,5,5
+SchneiderEtAl_2020,072418-RS,English (US),5.242984257,M,6,6
+SchneiderEtAl_2020,072418-RS,English (US),5.242984257,M,9,9
+SchneiderEtAl_2020,072418-RS,English (US),5.242984257,M,7,7
+SchneiderEtAl_2020,072418-RS,English (US),5.242984257,M,5,5
+SchneiderEtAl_2020,072518-CP,English (US),5.264887064,M,6,6
+SchneiderEtAl_2020,072518-CP,English (US),5.264887064,M,9,9
+SchneiderEtAl_2020,072518-CP,English (US),5.264887064,M,7,7
+SchneiderEtAl_2020,072518-CP,English (US),5.264887064,M,5,5
+SchneiderEtAl_2020,072518-DL,English (US),6.861054073,M,6,6
+SchneiderEtAl_2020,072518-DL,English (US),6.861054073,M,9,9
+SchneiderEtAl_2020,072518-DL,English (US),6.861054073,M,7,7
+SchneiderEtAl_2020,072518-DL,English (US),6.861054073,M,5,5
+SchneiderEtAl_2020,072518-KY,English (US),4.391512663,F,6,6
+SchneiderEtAl_2020,072518-KY,English (US),4.391512663,F,9,9
+SchneiderEtAl_2020,072518-KY,English (US),4.391512663,F,7,7
+SchneiderEtAl_2020,072518-KY,English (US),4.391512663,F,5,5
+SchneiderEtAl_2020,072518-LT,English (US),4.281998631,F,6,3
+SchneiderEtAl_2020,072518-LT,English (US),4.281998631,F,9,10
+SchneiderEtAl_2020,072518-LT,English (US),4.281998631,F,7,10
+SchneiderEtAl_2020,072518-LT,English (US),4.281998631,F,5,10
+SchneiderEtAl_2020,072518-RM,English (US),4.016427105,M,6,6
+SchneiderEtAl_2020,072518-RM,English (US),4.016427105,M,9,9
+SchneiderEtAl_2020,072518-RM,English (US),4.016427105,M,7,7
+SchneiderEtAl_2020,072518-RM,English (US),4.016427105,M,5,5
+SchneiderEtAl_2020,072518-SH,English (US),3.531827515,F,6,10
+SchneiderEtAl_2020,072518-SH,English (US),3.531827515,F,9,10
+SchneiderEtAl_2020,072518-SH,English (US),3.531827515,F,7,10
+SchneiderEtAl_2020,072518-SH,English (US),3.531827515,F,5,10
+SchneiderEtAl_2020,072618-BS,English (US),4.87063655,F,6,6
+SchneiderEtAl_2020,072618-BS,English (US),4.87063655,F,9,9
+SchneiderEtAl_2020,072618-BS,English (US),4.87063655,F,7,7
+SchneiderEtAl_2020,072618-BS,English (US),4.87063655,F,5,5
+SchneiderEtAl_2020,072618-DH,English (US),4.966461328,,6,6
+SchneiderEtAl_2020,072618-DH,English (US),4.966461328,,9,9
+SchneiderEtAl_2020,072618-DH,English (US),4.966461328,,7,7
+SchneiderEtAl_2020,072618-DH,English (US),4.966461328,,5,5
+SchneiderEtAl_2020,072618-RH,English (US),4.966461328,M,6,6
+SchneiderEtAl_2020,072618-RH,English (US),4.966461328,M,9,9
+SchneiderEtAl_2020,072618-RH,English (US),4.966461328,M,7,7
+SchneiderEtAl_2020,072618-RH,English (US),4.966461328,M,5,5
+SchneiderEtAl_2020,072618-SS,English (US),6.893908282,F,6,6
+SchneiderEtAl_2020,072618-SS,English (US),6.893908282,F,9,9
+SchneiderEtAl_2020,072618-SS,English (US),6.893908282,F,7,7
+SchneiderEtAl_2020,072618-SS,English (US),6.893908282,F,5,5
+SchneiderEtAl_2020,072718-FP,English (US),6.494182067,F,6,6
+SchneiderEtAl_2020,072718-FP,English (US),6.494182067,F,9,9
+SchneiderEtAl_2020,072718-FP,English (US),6.494182067,F,7,7
+SchneiderEtAl_2020,072718-FP,English (US),6.494182067,F,5,6
+SchneiderEtAl_2020,072718-GD,English (US),6.798083504,M,6,6
+SchneiderEtAl_2020,072718-GD,English (US),6.798083504,M,9,9
+SchneiderEtAl_2020,072718-GD,English (US),6.798083504,M,7,7
+SchneiderEtAl_2020,072718-GD,English (US),6.798083504,M,5,5
+SchneiderEtAl_2020,072718-JDT,English (US),5.084188912,M,6,6
+SchneiderEtAl_2020,072718-JDT,English (US),5.084188912,M,9,9
+SchneiderEtAl_2020,072718-JDT,English (US),5.084188912,M,7,7
+SchneiderEtAl_2020,072718-JDT,English (US),5.084188912,M,5,5
+SchneiderEtAl_2020,072718-NP,English (US),5.552361396,M,6,6
+SchneiderEtAl_2020,072718-NP,English (US),5.552361396,M,9,9
+SchneiderEtAl_2020,072718-NP,English (US),5.552361396,M,7,7
+SchneiderEtAl_2020,072718-NP,English (US),5.552361396,M,5,5
+SchneiderEtAl_2020,072718-SJ,English (US),6.466803559,F,6,6
+SchneiderEtAl_2020,072718-SJ,English (US),6.466803559,F,9,9
+SchneiderEtAl_2020,072718-SJ,English (US),6.466803559,F,7,7
+SchneiderEtAl_2020,072718-SJ,English (US),6.466803559,F,5,5
+SchneiderEtAl_2020,073018-BL,English (US),3.835728953,M,6,6
+SchneiderEtAl_2020,073018-BL,English (US),3.835728953,M,9,9
+SchneiderEtAl_2020,073018-BL,English (US),3.835728953,M,7,7
+SchneiderEtAl_2020,073018-BL,English (US),3.835728953,M,5,5
+SchneiderEtAl_2020,073018-LD,English (US),6.557152635,F,6,6
+SchneiderEtAl_2020,073018-LD,English (US),6.557152635,F,9,9
+SchneiderEtAl_2020,073018-LD,English (US),6.557152635,F,7,7
+SchneiderEtAl_2020,073018-LD,English (US),6.557152635,F,5,5
+SchneiderEtAl_2020,073018-M,English (US),5.440109514,M,6,6
+SchneiderEtAl_2020,073018-M,English (US),5.440109514,M,9,9
+SchneiderEtAl_2020,073018-M,English (US),5.440109514,M,7,7
+SchneiderEtAl_2020,073018-M,English (US),5.440109514,M,5,5
+SchneiderEtAl_2020,073118-BD,English (US),3.690622861,M,6,6
+SchneiderEtAl_2020,073118-BD,English (US),3.690622861,M,9,9
+SchneiderEtAl_2020,073118-BD,English (US),3.690622861,M,7,7
+SchneiderEtAl_2020,073118-BD,English (US),3.690622861,M,5,5
+SchneiderEtAl_2020,073118-EC,English (US),5.919233402,M,6,6
+SchneiderEtAl_2020,073118-EC,English (US),5.919233402,M,9,9
+SchneiderEtAl_2020,073118-EC,English (US),5.919233402,M,7,7
+SchneiderEtAl_2020,073118-EC,English (US),5.919233402,M,5,5
+SchneiderEtAl_2020,073118-EC2,English (US),5.916495551,F,6,6
+SchneiderEtAl_2020,073118-EC2,English (US),5.916495551,F,9,9
+SchneiderEtAl_2020,073118-EC2,English (US),5.916495551,F,7,7
+SchneiderEtAl_2020,073118-EC2,English (US),5.916495551,F,5,5
+SchneiderEtAl_2020,073118-EF,English (US),3.759069131,F,6,6
+SchneiderEtAl_2020,073118-EF,English (US),3.759069131,F,9,9
+SchneiderEtAl_2020,073118-EF,English (US),3.759069131,F,7,7
+SchneiderEtAl_2020,073118-EF,English (US),3.759069131,F,5,5
+SchneiderEtAl_2020,073118-TC,English (US),3.605749487,,6,10
+SchneiderEtAl_2020,073118-TC,English (US),3.605749487,,9,10
+SchneiderEtAl_2020,073118-TC,English (US),3.605749487,,7,10
+SchneiderEtAl_2020,073118-TC,English (US),3.605749487,,5,10
+SchneiderEtAl_2020,080118-EM,English (US),5.456536619,M,6,6
+SchneiderEtAl_2020,080118-EM,English (US),5.456536619,M,9,9
+SchneiderEtAl_2020,080118-EM,English (US),5.456536619,M,7,7
+SchneiderEtAl_2020,080118-EM,English (US),5.456536619,M,5,5
+SchneiderEtAl_2020,080118-TF,English (US),4.109514031,M,6,6
+SchneiderEtAl_2020,080118-TF,English (US),4.109514031,M,9,8
+SchneiderEtAl_2020,080118-TF,English (US),4.109514031,M,7,7
+SchneiderEtAl_2020,080118-TF,English (US),4.109514031,M,5,5
+SchneiderEtAl_2020,080218-CK,English (US),5.273100616,M,6,6
+SchneiderEtAl_2020,080218-CK,English (US),5.273100616,M,9,9
+SchneiderEtAl_2020,080218-CK,English (US),5.273100616,M,7,7
+SchneiderEtAl_2020,080218-CK,English (US),5.273100616,M,5,5
+SchneiderEtAl_2020,080218-JC,English (US),6.061601643,M,6,6
+SchneiderEtAl_2020,080218-JC,English (US),6.061601643,M,9,9
+SchneiderEtAl_2020,080218-JC,English (US),6.061601643,M,7,7
+SchneiderEtAl_2020,080218-JC,English (US),6.061601643,M,5,5
+SchneiderEtAl_2020,080218-NO,English (US),4.271047228,M,6,6
+SchneiderEtAl_2020,080218-NO,English (US),4.271047228,M,9,9
+SchneiderEtAl_2020,080218-NO,English (US),4.271047228,M,7,7
+SchneiderEtAl_2020,080218-NO,English (US),4.271047228,M,5,5
+SchneiderEtAl_2020,080218-RB,English (US),5.848049281,M,6,6
+SchneiderEtAl_2020,080218-RB,English (US),5.848049281,M,9,9
+SchneiderEtAl_2020,080218-RB,English (US),5.848049281,M,7,7
+SchneiderEtAl_2020,080218-RB,English (US),5.848049281,M,5,5
+SchneiderEtAl_2020,080318-AT,English (US),4.290212183,F,6,7
+SchneiderEtAl_2020,080318-AT,English (US),4.290212183,F,9,7
+SchneiderEtAl_2020,080318-AT,English (US),4.290212183,F,7,9
+SchneiderEtAl_2020,080318-AT,English (US),4.290212183,F,5,5
+SchneiderEtAl_2020,080318-BT,English (US),3.594798084,M,6,6
+SchneiderEtAl_2020,080318-BT,English (US),3.594798084,M,9,5
+SchneiderEtAl_2020,080318-BT,English (US),3.594798084,M,7,4
+SchneiderEtAl_2020,080318-BT,English (US),3.594798084,M,5,5
+SchneiderEtAl_2020,080318-DG,English (US),4.013689254,M,6,5
+SchneiderEtAl_2020,080318-DG,English (US),4.013689254,M,9,7
+SchneiderEtAl_2020,080318-DG,English (US),4.013689254,M,7,6
+SchneiderEtAl_2020,080318-DG,English (US),4.013689254,M,5,4
+SchneiderEtAl_2020,080318-DN,English (US),3.537303217,M,6,10
+SchneiderEtAl_2020,080318-DN,English (US),3.537303217,M,9,10
+SchneiderEtAl_2020,080318-DN,English (US),3.537303217,M,7,6
+SchneiderEtAl_2020,080318-DN,English (US),3.537303217,M,5,10
+SchneiderEtAl_2020,080318-JG,English (US),3.802874743,M,6,7
+SchneiderEtAl_2020,080318-JG,English (US),3.802874743,M,9,10
+SchneiderEtAl_2020,080318-JG,English (US),3.802874743,M,7,10
+SchneiderEtAl_2020,080318-JG,English (US),3.802874743,M,5,6
+SchneiderEtAl_2020,080318-LT,English (US),5.155373032,M,6,4
+SchneiderEtAl_2020,080318-LT,English (US),5.155373032,M,9,6
+SchneiderEtAl_2020,080318-LT,English (US),5.155373032,M,7,8
+SchneiderEtAl_2020,080318-LT,English (US),5.155373032,M,5,5
+SchneiderEtAl_2020,080318-RG,English (US),5.023956194,,6,6
+SchneiderEtAl_2020,080318-RG,English (US),5.023956194,,9,9
+SchneiderEtAl_2020,080318-RG,English (US),5.023956194,,7,7
+SchneiderEtAl_2020,080318-RG,English (US),5.023956194,,5,5
+SchneiderEtAl_2020,080618-AD,English (US),4.580424367,F,6,6
+SchneiderEtAl_2020,080618-AD,English (US),4.580424367,F,9,10
+SchneiderEtAl_2020,080618-AD,English (US),4.580424367,F,7,10
+SchneiderEtAl_2020,080618-AD,English (US),4.580424367,F,5,5
+SchneiderEtAl_2020,080618-CR,English (US),5.84257358,F,6,6
+SchneiderEtAl_2020,080618-CR,English (US),5.84257358,F,9,9
+SchneiderEtAl_2020,080618-CR,English (US),5.84257358,F,7,7
+SchneiderEtAl_2020,080618-CR,English (US),5.84257358,F,5,5
+SchneiderEtAl_2020,080618-JR,English (US),3.857631759,F,6,6
+SchneiderEtAl_2020,080618-JR,English (US),3.857631759,F,9,9
+SchneiderEtAl_2020,080618-JR,English (US),3.857631759,F,7,7
+SchneiderEtAl_2020,080618-JR,English (US),3.857631759,F,5,5
+SchneiderEtAl_2020,080618-PA,English (US),5.571526352,M,6,6
+SchneiderEtAl_2020,080618-PA,English (US),5.571526352,M,9,9
+SchneiderEtAl_2020,080618-PA,English (US),5.571526352,M,7,7
+SchneiderEtAl_2020,080618-PA,English (US),5.571526352,M,5,5
+SchneiderEtAl_2020,080718-ER,English (US),5.401779603,,6,6
+SchneiderEtAl_2020,080718-ER,English (US),5.401779603,,9,9
+SchneiderEtAl_2020,080718-ER,English (US),5.401779603,,7,7
+SchneiderEtAl_2020,080718-ER,English (US),5.401779603,,5,5
+SchneiderEtAl_2020,080718-SS,English (US),5.303216975,M,6,6
+SchneiderEtAl_2020,080718-SS,English (US),5.303216975,M,9,8
+SchneiderEtAl_2020,080718-SS,English (US),5.303216975,M,7,7
+SchneiderEtAl_2020,080718-SS,English (US),5.303216975,M,5,5
+SchneiderEtAl_2020,080818-EG,English (US),5.850787132,F,6,6
+SchneiderEtAl_2020,080818-EG,English (US),5.850787132,F,9,9
+SchneiderEtAl_2020,080818-EG,English (US),5.850787132,F,7,7
+SchneiderEtAl_2020,080818-EG,English (US),5.850787132,F,5,5
+SchneiderEtAl_2020,080818-MG,English (US),6.01779603,M,6,6
+SchneiderEtAl_2020,080818-MG,English (US),6.01779603,M,9,9
+SchneiderEtAl_2020,080818-MG,English (US),6.01779603,M,7,7
+SchneiderEtAl_2020,080818-MG,English (US),6.01779603,M,5,5
+SchneiderEtAl_2020,080818-TM,English (US),5.46201232,F,6,6
+SchneiderEtAl_2020,080818-TM,English (US),5.46201232,F,9,9
+SchneiderEtAl_2020,080818-TM,English (US),5.46201232,F,7,7
+SchneiderEtAl_2020,080818-TM,English (US),5.46201232,F,5,5
+SchneiderEtAl_2020,080918-AR,English (US),6.453114305,F,6,6
+SchneiderEtAl_2020,080918-AR,English (US),6.453114305,F,9,9
+SchneiderEtAl_2020,080918-AR,English (US),6.453114305,F,7,7
+SchneiderEtAl_2020,080918-AR,English (US),6.453114305,F,5,5
+SchneiderEtAl_2020,080918-DC,English (US),3.901437372,M,6,5
+SchneiderEtAl_2020,080918-DC,English (US),3.901437372,M,9,8
+SchneiderEtAl_2020,080918-DC,English (US),3.901437372,M,7,9
+SchneiderEtAl_2020,080918-DC,English (US),3.901437372,M,5,6
+SchneiderEtAl_2020,080918-LC,English (US),5.379876797,M,6,6
+SchneiderEtAl_2020,080918-LC,English (US),5.379876797,M,9,9
+SchneiderEtAl_2020,080918-LC,English (US),5.379876797,M,7,7
+SchneiderEtAl_2020,080918-LC,English (US),5.379876797,M,5,5
+SchneiderEtAl_2020,080918-SR,English (US),4.736481862,F,6,6
+SchneiderEtAl_2020,080918-SR,English (US),4.736481862,F,9,9
+SchneiderEtAl_2020,080918-SR,English (US),4.736481862,F,7,7
+SchneiderEtAl_2020,080918-SR,English (US),4.736481862,F,5,5
+SchneiderEtAl_2020,081018-DM,English (US),5.04312115,M,6,6
+SchneiderEtAl_2020,081018-DM,English (US),5.04312115,M,9,9
+SchneiderEtAl_2020,081018-DM,English (US),5.04312115,M,7,7
+SchneiderEtAl_2020,081018-DM,English (US),5.04312115,M,5,5
+SchneiderEtAl_2020,081018-KF,English (US),5.026694045,,6,6
+SchneiderEtAl_2020,081018-KF,English (US),5.026694045,,9,9
+SchneiderEtAl_2020,081018-KF,English (US),5.026694045,,7,7
+SchneiderEtAl_2020,081018-KF,English (US),5.026694045,,5,5
+SchneiderEtAl_2020,081018-WW,English (US),5.190965092,M,6,6
+SchneiderEtAl_2020,081018-WW,English (US),5.190965092,M,9,9
+SchneiderEtAl_2020,081018-WW,English (US),5.190965092,M,7,7
+SchneiderEtAl_2020,081018-WW,English (US),5.190965092,M,5,5
+SchneiderEtAl_2020,081318-DH,English (US),6.450376454,M,6,6
+SchneiderEtAl_2020,081318-DH,English (US),6.450376454,M,9,9
+SchneiderEtAl_2020,081318-DH,English (US),6.450376454,M,7,7
+SchneiderEtAl_2020,081318-DH,English (US),6.450376454,M,5,5
+SchneiderEtAl_2020,081318-LH,English (US),3.885010267,M,6,10
+SchneiderEtAl_2020,081318-LH,English (US),3.885010267,M,9,10
+SchneiderEtAl_2020,081318-LH,English (US),3.885010267,M,7,10
+SchneiderEtAl_2020,081318-LH,English (US),3.885010267,M,5,8
+SchneiderEtAl_2020,081318-NT,English (US),4.900752909,M,6,6
+SchneiderEtAl_2020,081318-NT,English (US),4.900752909,M,9,9
+SchneiderEtAl_2020,081318-NT,English (US),4.900752909,M,7,7
+SchneiderEtAl_2020,081318-NT,English (US),4.900752909,M,5,5
+SchneiderEtAl_2020,081318-PT,English (US),4.900752909,M,6,6
+SchneiderEtAl_2020,081318-PT,English (US),4.900752909,M,9,9
+SchneiderEtAl_2020,081318-PT,English (US),4.900752909,M,7,7
+SchneiderEtAl_2020,081318-PT,English (US),4.900752909,M,5,5
+SchneiderEtAl_2020,081418-ER,English (US),5.420944559,F,6,6
+SchneiderEtAl_2020,081418-ER,English (US),5.420944559,F,9,9
+SchneiderEtAl_2020,081418-ER,English (US),5.420944559,F,7,7
+SchneiderEtAl_2020,081418-ER,English (US),5.420944559,F,5,5
+SchneiderEtAl_2020,081418-LH,English (US),3.668720055,F,6,5
+SchneiderEtAl_2020,081418-LH,English (US),3.668720055,F,9,7
+SchneiderEtAl_2020,081418-LH,English (US),3.668720055,F,7,7
+SchneiderEtAl_2020,081418-LH,English (US),3.668720055,F,5,6
+SchneiderEtAl_2020,081518-RL,English (US),4.372347707,M,6,6
+SchneiderEtAl_2020,081518-RL,English (US),4.372347707,M,9,9
+SchneiderEtAl_2020,081518-RL,English (US),4.372347707,M,7,7
+SchneiderEtAl_2020,081518-RL,English (US),4.372347707,M,5,5
+SchneiderEtAl_2020,081718-EA,English (US),4.958247775,F,6,6
+SchneiderEtAl_2020,081718-EA,English (US),4.958247775,F,9,9
+SchneiderEtAl_2020,081718-EA,English (US),4.958247775,F,7,7
+SchneiderEtAl_2020,081718-EA,English (US),4.958247775,F,5,5
+SchneiderEtAl_2020,081718-SG,English (US),5.448323066,F,6,6
+SchneiderEtAl_2020,081718-SG,English (US),5.448323066,F,9,9
+SchneiderEtAl_2020,081718-SG,English (US),5.448323066,F,7,7
+SchneiderEtAl_2020,081718-SG,English (US),5.448323066,F,5,5
+SchneiderEtAl_2020,082018-HA,English (US),4.848733744,F,6,6
+SchneiderEtAl_2020,082018-HA,English (US),4.848733744,F,9,7
+SchneiderEtAl_2020,082018-HA,English (US),4.848733744,F,7,7
+SchneiderEtAl_2020,082018-HA,English (US),4.848733744,F,5,5
+SchneiderEtAl_2020,082018-SV,English (US),6.551676934,F,6,6
+SchneiderEtAl_2020,082018-SV,English (US),6.551676934,F,9,9
+SchneiderEtAl_2020,082018-SV,English (US),6.551676934,F,7,7
+SchneiderEtAl_2020,082018-SV,English (US),6.551676934,F,5,5
+SchneiderEtAl_2020,082118-AS,English (US),5.817932923,F,6,6
+SchneiderEtAl_2020,082118-AS,English (US),5.817932923,F,9,9
+SchneiderEtAl_2020,082118-AS,English (US),5.817932923,F,7,7
+SchneiderEtAl_2020,082118-AS,English (US),5.817932923,F,5,5
+SchneiderEtAl_2020,082118-GS,English (US),4.013689254,M,6,6
+SchneiderEtAl_2020,082118-GS,English (US),4.013689254,M,9,9
+SchneiderEtAl_2020,082118-GS,English (US),4.013689254,M,7,7
+SchneiderEtAl_2020,082118-GS,English (US),4.013689254,M,5,5
+SchneiderEtAl_2020,082118-SB,English (US),4.10403833,F,6,6
+SchneiderEtAl_2020,082118-SB,English (US),4.10403833,F,9,9
+SchneiderEtAl_2020,082118-SB,English (US),4.10403833,F,7,7
+SchneiderEtAl_2020,082118-SB,English (US),4.10403833,F,5,5
+SchneiderEtAl_2020,082218-AC,English (US),4.821355236,M,6,7
+SchneiderEtAl_2020,082218-AC,English (US),4.821355236,M,9,10
+SchneiderEtAl_2020,082218-AC,English (US),4.821355236,M,7,7
+SchneiderEtAl_2020,082218-AC,English (US),4.821355236,M,5,5
+SchneiderEtAl_2020,082218-CC,English (US),5.555099247,M,6,6
+SchneiderEtAl_2020,082218-CC,English (US),5.555099247,M,9,9
+SchneiderEtAl_2020,082218-CC,English (US),5.555099247,M,7,7
+SchneiderEtAl_2020,082218-CC,English (US),5.555099247,M,5,5
+SchneiderEtAl_2020,082418-JC,English (US),6.480492813,M,6,6
+SchneiderEtAl_2020,082418-JC,English (US),6.480492813,M,9,9
+SchneiderEtAl_2020,082418-JC,English (US),6.480492813,M,7,7
+SchneiderEtAl_2020,082418-JC,English (US),6.480492813,M,5,5
+SchneiderEtAl_2020,082818-OW,English (US),5.399041752,M,6,6
+SchneiderEtAl_2020,082818-OW,English (US),5.399041752,M,9,9
+SchneiderEtAl_2020,082818-OW,English (US),5.399041752,M,7,7
+SchneiderEtAl_2020,082818-OW,English (US),5.399041752,M,5,5
+SchneiderEtAl_2020,083118-SJ,English (US),3.641341547,F,6,6
+SchneiderEtAl_2020,083118-SJ,English (US),3.641341547,F,9,9
+SchneiderEtAl_2020,083118-SJ,English (US),3.641341547,F,7,7
+SchneiderEtAl_2020,083118-SJ,English (US),3.641341547,F,5,6
+SchneiderEtAl_2020,091818-JB,English (US),6.026009582,M,6,6
+SchneiderEtAl_2020,091818-JB,English (US),6.026009582,M,9,9
+SchneiderEtAl_2020,091818-JB,English (US),6.026009582,M,7,7
+SchneiderEtAl_2020,091818-JB,English (US),6.026009582,M,5,5
+SchneiderEtAl_2020,091918-JT,English (US),4.323066393,F,6,6
+SchneiderEtAl_2020,091918-JT,English (US),4.323066393,F,9,10
+SchneiderEtAl_2020,091918-JT,English (US),4.323066393,F,7,10
+SchneiderEtAl_2020,091918-JT,English (US),4.323066393,F,5,5
+SchneiderEtAl_2020,092018-DH,English (US),4.290212183,M,6,6
+SchneiderEtAl_2020,092018-DH,English (US),4.290212183,M,9,10
+SchneiderEtAl_2020,092018-DH,English (US),4.290212183,M,7,10
+SchneiderEtAl_2020,092018-DH,English (US),4.290212183,M,5,5
+SchneiderEtAl_2020,092018-GG,English (US),3.630390144,M,6,10
+SchneiderEtAl_2020,092018-GG,English (US),3.630390144,M,9,10
+SchneiderEtAl_2020,092018-GG,English (US),3.630390144,M,7,10
+SchneiderEtAl_2020,092018-GG,English (US),3.630390144,M,5,5
+SchneiderEtAl_2020,092018-K,English (US),3.504449008,F,6,6
+SchneiderEtAl_2020,092018-K,English (US),3.504449008,F,9,7
+SchneiderEtAl_2020,092018-K,English (US),3.504449008,F,7,10
+SchneiderEtAl_2020,092018-K,English (US),3.504449008,F,5,5
+SchneiderEtAl_2020,092018-WB,English (US),3.567419576,M,6,6
+SchneiderEtAl_2020,092018-WB,English (US),3.567419576,M,9,10
+SchneiderEtAl_2020,092018-WB,English (US),3.567419576,M,7,10
+SchneiderEtAl_2020,092018-WB,English (US),3.567419576,M,5,5
+SchneiderEtAl_2020,092718-BB,English (US),5.686516085,M,6,6
+SchneiderEtAl_2020,092718-BB,English (US),5.686516085,M,9,9
+SchneiderEtAl_2020,092718-BB,English (US),5.686516085,M,7,6
+SchneiderEtAl_2020,092718-BB,English (US),5.686516085,M,5,4
+SchneiderEtAl_2020,092718-WB,English (US),3.537303217,M,6,3
+SchneiderEtAl_2020,092718-WB,English (US),3.537303217,M,9,4
+SchneiderEtAl_2020,092718-WB,English (US),3.537303217,M,7,4
+SchneiderEtAl_2020,092718-WB,English (US),3.537303217,M,5,10
+SchneiderEtAl_2020,092818-EA,English (US),3.915126626,F,6,4
+SchneiderEtAl_2020,092818-EA,English (US),3.915126626,F,9,4
+SchneiderEtAl_2020,092818-EA,English (US),3.915126626,F,7,6
+SchneiderEtAl_2020,092818-EA,English (US),3.915126626,F,5,5
+SchneiderEtAl_2020,092818-LM,English (US),3.449691992,F,6,10
+SchneiderEtAl_2020,092818-LM,English (US),3.449691992,F,9,10
+SchneiderEtAl_2020,092818-LM,English (US),3.449691992,F,7,10
+SchneiderEtAl_2020,092818-LM,English (US),3.449691992,F,5,10
+SchneiderEtAl_2020,092818-OM,English (US),4.114989733,F,6,6
+SchneiderEtAl_2020,092818-OM,English (US),4.114989733,F,9,10
+SchneiderEtAl_2020,092818-OM,English (US),4.114989733,F,7,10
+SchneiderEtAl_2020,092818-OM,English (US),4.114989733,F,5,5
+SchneiderEtAl_2020,092818-WB,English (US),4.429842574,M,6,6
+SchneiderEtAl_2020,092818-WB,English (US),4.429842574,M,9,9
+SchneiderEtAl_2020,092818-WB,English (US),4.429842574,M,7,7
+SchneiderEtAl_2020,092818-WB,English (US),4.429842574,M,5,5
+SchneiderEtAl_2020,101518-AG,English (US),4.093086927,M,6,6
+SchneiderEtAl_2020,101518-AG,English (US),4.093086927,M,9,7
+SchneiderEtAl_2020,101518-AG,English (US),4.093086927,M,7,6
+SchneiderEtAl_2020,101518-AG,English (US),4.093086927,M,5,5
+SchneiderEtAl_2020,101518-AS,English (US),3.638603696,M,6,5
+SchneiderEtAl_2020,101518-AS,English (US),3.638603696,M,9,6
+SchneiderEtAl_2020,101518-AS,English (US),3.638603696,M,7,7
+SchneiderEtAl_2020,101518-AS,English (US),3.638603696,M,5,5
+SchneiderEtAl_2020,101518-CK,English (US),4.457221081,F,6,6
+SchneiderEtAl_2020,101518-CK,English (US),4.457221081,F,9,10
+SchneiderEtAl_2020,101518-CK,English (US),4.457221081,F,7,10
+SchneiderEtAl_2020,101518-CK,English (US),4.457221081,F,5,10
+SchneiderEtAl_2020,101518-JM,English (US),4.410677618,M,6,10
+SchneiderEtAl_2020,101518-JM,English (US),4.410677618,M,9,10
+SchneiderEtAl_2020,101518-JM,English (US),4.410677618,M,7,5
+SchneiderEtAl_2020,101518-JM,English (US),4.410677618,M,5,6
+SchneiderEtAl_2020,101518-JP,English (US),4.777549624,M,6,6
+SchneiderEtAl_2020,101518-JP,English (US),4.777549624,M,9,9
+SchneiderEtAl_2020,101518-JP,English (US),4.777549624,M,7,7
+SchneiderEtAl_2020,101518-JP,English (US),4.777549624,M,5,5
+SchneiderEtAl_2020,101518-PK,English (US),4.457221081,F,6,7
+SchneiderEtAl_2020,101518-PK,English (US),4.457221081,F,9,10
+SchneiderEtAl_2020,101518-PK,English (US),4.457221081,F,7,9
+SchneiderEtAl_2020,101518-PK,English (US),4.457221081,F,5,5
+SchneiderEtAl_2020,101518-PN,English (US),4.041067762,M,6,10
+SchneiderEtAl_2020,101518-PN,English (US),4.041067762,M,9,10
+SchneiderEtAl_2020,101518-PN,English (US),4.041067762,M,7,10
+SchneiderEtAl_2020,101518-PN,English (US),4.041067762,M,5,10
+SchneiderEtAl_2020,101518-RR,English (US),3.597535934,F,6,8
+SchneiderEtAl_2020,101518-RR,English (US),3.597535934,F,9,8
+SchneiderEtAl_2020,101518-RR,English (US),3.597535934,F,7,8
+SchneiderEtAl_2020,101518-RR,English (US),3.597535934,F,5,9
+SchneiderEtAl_2020,101518-ZM,English (US),4.054757016,M,6,6
+SchneiderEtAl_2020,101518-ZM,English (US),4.054757016,M,9,4
+SchneiderEtAl_2020,101518-ZM,English (US),4.054757016,M,7,6
+SchneiderEtAl_2020,101518-ZM,English (US),4.054757016,M,5,5
+SchneiderEtAl_2020,101618-AA,English (US),4.158795346,M,6,6
+SchneiderEtAl_2020,101618-AA,English (US),4.158795346,M,9,8
+SchneiderEtAl_2020,101618-AA,English (US),4.158795346,M,7,6
+SchneiderEtAl_2020,101618-AA,English (US),4.158795346,M,5,10
+SchneiderEtAl_2020,101618-BW,English (US),3.586584531,M,6,3
+SchneiderEtAl_2020,101618-BW,English (US),3.586584531,M,9,5
+SchneiderEtAl_2020,101618-BW,English (US),3.586584531,M,7,4
+SchneiderEtAl_2020,101618-BW,English (US),3.586584531,M,5,10
+SchneiderEtAl_2020,101618-FO,English (US),4.429842574,M,6,6
+SchneiderEtAl_2020,101618-FO,English (US),4.429842574,M,9,9
+SchneiderEtAl_2020,101618-FO,English (US),4.429842574,M,7,7
+SchneiderEtAl_2020,101618-FO,English (US),4.429842574,M,5,5
+SchneiderEtAl_2020,101618-GB,English (US),5.371663244,F,6,6
+SchneiderEtAl_2020,101618-GB,English (US),5.371663244,F,9,9
+SchneiderEtAl_2020,101618-GB,English (US),5.371663244,F,7,7
+SchneiderEtAl_2020,101618-GB,English (US),5.371663244,F,5,5
+SchneiderEtAl_2020,101618-IP,English (US),4.120465435,M,6,10
+SchneiderEtAl_2020,101618-IP,English (US),4.120465435,M,9,10
+SchneiderEtAl_2020,101618-IP,English (US),4.120465435,M,7,10
+SchneiderEtAl_2020,101618-IP,English (US),4.120465435,M,5,10
+SchneiderEtAl_2020,101618-JJ,English (US),4.48733744,M,6,6
+SchneiderEtAl_2020,101618-JJ,English (US),4.48733744,M,9,8
+SchneiderEtAl_2020,101618-JJ,English (US),4.48733744,M,7,7
+SchneiderEtAl_2020,101618-JJ,English (US),4.48733744,M,5,5
+SchneiderEtAl_2020,101618-PM,English (US),4.829568789,F,6,6
+SchneiderEtAl_2020,101618-PM,English (US),4.829568789,F,9,8
+SchneiderEtAl_2020,101618-PM,English (US),4.829568789,F,7,7
+SchneiderEtAl_2020,101618-PM,English (US),4.829568789,F,5,5
+SchneiderEtAl_2020,101618-SW,English (US),4.580424367,F,6,6
+SchneiderEtAl_2020,101618-SW,English (US),4.580424367,F,9,9
+SchneiderEtAl_2020,101618-SW,English (US),4.580424367,F,7,8
+SchneiderEtAl_2020,101618-SW,English (US),4.580424367,F,5,5
+SchneiderEtAl_2020,101618-WD,English (US),3.646817248,,6,6
+SchneiderEtAl_2020,101618-WD,English (US),3.646817248,,9,9
+SchneiderEtAl_2020,101618-WD,English (US),3.646817248,,7,7
+SchneiderEtAl_2020,101618-WD,English (US),3.646817248,,5,5
+SchneiderEtAl_2020,101718-BW,English (US),6.291581109,M,6,6
+SchneiderEtAl_2020,101718-BW,English (US),6.291581109,M,9,9
+SchneiderEtAl_2020,101718-BW,English (US),6.291581109,M,7,7
+SchneiderEtAl_2020,101718-BW,English (US),6.291581109,M,5,5
+SchneiderEtAl_2020,101818-AS,English (US),3.96440794,F,6,8
+SchneiderEtAl_2020,101818-AS,English (US),3.96440794,F,9,10
+SchneiderEtAl_2020,101818-AS,English (US),3.96440794,F,7,10
+SchneiderEtAl_2020,101818-AS,English (US),3.96440794,F,5,10
+SchneiderEtAl_2020,101818-K,English (US),4.194387406,M,6,6
+SchneiderEtAl_2020,101818-K,English (US),4.194387406,M,9,9
+SchneiderEtAl_2020,101818-K,English (US),4.194387406,M,7,7
+SchneiderEtAl_2020,101818-K,English (US),4.194387406,M,5,5
+SchneiderEtAl_2020,101818-LP,English (US),3.770020534,M,6,6
+SchneiderEtAl_2020,101818-LP,English (US),3.770020534,M,9,9
+SchneiderEtAl_2020,101818-LP,English (US),3.770020534,M,7,7
+SchneiderEtAl_2020,101818-LP,English (US),3.770020534,M,5,5
+SchneiderEtAl_2020,101818-LR,English (US),4.145106092,M,6,6
+SchneiderEtAl_2020,101818-LR,English (US),4.145106092,M,9,9
+SchneiderEtAl_2020,101818-LR,English (US),4.145106092,M,7,10
+SchneiderEtAl_2020,101818-LR,English (US),4.145106092,M,5,7
+SchneiderEtAl_2020,101818-PH,English (US),4.777549624,M,6,6
+SchneiderEtAl_2020,101818-PH,English (US),4.777549624,M,9,9
+SchneiderEtAl_2020,101818-PH,English (US),4.777549624,M,7,7
+SchneiderEtAl_2020,101818-PH,English (US),4.777549624,M,5,5
+SchneiderEtAl_2020,101918-AM,English (US),4.295687885,,6,6
+SchneiderEtAl_2020,101918-AM,English (US),4.295687885,,9,9
+SchneiderEtAl_2020,101918-AM,English (US),4.295687885,,7,7
+SchneiderEtAl_2020,101918-AM,English (US),4.295687885,,5,5
+SchneiderEtAl_2020,101918-CB,English (US),5.626283368,F,6,6
+SchneiderEtAl_2020,101918-CB,English (US),5.626283368,F,9,9
+SchneiderEtAl_2020,101918-CB,English (US),5.626283368,F,7,7
+SchneiderEtAl_2020,101918-CB,English (US),5.626283368,F,5,5
+SchneiderEtAl_2020,101918-KR,English (US),3.247091034,M,6,4
+SchneiderEtAl_2020,101918-KR,English (US),3.247091034,M,9,3
+SchneiderEtAl_2020,101918-KR,English (US),3.247091034,M,7,7
+SchneiderEtAl_2020,101918-KR,English (US),3.247091034,M,5,10
+SchneiderEtAl_2020,102618-CP,English (US),4.350444901,M,6,6
+SchneiderEtAl_2020,102618-CP,English (US),4.350444901,M,9,8
+SchneiderEtAl_2020,102618-CP,English (US),4.350444901,M,7,7
+SchneiderEtAl_2020,102618-CP,English (US),4.350444901,M,5,5
+SchneiderEtAl_2020,102418-FT,English (US),4.632443532,M,6,6
+SchneiderEtAl_2020,102418-FT,English (US),4.632443532,M,9,9
+SchneiderEtAl_2020,102418-FT,English (US),4.632443532,M,7,7
+SchneiderEtAl_2020,102418-FT,English (US),4.632443532,M,5,5
+SchneiderEtAl_2020,102418-JP,English (US),5.385352498,M,6,6
+SchneiderEtAl_2020,102418-JP,English (US),5.385352498,M,9,9
+SchneiderEtAl_2020,102418-JP,English (US),5.385352498,M,7,7
+SchneiderEtAl_2020,102418-JP,English (US),5.385352498,M,5,5
+SchneiderEtAl_2020,102418-JP1,English (US),4.59137577,M,6,6
+SchneiderEtAl_2020,102418-JP1,English (US),4.59137577,M,9,9
+SchneiderEtAl_2020,102418-JP1,English (US),4.59137577,M,7,7
+SchneiderEtAl_2020,102418-JP1,English (US),4.59137577,M,5,5
+SchneiderEtAl_2020,073118-LM,English (US),3.797399042,F,6,6
+SchneiderEtAl_2020,073118-LM,English (US),3.797399042,F,9,9
+SchneiderEtAl_2020,073118-LM,English (US),3.797399042,F,7,7
+SchneiderEtAl_2020,073118-LM,English (US),3.797399042,F,5,5
+SchneiderEtAl_2020,101718-CA,English (US),4.465434634,F,6,6
+SchneiderEtAl_2020,101718-CA,English (US),4.465434634,F,9,9
+SchneiderEtAl_2020,101718-CA,English (US),4.465434634,F,7,7
+SchneiderEtAl_2020,101718-CA,English (US),4.465434634,F,5,5
+SchneiderEtAl_2020,101718-EW,English (US),4.670773443,F,6,6
+SchneiderEtAl_2020,101718-EW,English (US),4.670773443,F,9,8
+SchneiderEtAl_2020,101718-EW,English (US),4.670773443,F,7,7
+SchneiderEtAl_2020,101718-EW,English (US),4.670773443,F,5,5
