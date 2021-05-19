@@ -55,8 +55,7 @@ piantadosi2014_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/Pia
          lab = "Piantadosi", 
          cite = "Piantadosi, S. T., Jara_Ettinger, J., & Gibson, E. (2014). Children's learning of number words in an indigenous farming_foraging group. Developmental Science, 17(4), 553-563.")
 
-write_csv(piantadosi2014_kl, 'data/data-raw/kl-only/data-raw/piantadosi_2014.csv')
-
+write_csv(piantadosi2014_kl, here::here('data/data-raw/kl-only/data-raw/piantadosi_2014.csv'))
 # ...sarnecka2007 ----
 sarnecka2007 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Sarnecka2007.csv'))%>%
   pivot_longer(cols = c(-Experiment, -Participant, -Language,
@@ -178,7 +177,7 @@ schneider_barner_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
-write_csv(schneider_barner_20xx_kl, 'data/data-raw/kl-only/data-raw/schneider_barner_20xx_kl.csv')
+write_csv(schneider_barner_20xx_kl, here::here('data/data-raw/kl-only/data-raw/schneider_barner_20xx_kl.csv'))
 
 ##1-1 baseline
 schneider_barner_2020 <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_barner_2020.csv'))%>%
@@ -204,7 +203,7 @@ schneider_barner_2020_kl <- read_csv(here::here('data/data-raw/trial-level/data-
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
-write_csv(schneider_barner_2020_kl, 'data/data-raw/kl-only/data-raw/schneider_barner_2020.csv')
+write_csv(schneider_barner_2020_kl, here::here('data/data-raw/kl-only/data-raw/schneider_barner_2020.csv'))
 
 ##small sf
 schneider_etal_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_etal_20xx.csv'))%>%
@@ -230,7 +229,7 @@ mutate(method = 'titrated',
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
-write_csv(schneider_etal_20xx_kl, 'data/data-raw/kl-only/data-raw/schneider_etal_20xx_kl.csv')
+write_csv(schneider_etal_20xx_kl, here::here('data/data-raw/kl-only/data-raw/schneider_etal_20xx_kl.csv'))
 
 ##small sf 2
 schneider_etal_20xx_2 <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_etal_20xx_2.csv'))%>%
@@ -256,7 +255,7 @@ schneider_etal_20xx_2_kl <- read_csv(here::here('data/data-raw/trial-level/data-
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
-write_csv(schneider_etal_20xx_2_kl, 'data/data-raw/kl-only/data-raw/schneider_etal_20xx_2_kl.csv')
+write_csv(schneider_etal_20xx_2_kl, here::here('data/data-raw/kl-only/data-raw/schneider_etal_20xx_2_kl.csv'))
 
 ##conservation
 schneider_yen_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_yen_barner_20xx.csv'))%>%
@@ -283,10 +282,10 @@ schneider_yen_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
-write_csv(schneider_yen_20xx_kl, 'data/data-raw/kl-only/data-raw/schneider_yen_20xx_kl.csv')
+write_csv(schneider_yen_20xx_kl, here::here('data/data-raw/kl-only/data-raw/schneider_yen_20xx_kl.csv'))
 
 ## xculture
-schneider_etal_2020 <- read.csv('data/data-raw/trial-level/data-raw/SchneiderEtAl_2020.csv')%>%
+schneider_etal_2020 <- read.csv(here::here('data/data-raw/trial-level/data-raw/SchneiderEtAl_2020.csv'))%>%
   filter(Age != "#VALUE!", 
          Query != "TireHydrant",
          Query != "DuckClover", 
@@ -312,7 +311,7 @@ schneider_etal_2020_kl <- schneider_etal_2020 %>%
   left_join(xculture.kl, by = "Subject")
 
 ## write to KL 
-write.csv(schneider_etal_2020_kl, "data/data-raw/kl-only/data-raw/SchneiderEtAl_2020.csv")
+write.csv(schneider_etal_2020_kl, here::here("data/data-raw/kl-only/data-raw/SchneiderEtAl_2020.csv"))
 
 
 # Bind everything together ----
