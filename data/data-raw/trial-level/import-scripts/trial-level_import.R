@@ -216,7 +216,7 @@ schneider_etal_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/s
          Response = as.integer(Response), 
          lab = "Barner", 
          cite = "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.")%>%
-  dplyr::select(-Task, -Trial_number, -Knower_level)%>%
+  dplyr::select(-Task, -Trial_number, -Knower_level, -Correct)%>%
   rename("Query" = "Task_item", 
          "Subject" = "SID")
 
@@ -242,7 +242,7 @@ schneider_etal_20xx_2 <- read_csv(here::here('data/data-raw/trial-level/data-raw
          Response = as.integer(Response), 
          lab = "Barner", 
          cite = "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.")%>%
-  dplyr::select(-Task, -Trial_number, -Knower_level)%>%
+  dplyr::select(-Task, -Trial_number, -Knower_level, -Correct)%>%
   rename("Query" = "Task_item", 
          "Subject" = "SID")
 
@@ -296,24 +296,186 @@ schneider_etal_2020 <- read.csv('data/data-raw/trial-level/data-raw/SchneiderEtA
   mutate(Age = 12*as.numeric(as.character(Age)), 
          Query = as.numeric(as.character(Query)), 
          method = "Non-titrated", 
-         cite = "Schneider, R. M., Sullivan, J., Marusic, F., Biswas, P., Mismas, P., Plesnicar, V., & Barner, D. (2020). Do children use language structure to discover the recursive rules of counting?. Cognitive psychology, 117, 101263.")
+         cite = "Schneider, R. M., Sullivan, J., Marusic, F., Biswas, P., Mismas, P., Plesnicar, V., & Barner, D. (2020). Do children use language structure to discover the recursive rules of counting?. Cognitive psychology, 117, 101263.", 
+         lab = "Barner")
 
 #calculate KL - this is either subset or CP
 xculture.kl <- schneider_etal_2020 %>%
   mutate(Correct = ifelse(Query == Response, 1, 0))%>%
   group_by(Subject)%>%
   summarise(n_correct = sum(Correct))%>%
-  mutate(KL = ifelse(n_correct >= 4, "CP", "Subset"))%>%
+  mutate(Knower_level = ifelse(n_correct >= 4, "CP", "Subset"))%>%
   select(-n_correct)
 
 ## get demo information for KL
 schneider_etal_2020_kl <- schneider_etal_2020 %>%
-  distinct(Experiment, Subject, Age, Language, Sex)%>%
-  left_join(xculture.kl, by = "Subject")
+  left_join(xculture.kl)%>%
+  distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
 
 ## write to KL 
 write.csv(schneider_etal_2020_kl, "data/data-raw/kl-only/data-raw/SchneiderEtAl_2020.csv")
 
+## ....Marchand and Barner ====
+marchandBarner_titrated_1 <- read.csv("data/data-raw/trial-level/data-raw/marchand_barner_titrated.csv")%>%
+  dplyr::select(-GNtitrated_method, -X2.GNtitrated_request, -X2.GNtitrated_answer, -X2.GNtitrated_KL, -Age.Yr)%>%
+  filter(!is.na(X1.GNtitrated_KL))%>%
+  rename("Age" = "Age.Mo", 
+         "method" = "Give.N.Method", 
+         "Query" = "X1.GNtitrated_request", 
+         "Response" = "X1.GNtitrated_answer", 
+         "Knower_level" = "X1.GNtitrated_KL", 
+         "Subject" = "SubjID", 
+         "Sex" = "Gender")%>%
+  mutate(Language = "English", 
+         Knower_level = stringr::str_remove(Knower_level,  "k|K"), 
+         Experiment = "Marchand_Barner_2020_Titrated_1", 
+         cite = "Marchand, E., & Barner, D. (2021). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.", 
+         lab = "Barner")
+
+##write KLs
+marchandBarner_titrated_1_kl <- marchandBarner_titrated_1 %>%
+  distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
+write.csv(marchandBarner_titrated_1_kl, "data/data-raw/kl-only/data-raw/marchand_barner_2020_titrated.csv")
+
+#remove KLs from the above
+marchandBarner_titrated_1 <- marchandBarner_titrated_1 %>%
+  select(-Knower_level)
+
+### Second titration
+marchandBarner_titrated_2 <- read.csv("data/data-raw/trial-level/data-raw/marchand_barner_titrated.csv")%>%
+  dplyr::select(-GNtitrated_method, -X1.GNtitrated_request, -X1.GNtitrated_answer, -X1.GNtitrated_KL, -Age.Yr)%>%
+  filter(!is.na(X2.GNtitrated_KL))%>%
+  rename("Age" = "Age.Mo", 
+         "method" = "Give.N.Method", 
+         "Query" = "X2.GNtitrated_request", 
+         "Response" = "X2.GNtitrated_answer", 
+         "Knower_level" = "X2.GNtitrated_KL", 
+         "Subject" = "SubjID", 
+         "Sex" = "Gender")%>%
+  mutate(Language = "English", 
+         Knower_level = stringr::str_remove(Knower_level,  "k|K"), 
+         Experiment = "Marchand_Barner_2020_Titrated_2", 
+         cite = "Marchand, E., & Barner, D. (2021). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.", 
+         lab = "Barner")
+
+##write KLs
+marchandBarner_titrated_2_kl <- marchandBarner_titrated_2 %>%
+  distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
+write.csv(marchandBarner_titrated_2_kl, "data/data-raw/kl-only/data-raw/marchand_barner_2020_titrated_2.csv")
+
+#remove KLs from the above
+marchandBarner_titrated_2 <- marchandBarner_titrated_2 %>%
+  select(-Knower_level)
+
+## marchand barner non-titrated- 1
+marchand_barner_non_titrated_1 <- read.csv("data/data-raw/trial-level/data-raw/marchand_barner_non-titrated.csv")%>%
+  dplyr::select(-X2.GNntitrated_request, -X2.GNntitrated_answer, -X2.GNntitrated_KL, -Age.Yr)%>%
+  filter(!is.na(X1.GNntitrated_KL))%>%
+  rename("Age" = "Age.Mo", 
+         "Query" = "X1.GNntitrated_request", 
+         "Response" = "X1.GNntitrated_answer", 
+         "Knower_level" = "X1.GNntitrated_KL", 
+         "Subject" = "SubjID", 
+         "Sex" = "Gender", 
+         "method" = "Give.N.Method")%>%
+  mutate(Language = "English", 
+         Knower_level = stringr::str_remove(Knower_level,  "k|K"), 
+         Experiment = "Marchand_Barner_2020_nonTitrated_1", 
+         cite = "Marchand, E., & Barner, D. (2021). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.", 
+         lab = "Barner", 
+         method = "non-titrated")
+
+##write KLs
+marchandBarner_non_titrated_1_kl <- marchand_barner_non_titrated_1 %>%
+  distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
+write.csv(marchandBarner_non_titrated_1_kl, "data/data-raw/kl-only/data-raw/marchand_barner_2020_non_titrated_1.csv")
+
+#remove KLs from the above
+marchand_barner_non_titrated_1 <- marchand_barner_non_titrated_1 %>%
+  select(-Knower_level)
+
+## marchand barner non-titrated - 2
+marchand_barner_non_titrated_2 <- read.csv("data/data-raw/trial-level/data-raw/marchand_barner_non-titrated.csv")%>%
+  dplyr::select(-X1.GNntitrated_request, -X1.GNntitrated_answer, -X1.GNntitrated_KL, -Age.Yr)%>%
+  filter(!is.na(X2.GNntitrated_KL))%>%
+  rename("Age" = "Age.Mo", 
+         "Query" = "X2.GNntitrated_request", 
+         "Response" = "X2.GNntitrated_answer", 
+         "Knower_level" = "X2.GNntitrated_KL", 
+         "Subject" = "SubjID", 
+         "Sex" = "Gender", 
+         "method" = "Give.N.Method")%>%
+  mutate(Language = "English", 
+         Knower_level = stringr::str_remove(Knower_level,"k|K"), 
+         Experiment = "Marchand_Barner_2020_nonTitrated_2", 
+         cite = "Marchand, E., & Barner, D. (2021). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.", 
+         lab = "Barner", 
+         method = "non-titrated")
+
+##write KLs
+marchandBarner_non_titrated_2_kl <- marchand_barner_non_titrated_2 %>%
+  distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
+write.csv(marchandBarner_non_titrated_2_kl, "data/data-raw/kl-only/data-raw/marchand_barner_2020_non_titrated_2.csv")
+
+#remove KLs from the above
+marchand_barner_non_titrated_2 <- marchand_barner_non_titrated_2 %>%
+  select(-Knower_level)
+
+
+### Marchand barner mixed
+marchand_barner_non_titrated_3 <- read.csv("data/data-raw/trial-level/data-raw/marchand_barner_mixed.csv")%>%
+  select(SubjID, Age, Gender, nontitrated_request, nontitrated_answer, nontitrated_KL)%>%
+  filter(!is.na(nontitrated_KL))%>%
+  rename("Query" = "nontitrated_request", 
+         "Response" = "nontitrated_answer", 
+         "Knower_level" = "nontitrated_KL", 
+         "Subject" = "SubjID", 
+         "Sex" = "Gender")%>%
+  mutate(Language = "English", 
+         Knower_level = stringr::str_remove(Knower_level, "k|K"),
+          Experiment = "Marchand_Barner_2020_nonTitrated_3", 
+          cite = "Marchand, E., & Barner, D. (2021). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.", 
+          lab = "Barner", 
+          method = "non-titrated", 
+          Age = Age*12, 
+          Response = ifelse(Response == "all", 10, as.numeric(as.character(Response))))
+
+##write KLs
+marchandBarner_non_titrated_3_kl <- marchand_barner_non_titrated_3 %>%
+  distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
+write.csv(marchandBarner_non_titrated_3_kl, "data/data-raw/kl-only/data-raw/marchand_barner_2020_non_titrated_3.csv")
+
+#remove KLs from the above
+marchand_barner_non_titrated_3 <- marchand_barner_non_titrated_3 %>%
+  select(-Knower_level)
+
+##and finally, the last marchand-barner titrated dataset
+marchand_barner_titrated_3 <- read.csv("data/data-raw/trial-level/data-raw/marchand_barner_mixed.csv")%>%
+  select(SubjID, Age, Gender, Titrated_request, titrated_answer, titrated_KL)%>%
+  filter(!is.na(titrated_KL))%>%
+  rename("Query" = "Titrated_request", 
+         "Response" = "titrated_answer", 
+         "Knower_level" = "titrated_KL", 
+         "Subject" = "SubjID", 
+         "Sex" = "Gender")%>%
+  filter(!is.na(Query))%>%
+  mutate(Language = "English", 
+         Knower_level = stringr::str_remove(Knower_level,  "k|K"), 
+         Experiment = "Marchand_Barner_2020_Titrated_3", 
+         cite = "Marchand, E., & Barner, D. (2021). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.", 
+         lab = "Barner", 
+         method = "titrated", 
+         Age = Age*12, 
+         Response = ifelse(Response == "all", 10, as.numeric(as.character(Response))))
+
+##write KLs
+marchandBarner_titrated_3_kl <- marchand_barner_titrated_3 %>%
+  distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
+write.csv(marchandBarner_titrated_3_kl, "data/data-raw/kl-only/data-raw/marchand_barner_2020_titrated_3.csv")
+
+#remove KLs from the above
+marchand_barner_titrated_3 <- marchand_barner_titrated_3 %>%
+  select(-Knower_level)
 
 # Bind everything together ----
 all.data <- bind_rows(almoammer2013_english, 
@@ -329,7 +491,13 @@ all.data <- bind_rows(almoammer2013_english,
                       schneider_etal_20xx, 
                       schneider_etal_20xx_2, 
                       schneider_yen_20xx, 
-                      schneider_etal_2020)%>%
+                      schneider_etal_2020, 
+                      marchandBarner_titrated_1, 
+                      marchandBarner_titrated_2, 
+                      marchand_barner_titrated_3,
+                      marchand_barner_non_titrated_1, 
+                      marchand_barner_non_titrated_2, 
+                      marchand_barner_non_titrated_3)%>%
   dplyr::rename('Age_months'='Age')%>%
   filter(!is.na(Response),
          !is.na(Age_months), 

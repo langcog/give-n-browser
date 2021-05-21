@@ -9,6 +9,7 @@ library(tidyverse)
 
 source(here("import_scripts/helper.R"))
 
+
 ## NB: in some cases, KL for participants will have to be added later. This will be done via Wynn KL (included at the end of this script)
 
 ## read in processed data fdsak
@@ -45,7 +46,7 @@ all_data %>%
          age_months = Age_months) %>%
   write_to_subjects()
 
-## trials
+## trials -- this isn't working rn?
 trial_level_data <- create_zero_index(trial_level_data)
 
 trial_level_data %>%
@@ -146,6 +147,7 @@ final_wynn_df <- create_wynn_df(trial_level_data) #hooray this works!
 
 ## assign whether N known for each subject's N queried
 nKnow.df <- final_wynn_df %>% 
+  filter(!is.na(Query))%>%
   mutate(knowN = case_when(
     num_correct / num_trials < 2/3 | 
       num_correct / (num_correct+num_false_give) < 2/3 | 
@@ -169,6 +171,8 @@ easyAssign <- nKnow.df %>%
   )%>%
   group_by(Experiment, Subject)%>%
   mutate(KL.assign = ifelse(0 %in% KL.assign, 0, as.numeric(KL.assign)))
+
+
 
 ## Now we need to handle kids who have a mix of successes and errors
 ## We need to get contiguous KLs for kids, and need to only assign KLs on the basis of the numbers we've tested
@@ -205,13 +209,12 @@ fullWynn <- all_data %>%
 
 ##check for issues - this will only show issues when there is an experimenter-assigned KL
 ## TODO: spot check for other datasets
-# flags <- fullWynn %>%
-#   filter(KL != KL.assign)%>%
-#   filter(KL != "Subset")%>%
-#   distinct(Experiment, Subject)
+flags <- fullWynn %>%
+  filter(KL != KL.assign)%>%
+  filter(KL != "Subset")
 
-# ##write to csv for troubleshooting
-# write.csv(flags, "checks.csv")
+##write to csv for troubleshooting
+write.csv(flags, "checks_1.csv")
 
 ## now need to do a spot check for other datasets
 spotCheck <- fullWynn %>%
