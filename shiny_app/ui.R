@@ -17,7 +17,7 @@ library(DT)
 #FF5850 red
 #436983 hipster blue
 
-shinyUI(navbarPage(title = "Numberbank",
+ui = navbarPage(title = "Numberbank",
                    theme = "spacelab",
                    fluid = TRUE, 
                    collapsible = TRUE,
@@ -126,5 +126,6 @@ shinyUI(navbarPage(title = "Numberbank",
                     includeHTML("about.html")
            )
       )
-  )
 )
+
+shinyApp(ui=ui, server=server)

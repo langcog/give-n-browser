@@ -13,15 +13,21 @@ datasets <- read_csv(here::here("data/processed-data/datasets.csv"))
 all_data <- full_join(subjects, trials) %>%
   left_join(datasets)%>%
   mutate(Response = ifelse(Response > 10, 10, as.numeric(Response)), 
-         KL = ifelse((KL == "Non" | KL == "0"), "0-knower", 
-                     ifelse((KL == "4K" | KL == "4"), "4-knower",
-                            ifelse((KL == "5K" | KL == "5"), "5-knower", 
-                                   ifelse(KL == "X", NA, 
-                                          ifelse(KL == "1", "1-knower", 
-                                                 ifelse(KL == "2", "2-knower", 
-                                                        ifelse(KL == "3", "3-knower", "CP-knower"))))))),
-         language = ifelse(str_detect(language, "English"), "English", 
-                           ifelse(language == "Saudi", "Arabic", as.character(language))), 
+         KL = case_when(
+           KL == "Non" | KL == "0" ~ "0-knower", 
+           KL == "4K" | KL == "4" ~ "4-knower",
+           KL == "5K" | KL == "5" ~ "5-knower", 
+           KL == "X" ~ "NA", 
+           KL == "1" ~ "1-knower", 
+           KL == "2" ~ "2-knower", 
+           KL == "3" ~ "3-knower", 
+           TRUE ~ "CP-knower"
+         ),
+         language = case_when(
+           str_detect(language, "English") ~ "English", 
+           language == "Saudi" ~ "Arabic", 
+           TRUE ~ as.character(language)
+         ), 
          method = ifelse(method == "Non-titrated", "non-titrated", as.character(method)), 
          CP_subset = ifelse(KL == "CP-knower", "CP-knower", "Subset-knower"), 
          CP_subset = factor(CP_subset, levels = c("Subset-knower", "CP-knower")))
@@ -107,8 +113,10 @@ server <- function(input, output, session) {
           distinct(dataset_id, subject_id, age_months, KL, method, language, cite, CP_subset)%>%
           filter(!is.na(KL),
                  !is.na(age_months),
-                 age_months >= input$age_range_kl[1],
-                 age_months <= input$age_range_kl[2],
+                 age_months >= 3,
+                 age_months <= 60,
+                 # age_months >= input$age_range_kl[1],
+                 # age_months <= input$age_range_kl[2],
                  KL %in% input$kl_range_kl,
                  language %in% input$language_choice_kl)
   })
