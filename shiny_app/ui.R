@@ -17,6 +17,7 @@ library(DT)
 #FF5850 red
 #436983 hipster blue
 
+# shinyUI(navbarPage())
 ui = navbarPage(title = "Numberbank",
                    theme = "spacelab",
                    fluid = TRUE, 
@@ -45,7 +46,7 @@ ui = navbarPage(title = "Numberbank",
                     uiOutput("method_selector") , 
                     uiOutput("kl_range_selector"), 
                     uiOutput("dataset_selector"),
-                    
+                    uiOutput("cp_subset_selector"),
                     downloadButton("downloadData", "Download")
                   ),
 
