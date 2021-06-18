@@ -13,15 +13,21 @@ datasets <- read_csv(here::here("data/processed-data/datasets.csv"))
 all_data <- full_join(subjects, trials) %>%
   left_join(datasets)%>%
   mutate(Response = ifelse(Response > 10, 10, as.numeric(Response)), 
-         KL = ifelse((KL == "Non" | KL == "0"), "0-knower", 
-                     ifelse((KL == "4K" | KL == "4"), "4-knower",
-                            ifelse((KL == "5K" | KL == "5"), "5-knower", 
-                                   ifelse(KL == "X", NA, 
-                                          ifelse(KL == "1", "1-knower", 
-                                                 ifelse(KL == "2", "2-knower", 
-                                                        ifelse(KL == "3", "3-knower", "CP-knower"))))))),
-         language = ifelse(str_detect(language, "English"), "English", 
-                           ifelse(language == "Saudi", "Arabic", as.character(language))), 
+         KL = case_when(
+           KL == "Non" | KL == "0" ~ "0-knower", 
+           KL == "4K" | KL == "4" ~ "4-knower",
+           KL == "5K" | KL == "5" ~ "5-knower", 
+           KL == "X" ~ "NA", 
+           KL == "1" ~ "1-knower", 
+           KL == "2" ~ "2-knower", 
+           KL == "3" ~ "3-knower", 
+           TRUE ~ "CP-knower"
+         ),
+         language = case_when(
+           str_detect(language, "English") ~ "English", 
+           language == "Saudi" ~ "Arabic", 
+           TRUE ~ as.character(language)
+         ), 
          method = ifelse(method == "Non-titrated", "non-titrated", as.character(method)), 
          CP_subset = ifelse(KL == "CP-knower", "CP-knower", "Subset-knower"), 
          CP_subset = factor(CP_subset, levels = c("Subset-knower", "CP-knower")))
@@ -119,8 +125,8 @@ server <- function(input, output, session) {
       ns %>% 
         filter(!is.na(KL),
                !is.na(age_months),
-               age_months >= input$age_range_kl[1], 
-               age_months <= input$age_range_kl[2], 
+               age_months >= input$age_range_kl[1],
+               age_months <= input$age_range_kl[2],
                KL %in% input$kl_range_kl,
                language %in% input$language_choice_kl)%>%
     dplyr::select(age_months, KL, language, n, cum.n, prop, 
@@ -135,8 +141,8 @@ server <- function(input, output, session) {
       filter(!is.na(Query),
              !is.na(age_months),
              !is.na(KL),
-             age_months >= input$age_range_item[1], 
-             age_months <= input$age_range_item[2], 
+             age_months >= input$age_range_item[1],
+             age_months <= input$age_range_item[2],
              Query %in% as.numeric(input$query_range_item), 
              language %in% input$language_choice_item, 
              KL %in% input$kl_range_item)
@@ -239,7 +245,7 @@ server <- function(input, output, session) {
     })
     
     output$kl_facet_selector <- renderUI({
-      prettySwitch("kl_selector",
+      prettySwitch("kl_selector", # HERE: should this be "kl_range_selector"?
                    label = "Facet by knower level",
                    value = FALSE)
     })
@@ -251,110 +257,66 @@ server <- function(input, output, session) {
   
   ## ... KL PLOTS ----
   ## ---------- BOXPLOT OF KL AND AGE BY LANGUAGE
-  output$age_boxplot <- renderPlot({
+  output$age_boxplot <- renderPlot({ # HERE: figure out why this is not working
     req(filtered_data_kl())
     
-    if (input$method_choice_kl) {
-      if (input$cp_subset_kl) {
-        p <- ggplot(filtered_data_kl(), 
-                    aes(x = language, y=age_months, fill = CP_subset, color = CP_subset))+
-          geom_boxplot(alpha = .7, 
-                       color = "black") +
-          geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
-                     show.legend = FALSE)+
-          theme_bw(base_size=14) +
-          scale_fill_solarized("CP-/Subset-knower", rev) +
-          scale_color_solarized("CP-/Subset-knower") + 
-          labs(x = 'Language', 
-               y = "Age (months)") +
-          facet_grid(~method) +
-          coord_flip() + guides(fill = guide_legend(reverse = FALSE))
-      } else {
-      ## get the number of observations
-       p <- ggplot(filtered_data_kl(), 
-                   aes(x = language, y=age_months, fill = KL, color = KL))+
-         geom_boxplot(alpha = .7, 
-                      color = "black") +
-         geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
-                    show.legend = FALSE)+
-         theme_bw(base_size=14) +
-         scale_fill_solarized("Knower level", rev) +
-         scale_color_solarized("Knower level") + 
-         labs(x = 'Language', 
-              y = "Age (months)") +
-         facet_grid(~method) +
-         coord_flip() + guides(fill = guide_legend(reverse = TRUE))
-      }
-    } else {
-      if (input$cp_subset_kl) {
-        p <- ggplot(filtered_data_kl(), 
-                    aes(x = language, y=age_months, fill = CP_subset, color = CP_subset))+
-          geom_boxplot(alpha = .7, 
-                       color = "black") +
-          geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
-                     show.legend = FALSE)+
-          theme_bw(base_size=14) +
-          scale_fill_solarized("CP-/Subset-knower", rev) +
-          scale_color_solarized("CP-/Subset-knower") + 
-          labs(x = 'Language', 
-               y = "Age (months)") +
-          coord_flip() + guides(fill = guide_legend(reverse = FALSE))
-      } else {
-        p <- ggplot(filtered_data_kl(), 
-                    aes(x = language, y=age_months, fill =KL, color = KL))+
-          geom_boxplot(alpha = .7, 
-                       color = "black") +
-          geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
-                     show.legend = FALSE)+
-          theme_bw(base_size=14) +
-          scale_fill_solarized("Knower level") + 
-          scale_color_solarized("Knower level") + 
-          labs(x = 'Language', 
-               y = "Age (months)") +
-          coord_flip() + 
-          guides(fill = guide_legend(reverse = TRUE))
-      }
+    # LAO: streamlining boxplot; replacing old ifelse statement
+    p <- filtered_data_kl()
+    
+    if(input$cp_subset_kl){ #check if grouping by CP vs non-CP knower
+      p <- p %>% ggplot(aes(x = language, y=age_months, fill = CP_subset, color = CP_subset)) +
+        scale_fill_solarized("CP-/Subset-knower", rev) +
+        scale_color_solarized("CP-/Subset-knower") +
+        guides(fill = guide_legend(reverse = FALSE))
+    } else{
+      p <- p %>% ggplot(aes(x = language, y=age_months, fill = KL, color = KL)) +
+        scale_fill_solarized("Knower level") +
+        scale_color_solarized("Knower level") +
+        guides(fill = guide_legend(reverse = TRUE))
     }
+    
+    p <- p + geom_boxplot(alpha = .7,
+                   color = "black") +
+      geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
+                 show.legend = FALSE)+
+      theme_bw(base_size=14) +
+      labs(x = 'Language',
+           y = "Age (months)") +
+      coord_flip()
+
+    if(input$method_choice_kl){ #facet_wrap by titrated vs not-titrated
+      p <- p + facet_grid(~method)
+    }
+    
     p
+    
   })
     
   ## ----- TABLE FOR KL BOXPLOT ----
     output$table <- renderDataTable({
       
-      if (input$method_choice_kl) {
-        if (input$cp_subset_kl) {
-          kl_table <- filtered_data_kl() %>%
-            group_by(language, method, CP_subset)%>%
-            summarise(n = n(), 
-                      `Mean age` = round(mean(age_months, na.rm = TRUE),2), 
-                      `SD age` = round(sd(age_months, na.rm = TRUE),2), 
-                      `Median age` = round(median(age_months, na.rm = TRUE), 2))
-        } else {
-          kl_table <- filtered_data_kl() %>%
-            group_by(language, method, KL)%>%
-            summarise(n = n(), 
-                      `Mean age` = round(mean(age_months, na.rm = TRUE),2), 
-                      `SD age` = round(sd(age_months, na.rm = TRUE),2), 
-                      `Median age` = round(median(age_months, na.rm = TRUE), 2))
-        }
-      } else {
-        if (input$cp_subset_kl) {
-          kl_table <- filtered_data_kl() %>%
-            group_by(language, CP_subset)%>%
-            summarise(n = n(), 
-                      `Mean age` = round(mean(age_months, na.rm = TRUE),2), 
-                      `SD age` = round(sd(age_months, na.rm = TRUE),2), 
-                      `Median age` = round(median(age_months, na.rm = TRUE), 2))
-        } else {
-          kl_table <- filtered_data_kl() %>%
-            group_by(language, KL)%>%
-            summarise(n = n(), 
-                      `Mean age` = round(mean(age_months, na.rm = TRUE),2), 
-                      `SD age` = round(sd(age_months, na.rm = TRUE),2), 
-                      `Median age` = round(median(age_months, na.rm = TRUE), 2))
-        }
+      # LAO: streamlining; replacing old ifelse statement
+      kl_table <- filtered_data_kl() %>%
+        group_by(language)
+      
+      if(input$method_choice_kl){
+        kl_table <- kl_table %>% group_by(method)
       }
+      
+      if (input$cp_subset_kl){
+        kl_table <- kl_table %>% group_by(CP_subset)
+      } else{
+        kl_table <- kl_table %>% group_by(KL)
+      }
+      
+      kl_table <- kl_table %>%
+        summarise(n = n(),
+                  `Mean age` = round(mean(age_months, na.rm = TRUE),2),
+                  `SD age` = round(sd(age_months, na.rm = TRUE),2),
+                  `Median age` = round(median(age_months, na.rm = TRUE), 2))
+      
       kl_table
+      
     })
     
   ## ---- CITATIONS FOR KL BOXPLOT ----
