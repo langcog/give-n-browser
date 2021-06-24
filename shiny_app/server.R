@@ -36,6 +36,7 @@ all_data <- full_join(subjects, trials) %>%
 age_min <- floor(min(all_data$age_months, na.rm = TRUE))
 age_max <- ceiling(max(all_data$age_months, na.rm = TRUE))
 kls <- c("0-knower", "1-knower", "2-knower", "3-knower", "4-knower", "5-knower", "CP-knower")
+datasets <- unique(all_data$dataset_id)
 ##get only language for which we have KLs
 languages_KL <- c(unique(subset(all_data, !is.na(KL))$language))
 ##get only language for which we have Queries
@@ -48,37 +49,8 @@ methods <- c("titrated", "non-titrated")
 queries <- c(as.character(sort(unique(all_data$Query))))
 n.samps <- 100
 
-### CDF ###
-##static data that will be filtered below for sampling
-ns <- all_data %>%
-  filter(!is.na(age_months), 
-         !is.na(KL))%>%
-  select(KL, language, age_months)
-##sampling function
-sample.ns <- function(df) {
-  df %<>% 
-    sample_n(nrow(df), replace=TRUE) %>%
-    group_by(KL, language, age_months) %>%
-    summarise(n = n()) %>%
-    mutate(cum.n = cumsum(n),
-           prop = cum.n / sum(n))
-  return(df)
-}
 
-#sample
-samps <- bind_rows(replicate(n.samps, sample.ns(ns), simplify=FALSE)) %>%
-  group_by(KL, language, age_months) %>%
-  summarise(ci.low = quantile(prop, .025), 
-            ci.high = quantile(prop, .975))
-
-#get ns, cumulative sums, and props
-ns %<>% group_by(KL, language, age_months) %>%
-  summarise(n = n()) %>%
-  mutate(cum.n = cumsum(n),
-         prop = cum.n / sum(n))
-
-#left join with samples
-ns <- left_join(ns, samps)
+unique(all_data$cite)
 
 
 # MAIN SHINY SERVER
@@ -88,55 +60,68 @@ server <- function(input, output, session) {
   
   ## ... KL DATA ----
   
-  filtered_data_kl <- reactive({
-    # if(input$dataset_selector) {
-    #   all_data %>%
-    #     distinct(dataset_id, subject_id, age_months, KL, method, language, cite)%>%
-    #     filter(!is.na(KL),
-    #            !is.na(age_months),
-    #            age_months >= input$age_range_kl[1], 
-    #            age_months <= input$age_range_kl[2], 
-    #            KL %in% input$kl_range_kl,
-    #            language %in% input$language_choice_kl, 
-    #            dataset_id %in% input$dataset_choice_kl)
-    # } else {
-    #   all_data %>%
-    #     distinct(dataset_id, subject_id, age_months, KL, method, language, cite)%>%
-    #     filter(!is.na(KL),
-    #            !is.na(age_months),
-    #            age_months >= input$age_range_kl[1], 
-    #            age_months <= input$age_range_kl[2], 
-    #            KL %in% input$kl_range_kl,
-    #            language %in% input$language_choice_kl)
-    # }
+  filtered_data_kl <- eventReactive(input$go_kl, {
     all_data %>%
           distinct(dataset_id, subject_id, age_months, KL, method, language, cite, CP_subset)%>%
           filter(!is.na(KL),
                  !is.na(age_months),
                  age_months >= input$age_range_kl[1],
                  age_months <= input$age_range_kl[2],
-                 KL %in% input$kl_range_kl,
-                 language %in% input$language_choice_kl)
+                 if (is.null(input$kl_range_kl)) KL %in% unique(all_data$KL) else KL %in% input$kl_range_kl,
+                 if (is.null(input$language_choice_kl)) language %in% unique(all_data$language) else language %in% input$language_choice_kl,
+                 if (is.null(input$dataset_add_kl)) dataset_id %in% unique(all_data$dataset_id) else dataset_id %in% input$dataset_add_kl)
   })
   
     ##cumulative probability 
     ##get age_months, KL, and language points
-    cumul_prob <- reactive({ 
-      ns %>% 
-        filter(!is.na(KL),
-               !is.na(age_months),
+    cumul_prob <- eventReactive(input$go_kl, {
+      
+      ### CDF ###
+      ##static data that will be filtered below for sampling
+      ns <- all_data %>%
+        filter(!is.na(age_months), 
+               !is.na(KL),
                age_months >= input$age_range_kl[1],
                age_months <= input$age_range_kl[2],
-               KL %in% input$kl_range_kl,
-               language %in% input$language_choice_kl)%>%
-    dplyr::select(age_months, KL, language, n, cum.n, prop, 
+               if (is.null(input$kl_range_kl)) KL %in% unique(all_data$KL) else KL %in% input$kl_range_kl,
+               if (is.null(input$language_choice_kl)) language %in% unique(all_data$language) else language %in% input$language_choice_kl,
+               if (is.null(input$dataset_add_kl)) dataset_id %in% unique(all_data$dataset_id) else dataset_id %in% input$dataset_add_kl)%>%
+        select(KL, language, age_months)
+      ##sampling function
+      sample.ns <- function(df) {
+        df %<>% 
+          sample_n(nrow(df), replace=TRUE) %>%
+          group_by(KL, language, age_months) %>%
+          summarise(n = n()) %>%
+          mutate(cum.n = cumsum(n),
+                 prop = cum.n / sum(n))
+        return(df)
+      }
+      
+      #sample
+      samps <- bind_rows(replicate(n.samps, sample.ns(ns), simplify=FALSE)) %>%
+        group_by(KL, language, age_months) %>%
+        summarise(ci.low = quantile(prop, .025), 
+                  ci.high = quantile(prop, .975))
+      
+      #get ns, cumulative sums, and props
+      ns %<>% group_by(KL, language, age_months) %>%
+        summarise(n = n()) %>%
+        mutate(cum.n = cumsum(n),
+               prop = cum.n / sum(n))
+      
+      #left join with samples
+      ns <- left_join(ns, samps)
+      
+      ns %>% 
+        dplyr::select(age_months, KL, language, n, cum.n, prop, 
                   ci.low, ci.high)
     })
   
   
   
   ## ... ITEM DATA -----
-  filtered_data_item <- reactive({
+  filtered_data_item <- eventReactive(input$go_item, {
     all_data %>%
       filter(!is.na(Query),
              !is.na(age_months),
@@ -144,8 +129,9 @@ server <- function(input, output, session) {
              age_months >= input$age_range_item[1],
              age_months <= input$age_range_item[2],
              Query %in% as.numeric(input$query_range_item), 
-             language %in% input$language_choice_item, 
-             KL %in% input$kl_range_item)
+             if (is.null(input$kl_range_item)) KL %in% unique(all_data$KL) else KL %in% input$kl_range_item,
+             if (is.null(input$language_choice_item)) language %in% unique(all_data$language) else language %in% input$language_choice_item,
+             if (is.null(input$dataset_add_item)) dataset_id %in% unique(all_data$dataset_id) else dataset_id %in% input$dataset_add_item)
              # method %in% input$method_choice_item)
   })
     
@@ -193,17 +179,15 @@ server <- function(input, output, session) {
                  value = FALSE)
   })
   
-  # output$dataset_selector <- renderUI({
-  #   x <- filtered_data_kl()
-  #   y <- x$dataset_id
-  #   
-  #   selectInput("dataset_choice_kl", 
-  #               label = "Datasets to include:", 
-  #               choices = y, 
-  #               selected = as.list(y), 
-  #               multiple = TRUE) 
-  # })
+  output$dataset_include_selector <- renderUI({
+    selectInput("dataset_add_kl",
+                label = "Datasets to include:",
+                choices = datasets,
+                #selected = as.list(y),
+                multiple = TRUE)
+  })
   
+
   ## ... Item selectors####
   output$age_range_selector_item <- renderUI({
     sliderInput("age_range_item",
@@ -250,6 +234,14 @@ server <- function(input, output, session) {
                    value = FALSE)
     })
     
+    output$dataset_include_selector_item <- renderUI({
+      selectInput("dataset_add_item",
+                  label = "Datasets to include:",
+                  choices = datasets,
+                  #selected = as.list(y),
+                  multiple = TRUE)
+    })
+    
     
 
   
@@ -277,7 +269,7 @@ server <- function(input, output, session) {
     
     p <- p + geom_boxplot(alpha = .7,
                    color = "black") +
-      geom_point(position = position_jitterdodge(jitter.width=0.1, dodge.width = .79), alpha=0.35,
+      geom_point(position = position_jitterdodge(jitter.width=0.1), alpha=0.35, #LAO: removed dodge.width = 0.79
                  show.legend = FALSE)+
       theme_bw(base_size=14) +
       labs(x = 'Language',

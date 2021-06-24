@@ -45,8 +45,9 @@ ui = navbarPage(title = "Numberbank",
                     uiOutput("language_selector"),
                     uiOutput("method_selector") , 
                     uiOutput("kl_range_selector"), 
-                    uiOutput("dataset_selector"),
                     uiOutput("cp_subset_selector"),
+                    uiOutput("dataset_include_selector"),
+                    actionButton("go_kl", "Go"),
                     downloadButton("downloadData", "Download")
                   ),
 
@@ -80,7 +81,8 @@ ui = navbarPage(title = "Numberbank",
                           uiOutput("query_range_selector_item"), 
                           uiOutput("kl_range_selector_item"), 
                           uiOutput("kl_facet_selector"), 
-                          
+                          uiOutput("dataset_include_selector_item"),
+                          actionButton("go_item", "Go"),
                           downloadButton("downloadDataItem", "Download")
                         ),
 
