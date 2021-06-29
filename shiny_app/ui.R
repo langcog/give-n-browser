@@ -121,7 +121,7 @@ ui = navbarPage(title = "Numberbank",
         ), 
    tabPanel("Contributors", fluid = TRUE,
             tabPanel("Contributors", fluid = TRUE,
-                     mainPanel("Contributors go here")
+                     htmlOutput("citationsAll")
             )
       ), 
   tabPanel("About Numberbank", fluid = TRUE,

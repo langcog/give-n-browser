@@ -9,6 +9,8 @@ trials <- read_csv(here::here("data/processed-data/trials.csv"))
 subjects <- read_csv(here::here("data/processed-data/subjects.csv"))
 datasets <- read_csv(here::here("data/processed-data/datasets.csv"))
 
+
+
 ## join the data, rename KLs
 all_data <- full_join(subjects, trials) %>%
   left_join(datasets)%>%
@@ -32,11 +34,41 @@ all_data <- full_join(subjects, trials) %>%
          CP_subset = ifelse(KL == "CP-knower", "CP-knower", "Subset-knower"), 
          CP_subset = factor(CP_subset, levels = c("Subset-knower", "CP-knower")))
 
+
+# organize citations
+
+getLastNames <- function(origAuthors){
+  temp <- matrix(strsplit(origAuthors, ",")[[1]], ncol = 2, byrow=TRUE) #splits string by commas
+  authors <- paste(trimws(temp[,1]), collapse=", ") #removes first initial and retains last names or et als
+  return(authors)
+}
+
+citeMap <- all_data %>%
+  distinct(cite) %>%
+  mutate(beforeYear = gsub("^(.*?)[(].*", "\\1", cite), # get content before first parenthesis
+         beforeYear = sapply(beforeYear, getLastNames), # pull out just the last names
+         inYear = str_extract(cite, "[(].*?[)]"), # get content between parentheses
+         inYear = str_replace_all(inYear, "[[:punct:]]", ""), # remove punctuations -- parentheses & commas
+         inYear = word(inYear, 1), # get first word
+         shortCite = paste0(beforeYear, " (", inYear, ")"), # paste together with parentheses around year
+         firstAuthor = str_replace_all(word(beforeYear, 1), "[[:punct:]]", ""),
+         otherAuthors = str_replace_all(word(beforeYear, 2, -1), "[[:punct:]]", ""),
+         orderCite = paste(firstAuthor, inYear, otherAuthors)) %>% # for APA ordering
+  select(cite, shortCite, orderCite)
+
+all_data <- all_data %>%
+  left_join(citeMap)
+ 
+
 ## set variables
 age_min <- floor(min(all_data$age_months, na.rm = TRUE))
 age_max <- ceiling(max(all_data$age_months, na.rm = TRUE))
 kls <- c("0-knower", "1-knower", "2-knower", "3-knower", "4-knower", "5-knower", "CP-knower")
-datasets <- unique(all_data$dataset_id)
+all_datasets <- all_data %>%
+  distinct(cite, shortCite, orderCite) %>%
+  arrange(orderCite)
+all_datasets_full <- all_datasets$cite
+all_datasets_short <- all_datasets$shortCite
 ##get only language for which we have KLs
 languages_KL <- c(unique(subset(all_data, !is.na(KL))$language))
 ##get only language for which we have Queries
@@ -62,14 +94,14 @@ server <- function(input, output, session) {
   
   filtered_data_kl <- eventReactive(input$go_kl, {
     all_data %>%
-          distinct(dataset_id, subject_id, age_months, KL, method, language, cite, CP_subset)%>%
+          distinct(dataset_id, subject_id, age_months, KL, method, language, cite, shortCite, orderCite, CP_subset)%>%
           filter(!is.na(KL),
                  !is.na(age_months),
                  age_months >= input$age_range_kl[1],
                  age_months <= input$age_range_kl[2],
                  if (is.null(input$kl_range_kl)) KL %in% unique(all_data$KL) else KL %in% input$kl_range_kl,
                  if (is.null(input$language_choice_kl)) language %in% unique(all_data$language) else language %in% input$language_choice_kl,
-                 if (is.null(input$dataset_add_kl)) dataset_id %in% unique(all_data$dataset_id) else dataset_id %in% input$dataset_add_kl)
+                 if (is.null(input$dataset_add_kl)) shortCite %in% unique(all_data$shortCite) else shortCite %in% input$dataset_add_kl)
   })
   
     ##cumulative probability 
@@ -85,7 +117,7 @@ server <- function(input, output, session) {
                age_months <= input$age_range_kl[2],
                if (is.null(input$kl_range_kl)) KL %in% unique(all_data$KL) else KL %in% input$kl_range_kl,
                if (is.null(input$language_choice_kl)) language %in% unique(all_data$language) else language %in% input$language_choice_kl,
-               if (is.null(input$dataset_add_kl)) dataset_id %in% unique(all_data$dataset_id) else dataset_id %in% input$dataset_add_kl)%>%
+               if (is.null(input$dataset_add_kl)) shortCite %in% unique(all_data$shortCite) else shortCite %in% input$dataset_add_kl)%>%
         select(KL, language, age_months)
       ##sampling function
       sample.ns <- function(df) {
@@ -131,7 +163,7 @@ server <- function(input, output, session) {
              Query %in% as.numeric(input$query_range_item), 
              if (is.null(input$kl_range_item)) KL %in% unique(all_data$KL) else KL %in% input$kl_range_item,
              if (is.null(input$language_choice_item)) language %in% unique(all_data$language) else language %in% input$language_choice_item,
-             if (is.null(input$dataset_add_item)) dataset_id %in% unique(all_data$dataset_id) else dataset_id %in% input$dataset_add_item)
+             if (is.null(input$dataset_add_item)) shortCite %in% unique(all_data$shortCite) else shortCite %in% input$dataset_add_item)
              # method %in% input$method_choice_item)
   })
     
@@ -182,7 +214,7 @@ server <- function(input, output, session) {
   output$dataset_include_selector <- renderUI({
     selectInput("dataset_add_kl",
                 label = "Datasets to include:",
-                choices = datasets,
+                choices = all_datasets_short,
                 #selected = as.list(y),
                 multiple = TRUE)
   })
@@ -237,7 +269,7 @@ server <- function(input, output, session) {
     output$dataset_include_selector_item <- renderUI({
       selectInput("dataset_add_item",
                   label = "Datasets to include:",
-                  choices = datasets,
+                  choices = all_datasets_short,
                   #selected = as.list(y),
                   multiple = TRUE)
     })
@@ -312,13 +344,15 @@ server <- function(input, output, session) {
     })
     
   ## ---- CITATIONS FOR KL BOXPLOT ----
-    output$citations <- renderUI({
+    output$citations <- eventReactive(input$go_kl, {
       # str1 <- "Please cite the following datasets:"
       
       req(filtered_data_kl())
       
       cites <- filtered_data_kl()%>%
-        distinct(cite)
+        distinct(cite, orderCite) %>%
+        arrange(orderCite) %>%
+        select(cite)
       
       cites_all <- paste(as.vector(unique(cites$cite)), collapse = " <br/><br/>")
       
@@ -629,13 +663,15 @@ server <- function(input, output, session) {
   )
   
   ## ---- CITATIONS FOR ITEM ANALYSES ----
-  output$citationsItemAll <- renderUI({
+  output$citationsItemAll <- eventReactive(input$go_item, {
     # str1 <- "Please cite the following datasets:"
     
     req(filtered_data_item())
-    
+
     cites <- filtered_data_item()%>%
-      distinct(cite)
+      distinct(cite, orderCite) %>%
+      arrange(orderCite) %>%
+      select(cite)
     
     cites_all <- paste(as.vector(unique(cites$cite)), collapse = " <br/><br/>")
     
@@ -643,6 +679,15 @@ server <- function(input, output, session) {
     HTML(paste("<b>Please cite:</b> <br/>", str2))
   })
   
+  
+  ## ---- ALL CITATIONS ----
+  output$citationsAll <- renderUI({
+    
+    cites_all <- paste(all_datasets_full, collapse = " <br/><br/>")
+    
+    str2 <- as.character(cites_all)
+    HTML(str2)
+  })
 }
 
 
