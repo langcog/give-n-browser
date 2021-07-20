@@ -42,14 +42,23 @@ getLastNames <- function(origAuthors){
   return(authors)
 }
 
-citeMap <- all_data %>%
+methodMetaData <- all_data %>%
+  distinct(cite, method) %>%
+  pivot_wider(names_from = method, values_from = method) %>%
+  unite("method", 2:3, sep=", ") %>%
+  mutate(method = case_when(
+    method == "non-titrated, NA" ~ "non-titrated",
+    method == "NA, titrated" ~ "titrated",
+    TRUE ~ method
+  ))
+
+metaData <- all_data %>%
   group_by(cite) %>%
-  mutate(min.age = min(age_months, na.rm = TRUE),
-         max.age = max(age_months, na.rm = TRUE)) %>%
-  distinct(cite, subject_id, min.age, max.age, method) %>%
-  count(cite, min.age, max.age, method) %>%
-  ungroup() %>%
-  pivot_wider(names_from = method, values_from = method)
+  summarise(min.age = min(age_months, na.rm = TRUE),
+            max.age = max(age_months, na.rm = TRUE),
+            n = n())
+
+citeMap <- all_data %>%
   distinct(cite) %>%
   mutate(beforeYear = gsub("^(.*?)[(].*", "\\1", cite), # get content before first parenthesis
          beforeYear = sapply(beforeYear, getLastNames), # pull out just the last names
@@ -72,8 +81,23 @@ age_max <- ceiling(max(all_data$age_months, na.rm = TRUE))
 kls <- c("0-knower", "1-knower", "2-knower", "3-knower", "4-knower", "5-knower", "CP-knower")
 all_datasets <- all_data %>%
   distinct(cite, shortCite, orderCite) %>%
-  arrange(orderCite)
-all_datasets_full <- all_datasets$cite
+  arrange(orderCite) %>%
+  mutate(cite_id = paste0("cite",1:n()))
+all_datasets_full <- tibble(cite = all_datasets$cite,
+                            cite_id = all_datasets$cite_id) %>%
+  left_join(methodMetaData) %>%
+  left_join(metaData) %>%
+  mutate(htmlTxt = paste0("<button class='collapsed' id='", cite_id, "' onclick='show(\"", cite_id, "\");'>", 
+                          cite,
+                          "</button>",
+                          "<div class='content' id='", cite_id, "_content'>",
+                          "<p>",
+                          "N = ", n, "<br>",
+                          "Min age (months) = ", min.age, "<br>",
+                          "Max age (months) = ", max.age, "<br>",
+                          "Method(s) = ", method,
+                          "</p></div>"))
+  
 all_datasets_short <- all_datasets$shortCite
 ##get only language for which we have KLs
 languages_KL <- c(unique(subset(all_data, !is.na(KL))$language))
