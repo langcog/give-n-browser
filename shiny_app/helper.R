@@ -53,6 +53,7 @@ methodMetaData <- all_data %>%
   ))
 
 metaData <- all_data %>%
+  distinct(cite, subject_id, age_months) %>%
   group_by(cite) %>%
   summarise(min.age = min(age_months, na.rm = TRUE),
             max.age = max(age_months, na.rm = TRUE),
@@ -110,3 +111,5 @@ datasets_KL <- c(unique(subset(all_data, !is.na(KL))$dataset_id))
 methods <- c("titrated", "non-titrated")
 queries <- c(as.character(sort(unique(all_data$Query))))
 n.samps <- 100
+
+
