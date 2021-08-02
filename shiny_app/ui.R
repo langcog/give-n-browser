@@ -37,7 +37,7 @@ ui = navbarPage(title = "Numberbank",
             )
    ),
                    
-   tabPanel("Knower levels", fluid = TRUE,
+   tabPanel("Knower levels", value = 'tabKL', fluid = TRUE,
             # Sidebar layout with a input and output definitions
             sidebarLayout(
               sidebarPanel(

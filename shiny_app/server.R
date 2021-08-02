@@ -1,6 +1,7 @@
 
 source(here::here("helper.R"))
 
+
 # MAIN SHINY SERVER
 server <- function(input, output, session) {
   
@@ -9,87 +10,130 @@ server <- function(input, output, session) {
   ## ... KL DATA ----
   
   filtered_data_kl <- eventReactive(input$go_kl, {
+    inputAgeMin = input$age_range_kl[1]
+    inputAgeMax = input$age_range_kl[2]
+    inputKL = input$kl_range_kl
+    inputLang = input$language_choice_kl
+    inputDat = input$dataset_add_kl
+    
+    if(input$go_kl == 0){
+      inputAgeMin = 22
+      inputAgeMax = 144
+      inputKL = c("1-knower", "2-knower", "3-knower", "CP-knower")
+      inputLang = "English"
+      inputDat = unique(all_data$shortCite)
+    }
+    
     all_data %>%
-          distinct(dataset_id, subject_id, age_months, KL, method, language, cite, shortCite, orderCite, CP_subset)%>%
-          filter(!is.na(KL),
-                 !is.na(age_months),
-                 age_months >= input$age_range_kl[1],
-                 age_months <= input$age_range_kl[2],
-                 if (is.null(input$kl_range_kl)) KL %in% unique(all_data$KL) else KL %in% input$kl_range_kl,
-                 if (is.null(input$language_choice_kl)) language %in% unique(all_data$language) else language %in% input$language_choice_kl,
-                 if (is.null(input$dataset_add_kl)) shortCite %in% unique(all_data$shortCite) else shortCite %in% input$dataset_add_kl)
-  })
+      distinct(dataset_id, subject_id, age_months, KL, method, language, cite, shortCite, orderCite, CP_subset)%>%
+      filter(!is.na(age_months), 
+             !is.na(KL),
+             age_months >= inputAgeMin,
+             age_months <= inputAgeMax,
+             if (is.null(inputKL)) KL %in% unique(all_data$KL) else KL %in% inputKL,
+             if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
+             if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat)
+  }, ignoreNULL=FALSE)
   
-    ##cumulative probability 
-    ##get age_months, KL, and language points
-    cumul_prob <- eventReactive(input$go_kl, {
-      
-      ### CDF ###
-      ##static data that will be filtered below for sampling
-      ns <- all_data %>%
-        filter(!is.na(age_months), 
-               !is.na(KL),
-               age_months >= input$age_range_kl[1],
-               age_months <= input$age_range_kl[2],
-               if (is.null(input$kl_range_kl)) KL %in% unique(all_data$KL) else KL %in% input$kl_range_kl,
-               if (is.null(input$language_choice_kl)) language %in% unique(all_data$language) else language %in% input$language_choice_kl,
-               if (is.null(input$dataset_add_kl)) shortCite %in% unique(all_data$shortCite) else shortCite %in% input$dataset_add_kl)%>%
-        select(KL, language, age_months)
-      ##sampling function
-      sample.ns <- function(df) {
-        df %<>% 
-          sample_n(nrow(df), replace=TRUE) %>%
-          group_by(KL, language, age_months) %>%
-          summarise(n = n()) %>%
-          mutate(cum.n = cumsum(n),
-                 prop = cum.n / sum(n))
-        return(df)
-      }
-      
-      #sample
-      samps <- bind_rows(replicate(n.samps, sample.ns(ns), simplify=FALSE)) %>%
+  ##cumulative probability 
+  ##get age_months, KL, and language points
+  cumul_prob <- eventReactive(input$go_kl, {
+    inputAgeMin = input$age_range_kl[1]
+    inputAgeMax = input$age_range_kl[2]
+    inputKL = input$kl_range_kl
+    inputLang = input$language_choice_kl
+    inputDat = input$dataset_add_kl
+    
+    if(input$go_kl == 0){
+      inputAgeMin = 22
+      inputAgeMax = 144
+      inputKL = c("1-knower", "2-knower", "3-knower", "CP-knower")
+      inputLang = "English"
+      inputDat = unique(all_data$shortCite)
+    }
+    ### CDF ###
+    ##static data that will be filtered below for sampling
+    ns <- all_data %>%
+      filter(!is.na(age_months), 
+             !is.na(KL),
+             age_months >= inputAgeMin,
+             age_months <= inputAgeMax,
+             if (is.null(inputKL)) KL %in% unique(all_data$KL) else KL %in% inputKL,
+             if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
+             if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat)%>%
+      select(KL, language, age_months)
+    
+    ##sampling function
+    sample.ns <- function(df) {
+      df %<>% 
+        sample_n(nrow(df), replace=TRUE) %>%
         group_by(KL, language, age_months) %>%
-        summarise(ci.low = quantile(prop, .025), 
-                  ci.high = quantile(prop, .975))
-      
-      #get ns, cumulative sums, and props
-      ns %<>% group_by(KL, language, age_months) %>%
         summarise(n = n()) %>%
         mutate(cum.n = cumsum(n),
                prop = cum.n / sum(n))
-      
-      #left join with samples
-      ns <- left_join(ns, samps)
-      
-      ns %>% 
-        dplyr::select(age_months, KL, language, n, cum.n, prop, 
-                  ci.low, ci.high)
-    })
+      return(df)
+    }
+    
+    #sample
+    samps <- bind_rows(replicate(n.samps, sample.ns(ns), simplify=FALSE)) %>%
+      group_by(KL, language, age_months) %>%
+      summarise(ci.low = quantile(prop, .025), 
+                ci.high = quantile(prop, .975))
+    
+    #get ns, cumulative sums, and props
+    ns %<>% group_by(KL, language, age_months) %>%
+      summarise(n = n()) %>%
+      mutate(cum.n = cumsum(n),
+             prop = cum.n / sum(n))
+    
+    #left join with samples
+    ns <- left_join(ns, samps)
+    
+    ns %>% 
+      dplyr::select(age_months, KL, language, n, cum.n, prop, 
+                    ci.low, ci.high)
+  }, ignoreNULL=FALSE)
   
   
   
   ## ... ITEM DATA -----
   filtered_data_item <- eventReactive(input$go_item, {
+    inputAgeMin = input$age_range_item[1]
+    inputAgeMax = input$age_range_item[2]
+    inputQuery = input$query_range_item
+    inputKL = input$kl_range_item
+    inputLang = input$language_choice_item
+    inputDat = input$dataset_add_item
+    
+    if(input$go_item == 0){
+      inputAgeMin = 22
+      inputAgeMax = 144
+      inputQuery = c(1,2,3)
+      inputKL = c("1-knower", "2-knower", "3-knower", "CP-knower")
+      inputLang = "English"
+      inputDat = unique(all_data$shortCite)
+    }
+    
     all_data %>%
       filter(!is.na(Query),
              !is.na(age_months),
              !is.na(KL),
-             age_months >= input$age_range_item[1],
-             age_months <= input$age_range_item[2],
-             Query %in% as.numeric(input$query_range_item), 
-             if (is.null(input$kl_range_item)) KL %in% unique(all_data$KL) else KL %in% input$kl_range_item,
-             if (is.null(input$language_choice_item)) language %in% unique(all_data$language) else language %in% input$language_choice_item,
-             if (is.null(input$dataset_add_item)) shortCite %in% unique(all_data$shortCite) else shortCite %in% input$dataset_add_item)
-             # method %in% input$method_choice_item)
-  })
-    
-    
-    
- 
+             age_months >= inputAgeMin,
+             age_months <= inputAgeMax,
+             Query %in% as.numeric(inputQuery), 
+             if (is.null(inputKL)) KL %in% unique(all_data$KL) else KL %in% inputKL,
+             if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
+             if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat)
+    # method %in% input$method_choice_item)
+  }, ignoreNULL=FALSE)
+  
+  
+  
+  
   ## ----------------------- SELECTORS -----------------------
   
   ## ... KL selectors####
-
+  
   output$kl_range_selector <- renderUI({
     selectInput("kl_range_kl", 
                 label = "Knower levels to include:", 
@@ -97,7 +141,7 @@ server <- function(input, output, session) {
                 selected = c("1-knower", "2-knower", "3-knower", "CP-knower"), 
                 multiple = TRUE)
   })
-    
+  
   
   output$language_selector <- renderUI({
     selectInput("language_choice_kl", 
@@ -131,11 +175,10 @@ server <- function(input, output, session) {
     selectInput("dataset_add_kl",
                 label = "Datasets to include:",
                 choices = all_datasets_short,
-                #selected = as.list(y),
                 multiple = TRUE)
   })
   
-
+  
   ## ... Item selectors####
   output$age_range_selector_item <- renderUI({
     sliderInput("age_range_item",
@@ -162,36 +205,36 @@ server <- function(input, output, session) {
                 multiple = TRUE)
   })
   
-    output$method_selector_item <- renderUI({
-      prettySwitch("method_choice_item",
-                   label = "Method plotted as colors",
-                   value = FALSE)
+  output$method_selector_item <- renderUI({
+    prettySwitch("method_choice_item",
+                 label = "Method plotted as colors",
+                 value = FALSE)
   })
-    
-    output$kl_range_selector_item <- renderUI({
-      selectInput("kl_range_item", 
-                  label = "Knower levels to include:", 
-                  choices = kls, 
-                  selected = c("1-knower", "2-knower", "3-knower", "CP-knower"), 
-                  multiple = TRUE)
-    })
-    
-    output$kl_facet_selector <- renderUI({
-      prettySwitch("kl_selector", # HERE: should this be "kl_range_selector"?
-                   label = "Facet by knower level",
-                   value = FALSE)
-    })
-    
-    output$dataset_include_selector_item <- renderUI({
-      selectInput("dataset_add_item",
-                  label = "Datasets to include:",
-                  choices = all_datasets_short,
-                  #selected = as.list(y),
-                  multiple = TRUE)
-    })
-    
-    
-
+  
+  output$kl_range_selector_item <- renderUI({
+    selectInput("kl_range_item", 
+                label = "Knower levels to include:", 
+                choices = kls, 
+                selected = c("1-knower", "2-knower", "3-knower", "CP-knower"), 
+                multiple = TRUE)
+  })
+  
+  output$kl_facet_selector <- renderUI({
+    prettySwitch("kl_selector", # HERE: should this be "kl_range_selector"?
+                 label = "Facet by knower level",
+                 value = FALSE)
+  })
+  
+  output$dataset_include_selector_item <- renderUI({
+    selectInput("dataset_add_item",
+                label = "Datasets to include:",
+                choices = all_datasets_short,
+                #selected = as.list(y),
+                multiple = TRUE)
+  })
+  
+  
+  
   
   ## ----------------------- PLOTS -----------------------
   
@@ -216,14 +259,14 @@ server <- function(input, output, session) {
     }
     
     p <- p + geom_boxplot(alpha = .7,
-                   color = "black") +
+                          color = "black") +
       geom_point(position = position_jitterdodge(jitter.width=0.1), alpha=0.35, #LAO: removed dodge.width = 0.79
                  show.legend = FALSE)+
       theme_bw(base_size=14) +
       labs(x = 'Language',
            y = "Age (months)") +
       coord_flip()
-
+    
     if(input$method_choice_kl){ #facet_wrap by titrated vs not-titrated
       p <- p + facet_grid(~method)
     }
@@ -231,60 +274,60 @@ server <- function(input, output, session) {
     p
     
   })
-    
+  
   ## ----- TABLE FOR KL BOXPLOT ----
-    output$table <- renderDataTable({
-      
-      # LAO: streamlining; replacing old ifelse statement
-      kl_table <- filtered_data_kl() %>%
-        group_by(language)
-      
-      if(input$method_choice_kl){
-        kl_table <- kl_table %>% group_by(method)
-      }
-      
-      if (input$cp_subset_kl){
-        kl_table <- kl_table %>% group_by(CP_subset)
-      } else{
-        kl_table <- kl_table %>% group_by(KL)
-      }
-      
-      kl_table <- kl_table %>%
-        summarise(n = n(),
-                  `Mean age` = round(mean(age_months, na.rm = TRUE),2),
-                  `SD age` = round(sd(age_months, na.rm = TRUE),2),
-                  `Median age` = round(median(age_months, na.rm = TRUE), 2))
-      
-      kl_table
-      
-    })
+  output$table <- renderDataTable({
     
+    # LAO: streamlining; replacing old ifelse statement
+    kl_table <- filtered_data_kl() %>%
+      group_by(language)
+    
+    if(input$method_choice_kl){
+      kl_table <- kl_table %>% group_by(method)
+    }
+    
+    if (input$cp_subset_kl){
+      kl_table <- kl_table %>% group_by(CP_subset)
+    } else{
+      kl_table <- kl_table %>% group_by(KL)
+    }
+    
+    kl_table <- kl_table %>%
+      summarise(n = n(),
+                `Mean age` = round(mean(age_months, na.rm = TRUE),2),
+                `SD age` = round(sd(age_months, na.rm = TRUE),2),
+                `Median age` = round(median(age_months, na.rm = TRUE), 2))
+    
+    kl_table
+    
+  })
+  
   ## ---- CITATIONS FOR KL BOXPLOT ----
-    output$citations <- eventReactive(input$go_kl, {
-      # str1 <- "Please cite the following datasets:"
-      
-      req(filtered_data_kl())
-      
-      cites <- filtered_data_kl()%>%
-        distinct(cite, orderCite) %>%
-        arrange(orderCite) %>%
-        select(cite)
-      
-      cites_all <- paste(as.vector(unique(cites$cite)), collapse = " <br/><br/>")
-      
-      str2 <- as.character(cites_all)
-      HTML(paste("<b>Please cite:</b> <br/>", str2))
-    })
+  output$citations <- eventReactive(input$go_kl, {
+    # str1 <- "Please cite the following datasets:"
     
-    ## ---- DOWNLOADABLE DATA FOR KL ----
-    output$downloadData <- downloadHandler(
-      filename = function() {
-        paste("KL-data-", Sys.Date(), ".csv", sep="")
-      }, 
-      content = function(file) {
-        write.csv(filtered_data_kl(), file)
-      }
-     )
+    req(filtered_data_kl())
+    
+    cites <- filtered_data_kl()%>%
+      distinct(cite, orderCite) %>%
+      arrange(orderCite) %>%
+      select(cite)
+    
+    cites_all <- paste(as.vector(unique(cites$cite)), collapse = " <br/><br/>")
+    
+    str2 <- as.character(cites_all)
+    HTML(paste("<b>Please cite:</b> <br/>", str2))
+  })
+  
+  ## ---- DOWNLOADABLE DATA FOR KL ----
+  output$downloadData <- downloadHandler(
+    filename = function() {
+      paste("KL-data-", Sys.Date(), ".csv", sep="")
+    }, 
+    content = function(file) {
+      write.csv(filtered_data_kl(), file)
+    }
+  )
   
   ##----CUMULATIVE PROBABILITY OF BEING N-KNOWER
   #plot
@@ -294,23 +337,23 @@ server <- function(input, output, session) {
     ggplot(cumul_prob(), 
            aes(x = age_months, y = prop, colour=KL, fill=KL,
                group=KL))+
-    geom_line(size=1) + 
-    xlab("Age (months)") + 
-    geom_ribbon(aes(ymin = ci.low, ymax= ci.high), 
-                alpha = .2,show_guide=FALSE,linetype=0) + 
-    # geom_vline(aes(xintercept=age_months[prop>.75][1]), lty=3) +
-    # scale_x_continuous(breaks=seq(0,24,4))+
-    scale_color_solarized("Knower level")+
-    scale_fill_solarized()+
-    scale_y_continuous(limits = c(0,1),
-                       name = "Cumulative Probability of Knower Level")+
-    theme_bw(base_size=14) +
-    theme(legend.position="right") + 
-    facet_wrap(~language, scales = "free_x") + 
+      geom_line(size=1) + 
+      xlab("Age (months)") + 
+      geom_ribbon(aes(ymin = ci.low, ymax= ci.high), 
+                  alpha = .2,show_guide=FALSE,linetype=0) + 
+      # geom_vline(aes(xintercept=age_months[prop>.75][1]), lty=3) +
+      # scale_x_continuous(breaks=seq(0,24,4))+
+      scale_color_solarized("Knower level")+
+      scale_fill_solarized()+
+      scale_y_continuous(limits = c(0,1),
+                         name = "Cumulative Probability of Knower Level")+
+      theme_bw(base_size=14) +
+      theme(legend.position="right") + 
+      facet_wrap(~language, scales = "free_x") + 
       guides(color = guide_legend(reverse = TRUE))
   })
   
- ## ... ITEM PLOTS ----
+  ## ... ITEM PLOTS ----
   
   ## .... AVG HISTOGRAM ----
   output$avg_histogram <- renderPlot({
@@ -338,7 +381,7 @@ server <- function(input, output, session) {
       group_by(Query, KL)%>%
       mutate(total.n = sum(n),
              prop = n/total.n)
-
+    
     #full data - method
     method_df_kl <- filtered_data_item() %>%
       group_by(Query, Response, method, KL)%>%
@@ -347,58 +390,58 @@ server <- function(input, output, session) {
       mutate(total.n = sum(n),
              prop = n/total.n)
     
-  ### Conditional for if KL if method is selected and v.v.
-  if (input$kl_selector) {
-    if (input$method_choice_item) {
-      counts <- method_df_kl %>%
-        group_by(Query, KL)%>%
-        summarise(full.n = sum(total.n))
-      
-       p <-  ggplot(method_df_kl, 
-        aes(x = Response, y = prop, fill = method)) +
-        geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-        geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
-                       binwidth = 1) + 
-        scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-        scale_fill_solarized("Method") +
-        theme_bw(base_size=14) +
-        theme(legend.position = "right",
-              panel.grid = element_blank()) +
-        labs(y = "Proportion of responses", x = "Number given")+
-        facet_grid(KL~Query) + 
-        geom_text(data = counts, aes(x = max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
-                  size = 5, inherit.aes = FALSE, parse = FALSE)
-    } else {
-      counts <- kl_hist %>%
-        group_by(Query, KL)%>%
-        summarise(full.n = sum(total.n))
-      
-      p <- ggplot(kl_hist, 
-                      aes(x = Response, y = prop, fill = as.factor(Query))) + 
-        geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-        geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
-                       binwidth = 1) +
-        scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-        scale_fill_solarized() +
-        theme_bw(base_size=14) +
-        theme(legend.position = "none", 
-              panel.grid = element_blank()) +
-        labs(y = "Proportion of responses", x = "Number given")+
-        facet_grid(KL~Query) + 
-        geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
-                  size = 5, inherit.aes = FALSE, parse = FALSE)
-    }
-  } else {
-    if (input$method_choice_item) {
-      counts <- method_df %>%
-        group_by(Query)%>%
-        summarise(full.n = sum(total.n))
-      
-       p <- ggplot(method_df, 
-          aes(x = Response, y = prop, fill = method)) +
+    ### Conditional for if KL if method is selected and v.v.
+    if (input$kl_selector) {
+      if (input$method_choice_item) {
+        counts <- method_df_kl %>%
+          group_by(Query, KL)%>%
+          summarise(full.n = sum(total.n))
+        
+        p <-  ggplot(method_df_kl, 
+                     aes(x = Response, y = prop, fill = method)) +
           geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
           geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
-                       binwidth = 1) +
+                   binwidth = 1) + 
+          scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+          scale_fill_solarized("Method") +
+          theme_bw(base_size=14) +
+          theme(legend.position = "right",
+                panel.grid = element_blank()) +
+          labs(y = "Proportion of responses", x = "Number given")+
+          facet_grid(KL~Query) + 
+          geom_text(data = counts, aes(x = max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
+                    size = 5, inherit.aes = FALSE, parse = FALSE)
+      } else {
+        counts <- kl_hist %>%
+          group_by(Query, KL)%>%
+          summarise(full.n = sum(total.n))
+        
+        p <- ggplot(kl_hist, 
+                    aes(x = Response, y = prop, fill = as.factor(Query))) + 
+          geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+          geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                   binwidth = 1) +
+          scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+          scale_fill_solarized() +
+          theme_bw(base_size=14) +
+          theme(legend.position = "none", 
+                panel.grid = element_blank()) +
+          labs(y = "Proportion of responses", x = "Number given")+
+          facet_grid(KL~Query) + 
+          geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
+                    size = 5, inherit.aes = FALSE, parse = FALSE)
+      }
+    } else {
+      if (input$method_choice_item) {
+        counts <- method_df %>%
+          group_by(Query)%>%
+          summarise(full.n = sum(total.n))
+        
+        p <- ggplot(method_df, 
+                    aes(x = Response, y = prop, fill = method)) +
+          geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+          geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                   binwidth = 1) +
           scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
           scale_fill_solarized("Method") +
           theme_bw(base_size=14) +
@@ -406,31 +449,31 @@ server <- function(input, output, session) {
                 panel.grid = element_blank()) +
           labs(y = "Proportion of responses", x = "Number given")+
           facet_grid(~Query) + 
-            geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
-                      size = 5, inherit.aes = FALSE, parse = FALSE) 
-    } else {
-      counts <- avg_item %>%
-        group_by(Query)%>%
-        summarise(full.n = sum(total.n))
-      
-      p <- ggplot(filtered_data_item(),
-                  aes(x = Response, fill = as.factor(Query))) +
-        geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-        geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
-                       binwidth = 1) +
-        scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-        scale_fill_solarized() +
-        theme_bw(base_size=14) +
-        theme(legend.position = "none",
-              panel.grid = element_blank()) +
-        labs(y = "Density of responses", x = "Number given")+
-        facet_wrap(~Query) + 
-        geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
-                  size = 5, inherit.aes = FALSE, parse = FALSE) 
-    }
-  } 
+          geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
+                    size = 5, inherit.aes = FALSE, parse = FALSE) 
+      } else {
+        counts <- avg_item %>%
+          group_by(Query)%>%
+          summarise(full.n = sum(total.n))
+        
+        p <- ggplot(filtered_data_item(),
+                    aes(x = Response, fill = as.factor(Query))) +
+          geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+          geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+                         binwidth = 1) +
+          scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+          scale_fill_solarized() +
+          theme_bw(base_size=14) +
+          theme(legend.position = "none",
+                panel.grid = element_blank()) +
+          labs(y = "Density of responses", x = "Number given")+
+          facet_wrap(~Query) + 
+          geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
+                    size = 5, inherit.aes = FALSE, parse = FALSE) 
+      }
+    } 
     p
-})
+  })
   
   ## .... TABLE FOR ITEM HISTOGRAM ----
   
@@ -488,7 +531,7 @@ server <- function(input, output, session) {
     }
     item_table
   })
-    
+  
   ## .... LANG HISTOGRAM ----
   output$lang_histogram <- renderPlot({
     req(filtered_data_item())
@@ -507,66 +550,66 @@ server <- function(input, output, session) {
     #   mutate(total.n = sum(n), 
     #          prop = n/total.n)
     
-  if (input$kl_selector) {
-    p <- ggplot(filtered_data_item(), 
-                aes(x = Response, fill = as.factor(language))) + 
-      geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-      geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
-                     binwidth = 1) +
-      scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-      scale_fill_brewer(palette = "Dark2") +
-      theme_bw(base_size=14) +
-      theme(legend.position = "top", 
-            legend.title = element_blank(),
-            panel.grid = element_blank()) +
-      labs(y = "Density of responses", x = "Number given")+
-      facet_grid(KL~Query, scale = "free_x")
-  } else {
-    p <- ggplot(filtered_data_item(), 
-           aes(x = Response,  fill = as.factor(Query))) + 
-      geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-      geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
-                     binwidth = 1) +
-      scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-      scale_fill_solarized() +
-      theme_bw(base_size=14) +
-      theme(legend.position = "none", 
-            panel.grid = element_blank()) +
-      labs(y = "Density of responses", x = "Number given")+
-      facet_grid(language~Query)
-  }
+    if (input$kl_selector) {
+      p <- ggplot(filtered_data_item(), 
+                  aes(x = Response, fill = as.factor(language))) + 
+        geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+        geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
+        scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+        scale_fill_brewer(palette = "Dark2") +
+        theme_bw(base_size=14) +
+        theme(legend.position = "top", 
+              legend.title = element_blank(),
+              panel.grid = element_blank()) +
+        labs(y = "Density of responses", x = "Number given")+
+        facet_grid(KL~Query, scale = "free_x")
+    } else {
+      p <- ggplot(filtered_data_item(), 
+                  aes(x = Response,  fill = as.factor(Query))) + 
+        geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+        geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
+        scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+        scale_fill_solarized() +
+        theme_bw(base_size=14) +
+        theme(legend.position = "none", 
+              panel.grid = element_blank()) +
+        labs(y = "Density of responses", x = "Number given")+
+        facet_grid(language~Query)
+    }
     p
   })
-
+  
   ## .... TABLE FOR ITEM LANGUAGE HISTOGRAM ----
   
   output$table_language_item <- renderDataTable({
     #first, if there is kl selected
     if(input$kl_selector) {
-        item_table_language <- filtered_data_item() %>%
-          mutate(Query = as.integer(Query))%>%
-          group_by(Query, language, KL)%>%
-          summarise(n = n(), 
-                    `Mean age` = round(mean(age_months, na.rm = TRUE), 2), 
-                    `SD age` = round(sd(age_months, na.rm = TRUE), 2), 
-                    `Median age` = round(median(age_months, na.rm = TRUE), 2), 
-                    `Mean response` = round(mean(Response, na.rm = TRUE), 2), 
-                    `SD response` = round(sd(Response, na.rm = TRUE), 2), 
-                    `Median response` = round(median(Response, na.rm = TRUE), 2))
-      } else {
-        item_table_language <- filtered_data_item() %>%
-          mutate(Query = as.integer(Query))%>%
-          group_by(Query, language)%>%
-          summarise(n = n(), 
-                    `Mean age` = round(mean(age_months, na.rm = TRUE), 2), 
-                    `SD age` = round(sd(age_months, na.rm = TRUE), 2), 
-                    `Median age` = round(median(age_months, na.rm = TRUE), 2), 
-                    `Mean response` = round(mean(Response, na.rm = TRUE), 2), 
-                    `SD response` = round(sd(Response, na.rm = TRUE), 2), 
-                    `Median response` = round(median(Response, na.rm = TRUE), 2))
-      }
+      item_table_language <- filtered_data_item() %>%
+        mutate(Query = as.integer(Query))%>%
+        group_by(Query, language, KL)%>%
+        summarise(n = n(), 
+                  `Mean age` = round(mean(age_months, na.rm = TRUE), 2), 
+                  `SD age` = round(sd(age_months, na.rm = TRUE), 2), 
+                  `Median age` = round(median(age_months, na.rm = TRUE), 2), 
+                  `Mean response` = round(mean(Response, na.rm = TRUE), 2), 
+                  `SD response` = round(sd(Response, na.rm = TRUE), 2), 
+                  `Median response` = round(median(Response, na.rm = TRUE), 2))
+    } else {
+      item_table_language <- filtered_data_item() %>%
+        mutate(Query = as.integer(Query))%>%
+        group_by(Query, language)%>%
+        summarise(n = n(), 
+                  `Mean age` = round(mean(age_months, na.rm = TRUE), 2), 
+                  `SD age` = round(sd(age_months, na.rm = TRUE), 2), 
+                  `Median age` = round(median(age_months, na.rm = TRUE), 2), 
+                  `Mean response` = round(mean(Response, na.rm = TRUE), 2), 
+                  `SD response` = round(sd(Response, na.rm = TRUE), 2), 
+                  `Median response` = round(median(Response, na.rm = TRUE), 2))
+    }
     item_table_language
-    })
+  })
   
   ## ---- DOWNLOADABLE DATA FOR ITEM-level ----
   output$downloadDataItem <- downloadHandler(
@@ -583,7 +626,7 @@ server <- function(input, output, session) {
     # str1 <- "Please cite the following datasets:"
     
     req(filtered_data_item())
-
+    
     cites <- filtered_data_item()%>%
       distinct(cite, orderCite) %>%
       arrange(orderCite) %>%
@@ -606,7 +649,7 @@ server <- function(input, output, session) {
   })
 }
 
-
+# shinyApp(ui=ui, server=server)
 
 
 
