@@ -37,7 +37,7 @@ ui = navbarPage(title = "Numberbank",
             )
    ),
                    
-   tabPanel("Knower levels", fluid = TRUE,
+   tabPanel("Knower levels", value = 'tabKL', fluid = TRUE,
             # Sidebar layout with a input and output definitions
             sidebarLayout(
               sidebarPanel(
@@ -121,7 +121,11 @@ ui = navbarPage(title = "Numberbank",
         ), 
    tabPanel("Contributors", fluid = TRUE,
             tabPanel("Contributors", fluid = TRUE,
-                     htmlOutput("citationsAll")
+                     htmlOutput("citationsAll"),
+                     tags$head(
+                       tags$link(rel = "stylesheet", type = "text/css", href = "css/contributors.css"),
+                       tags$script(src = "js/contributorFunctions.js")
+                     )
             )
       ), 
   tabPanel("About Numberbank", fluid = TRUE,
@@ -131,4 +135,5 @@ ui = navbarPage(title = "Numberbank",
       )
 )
 
-shinyApp(ui=ui, server=server)
+# shinyApp(ui=ui, server=server)
+# rsconnect::deployApp(appName="shiny_app", account="numberbank")
