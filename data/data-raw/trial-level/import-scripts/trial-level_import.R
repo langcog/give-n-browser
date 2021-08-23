@@ -154,114 +154,65 @@ sarnecka2019 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Sarnecka
 
 ## ... schneider & barner --- 
 ##1-1 sharing
-schneider_barner_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_barner_20xx.csv'))%>%
+Schneider_Barner_UnderReview <- read_csv(here::here('data/data-raw/trial-level/data-raw/Schneider_Barner_UnderReview.csv'))%>%
   mutate(method = 'titrated', 
-         Experiment = 'SchneiderBarner_20xx',
+         Experiment = 'Schneider_Barner_UnderReview',
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
          Response = as.integer(Response), 
          lab = "Barner", 
-         cite = "Schneider, R.M., Feiman, R., & Barner, D. (unpublished dataset).")%>%
+         cite = "Schneider, R.M., Brockbank, E., Feiman, R., & Barner, D. (under review). Counting and the ontogenetic origins of exact equality. ")%>%
   filter(!is.na(Task_item))%>%
   dplyr::select(-Task, -Trial_number, -Knower_level)%>%
   rename("Query" = "Task_item", 
          "Subject" = "SID")
 
 ## .....output KL data to data-raw -----
-schneider_barner_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_barner_20xx.csv'))%>%
+Schneider_Barner_UnderReview_KL <- read_csv(here::here('data/data-raw/trial-level/data-raw/Schneider_Barner_UnderReview.csv'))%>%
   mutate(method = 'titrated', 
-         Experiment = 'SchneiderBarner_20xx',
+         Experiment = 'Schneider_Barner_UnderReview',
          Age = Age*12, 
          lab = "Barner", 
-         cite = "Schneider, R.M., Feiman, R., & Barner, D. (unpublished dataset).")%>%
+         cite = "Schneider, R.M., Brockbank, E., Feiman, R., & Barner, D. (under review). Counting and the ontogenetic origins of exact equality. ")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
-write_csv(schneider_barner_20xx_kl, here::here('data/data-raw/kl-only/data-raw/schneider_barner_20xx_kl.csv'))
+write_csv(Schneider_Barner_UnderReview_KL, here::here('data/data-raw/kl-only/data-raw/Schneider_Barner_UnderReview.csv'))
 
-##1-1 baseline
-schneider_barner_2020 <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_barner_2020.csv'))%>%
+
+
+##small sf (Schneider, Pankonin, Schachner, Barner, 2021)
+Schneider_Barner_2021 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Schneider_Barner_2021.csv'))%>%
   filter(!is.na(Task_item))%>%
   mutate(method = 'titrated', 
-         Experiment = 'SchneiderBarner_2020',
+         Experiment = 'Schneider_Barner_2021',
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
          Response = as.integer(Response), 
          lab = "Barner", 
-         cite = "Schneider, R.M., & Barner, D. (2020). Children use one-to-one correspondence to establish equality after learning to count. 42nd Annual Meeting of the Cognitive Science Society.")%>%
-  dplyr::select(-Task, -Trial_number, -Knower_level)%>%
-  rename("Query" = "Task_item", 
-         "Subject" = "SID")
-
-##output KL data to data-raw 
-schneider_barner_2020_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_barner_2020.csv'))%>%
-  mutate(method = 'titrated', 
-         Experiment = 'SchneiderBarner_2020', 
-         Age = Age*12, 
-         lab = "Barner", 
-         cite = "Schneider, R.M., & Barner, D. (2020). Children use one-to-one correspondence to establish equality after learning to count. 42nd Annual Meeting of the Cognitive Science Society.")%>%
-  rename("Subject" = "SID")%>%
-  distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
-
-write_csv(schneider_barner_2020_kl, here::here('data/data-raw/kl-only/data-raw/schneider_barner_2020.csv'))
-
-##small sf
-schneider_etal_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_etal_20xx.csv'))%>%
-  filter(!is.na(Task_item))%>%
-  mutate(method = 'titrated', 
-         Experiment = 'SchneiderEtAl_20xx',
-         Age = Age*12, 
-         Task_item = as.integer(Task_item), 
-         Response = as.integer(Response), 
-         lab = "Barner", 
-         cite = "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.")%>%
+         cite = "Schneider, R. M., Pankonin, A., Schachner, A., & Barner, D. (2021). Starting small: Exploring the origins of successor function knowledge. Developmental Science, 24(4), e13091.")%>%
   dplyr::select(-Task, -Trial_number, -Knower_level, -Correct)%>%
   rename("Query" = "Task_item", 
          "Subject" = "SID")
 
 ##output KL data to data-raw 
-schneider_etal_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_etal_20xx.csv'))%>%
+Schneider_Barner_2021_KL <- read_csv(here::here('data/data-raw/trial-level/data-raw/Schneider_Barner_2021.csv'))%>%
 mutate(method = 'titrated', 
-       Experiment = 'SchneiderEtAl_20xx',
+       Experiment = 'Schneider_Barner_2021',
        Age = Age*12, 
        lab = "Barner", 
-       cite = "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.")%>%
+       cite = "Schneider, R. M., Pankonin, A., Schachner, A., & Barner, D. (2021). Starting small: Exploring the origins of successor function knowledge. Developmental Science, 24(4), e13091.")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
-write_csv(schneider_etal_20xx_kl, here::here('data/data-raw/kl-only/data-raw/schneider_etal_20xx_kl.csv'))
+write_csv(Schneider_Barner_2021_KL, here::here('data/data-raw/kl-only/data-raw/Schneider_Barner_2021.csv'))
 
-##small sf 2
-schneider_etal_20xx_2 <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_etal_20xx_2.csv'))%>%
-  filter(!is.na(Task_item))%>%
-  mutate(method = 'titrated', 
-         Experiment = 'SchneiderEtAl_20xx', 
-         Age = Age*12, 
-         Task_item = as.integer(Task_item), 
-         Response = as.integer(Response), 
-         lab = "Barner", 
-         cite = "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.")%>%
-  dplyr::select(-Task, -Trial_number, -Knower_level, -Correct)%>%
-  rename("Query" = "Task_item", 
-         "Subject" = "SID")
-
-##output KL data to data-raw
-schneider_etal_20xx_2_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_etal_20xx_2.csv'))%>%
-  mutate(method = 'titrated', 
-         Experiment = 'SchneiderEtAl_20xx',
-         Age = Age*12, 
-         lab = "Barner", 
-         cite = "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.")%>%
-  rename("Subject" = "SID")%>%
-  distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
-
-write_csv(schneider_etal_20xx_2_kl, here::here('data/data-raw/kl-only/data-raw/schneider_etal_20xx_2_kl.csv'))
 
 ##conservation
-schneider_yen_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_yen_barner_20xx.csv'))%>%
+Schneider_Barner_Unpublished <- read_csv(here::here('data/data-raw/trial-level/data-raw/Schneider_Barner_Unpublished.csv'))%>%
   filter(Task_item != "Enter Number!")%>%
   mutate(method = 'titrated', 
-         Experiment = 'SchneiderYen_20xx', 
+         Experiment = 'Schneider_Barner_Unpublished', 
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
          Response = as.integer(Response), 
@@ -272,20 +223,20 @@ schneider_yen_20xx <- read_csv(here::here('data/data-raw/trial-level/data-raw/sc
          "Subject" = "SID")
 
 ##write kls
-schneider_yen_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_yen_barner_20xx.csv'))%>%
+Schneider_Barner_Unpublished_KL <- read_csv(here::here('data/data-raw/trial-level/data-raw/Schneider_Barner_Unpublished.csv'))%>%
   filter(Task_item != "Enter Number!")%>%
   mutate(method = 'titrated', 
-         Experiment = 'SchneiderYen_20xx', 
+         Experiment = 'Schneider_Barner_Unpublished', 
          Age = Age*12, 
          lab = "Barner", 
          cite = "Schneider, R.M., Yen, A., & Barner, D. (unpublished dataset).")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
-write_csv(schneider_yen_20xx_kl, here::here('data/data-raw/kl-only/data-raw/schneider_yen_20xx_kl.csv'))
+write_csv(Schneider_Barner_Unpublished_KL, here::here('data/data-raw/kl-only/data-raw/Schneider_Barner_Unpublished.csv'))
 
 ## xculture
-schneider_etal_2020 <- read.csv(here::here('data/data-raw/trial-level/data-raw/SchneiderEtAl_2020.csv'))%>%
+Schneider_Barner_2020 <- read.csv(here::here('data/data-raw/trial-level/data-raw/Schneider_Barner_2020.csv'))%>%
   filter(Age != "#VALUE!", 
          Query != "TireHydrant",
          Query != "DuckClover", 
@@ -299,7 +250,7 @@ schneider_etal_2020 <- read.csv(here::here('data/data-raw/trial-level/data-raw/S
          lab = "Barner")
 
 #calculate KL - this is either subset or CP
-xculture.kl <- schneider_etal_2020 %>%
+Schneider_Barner_2020_KL <- Schneider_Barner_2020 %>%
   mutate(Correct = ifelse(Query == Response, 1, 0))%>%
   group_by(Subject)%>%
   summarise(n_correct = sum(Correct))%>%
@@ -307,12 +258,12 @@ xculture.kl <- schneider_etal_2020 %>%
   select(-n_correct)
 
 ## get demo information for KL
-schneider_etal_2020_kl <- schneider_etal_2020 %>%
-  left_join(xculture.kl)%>%
+Schneider_Barner_2020_KL <- Schneider_Barner_2020 %>%
+  left_join(Schneider_Barner_2020_KL)%>%
   distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
 
 ## write to KL 
-write.csv(schneider_etal_2020_kl, here::here("data/data-raw/kl-only/data-raw/SchneiderEtAl_2020.csv"))
+write.csv(Schneider_Barner_2020_KL, here::here("data/data-raw/kl-only/data-raw/Schneider_Barner_2020.csv"))
 
 ## ....Marchand and Barner ====
 marchandBarner_titrated_1 <- read.csv("data/data-raw/trial-level/data-raw/marchand_barner_titrated.csv")%>%
@@ -485,12 +436,10 @@ all.data <- bind_rows(almoammer2013_english,
                       krajcsi2018, 
                       boni20xx_ordered, 
                       boni20xx_random, 
-                      schneider_barner_2020, 
-                      schneider_barner_20xx, 
-                      schneider_etal_20xx, 
-                      schneider_etal_20xx_2, 
-                      schneider_yen_20xx, 
-                      schneider_etal_2020, 
+                      Schneider_Barner_UnderReview,
+                      Schneider_Barner_2021, 
+                      Schneider_Barner_Unpublished, 
+                      Schneider_Barner_2020, 
                       marchandBarner_titrated_1, 
                       marchandBarner_titrated_2, 
                       marchand_barner_titrated_3,
