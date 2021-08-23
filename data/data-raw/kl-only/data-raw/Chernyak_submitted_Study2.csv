@@ -1,0 +1,220 @@
+﻿Subject ID,Age,gender,order,give_n_score,stroop_score,pretest_stickers_shared,pre_test_who_got_more,condition,correct_test_trials,counted_test_trials,post_test_6_stickers_shared,post_test_6_who_got_more,post_test_8_stickers_shared,post_test_8_who_got_more,counting.test
+1,3.460472279,female,1,6,16,3,,Counting,3,3,5,other,8,other,1
+2,3.271902806,male,2,3,,3,other,Counting,1,0,3,other,4,other,1
+3,3.669404517,female,3,3,1,6,other,Control,2,0,6,,8,other,1
+4,5.166666667,male,4,6,,2,self,Control,2,0,1,self,4,same,1
+5,3.680355921,female,5,6,12,4,other,Counting,3,3,3,other,2,same,1
+6,4.721423682,female,6,6,16,4,,Counting,3,0,3,self,4,same,1
+7,4.166666667,female,7,6,2,3,same,Control,2,0,3,self,4,,1
+8,4.073921971,female,8,6,7,3,same,Control,,,3,same,4,same,1
+9,4.094284736,male,1,6,9,3,same,Counting,2,0,3,same,4,same,1
+10,3.32118412,female,2,3,16,3,other,Counting,2,0,2,self,,,1
+13,4.899041752,female,5,6,11,3,same,Counting,,1,3,same,4,same,1
+16,3.746064339,female,8,6,1,3,same,Control,1,0,3,same,4,same,1
+17,3.982375086,male,1,6,5,4,same,Counting,3,3,1,self,4,self,1
+18,5.226899384,female,2,0,3,6,same,Counting,1,3,6,same,8,same,1
+20,2.807494867,male,4,2,13,5,same,Control,2,0,3,same,8,,1
+21,3.083333333,female,5,1,3,2,,Counting,2,0,3,other,2,other,1
+22,4.799281314,female,6,6,9,3,same,Counting,3,1,3,same,4,same,1
+23,4.896303901,male,7,6,13,2,self,Control,3,0,2,self,3,self,1
+24,3.960472279,female,8,6,11,3,same,Control,3,0,3,same,5,other,1
+25,3.774640657,female,1,4,6,3,same,Counting,3,0,2,same,4,same,1
+26,3.610711841,female,2,5,10,5,same,Counting,1,0,3,same,4,same,1
+27,3.102498289,female,3,3,0,6,same,Control,1,0,3,same,5,same,1
+28,3.382614648,male,4,4,0,2,same,Control,2,3,4,same,5,other,1
+29,3.218685832,male,5,3,14,4,same,Counting,3,3,3,same,4,same,1
+30,3.332135524,male,6,6,2,2,same,Counting,2,3,6,same,0,,1
+31,4.946783025,female,7,6,6,3,same,Control,3,1,3,same,4,self,1
+32,4.659993155,male,8,5,7,3,same,Control,3,0,3,same,4,same,1
+33,3.010951403,female,1,6,7,3,same,Counting,2,0,3,same,4,same,1
+34,4.632614648,male,2,6,8,3,same,Counting,3,0,3,same,3,self,1
+35,4.010951403,male,3,3,12,3,same,Control,2,0,3,same,5,other,1
+36,3.521902806,male,4,4,6,3,,Control,3,0,1,,4,,1
+38,3.802019165,male,6,6,13,3,,Counting,3,2,3,other,5,other,1
+39,3.573921971,female,7,6,14,3,self,Control,3,0,2,self,2,self,1
+41,3.629876797,male,1,2,1,0,same,Counting,1,0,0,self,3,self,1
+43,4.052019165,female,2,4,13,3,same,Control,3,0,3,same,4,same,1
+44,4.530116359,male,3,6,15,3,same,Control,1,0,3,same,4,self,1
+45,4.847022587,female,4,6,11,3,same,Counting,0,2,3,same,5,other,1
+46,5,male,5,6,9,3,same,Counting,3,3,3,same,4,same,1
+47,4.629876797,male,6,6,16,3,same,Control,3,0,3,same,4,same,1
+48,5.422142368,male,7,6,15,3,other,Control,3,0,3,same,4,same,1
+49,4.282854209,female,8,6,9,6,same,Counting,2,3,6,same,8,same,1
+50,5.430355921,female,1,6,11,3,same,Counting,3,0,3,other,4,same,1
+51,4.952258727,female,2,6,16,3,same,Control,3,1,3,same,4,same,1
+52,5.307494867,male,4,6,16,3,other,Control,3,0,3,same,4,same,1
+53,5.054757016,male,3,6,7,3,other,Control,3,0,3,self,4,same,1
+54,4.366187543,female,5,6,11,3,same,Counting,3,0,3,self,4,other,1
+55,3.407255305,male,7,3,15,3,same,Control,2,0,3,same,3,same,1
+58,5.280116359,female,2,6,,3,same,Counting,3,0,3,same,4,same,1
+59,5.280116359,male,3,6,10,5,same,Control,3,2,3,same,4,same,1
+60,4.116187543,female,4,6,15,3,same,Control,3,0,3,other,5,same,1
+63,3.782854209,female,7,6,11,3,same,Control,3,3,3,same,4,same,1
+64,4.946783025,female,8,5,6,3,other,Control,2,0,4,same,4,same,1
+67,3.03559206,female,3,2,0,1,,Control,3,0,3,,7,,1
+68,3.643566051,female,4,6,5,3,same,Control,1,0,3,same,4,same,1
+70,5.019164956,female,6,6,8,3,,Counting,3,3,3,,4,,1
+71,5.299281314,female,7,6,9,3,same,Control,3,0,3,same,4,same,1
+73,3.35523614,female,1,2,6,6,same,Counting,1,0,3,same,4,same,1
+74,5.124401095,male,2,6,16,3,self,Counting,3,0,3,same,4,same,1
+75,4.366187543,female,3,5,12,3,same,Control,1,0,3,same,4,same,1
+76,4.021902806,female,4,6,14,3,same,Control,2,0,4,other,3,self,1
+77,3.60797399,female,5,6,14,4,same,Counting,1,0,4,same,4,same,1
+79,4.336071184,male,7,6,6,5,same,Control,2,0,3,same,5,same,1
+80,4.204996578,female,8,6,15,3,other,Control,3,0,3,self,4,self,1
+81,3.672142368,male ,1,2,4,0,other,Counting ,2,0,4,self,3,self,1
+82,4.704996578,male ,2,6,13,3,self,Counting,3,0,2,self,3,same,1
+83,5.138090349,female,3,6,12,3,other,Control,,,,,,,1
+84,4.666666667,male,4,6,15,4,other,Control,3,0,2,self,4,other ,1
+85,5.505475702,male,5,6,12,3,same,Counting,3,0,4,same,7,other,1
+86,4.07118412,male,6,5,11,3,same,Counting,1,0,2,same,5,same,1
+88,5.557494867,female,1,6,12,3,same,Counting,3,0,3,same,5,other,1
+89,5.226899384,female,2,5,15,3,same,Counting,2,0,3,same,5,other,1
+90,4.691307324,male,3,6,14,3,same,Control,3,2,3,same,4,same,1
+91,5.21321013,female,4,6,16,2,self,Control,3,0,4,other,3,same,1
+92,3.465947981,female,5,5,14,3,same,Counting,1,0,2,same,3,self,1
+93,4.665468857,male,6,4,8,3,same,Counting,2,3,3,same,4,same,1
+95,5.326659822,male,1,6,12,3,other,Counting,3,3,3,same,4,other,1
+96,5.49880219,female,2,6,12,3,same,Counting,3,2,3,same,4,same,1
+97,4.82118412,male ,3,6,16,3,same,Control,3,2,2,self,4,same,1
+98,4.530116359,female,4,6,11,4,other,Control,3,0,5,other,5,other,1
+99,5.246064339,male,5,6,13,4,other,Counting ,3,0,3,same,4,same,1
+100,3.685831622,female,6,5,12,3,other,Counting,3,0,4,self,6,self,1
+102,4.065708419,male,1,1,7,3,self,Control,2,0,3,same,4,same,1
+103,2.847022587,female,2,0,0,4,other,Counting,0,1,4,,4,,1
+105,4.269164956,female,4,6,16,3,same,Control,3,0,3,same,4,same,1
+106,3.368925394,female,5,4,7,1,same,Counting,2,0,0,same,5,same,1
+107,3.766427105,female,6,2,3,3,same,Counting,0,0,4,same,5,same,1
+108,2.740588638,female,7,3,,5,other,Control,1,1,3,same,8,same,1
+109,3.35523614,female,1,6,12,3,self,Counting,3,0,3,self,4,same,1
+110,3.793805613,male ,2,6,,2,self,Counting,3,3,2,self,2,self,1
+111,3.860711841,female ,3,4,13,4,same,Control,3,0,2,same,4,same,1
+112,3.82118412,male ,4,6,0,1,same,Control,2,0,6,same,8,same,1
+113,3.721423682,female ,6,4,12,2,same,Counting,3,3,4,other,7,other,1
+114,3.338809035,male ,7,1,0,0,same,Control,2,0,0,same,0,same,1
+115,2.85523614,male ,1,2,6,6,other,Counting ,0,0,3,same,7,same,1
+116,3.901779603,female ,2,5,11,2,self,Counting,3,3,4,other ,5,other,1
+117,3.415468857,male ,3,2,6,1,same,Control,1,0,1,same,2,same,1
+118,2.766427105,female ,4,2,0,6,other,Control,1,3,0,self,1,self,1
+123,3.860711841,female,2,4,11,3,same,Counting,2,3,4,same,3,same,1
+124,4.002737851,female ,3,6,7,3,same,Control,3,3,3,same,4,same,1
+125,4.043805613,female,4,6,8,1,self,Control,2,0,3,same,4,same,1
+126,4.224161533,male,5,6,14,3,same,Counting,3,0,3,same,4,other,1
+129,3.336071184,male,1,6,8,3,,Counting,3,3,4,other,6,self,1
+130,3.043805613,female ,2,2,4,1,same,Counting,1,0,1,same ,3,same,1
+131,3.424880219,male,3,5,5,2,same,Control,0,3,2,same,6,other,1
+132,3.224161533,male,4,2,4,1,same,Control,1,0,0,same,0,same,1
+133,2.866187543,female,5,2,2,6,same ,Counting,1,0,5,same,5,same,1
+134,3.366187543,male,6,3,11,3,same,Counting,3,1,1,same,7,same,1
+135,2.866187543,male,1,1,1,6,other,Counting,2,0,1,self,0,self,1
+136,2.974161533,male,2,2,7,1,same,Counting,1,0,1,same,1,self,1
+139,3.224161533,male,5,5,9,3,same,Counting,3,3,3,self,4,other,1
+141,3.799281314,female,7,6,5,4,other,Control,2,1,3,same,4,same,1
+142,3.909993155,female,1,6,10,3,same,Counting,2,3,4,same,5,same,1
+143,3.521902806,male,2,4,7,2,same,Counting,3,1,3,,4,same,1
+144,2.941307324,female,8,5,0,2,self,Control,2,0,3,same,2,same,1
+145,3.793805613,male,8,6,13,3,other,Control,2,0,3,self,4,same,1
+146,3.982375086,female,8,6,14,6,same,Control,2,0,6,same,8,other,1
+147,3.554757016,female,8,2,14,3,same,Control,1,0,3,same,5,same,1
+149,3.543805613,female ,8,3,14,4,other,Control,3,0,4,other,6,other,1
+150,3.419404517,male ,8,2,,4,same,Control,2,0,3,same,8,same,1
+151,2.823921971,female ,8,2,,3,same,Control,1,0,5,same,5,same,0
+152,3.74880219,male,6,5,10,3,same,Counting,3,0,3,same,4,same,1
+153,2.591546886,male,8,2,8,5,same,Control,0,0,6,same,7,same,0
+155,3.823921971,female,1,2,4,0,other,Counting,0,0,0,same,0,,1
+156,2.92761807,male,2,2,,3,same,Counting,2,0,2,same,4,same,0
+157,3.344284736,female,3,4,11,3,same,Control,3,0,3,other,5,other,0
+158,3.079397673,female,4,5,14,2,same,Control,1,0,4,same,4,same,0
+159,3.360711841,female,5,2,6,6,same,Counting,3,3,0,same,0,same,0
+160,3.360711841,female,6,2,0,3,same,Counting,3,2,3,same,5,same,0
+163,2.826659822,female,1,2,7,1,other,Counting,2,0,2,other,2,self,1
+164,4.010951403,male,2,5,16,3,same,Counting,2,0,2, self,3,self,1
+166,3.729637235,male,4,3,14,3,same,Control,2,0,3,same,4,self,0
+167,3.651779603,male,5,5,13,2,same,Counting,3,0,2,same,3,same,0
+168,3.129876797,male,6,,5,2,same,Counting,1,0,3,other,4,same,1
+169,3.258213552,female,1,2,1,5,same,Counting,2,0,4,self,5,self,1
+172,4.191307324,female,4,6,8,3,same,Control,2,0,4,same,4,same,1
+173,3.996064339,female,5,6,10,3,same,Counting,3,3,5,other ,4,same ,1
+174,3.573921971,male,6,6,11,5,other ,Counting ,3,3,3,self ,4,same,1
+175,3.802019165,male ,7,2,9,6,other,Control ,2,3,6,other,8,self,1
+176,3.307494867,male ,8,6,0,3,same,Control ,1,0,2,same ,4,same,1
+177,4.116187543,male,1,6,0,3,same ,Counting ,3,2,2,same ,4,same ,1
+178,3.030116359,female,2,5,0,0,same,Counting,1,0,6,same ,0,same ,1
+179,4.199520876,male,3,6,13,3,same,Control,2,0,4,other,5,other,1
+184,3.715947981,male,7,6,6,4,same ,Control ,1,0,0,self,0,self,1
+186,4.129876797,female ,1,6,9,3,other,Counting,2,0,3,other,5,other ,1
+187,3.433093771,female,2,4,16,3,other,Counting,2,0,1,other,5,self,1
+191,2.838809035,female,6,2,15,0,same,Counting ,2,0,1,same,1,same,1
+192,2.502737851,male,7,1,,6,,Control ,2,0,6,,8,same ,1
+195,,female,2,6,,4,other,Counting,2,0,3,same,4,same,1
+196,3.885352498,female,3,6,15,0,same,Control,2,0,0,same,3,self,1
+197,3.027378508,female,4,2,11,6,same,Control,2,0,3,self,8,same,1
+198,2.996064339,female,5,3,3,0,same,Counting,1,0,2,same,2,other,1
+199,3.299281314,female,6,2,0,2,same,Counting,1,3,,same,5,same,1
+200,3.493326489,female,7,2,4,3,other,Control,1,0,4,other,4,self,0
+201,3.310232717,male,8,1,2,1,same,Control,1,0,6,same,7,same,1
+202,3.35797399,male,1,4,14,3,same,Counting,2,0,4,same,3,same,1
+203,3.613449692,male,2,5,1,6,same,Counting,1,0,6,other,8,same,1
+204,5.493326489,male,3,6,8,3,same,Control,2,0,3,same,4,same,1
+205,3.57118412,male,4,5,7,1,self,Control ,1,0,1,same,1,same,1
+206,2.879876797,female,5,4,10,3,same,Counting,2,0,4,other,5,other,0
+210,3.412731006,female ,1,4,11,1,,Counting,3,3,2,self,2,,1
+211,3.282854209,female ,2,3,3,6,other ,Counting,,,,,,,1
+212,2.935831622,male ,3,0,3,4,same,Control,2,0,1,other,7,same,1
+214,3.393566051,female,5,4,0,6,other,Counting,,,6,,0,self,1
+215,3.691307324,female,6,2,12,4,same,Counting,1,0,1,same,4,same,1
+216,4.588809035,male,7,6,11,3,same,Control,3,0,2,self,4,same,1
+217,3.041067762,female,8,2,15,1,same,Control,3,0,4,same,5,same,1
+218,3.35797399,male,1,6,9,2,same,Counting,3,3,4,same,3,same,1
+219,4.057494867,male,2,6,12,3,same,Counting,3,1,3,same,3,self,1
+220,2.532854209,male,3,3,0,1,same,Control,1,0,2,same,8,same,1
+223,3.896303901,female,5,6,16,4,other,Counting,3,2,3,same,4,same,0
+226,3.17761807,male,6,4,9,3,same,Counting,2,3,5,other,5,other,0
+227,3.162731006,female,7,2,7,4,same,Control,1,0,6,same,5,same,1
+228,3.258213552,male,8,2,8,3,same,Control,3,0,2,other,8,same,1
+229,3.302019165,male,1,3,12,3,same,Counting,1,0,3,same,3,same,1
+230,4.019164956,female,2,5,15,4,other,Counting,2,0,2,same,5,same,1
+231,3.662731006,female,3,4,11,3,other,Control,2,0,4,other,5,same,1
+232,3.060232717,female ,4,3,10,3,same,Control,1,0,3,same,3,same ,1
+234,3.524640657,male ,6,3,16,6,same,Counting,2,1,1,self,4,same,1
+235,3.465947981,female,7,3,10,3,other,Control,2,0,3,same,2,same,1
+236,3.465947981,male,8,2,5,6,other,Control,2,3,6,other,8,other,1
+237,3.965947981,male,1,5,15,3,same,Counting,2,0,3,same,3,self,1
+238,3.826659822,male,2,4,8,4,same,Counting,3,3,3,self,5,same,1
+239,3.5,male,3,3,8,3,same,Control,2,0,2,same,4,same,1
+240,3.32118412,male,4,2,0,2,same,Control,2,0,1,self,1,self,1
+241,3.474161533,female,5,6,4,3,same,Counting,2,0,3,same,4,same,1
+242,3.57118412,female,6,3,11,6,other,Counting,3,0,3,same,4,same,1
+244,2.81844627,male,8,3,9,6,same,Control,0,0,6,same,8,same,1
+245,3.03559206,female,1,5,9,5,other,Counting,3,3,3,same,3,self,1
+246,3.194045175,male,2,4,4,0,self,Counting,2,3,0,self,0,self,1
+247,3.333333333,female,3,2,2,0,other,Control,3,0,0,other,8,other,1
+248,3.307494867,male,4,1,8,3,self,Control,3,0,3,same,4,self,1
+252,2.85523614,female,8,2,1,3,same,Control,1,0,3,same,4,same,1
+253,3.10797399,female,1,6,8,4,same,Counting,3,0,3,same,3,self,0
+254,,male,2,6,12,3,same,Counting,3,2,3,same,4,same,1
+255,,female,3,6,11,2,other,Control ,2,0,5,other,,,1
+256,4.702258727,male,4,6,9,4,other,Control,3,0,1,self,3,same,1
+257,3.435831622,female,5,6,14,2,self,Counting,3,0,3,self,5,self,1
+258,3.076659822,male,6,3,10,4,same,Counting,2,0,3,same,4,same,1
+260,2.672142368,male,8,1,0,6,other,Control,2,,3,same,2,self,1
+261,4.588809035,male,1,6,14,4,other ,Counting,3,0,6,other,8,other ,1
+264,2.799281314,female,4,4,4,3,same,Control,1,0,4,same,4,same,1
+265,2.957734428,male,5,2,5,3,same,Counting,1,0,3,same,3,same,1
+269,3.299281314,female,3,4,12,6,other,Control,1,0,6,other,8,other,1
+270,3.954996578,male,2,1,10,3,same,Counting,2,0,3,self,3,self,1
+271,3.252737851,female,4,4,9,2,other,Control,3,3,4,other,7,same,1
+272,3.546543463,male,1,2,2,3,same,Counting,2,0,3,same,3,self,1
+273,3.968685832,female,5,5,15,3,same,Counting,1,0,3,same,4,same,1
+274,4.121663244,female,7,5,,4,other,Control,2,0,2,self,2,self,1
+275,3.180355921,female,5,2,1,3,same,Counting,2,0,3,same,4,same,1
+276,3.237850787,female,7,3,2,1,same,Control,1,0,1,same,1,same,1
+277,3.651779603,female,,5,11,6,same,Control,2,0,3,other,4,other,1
+278,3.583333333,female,8,4,15,2,self,Control,3,0,2,self,2,self,1
+279,4.460472279,female,1,2,3,6,other,Counting,2,1,6,other,8,other,1
+280,2.715947981,female,6,1,3,0,other,Counting,2,0,6,other,5,other,1
+281,2.172142368,female,,4,1,0,same,Counting,2,0,0,same,8,same,1
+282,2.672142368,male,,3,0,6,same,Counting,3,0,0,same,0,same,1
+283,3.094284736,female,,1,8,0,other,Counting,2,0,0,self,0,other,0
+284,2.718685832,female,,1,16,6,self,Counting,2,0,6,self,0,other,1
+285,2.159993155,male,,1,7,6,same,Control,1,0,6,other,8,same,1

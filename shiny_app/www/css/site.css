@@ -123,8 +123,21 @@ div.desc {
 }
 
 
+.nbDescrip {
+  float: left; 
+  width: 60%;
+}
 
+#descrLg {
+  font-size: 36px; 
+}
 
+#descrSm {
+  font-size: 24px; 
+}
 
+#descrImg {
+  float: right;
+}
 
 
