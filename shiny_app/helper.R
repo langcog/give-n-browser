@@ -3,6 +3,7 @@ library(ggthemes)
 library(langcog)
 library(shinyWidgets)
 library(DT)
+library(haven)
 
 # read data
 trials <- read_csv(here::here("data/processed-data/trials.csv"))
@@ -46,11 +47,17 @@ methodMetaData <- all_data %>%
   distinct(cite, method) %>%
   pivot_wider(names_from = method, values_from = method) %>%
   unite("method", 2:3, sep=", ") %>%
-  mutate(method = case_when(
-    method == "non-titrated, NA" ~ "non-titrated",
-    method == "NA, titrated" ~ "titrated",
-    TRUE ~ method
-  ))
+  mutate(method = str_remove(method, ", NA"),
+         method = str_remove(method, "NA, "))
+
+langMetaData <- all_data %>%
+  distinct(cite, language) %>%
+  pivot_wider(names_from = language, values_from = language) %>%
+  unite("language",2:ncol(.), sep=", ") %>%
+  mutate(language = str_remove_all(language, ", NA"),
+         language = str_remove(language, "NA, "),
+         language = ifelse(str_detect(language, "Slovenian_dual, Slovenian_nonDual"), "Slovenian", language))
+  
 
 metaData <- all_data %>%
   distinct(cite, subject_id, age_months) %>%
@@ -87,6 +94,7 @@ all_datasets <- all_data %>%
 all_datasets_full <- tibble(cite = all_datasets$cite,
                             cite_id = all_datasets$cite_id) %>%
   left_join(methodMetaData) %>%
+  left_join(langMetaData) %>%
   left_join(metaData) %>%
   mutate(htmlTxt = paste0("<button class='collapsed' id='", cite_id, "' onclick='show(\"", cite_id, "\");'>", 
                           cite,
@@ -96,7 +104,8 @@ all_datasets_full <- tibble(cite = all_datasets$cite,
                           "N = ", n, "<br>",
                           "Min age (months) = ", min.age, "<br>",
                           "Max age (months) = ", max.age, "<br>",
-                          "Method(s) = ", method,
+                          "Method(s) = ", method, "<br>",
+                          "Language(s) = ", language,
                           "</p></div>"))
   
 all_datasets_short <- all_datasets$shortCite
@@ -113,3 +122,50 @@ queries <- c(as.character(sort(unique(all_data$Query))))
 n.samps <- 100
 
 
+#brainstorm plots
+
+
+darken <- function(color, factor=1.4){
+  col <- col2rgb(color)
+  col <- col/factor
+  col <- rgb(t(col), maxColorValue=255)
+  col
+}
+
+
+lang_data <- all_data %>%
+  mutate(language = ifelse(str_detect(language, "Slovenian"), "Slovenian", language)) %>%
+  distinct(dataset_id, subject_id, language) %>%
+  count(language) %>%
+  arrange(desc(n)) %>%
+  filter(n > 1)
+lang_data_lab <- lang_data %>%
+  mutate(i = 1:n(),
+         angle = 90 - 360 * (i-0.5) / n(),
+         hjust = ifelse( angle < -90, 1, 0),
+         angle = ifelse(angle < -90, angle+180, angle),
+         n = ifelse(language=="French", log2(n)-4, log2(n)-5))
+
+
+
+langPlot <- ggplot(lang_data, aes(x=reorder(language, -n), y=log2(n), fill=reorder(language, -n))) +
+  geom_bar(stat="identity") +
+  geom_text(data=lang_data_lab,
+            aes(x=reorder(language, -n), y=n, label=language, hjust=hjust), 
+            color="white", fontface="bold",alpha=0.8, size=5.5, 
+            angle=lang_data_lab$angle, inherit.aes = FALSE) + 
+  ylim(-10,15) +
+  scale_fill_manual(values=darken(
+    rainbow(nrow(lang_data_lab)),
+    1.2
+    )) +
+  guides(fill="none") +
+  theme_minimal() +
+  theme(
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    panel.grid = element_blank(),
+    plot.margin = unit(rep(-2,4), "cm")
+  ) +
+  coord_polar(start = 0)
+# ggsave("www/img/langPlot.png", langPlot, width=14, height=14)

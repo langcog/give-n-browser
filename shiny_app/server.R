@@ -1,9 +1,34 @@
-
 source(here::here("helper.R"))
 
 
 # MAIN SHINY SERVER
 server <- function(input, output, session) {
+  
+  output$uploadContents <- renderDataTable({
+
+    # input$file1 will be NULL initially. After the user selects
+    # and uploads a file, head of that data file by default,
+    # or all rows if selected, will be shown.
+
+    req(input$file1)
+
+    filetype = str_sub(input$file1$datapath, -4)
+    print(input$file1$datapath)
+    if(filetype == ".csv"){
+      df <- read_csv(input$file1$datapath)
+    } else if(filetype == ".sav"){
+      df <- read_sav(input$file1$datapath)
+    }
+
+    if(input$disp == "head") {
+      previewdf <- head(df, 10)
+    } else {
+      previewdf <- df
+    }
+    return(previewdf)
+    # return(tags$iframe(src=previewdf, width="100%", frameBorder="0", height="1000px"))
+
+  }, width="75%")
   
   ## ----------------------- DATA -----------------------
   
@@ -304,8 +329,6 @@ server <- function(input, output, session) {
   
   ## ---- CITATIONS FOR KL BOXPLOT ----
   output$citations <- eventReactive(input$go_kl, {
-    # str1 <- "Please cite the following datasets:"
-    
     req(filtered_data_kl())
     
     cites <- filtered_data_kl()%>%
@@ -317,7 +340,7 @@ server <- function(input, output, session) {
     
     str2 <- as.character(cites_all)
     HTML(paste("<b>Please cite:</b> <br/>", str2))
-  })
+  }, ignoreNULL=FALSE)
   
   ## ---- DOWNLOADABLE DATA FOR KL ----
   output$downloadData <- downloadHandler(
@@ -623,8 +646,6 @@ server <- function(input, output, session) {
   
   ## ---- CITATIONS FOR ITEM ANALYSES ----
   output$citationsItemAll <- eventReactive(input$go_item, {
-    # str1 <- "Please cite the following datasets:"
-    
     req(filtered_data_item())
     
     cites <- filtered_data_item()%>%
@@ -636,7 +657,7 @@ server <- function(input, output, session) {
     
     str2 <- as.character(cites_all)
     HTML(paste("<b>Please cite:</b> <br/>", str2))
-  })
+  }, ignoreNULL=FALSE)
   
   
   ## ---- ALL CITATIONS ----
@@ -650,13 +671,3 @@ server <- function(input, output, session) {
 }
 
 # shinyApp(ui=ui, server=server)
-
-
-
-
-
-
-
-
-
-

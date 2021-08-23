@@ -6,15 +6,85 @@ rm(list = ls())
 library(tidyverse)
 library(tidylog)
 library(magrittr)
+files = list.files(path = "data/data-raw/kl-only/data-raw",
+                   pattern = "*.csv", 
+                   full.names = T)
+files <- c(files[1:4], files[10:17])
 
 # Read in all data from kl-only raw data ----
 ##TO-DO: add column for sex
 data.raw <-
-  list.files(path = here::here("data/data-raw/kl-only/data-raw/"),
-             pattern = "*.csv", 
-             full.names = T) %>% 
+  files %>% 
   map_df(~read_csv(., col_types = cols(.default = "c"))) 
 # Wrangling and cleaning ----
+
+chernyak2020 <- read_csv("data/data-raw/kl-only/data-raw/Chernyak2020.csv")
+chernyak2020 %<>%
+  rename(Subject = `Subject ID`,
+         Sex = Gender,
+         KL = GiveNCorrectTrials,
+         Age_years = Age) %>%
+  mutate(Age_months = Age_years * 12,
+         Language = "English",
+         method="non-titrated",
+         Experiment = "Chernyak2020",
+         lab = "Cordes",
+         cite = "Chernyak, N., Turnbull, V., Gordon, R., Harris, P. & Cordes, S. (2020). Counting promotes proportional social evaluation in preschool-aged children. Cognitive Development, 56.",
+         typical = "non-typical") %>%
+  select(Experiment, lab, Language, Subject, KL, Age_months, Age_years, method, cite)
+glimpse(chernyak2020)
+
+
+chernyak_submitted1 <- read_csv("data/data-raw/kl-only/data-raw/Chernyak_submitted_Study1.csv") %>%
+  mutate(`Subject ID` = paste0("1_",`Subject ID`))
+chernyak_submitted2 <- read_csv("data/data-raw/kl-only/data-raw/Chernyak_submitted_Study2.csv") %>%
+  mutate(`Subject ID` = paste0("2_",`Subject ID`))
+chernyak_submitted <- chernyak_submitted1 %>%
+  bind_rows(chernyak_submitted2) %>%
+  rename(Subject = `Subject ID`,
+         Sex = Gender,
+         KL = give_n_score,
+         Age_years = Age) %>%
+  mutate(Age_months = Age_years * 12,
+         KL = as.character(KL),
+         KL = ifelse(KL == "6", "CP", KL),
+         Language = "English",
+         method="titrated",
+         Experiment = "Chernyak_submitted",
+         lab = "Cordes",
+         cite = "Chernyak, N., Harris, P., & Cordes, S. (submitted). Numerical cognition, not cognitive control, causally and uniquely  explains equal sharing.",
+         typical = "typical") %>%
+  select(Experiment, lab, Language, Subject, KL, Age_months, Age_years, method, cite)
+glimpse(chernyak_submitted)
+
+
+
+
+chernyak2019_1 <- read_sav("data/data-raw/kl-only/data-raw/ChernyakHarrisCordes2019_Study1.sav") %>%
+  mutate(SubjectID = paste0("1_",SubjectID))
+chernyak2019_2 <- read_sav("data/data-raw/kl-only/data-raw/ChernyakHarrisCordes2019_Study2.sav") %>%
+  mutate(SubjectID = paste0("2_",SubjectID))
+chernyak2019 <- chernyak2019_1 %>%
+  bind_rows(chernyak2019_2) %>%
+  rename(Subject = SubjectID,
+         Sex = Gender,
+         KL = GiveN,
+         Age_years = Age) %>%
+  mutate(Age_months = Age_years * 12,
+         KL = as.character(KL),
+         KL = ifelse(KL == "6", "CP", KL),
+         Language = "English",
+         method="titrated",
+         Experiment = "Chernyak_submitted",
+         lab = "Cordes",
+         cite = "Chernyak, N., Harris, P., & Cordes, S. (2019). Explaining early moral hypocrisy: Numerical cognition promotes equal sharing behavior in preschool-aged children. Developmental Science, 22(1), e12695.",
+         typical = "typical") %>%
+  select(Experiment, lab, Language, Subject, KL, Age_months, Age_years, method, cite)
+glimpse(chernyak2019)
+
+
+
+
 
 #mostly renaming
 data.raw %<>%
@@ -38,6 +108,8 @@ data.raw %<>%
          KL = ifelse(KL == "5K", "5", as.character(KL)),
          KL = ifelse(KL == "4K", "4", as.character(KL)), 
          KL = ifelse(KL == "Non", "0", as.character(KL)))
+
+
 
 #select relevant columns, round for age and mutate years
 

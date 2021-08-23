@@ -5,6 +5,7 @@
 rm(list = ls())
 library(tidylog)
 library(tidyverse)
+library(haven)
 
 
 # Read in data ----
@@ -12,6 +13,23 @@ library(tidyverse)
 ## We'll later merge these with more typical conventions
 ## if there is a KL assigned in the data, we'll export it to KL-only data
 ##otherwise, we'll have to calculate KLs using wynn criteria
+
+## functions ##
+
+reformatDate <- function(date){
+  date.a <- as.Date(date, format="%m/%d/%Y")
+  date.b <- as.Date(date, format="%m.%d.%Y")
+  date.c <- as.Date(date, format="%m-%d-%y")
+  date.d <- as.Date(date, format="%m-%d-%Y")
+  case_when(
+    !is.na(date.a) ~ date.a,
+    !is.na(date.b) ~ date.b,
+    !is.na(date.c) ~ date.c,
+    !is.na(date.d) ~ date.d,
+    TRUE ~ as.Date(date, format="%Y-%m-%d")
+  )
+}
+
 
 ## ... almoammer2013 ----
 almoammer2013_english <- read_csv(here::here('data/data-raw/trial-level/data-raw/Almoammer2013_english.csv'))%>%
@@ -130,7 +148,7 @@ boni20xx_random <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni2
 
 ## now read in the more typical conventions 
 ## ...krajcsi2018 ----
-krajcsi2018 <- read_csv(here::here("data/data-raw/trial-level//data-raw/Krajcsi2018.csv"))%>%
+krajcsi2018 <- read_csv(here::here("data/data-raw/trial-level/data-raw/Krajcsi2018.csv"))%>%
   mutate(Query = as.integer(Query), 
          Response = as.integer(Response))%>%
   rename("Subject" = "Participant")%>%
@@ -196,12 +214,21 @@ Schneider_Barner_2021 <- read_csv(here::here('data/data-raw/trial-level/data-raw
          "Subject" = "SID")
 
 ##output KL data to data-raw 
+<<<<<<< HEAD
 Schneider_Barner_2021_KL <- read_csv(here::here('data/data-raw/trial-level/data-raw/Schneider_Barner_2021.csv'))%>%
 mutate(method = 'titrated', 
        Experiment = 'Schneider_Barner_2021',
        Age = Age*12, 
        lab = "Barner", 
        cite = "Schneider, R. M., Pankonin, A., Schachner, A., & Barner, D. (2021). Starting small: Exploring the origins of successor function knowledge. Developmental Science, 24(4), e13091.")%>%
+=======
+schneider_etal_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_etal_20xx.csv'))%>%
+  mutate(method = 'titrated', 
+        Experiment = 'SchneiderEtAl_20xx',
+        Age = Age*12, 
+        lab = "Barner", 
+        cite = "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.")%>%
+>>>>>>> bb5d309201a1cb370f77f1e2bf1c547a785e961a
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
@@ -266,7 +293,7 @@ Schneider_Barner_2020_KL <- Schneider_Barner_2020 %>%
 write.csv(Schneider_Barner_2020_KL, here::here("data/data-raw/kl-only/data-raw/Schneider_Barner_2020.csv"))
 
 ## ....Marchand and Barner ====
-marchandBarner_titrated_1 <- read.csv("data/data-raw/trial-level/data-raw/marchand_barner_titrated.csv")%>%
+marchandBarner_titrated_1 <- read.csv(here::here("data/data-raw/trial-level/data-raw/marchand_barner_titrated.csv"))%>%
   dplyr::select(-GNtitrated_method, -X2.GNtitrated_request, -X2.GNtitrated_answer, -X2.GNtitrated_KL, -Age.Yr)%>%
   filter(!is.na(X1.GNtitrated_KL))%>%
   rename("Age" = "Age.Mo", 
@@ -277,22 +304,22 @@ marchandBarner_titrated_1 <- read.csv("data/data-raw/trial-level/data-raw/marcha
          "Subject" = "SubjID", 
          "Sex" = "Gender")%>%
   mutate(Language = "English", 
-         Knower_level = stringr::str_remove(Knower_level,  "k|K"), 
+         Knower_level = str_remove(Knower_level,  "k|K"), 
          Experiment = "Marchand_Barner_2020_Titrated_1", 
          cite = "Marchand, E., & Barner, D. (2021). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.", 
          lab = "Barner")
-
+View(marchandBarner_titrated_1)
 ##write KLs
 marchandBarner_titrated_1_kl <- marchandBarner_titrated_1 %>%
   distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
-write.csv(marchandBarner_titrated_1_kl, "data/data-raw/kl-only/data-raw/marchand_barner_2020_titrated.csv")
+write.csv(marchandBarner_titrated_1_kl, here::here("data/data-raw/kl-only/data-raw/marchand_barner_2020_titrated.csv"))
 
 #remove KLs from the above
 marchandBarner_titrated_1 <- marchandBarner_titrated_1 %>%
   select(-Knower_level)
 
 ### Second titration
-marchandBarner_titrated_2 <- read.csv("data/data-raw/trial-level/data-raw/marchand_barner_titrated.csv")%>%
+marchandBarner_titrated_2 <- read.csv(here::here("data/data-raw/trial-level/data-raw/marchand_barner_titrated.csv"))%>%
   dplyr::select(-GNtitrated_method, -X1.GNtitrated_request, -X1.GNtitrated_answer, -X1.GNtitrated_KL, -Age.Yr)%>%
   filter(!is.na(X2.GNtitrated_KL))%>%
   rename("Age" = "Age.Mo", 
@@ -303,7 +330,7 @@ marchandBarner_titrated_2 <- read.csv("data/data-raw/trial-level/data-raw/marcha
          "Subject" = "SubjID", 
          "Sex" = "Gender")%>%
   mutate(Language = "English", 
-         Knower_level = stringr::str_remove(Knower_level,  "k|K"), 
+         Knower_level = str_remove(Knower_level,  "k|K"), 
          Experiment = "Marchand_Barner_2020_Titrated_2", 
          cite = "Marchand, E., & Barner, D. (2021). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.", 
          lab = "Barner")
@@ -311,14 +338,14 @@ marchandBarner_titrated_2 <- read.csv("data/data-raw/trial-level/data-raw/marcha
 ##write KLs
 marchandBarner_titrated_2_kl <- marchandBarner_titrated_2 %>%
   distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
-write.csv(marchandBarner_titrated_2_kl, "data/data-raw/kl-only/data-raw/marchand_barner_2020_titrated_2.csv")
+write.csv(marchandBarner_titrated_2_kl, here::here("data/data-raw/kl-only/data-raw/marchand_barner_2020_titrated_2.csv"))
 
 #remove KLs from the above
 marchandBarner_titrated_2 <- marchandBarner_titrated_2 %>%
   select(-Knower_level)
 
 ## marchand barner non-titrated- 1
-marchand_barner_non_titrated_1 <- read.csv("data/data-raw/trial-level/data-raw/marchand_barner_non-titrated.csv")%>%
+marchand_barner_non_titrated_1 <- read.csv(here::here("data/data-raw/trial-level/data-raw/marchand_barner_non-titrated.csv"))%>%
   dplyr::select(-X2.GNntitrated_request, -X2.GNntitrated_answer, -X2.GNntitrated_KL, -Age.Yr)%>%
   filter(!is.na(X1.GNntitrated_KL))%>%
   rename("Age" = "Age.Mo", 
@@ -338,14 +365,14 @@ marchand_barner_non_titrated_1 <- read.csv("data/data-raw/trial-level/data-raw/m
 ##write KLs
 marchandBarner_non_titrated_1_kl <- marchand_barner_non_titrated_1 %>%
   distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
-write.csv(marchandBarner_non_titrated_1_kl, "data/data-raw/kl-only/data-raw/marchand_barner_2020_non_titrated_1.csv")
+write.csv(marchandBarner_non_titrated_1_kl, here::here("data/data-raw/kl-only/data-raw/marchand_barner_2020_non_titrated_1.csv"))
 
 #remove KLs from the above
 marchand_barner_non_titrated_1 <- marchand_barner_non_titrated_1 %>%
   select(-Knower_level)
 
 ## marchand barner non-titrated - 2
-marchand_barner_non_titrated_2 <- read.csv("data/data-raw/trial-level/data-raw/marchand_barner_non-titrated.csv")%>%
+marchand_barner_non_titrated_2 <- read.csv(here::here("data/data-raw/trial-level/data-raw/marchand_barner_non-titrated.csv"))%>%
   dplyr::select(-X1.GNntitrated_request, -X1.GNntitrated_answer, -X1.GNntitrated_KL, -Age.Yr)%>%
   filter(!is.na(X2.GNntitrated_KL))%>%
   rename("Age" = "Age.Mo", 
@@ -365,7 +392,7 @@ marchand_barner_non_titrated_2 <- read.csv("data/data-raw/trial-level/data-raw/m
 ##write KLs
 marchandBarner_non_titrated_2_kl <- marchand_barner_non_titrated_2 %>%
   distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
-write.csv(marchandBarner_non_titrated_2_kl, "data/data-raw/kl-only/data-raw/marchand_barner_2020_non_titrated_2.csv")
+write.csv(marchandBarner_non_titrated_2_kl, here::here("data/data-raw/kl-only/data-raw/marchand_barner_2020_non_titrated_2.csv"))
 
 #remove KLs from the above
 marchand_barner_non_titrated_2 <- marchand_barner_non_titrated_2 %>%
@@ -373,59 +400,82 @@ marchand_barner_non_titrated_2 <- marchand_barner_non_titrated_2 %>%
 
 
 ### Marchand barner mixed
-marchand_barner_non_titrated_3 <- read.csv("data/data-raw/trial-level/data-raw/marchand_barner_mixed.csv")%>%
-  select(SubjID, Age, Gender, nontitrated_request, nontitrated_answer, nontitrated_KL)%>%
-  filter(!is.na(nontitrated_KL))%>%
-  rename("Query" = "nontitrated_request", 
-         "Response" = "nontitrated_answer", 
-         "Knower_level" = "nontitrated_KL", 
-         "Subject" = "SubjID", 
-         "Sex" = "Gender")%>%
-  mutate(Language = "English", 
-         Knower_level = stringr::str_remove(Knower_level, "k|K"),
-          Experiment = "Marchand_Barner_2020_nonTitrated_3", 
-          cite = "Marchand, E., & Barner, D. (2021). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.", 
-          lab = "Barner", 
-          method = "non-titrated", 
-          Age = Age*12, 
-          Response = ifelse(Response == "all", 10, as.numeric(as.character(Response))))
+# file equivalent to marchand_barner_mixed_REDUNDANT.csv
+marchandUndRev <- read_csv(here::here("data/data-raw/trial-level/data-raw/Marchand2019_Data_104c_Reliability.csv"))
 
-##write KLs
-marchandBarner_non_titrated_3_kl <- marchand_barner_non_titrated_3 %>%
-  distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
-write.csv(marchandBarner_non_titrated_3_kl, "data/data-raw/kl-only/data-raw/marchand_barner_2020_non_titrated_3.csv")
+marchandUndRev %<>%
+  filter(is.na(Exclusion_Reason) || Exclusion_Reason == "5k") %>%
+  rename(Subject = SubjID,
+         Age = Age_Mo,
+         Sex = Gender,
+         Language = L1) %>%
+  select(Subject, Age, Sex, Language, Titrated_request, Nontitrated_request, Titrated_answer, Nontitrated_answer, Titrated_KL, Nontitrated_KL) %>%
+  gather(method, "Query", ends_with("request")) %>%
+  gather(method2, "Response", ends_with("answer")) %>%
+  gather(method3, "KL", ends_with("KL")) %>%
+  filter(str_extract(method, "[^_]+") == str_extract(method2, "[^_]+") & 
+           str_extract(method2, "[^_]+") == str_extract(method3, "[^_]+")) %>%
+  select(-method2, -method3) %>%
+  mutate_at(c("Query", "Response"), as.numeric) %>%
+  mutate(method = tolower(str_remove(method, "_request")),
+         Experiment = "MarchandUnderRev",
+         lab = "Barner",
+         cite = "Marchand, E., & Barner, D. (2021). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.") %>%
+  arrange(Subject, method, Query, Response)
 
-#remove KLs from the above
-marchand_barner_non_titrated_3 <- marchand_barner_non_titrated_3 %>%
-  select(-Knower_level)
+marchandUndRev_kl <- marchandUndRev %>%
+  distinct(Subject, Experiment, Age, KL, method, Language, Sex, cite, lab) %>%
+  mutate(KL = str_remove(KL, "k"))
+write.csv(marchandUndRev_kl, here::here("data/data-raw/kl-only/data-raw/marchandUndRev.csv"))
 
-##and finally, the last marchand-barner titrated dataset
-marchand_barner_titrated_3 <- read.csv("data/data-raw/trial-level/data-raw/marchand_barner_mixed.csv")%>%
-  select(SubjID, Age, Gender, Titrated_request, titrated_answer, titrated_KL)%>%
-  filter(!is.na(titrated_KL))%>%
-  rename("Query" = "Titrated_request", 
-         "Response" = "titrated_answer", 
-         "Knower_level" = "titrated_KL", 
-         "Subject" = "SubjID", 
-         "Sex" = "Gender")%>%
-  filter(!is.na(Query))%>%
-  mutate(Language = "English", 
-         Knower_level = stringr::str_remove(Knower_level,  "k|K"), 
-         Experiment = "Marchand_Barner_2020_Titrated_3", 
-         cite = "Marchand, E., & Barner, D. (2021). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.", 
-         lab = "Barner", 
-         method = "titrated", 
-         Age = Age*12, 
-         Response = ifelse(Response == "all", 10, as.numeric(as.character(Response))))
+marchandUndRev <- select(marchandUndRev, -KL)
 
-##write KLs
-marchandBarner_titrated_3_kl <- marchand_barner_titrated_3 %>%
-  distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
-write.csv(marchandBarner_titrated_3_kl, "data/data-raw/kl-only/data-raw/marchand_barner_2020_titrated_3.csv")
 
-#remove KLs from the above
-marchand_barner_titrated_3 <- marchand_barner_titrated_3 %>%
-  select(-Knower_level)
+marchand2019 <- read_csv(here::here("data/data-raw/trial-level/data-raw/Marchand2018_103Data_FrenchUn.csv"))
+marchand2019 %<>%
+  filter(Exclusion == "no" || Comment == "0K") %>%
+  rename(Subject = SubID,
+         Age = Age.Mo,
+         Sex = Gender,
+         Language = L1,
+         Query = GN_request,
+         Response = GN_ans,
+         KL = GN_KL) %>%
+  select(Subject, Age, Sex, Language, Query, Response, KL) %>%
+  mutate(Response = ifelse(Response == "tous", "10", Response),
+         Response = as.numeric(Response),
+         Experiment = "Marchand2019",
+         lab = "Barner",
+         cite = "Marchand, E., & Barner, D. (2019). The acquisition of French Un. 41st Meeting of the Annual Cognitive Sciences Society.",
+         method = "titrated")
+marchand2019_kl <- marchand2019 %>%
+  distinct(Subject, Experiment, Age, KL, method, Language, Sex, cite, lab) %>%
+  mutate(KL = str_remove(KL, "K"))
+write.csv(marchand2019_kl, here::here("data/data-raw/kl-only/data-raw/marchand2019.csv"))
+
+marchand2019 <- select(marchand2019, -KL)
+
+
+
+
+### Gunderson_unpublished
+gunderson_unpub <- read_sav(here::here("data/data-raw/trial-level/data-raw/Gunderson2015_unpublished.sav"))
+
+gunderson_unpub %<>%
+  select(1:31) %>%
+  pivot_longer(cols = 2:31, 
+               names_to = "Query", 
+               values_to = "Response") %>%
+  rename(Subject = T1GNSubjectID) %>%
+  mutate(Query = substr(Query, 6, 6), # extract query which is after "T1GNG"
+         Experiment = "GundersonUnpub",
+         lab = "Gunderson",
+         cite = "Gunderson, E. A. (2015). Unpublished data.",
+         method = "titrated") 
+  
+  
+
+
 
 # Bind everything together ----
 all.data <- bind_rows(almoammer2013_english, 
@@ -442,10 +492,10 @@ all.data <- bind_rows(almoammer2013_english,
                       Schneider_Barner_2020, 
                       marchandBarner_titrated_1, 
                       marchandBarner_titrated_2, 
-                      marchand_barner_titrated_3,
                       marchand_barner_non_titrated_1, 
-                      marchand_barner_non_titrated_2, 
-                      marchand_barner_non_titrated_3)%>%
+                      marchand_barner_non_titrated_2,
+                      marchandUndRev,
+                      marchand2019)%>%
   dplyr::rename('Age_months'='Age')%>%
   filter(!is.na(Response),
          !is.na(Age_months), 
@@ -457,3 +507,7 @@ all.data <- bind_rows(almoammer2013_english,
 
 # Save and export ----
 write_csv(all.data, here::here('data/processed-data/trial_level_processed_data.csv'))
+
+
+# all.data <- read_csv('data/processed-data/trial_level_processed_data.csv')
+glimpse(all.data)
