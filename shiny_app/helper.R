@@ -120,10 +120,59 @@ datasets_KL <- c(unique(subset(all_data, !is.na(KL))$dataset_id))
 methods <- c("titrated", "non-titrated")
 queries <- c(as.character(sort(unique(all_data$Query))))
 n.samps <- 100
+defaultParams = list(22, 
+                     144, 
+                     c("1-knower", "2-knower", "3-knower", "CP-knower"), 
+                     "English",
+                     unique(all_data$shortCite))
+
+
+
+##sampling functions
+sample.ns <- function(df) {
+  df %<>% 
+    sample_n(nrow(df), replace=TRUE) %>%
+    group_by(KL, language, age_months) %>%
+    summarise(n = n()) %>%
+    mutate(cum.n = cumsum(n),
+           prop = cum.n / sum(n))
+  return(df)
+}
+
+sample.dat <- function(df) {
+  bind_rows(replicate(n.samps, sample.ns(df), simplify=FALSE)) %>%
+    group_by(KL, language, age_months) %>%
+    summarise(ci.low = quantile(prop, .025), 
+              ci.high = quantile(prop, .975))
+}
+
+#get ns, cumulative sums, and props for dataset from default parameters
+get_all_data <- all_data %>%
+  filter(!is.na(age_months), 
+         !is.na(KL),
+         age_months >= defaultParams[[1]],
+         age_months <= defaultParams[[2]],
+         KL %in% defaultParams[[3]],
+         language == defaultParams[[4]],
+         shortCite %in% defaultParams[[5]])%>%
+  select(KL, language, age_months)
+
+sample.n_all <- sample.dat(get_all_data)
+
+n_all <- get_all_data %<>% 
+  group_by(KL, language, age_months) %>%
+  summarise(n = n()) %>%
+  mutate(cum.n = cumsum(n),
+         prop = cum.n / sum(n))
+n_all <- left_join(n_all, sample.n_all)
+
+
+
+
+
 
 
 #brainstorm plots
-
 
 darken <- function(color, factor=1.4){
   col <- col2rgb(color)
