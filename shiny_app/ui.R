@@ -182,7 +182,7 @@ ui = navbarPage(title = "Numberbank",
                                       #             width="100%",frameBorder="0",height="1000px")
                                       # tableOutput("uploadContents")
                                       
-                                      div(tableOutput("uploadContents"), style = "font-size: 75%; width: 75%;"),
+                                      div(dataTableOutput("uploadContents"), style = "font-size: 75%; width: 75%;"),
                                       tags$style(type = "text/css",
                                                  ".shiny-table { width: 75%; }")
                                     )

@@ -28,7 +28,7 @@ server <- function(input, output, session) {
     return(previewdf)
     # return(tags$iframe(src=previewdf, width="100%", frameBorder="0", height="1000px"))
 
-  }, width="75%")
+  })
   
   ## ----------------------- DATA -----------------------
   
@@ -63,6 +63,7 @@ server <- function(input, output, session) {
   ##cumulative probability 
   ##get age_months, KL, and language points
   cumul_prob <- eventReactive(input$go_kl, {
+    
     inputAgeMin = input$age_range_kl[1]
     inputAgeMax = input$age_range_kl[2]
     inputKL = input$kl_range_kl
@@ -70,49 +71,39 @@ server <- function(input, output, session) {
     inputDat = input$dataset_add_kl
     
     if(input$go_kl == 0){
-      inputAgeMin = 22
-      inputAgeMax = 144
-      inputKL = c("1-knower", "2-knower", "3-knower", "CP-knower")
-      inputLang = "English"
-      inputDat = unique(all_data$shortCite)
+      inputAgeMin = defaultParams[[1]]
+      inputAgeMax = defaultParams[[2]]
+      inputKL = defaultParams[[3]]
+      inputLang = defaultParams[[4]]
+      inputDat = defaultParams[[5]]
     }
     ### CDF ###
-    ##static data that will be filtered below for sampling
-    ns <- all_data %>%
-      filter(!is.na(age_months), 
-             !is.na(KL),
-             age_months >= inputAgeMin,
-             age_months <= inputAgeMax,
-             if (is.null(inputKL)) KL %in% unique(all_data$KL) else KL %in% inputKL,
-             if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
-             if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat)%>%
-      select(KL, language, age_months)
-    
-    ##sampling function
-    sample.ns <- function(df) {
-      df %<>% 
-        sample_n(nrow(df), replace=TRUE) %>%
-        group_by(KL, language, age_months) %>%
+    if(identical(defaultParams,
+                 list(inputAgeMin, inputAgeMax, inputKL, inputLang, inputDat))) {
+      ns <- n_all
+    } else{
+      ##static data that will be filtered below for sampling
+      ns <- all_data %>%
+        filter(!is.na(age_months), 
+               !is.na(KL),
+               age_months >= inputAgeMin,
+               age_months <= inputAgeMax,
+               if (is.null(inputKL)) KL %in% unique(all_data$KL) else KL %in% inputKL,
+               if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
+               if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat)%>%
+        select(KL, language, age_months)
+      
+      samps <- sample.dat(ns)
+      
+      #get ns, cumulative sums, and props
+      ns %<>% group_by(KL, language, age_months) %>%
         summarise(n = n()) %>%
         mutate(cum.n = cumsum(n),
                prop = cum.n / sum(n))
-      return(df)
+      
+      #left join with samples
+      ns <- left_join(ns, samps)
     }
-    
-    #sample
-    samps <- bind_rows(replicate(n.samps, sample.ns(ns), simplify=FALSE)) %>%
-      group_by(KL, language, age_months) %>%
-      summarise(ci.low = quantile(prop, .025), 
-                ci.high = quantile(prop, .975))
-    
-    #get ns, cumulative sums, and props
-    ns %<>% group_by(KL, language, age_months) %>%
-      summarise(n = n()) %>%
-      mutate(cum.n = cumsum(n),
-             prop = cum.n / sum(n))
-    
-    #left join with samples
-    ns <- left_join(ns, samps)
     
     ns %>% 
       dplyr::select(age_months, KL, language, n, cum.n, prop, 
