@@ -32,7 +32,7 @@ reformatDate <- function(date){
 
 
 ## ... almoammer2013 ----
-almoammer2013_english <- read_csv(here::here('data/data-raw/trial-level/data-raw/Almoammer2013_english.csv'))%>%
+Almoammer_2013 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Almoammer_Barner_2013.csv'))%>%
   pivot_longer(cols = c(-Experiment, - Participant, - Language,
                         -PrimaryLang, -Age_months, -SEX, -method, -cite), 
                names_to = "Query", 
@@ -49,7 +49,7 @@ almoammer2013_english <- read_csv(here::here('data/data-raw/trial-level/data-raw
                 Response = as.integer(Response))
   
 # ...piantadosi2014 ----
-piantadosi2014 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Piantadosi2014.csv'))%>%
+Piantadosi_Gibson_2014 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Piantadosi_Gibson_2014.csv'))%>%
   pivot_longer(cols = c(-Experiment, -Participant, -Language, -`Knower-level`,
                         -Age, -Sex, -Education, -method, -cite), 
                names_to = "Query", 
@@ -64,7 +64,7 @@ piantadosi2014 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Pianta
          cite = "Piantadosi, S. T., Jara‐Ettinger, J., & Gibson, E. (2014). Children's learning of number words in an indigenous farming‐foraging group. Developmental Science, 17(4), 553-563.")##Age is in years, convert to rounded months, I guess
 
 ## ..... pull out KL data, send to raw data for processing ----
-piantadosi2014_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/Piantadosi2014.csv'))%>%
+Piantadosi_Gibson_2014_KL <- read_csv(here::here('data/data-raw/trial-level/data-raw/Piantadosi_Gibson_2014.csv'))%>%
   distinct(Experiment, Participant, Language, `Knower-level`, Sex, Age, method, cite)%>%
   dplyr::select(Experiment, Participant, Language, `Knower-level`, Sex, Age, method, cite)%>%
   rename("Subject" = "Participant")%>%
@@ -73,9 +73,10 @@ piantadosi2014_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/Pia
          lab = "Piantadosi", 
          cite = "Piantadosi, S. T., Jara_Ettinger, J., & Gibson, E. (2014). Children's learning of number words in an indigenous farming_foraging group. Developmental Science, 17(4), 553-563.")
 
-write_csv(piantadosi2014_kl, here::here('data/data-raw/kl-only/data-raw/piantadosi_2014.csv'))
+write_csv(Piantadosi_Gibson_2014_KL, here::here('data/data-raw/kl-only/data-raw/Piantadosi_Gibson_2014.csv'))
+
 # ...sarnecka2007 ----
-sarnecka2007 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Sarnecka2007.csv'))%>%
+Sarnecka_Yudovina_2007 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Sarnecka_Yudovina_2007.csv'))%>%
   pivot_longer(cols = c(-Experiment, -Participant, -Language,
                         -Age_months, -SEX, -method, -cite), 
                names_to = "Query", 
@@ -92,7 +93,7 @@ sarnecka2007 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Sarnecka
          cite = "Sarnecka, B. W., Kamenskaya, V. G., Yamana, Y., Ogura, T., & Yudovina, Y. B. (2007). From grammatical number to exact numbers: Early meanings of ‘one’,‘two’, and ‘three’in English, Russian, and Japanese. Cognitive psychology, 55(2), 136-168.")
 
 ## ... wagner2016 ----
-wagner2016 <- read.csv(here::here('data/data-raw/trial-level/data-raw/Wagner2016.csv'))%>%
+Wagner_Barner_2019 <- read.csv(here::here('data/data-raw/trial-level/data-raw/Wagner_Barner_2019.csv'))%>%
   pivot_longer(cols = c(-Experiment, - Participant, -Language,
                         -PrimaryLang, -Age_months, -SEX, -method, -cite), 
                names_to = "Query", 
@@ -109,9 +110,10 @@ wagner2016 <- read.csv(here::here('data/data-raw/trial-level/data-raw/Wagner2016
          cite = "Wagner, K., Chu, J., & Barner, D. (2019). Do children's number words begin noisy?. Developmental science, 22(1), e12752.")
 
 ## ...boni (unpublished, ordered Give) ----
-boni20xx_ordered <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni20XX.csv')) %>%
+### Reading these in separately and then combining them
+boni20xx_ordered <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni_Unpublished.csv')) %>%
   dplyr::select(-starts_with("GiveN"))%>%
-  mutate(Experiment = "Boni20xx_ordered", 
+  mutate(Experiment = "Boni_Unpublished_ordered", 
          Language = "Tsimane")%>%
   pivot_longer(cols = c(-Experiment, -Subject, 
                         -Language, -`Location Code`, 
@@ -128,9 +130,9 @@ boni20xx_ordered <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni
   dplyr::rename("Sex" = "Gender")
 
 ## ...boni (unpublished, random Give) ----
-boni20xx_random <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni20XX.csv')) %>%
+boni20xx_random <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni_Unpublished.csv')) %>%
   dplyr::select(-starts_with("Ordered"))%>%
-  mutate(Experiment = "Boni20xx_random", 
+  mutate(Experiment = "Boni_Unpublished_random", 
          Language = "Tsimane")%>%
   pivot_longer(cols = c(-Experiment, -Subject, 
                         -Language, -`Location Code`, 
@@ -146,9 +148,12 @@ boni20xx_random <- read_csv(here::here('data/data-raw/trial-level/data-raw/Boni2
          cite = "Boni et al. (unpublished data)")%>%
   dplyr::rename("Sex" = "Gender")
 
+## Bind these together
+Boni_Unpublished <- bind_rows(boni20xx_ordered, boni20xx_random)
+
 ## now read in the more typical conventions 
 ## ...krajcsi2018 ----
-krajcsi2018 <- read_csv(here::here("data/data-raw/trial-level/data-raw/Krajcsi2018.csv"))%>%
+Krajcsi_2018 <- read_csv(here::here("data/data-raw/trial-level/data-raw/Krajcsi_2018.csv"))%>%
   mutate(Query = as.integer(Query), 
          Response = as.integer(Response))%>%
   rename("Subject" = "Participant")%>%
@@ -157,7 +162,7 @@ krajcsi2018 <- read_csv(here::here("data/data-raw/trial-level/data-raw/Krajcsi20
          cite = "Krajcsi, A. (2019, March 19). Follow-up questions influence the measured number knowledge in the Give a number task. https://doi.org/10.31234/osf.io/fky69")
 
 ## ...sarnecka2019 ----
-sarnecka2019 <- read_csv(here::here('data/data-raw/trial-level/data-raw/SarneckaNegen2019.csv'))%>%
+Sarnecka_Negen_2019 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Sarnecka_Negen_2019.csv'))%>%
   dplyr::rename("Sex" = "Gender", 
                 "Query" = "Test",
                 "Subject" = "SubjNo")%>%
@@ -166,7 +171,7 @@ sarnecka2019 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Sarnecka
          Query = as.integer(Query), 
          Response = as.integer(Response), 
          lab = "Sarnecka", 
-         Experiment = "SarneckaNegen2019", 
+         Experiment = "Sarnecka_Negen_2019", 
          cite = "Sarnecka, B. W., & Negen, J. (2019, May 30). Longitudinal Number-Knower Data. https://doi.org/10.17605/OSF.IO/EZNHT")%>%
   dplyr::select(-Task)
 
@@ -214,21 +219,12 @@ Schneider_Barner_2021 <- read_csv(here::here('data/data-raw/trial-level/data-raw
          "Subject" = "SID")
 
 ##output KL data to data-raw 
-<<<<<<< HEAD
 Schneider_Barner_2021_KL <- read_csv(here::here('data/data-raw/trial-level/data-raw/Schneider_Barner_2021.csv'))%>%
 mutate(method = 'titrated', 
        Experiment = 'Schneider_Barner_2021',
        Age = Age*12, 
        lab = "Barner", 
        cite = "Schneider, R. M., Pankonin, A., Schachner, A., & Barner, D. (2021). Starting small: Exploring the origins of successor function knowledge. Developmental Science, 24(4), e13091.")%>%
-=======
-schneider_etal_20xx_kl <- read_csv(here::here('data/data-raw/trial-level/data-raw/schneider_etal_20xx.csv'))%>%
-  mutate(method = 'titrated', 
-        Experiment = 'SchneiderEtAl_20xx',
-        Age = Age*12, 
-        lab = "Barner", 
-        cite = "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.")%>%
->>>>>>> bb5d309201a1cb370f77f1e2bf1c547a785e961a
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
@@ -478,14 +474,13 @@ gunderson_unpub %<>%
 
 
 # Bind everything together ----
-all.data <- bind_rows(almoammer2013_english, 
-                      wagner2016, 
-                      piantadosi2014, 
-                      sarnecka2007, 
-                      sarnecka2019, 
-                      krajcsi2018, 
-                      boni20xx_ordered, 
-                      boni20xx_random, 
+all.data <- bind_rows(Almoammer_Barner_2013, 
+                      Wagner_Barner_2019, 
+                      Piantadosi_Gibson_2014, 
+                      Sarnecka_Yudovina_2007, 
+                      Sarnecka_Negen_2019, 
+                      Krajcsi_2018, 
+                      Boni_Unpublished,
                       Schneider_Barner_UnderReview,
                       Schneider_Barner_2021, 
                       Schneider_Barner_Unpublished, 
