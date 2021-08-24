@@ -32,7 +32,7 @@ reformatDate <- function(date){
 
 
 ## ... almoammer2013 ----
-Almoammer_2013 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Almoammer_Barner_2013.csv'))%>%
+Almoammer_Barner_2013 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Almoammer_Barner_2013.csv'))%>%
   pivot_longer(cols = c(-Experiment, - Participant, - Language,
                         -PrimaryLang, -Age_months, -SEX, -method, -cite), 
                names_to = "Query", 
@@ -304,7 +304,7 @@ marchandBarner_titrated_1 <- read.csv(here::here("data/data-raw/trial-level/data
          Experiment = "Marchand_Barner_2020_Titrated_1", 
          cite = "Marchand, E., & Barner, D. (2021). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.", 
          lab = "Barner")
-View(marchandBarner_titrated_1)
+# View(marchandBarner_titrated_1)
 ##write KLs
 marchandBarner_titrated_1_kl <- marchandBarner_titrated_1 %>%
   distinct(Subject, Experiment, Age, Knower_level, method, Language, Sex, cite, lab)
@@ -498,10 +498,11 @@ all.data <- bind_rows(Almoammer_Barner_2013,
   mutate(Age_months = round(as.numeric(as.character(Age_months), 4)), 
          Age_years = floor(Age_months)/12)%>%
   mutate(typical = ifelse(Experiment == "SchneiderEtAl_2020", "non-typical", "typical"))%>%
-  dplyr::select(Experiment, lab, Language, Subject, Age_months, Age_years, method, Query, Response, cite, typical)
+  dplyr::select(Experiment, lab, Language, Subject, Age_months, Age_years, Sex, method, Query, Response, cite, typical)
 
 # Save and export ----
-write_csv(all.data, here::here('data/processed-data/trial_level_processed_data.csv'))
+write_csv(all.data, here::here('data/processed-data/trial_level_processed_data.csv')) # to main data
+write_csv(all.data, here::here('shiny_app/data/processed-data/trial_level_processed_data.csv')) # to shiny app
 
 
 # all.data <- read_csv('data/processed-data/trial_level_processed_data.csv')

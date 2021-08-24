@@ -7,7 +7,7 @@ library(haven)
 
 # read data
 trials <- read_csv(here::here("data/processed-data/trials.csv"))
-subjects <- read_csv(here::here("data/processed-data/subjects.csv"))
+subjects <- read_csv(here::here("data/processed-data/subjects.csv"), col_types = cols(highest_count = col_number()))
 datasets <- read_csv(here::here("data/processed-data/datasets.csv"))
 
 
@@ -33,7 +33,6 @@ all_data <- full_join(subjects, trials) %>%
          method = ifelse(method == "Non-titrated", "non-titrated", as.character(method)), 
          CP_subset = ifelse(KL == "CP-knower", "CP-knower", "Subset-knower"), 
          CP_subset = factor(CP_subset, levels = c("Subset-knower", "CP-knower")))
-
 
 # organize citations
 
@@ -113,8 +112,12 @@ all_datasets_short <- all_datasets$shortCite
 languages_KL <- c(unique(subset(all_data, !is.na(KL))$language))
 ##get only language for which we have Queries
 languages_item <- c(unique(subset(all_data, !is.na(Query))$language))
+##get only language for which we have highest_counts
+languages_hc <- c(unique(subset(all_data, !is.na(highest_count))$language))
 # #get only datasets for which we have KLs
 datasets_KL <- c(unique(subset(all_data, !is.na(KL))$dataset_id))
+# #get only datasets for which we have highest counts
+all_datasets_short_hc <- c(unique(subset(all_data, !is.na(highest_count))$shortCite))
 # #get only datasets for which we have queries
 # datasets_item <- c(unique(subset(all_data, !is.na(Query))$dataset_id))
 methods <- c("titrated", "non-titrated")

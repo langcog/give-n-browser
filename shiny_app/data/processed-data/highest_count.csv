@@ -1,0 +1,1228 @@
+,SID,Age,Sex,Knower_level,highest_count,Experiment,Language
+1,021319-SF,2.688569473,M,0,3,Schneider_Barner_2021,English
+2,021319-VA,2.488706366,F,0,3,Schneider_Barner_2021,English
+3,021319-EW,2.379192334,F,1,7,Schneider_Barner_2021,English
+4,021319-ZC,2.811772758,M,2,10,Schneider_Barner_2021,English
+5,021919-AP,2.836413415,M,3,6,Schneider_Barner_2021,English
+6,021919-MW,3.674195756,M,3,2,Schneider_Barner_2021,English
+7,021919-WD,3.991786448,M,CP,29,Schneider_Barner_2021,English
+8,021919-ZM,4.394250513,M,4,10,Schneider_Barner_2021,English
+9,021919-AS,3.986310746,M,CP,79,Schneider_Barner_2021,English
+10,021919-AY,3.660506502,F,CP,20,Schneider_Barner_2021,English
+11,021919-PW,3.156741958,F,1,5,Schneider_Barner_2021,English
+12,022219-JF,3.118412047,F,4,14,Schneider_Barner_2021,English
+13,022219-EL,3.520876112,M,4,2,Schneider_Barner_2021,English
+14,022219-AB,3.890485969,M,4,1,Schneider_Barner_2021,English
+15,022219-A,3.211498973,M,CP,3,Schneider_Barner_2021,English
+16,022219-BW,3.939767283,M,2,9,Schneider_Barner_2021,English
+17,022219-RR,3.953456537,F,2,3,Schneider_Barner_2021,English
+18,022619-ER,3.02532512,F,1,4,Schneider_Barner_2021,English
+19,022619-LD,3.230663929,M,2,10,Schneider_Barner_2021,English
+20,022619-LR,2.724161533,F,1,8,Schneider_Barner_2021,English
+21,022619-RG,2.945927447,M,1,5,Schneider_Barner_2021,English
+22,022619-RT,2.417522245,M,0,NA,Schneider_Barner_2021,English
+23,022619-T,3.414099932,M,2,10,Schneider_Barner_2021,English
+24,022619-D,2.650239562,F,3,12,Schneider_Barner_2021,English
+25,022719-B,3.619438741,M,2,13,Schneider_Barner_2021,English
+26,022719-CH,3.455167693,F,3,13,Schneider_Barner_2021,English
+27,022719-CL,3.383983573,M,1,3,Schneider_Barner_2021,English
+28,022719-J,3.668720055,M,3,5,Schneider_Barner_2021,English
+29,022719-JM,3.23613963,M,2,6,Schneider_Barner_2021,English
+30,022719-M,2.981519507,F,3,2,Schneider_Barner_2021,English
+31,022719-PL,3.72347707,F,2,6,Schneider_Barner_2021,English
+32,022719-SW,3.564681725,M,2,7,Schneider_Barner_2021,English
+33,022819-ED,2.836413415,M,1,10,Schneider_Barner_2021,English
+34,022819-AH,3.646817248,F,3,5,Schneider_Barner_2021,English
+35,022819-AM,3.170431211,F,3,4,Schneider_Barner_2021,English
+36,022819-AM2,3.561943874,M,CP,5,Schneider_Barner_2021,English
+37,022819-BT,3.397672827,M,2,10,Schneider_Barner_2021,English
+38,022819-H,3.12936345,M,1,10,Schneider_Barner_2021,English
+39,022819-HP,3.58110883,F,3,4,Schneider_Barner_2021,English
+40,022819-ZF,3.367556468,M,2,2,Schneider_Barner_2021,English
+41,030119-AD,3.701574264,F,CP,14,Schneider_Barner_2021,English
+42,030119-B,3.879534565,F,2,16,Schneider_Barner_2021,English
+43,030119-H,3.197809719,M,3,4,Schneider_Barner_2021,English
+44,030119-HR,3.871321013,M,2,8,Schneider_Barner_2021,English
+45,030119-L,3.885010267,F,3,13,Schneider_Barner_2021,English
+46,030119-S,3.526351814,F,CP,14,Schneider_Barner_2021,English
+47,030119-S2,3.159479808,F,1,2,Schneider_Barner_2021,English
+48,030119-SW,3.455167693,M,CP,12,Schneider_Barner_2021,English
+49,030419-A,2.767967146,F,1,11,Schneider_Barner_2021,English
+50,030419-C,2.611909651,F,2,1,Schneider_Barner_2021,English
+51,030419-E,2.444900753,M,NA,NA,Schneider_Barner_2021,English
+52,030419-F,2.726899384,F,1,12,Schneider_Barner_2021,English
+53,030419-H,3.89596167,F,3,12,Schneider_Barner_2021,English
+54,030419-LM,3.255304586,F,3,8,Schneider_Barner_2021,English
+55,030419-LP,3.520876112,M,NA,NA,Schneider_Barner_2021,English
+56,030419-OH,4.076659822,M,2,5,Schneider_Barner_2021,English
+57,030519-B,4.355920602,F,4,29,Schneider_Barner_2021,English
+58,030519-JH,3.852156057,M,CP,14,Schneider_Barner_2021,English
+59,030519-K,3.353867214,F,1,3,Schneider_Barner_2021,English
+60,030519-OB1,3.540041068,M,2,4,Schneider_Barner_2021,English
+61,030519-OB2,3.496235455,M,2,2,Schneider_Barner_2021,English
+62,030519-OB3,3.635865845,F,CP,14,Schneider_Barner_2021,English
+63,030619-E,3.422313484,F,2,6,Schneider_Barner_2021,English
+64,030619-J,4.098562628,M,1,5,Schneider_Barner_2021,English
+65,030619-K,3.006160164,F,1,1,Schneider_Barner_2021,English
+66,030619-L,3.624914442,M,1,12,Schneider_Barner_2021,English
+67,030619-L2,3.263518138,M,1,15,Schneider_Barner_2021,English
+68,030619-M,3.679671458,M,1,1,Schneider_Barner_2021,English
+69,030619-M2,3.775496235,F,CP,18,Schneider_Barner_2021,English
+70,030619-M3,3.419575633,F,3,5,Schneider_Barner_2021,English
+71,030619-Q,3.603011636,F,CP,12,Schneider_Barner_2021,English
+72,030619-S,2.220396988,F,1,3,Schneider_Barner_2021,English
+73,030619-T,3.868583162,M,4,12,Schneider_Barner_2021,English
+74,030719-HM,4.041067762,M,CP,6,Schneider_Barner_2021,English
+75,031219-RM,3.559206023,M,CP,11,Schneider_Barner_2021,English
+76,031819-MS,3.969883641,M,CP,NA,Schneider_Barner_2021,English
+77,031819-IG,3.008898015,F,CP,20,Schneider_Barner_2021,English
+78,031819-PM,3.206023272,M,CP,19,Schneider_Barner_2021,English
+79,032019-E,4.501026694,F,CP,13,Schneider_Barner_2021,English
+80,032519-T,3.734428474,M,CP,13,Schneider_Barner_2021,English
+81,032519-BT,3.055441478,M,NA,NA,Schneider_Barner_2021,English
+82,032519-V,3.696098563,F,CP,59,Schneider_Barner_2021,English
+83,032619-D,2.986995209,M,CP,12,Schneider_Barner_2021,English
+84,032619-B,3.947980835,M,CP,10,Schneider_Barner_2021,English
+85,032619-E,3.728952772,M,2,5,Schneider_Barner_2021,English
+86,032619-W,3.51266256,F,2,13,Schneider_Barner_2021,English
+87,032619-G,3.110198494,F,1,6,Schneider_Barner_2021,English
+88,032719-G,3.874058864,F,CP,7,Schneider_Barner_2021,English
+89,032919-EW,3.3045859,F,0,NA,Schneider_Barner_2021,English
+90,032919-C,3.23613963,M,2,13,Schneider_Barner_2021,English
+91,032919-W,3.030800821,M,1,13,Schneider_Barner_2021,English
+92,032919-K,3.696098563,F,2,6,Schneider_Barner_2021,English
+93,040319-M,3.375770021,F,CP,16,Schneider_Barner_2021,English
+94,040319-E,2.598220397,F,NA,NA,Schneider_Barner_2021,English
+95,040319-A1,3.446954141,F,1,10,Schneider_Barner_2021,English
+96,040319-B,3.75633128,M,1,12,Schneider_Barner_2021,English
+97,040219-AC,2.970568104,F,NA,NA,Schneider_Barner_2021,English
+98,040219-NS,3.655030801,F,CP,12,Schneider_Barner_2021,English
+99,040219-Q,2.666666667,F,NA,NA,Schneider_Barner_2021,English
+100,040219-JQ,3.545516769,M,3,14,Schneider_Barner_2021,English
+101,040219-AT,3.605749487,F,4,10,Schneider_Barner_2021,English
+102,040219-A,3.611225188,M,3,10,Schneider_Barner_2021,English
+103,041719-MS,3.140314853,F,CP,10,Schneider_Barner_2021,English
+104,041719-CR,4.027378508,M,CP,11,Schneider_Barner_2021,English
+105,041719-E,3.504449008,F,CP,13,Schneider_Barner_2021,English
+106,041719-LC,3.427789185,F,CP,4,Schneider_Barner_2021,English
+107,071519-OL,3.227926078,F,2,5,Schneider_Barner_2021,English
+108,071219-BG,2.535249829,M,2,6,Schneider_Barner_2021,English
+109,071019-Z,-0.073921971,NA,NA,NA,Schneider_Barner_2021,English
+110,071019-W,3.72073922,M,CP,11,Schneider_Barner_2021,English
+111,071019-TR,3.890485969,F,CP,20,Schneider_Barner_2021,English
+112,071019-TD,2.565366188,F,NA,NA,Schneider_Barner_2021,English
+113,071019-S,3.819301848,M,2,1,Schneider_Barner_2021,English
+114,071019-S2,2.669404517,F,3,10,Schneider_Barner_2021,English
+115,071019-MF,3.624914442,F,CP,24,Schneider_Barner_2021,English
+116,071019-K,3.58384668,F,CP,5,Schneider_Barner_2021,English
+117,071019-J,2.735112936,M,NA,NA,Schneider_Barner_2021,English
+118,071019-E,4.583162218,M,NA,NA,Schneider_Barner_2021,English
+119,071019-E2,2.54072553,F,NA,NA,Schneider_Barner_2021,English
+120,071019-C,3.446954141,F,2,1,Schneider_Barner_2021,English
+121,071019-BC,3.34017796,F,NA,NA,Schneider_Barner_2021,English
+122,070919-IK,2.943189596,F,1,3,Schneider_Barner_2021,English
+123,070919-GR,2.967830253,M,2,10,Schneider_Barner_2021,English
+124,070319-ZA,3.947980835,M,CP,79,Schneider_Barner_2021,English
+125,070319-AA,3.947980835,M,CP,100,Schneider_Barner_2021,English
+126,070219-SP,2.683093771,M,3,7,Schneider_Barner_2021,English
+127,070119-ZC,3.189596167,M,3,19,Schneider_Barner_2021,English
+128,070119-L,3.375770021,F,CP,20,Schneider_Barner_2021,English
+129,070119-KT,3.939767283,F,CP,29,Schneider_Barner_2021,English
+130,070119-A,2.455852156,F,NA,NA,Schneider_Barner_2021,English
+131,062819-OF,3.802874743,F,2,13,Schneider_Barner_2021,English
+132,062819-GS,3.115674196,F,1,3,Schneider_Barner_2021,English
+133,062819-CB,3.92881588,M,CP,12,Schneider_Barner_2021,English
+134,062719-GA,3.808350445,M,CP,8,Schneider_Barner_2021,English
+135,062719-AL,3.926078029,F,5,15,Schneider_Barner_2021,English
+136,062719-AC,3.811088296,F,CP,14,Schneider_Barner_2021,English
+137,062519-AD,3.208761123,F,4,10,Schneider_Barner_2021,English
+138,062419-MB,3.603011636,F,CP,14,Schneider_Barner_2021,English
+139,062119-RM,2.598220397,M,1,14,Schneider_Barner_2021,English
+140,062119-EG,2.381930185,F,1,3,Schneider_Barner_2021,English
+141,061219-RM,3.811088296,M,CP,9,Schneider_Barner_2021,English
+142,061219-OM,3.72073922,M,2,14,Schneider_Barner_2021,English
+143,061219-NZ,2.453114305,F,1,3,Schneider_Barner_2021,English
+144,061219-LE,2.529774127,M,2,10,Schneider_Barner_2021,English
+145,061219-L,3.72073922,M,2,1,Schneider_Barner_2021,English
+146,061219-KH,3.181382615,F,3,10,Schneider_Barner_2021,English
+147,061219-IS,2.551676934,F,3,16,Schneider_Barner_2021,English
+148,061219-G,3.748117728,F,CP,12,Schneider_Barner_2021,English
+149,061219-FL,2.754277892,M,CP,12,Schneider_Barner_2021,English
+150,061219-DV,3.326488706,M,1,15,Schneider_Barner_2021,English
+151,061219-DC,3.972621492,M,CP,NA,Schneider_Barner_2021,English
+152,061219-BH,2.453114305,M,1,15,Schneider_Barner_2021,English
+153,061219-AL,2.64476386,F,3,13,Schneider_Barner_2021,English
+154,061119-RB,3.148528405,M,2,7,Schneider_Barner_2021,English
+155,060719-MV,3.110198494,F,CP,11,Schneider_Barner_2021,English
+156,060619-V,3.039014374,F,2,4,Schneider_Barner_2021,English
+157,060619-CH,3.101984942,F,1,12,Schneider_Barner_2021,English
+158,060519-S,3.885010267,M,CP,8,Schneider_Barner_2021,English
+159,060519-B,3.92881588,M,1,9,Schneider_Barner_2021,English
+160,060419-S,2.663928816,F,NA,NA,Schneider_Barner_2021,English
+161,060419-R,3.121149897,F,2,9,Schneider_Barner_2021,English
+162,060419-LK,1.930184805,F,NA,NA,Schneider_Barner_2021,English
+163,060419-K1,3.315537303,F,1,15,Schneider_Barner_2021,English
+164,060419-K,3.175906913,F,NA,NA,Schneider_Barner_2021,English
+165,060419-JB,3.277207392,M,2,14,Schneider_Barner_2021,English
+166,060419-J1,2.414784394,M,2,7,Schneider_Barner_2021,English
+167,060419-IS,4.93908282,F,CP,28,Schneider_Barner_2021,English
+168,060419-CS,3.02532512,M,0,12,Schneider_Barner_2021,English
+169,060419-B,3.225188227,M,1,11,Schneider_Barner_2021,English
+170,053119-MT,4.076659822,M,NA,NA,Schneider_Barner_2021,English
+171,053119-MK,3.783709788,M,CP,39,Schneider_Barner_2021,English
+172,053119-KO,3.367556468,F,2,1,Schneider_Barner_2021,English
+173,053119-EM,3.518138261,F,CP,28,Schneider_Barner_2021,English
+174,053119-CF,3.498973306,F,CP,15,Schneider_Barner_2021,English
+175,053119-AM,3.802874743,F,2,14,Schneider_Barner_2021,English
+176,053019-M,2.32991102,M,NA,NA,Schneider_Barner_2021,English
+177,053019-L,1.954825462,F,2,10,Schneider_Barner_2021,English
+178,052819-LC,3.780971937,F,3,10,Schneider_Barner_2021,English
+179,052819-CH,2.576317591,M,3,6,Schneider_Barner_2021,English
+180,052219-RB,2.737850787,M,NA,NA,Schneider_Barner_2021,English
+181,052219-HF,2.239561944,F,3,2,Schneider_Barner_2021,English
+182,051719-J,3.794661191,M,CP,10,Schneider_Barner_2021,English
+183,051719-AM,2.674880219,M,1,11,Schneider_Barner_2021,English
+184,051619-T,4.971937029,M,CP,10,Schneider_Barner_2021,English
+185,051619-M,3.950718686,F,4,4,Schneider_Barner_2021,English
+186,051519-R,2.099931554,F,0,4,Schneider_Barner_2021,English
+187,051519-P,4.5229295,F,CP,27,Schneider_Barner_2021,English
+188,051519-OB,3.159479808,M,2,13,Schneider_Barner_2021,English
+189,050819-SM,4.479123888,M,5,20,Schneider_Barner_2021,English
+190,050819-C,3.665982204,F,CP,14,Schneider_Barner_2021,English
+191,050719-SW,4.076659822,F,CP,12,Schneider_Barner_2021,English
+192,050719-PT,2.6091718,M,2,5,Schneider_Barner_2021,English
+193,050719-M,2.217659138,M,NA,NA,Schneider_Barner_2021,English
+194,050719-K,2.680355921,F,0,2,Schneider_Barner_2021,English
+195,050719-C,2.680355921,F,0,8,Schneider_Barner_2021,English
+196,050119-W,1.998631075,M,1,NA,Schneider_Barner_2021,English
+197,050119-JL,4.824093087,F,CP,40,Schneider_Barner_2021,English
+198,042919-MF,2.625598905,M,1,1,Schneider_Barner_2021,English
+199,042919-KI,2.661190965,F,0,1,Schneider_Barner_2021,English
+200,042919-CI,2.661190965,F,0,1,Schneider_Barner_2021,English
+201,042919-BQ,2.776180698,F,1,9,Schneider_Barner_2021,English
+202,042919-BP,3.805612594,F,CP,12,Schneider_Barner_2021,English
+203,042519-MG,3.091033539,F,CP,39,Schneider_Barner_2021,English
+204,042419-S,5.560574949,M,NA,NA,Schneider_Barner_2021,English
+205,042419-M,2.984257358,F,2,13,Schneider_Barner_2021,English
+206,042419-HW,3.72347707,M,4,8,Schneider_Barner_2021,English
+207,042419-E,3.326488706,F,4,15,Schneider_Barner_2021,English
+208,041819-DS,3.934291581,M,CP,12,Schneider_Barner_2021,English
+209,041719-SW,3.356605065,M,2,5,Schneider_Barner_2021,English
+210,041719-SK,2.967830253,F,3,8,Schneider_Barner_2021,English
+211,041719-RO,3.526351814,M,CP,13,Schneider_Barner_2021,English
+212,041719-NJ,3.704312115,F,1,10,Schneider_Barner_2021,English
+213,041719-JA,3.997262149,F,4,10,Schneider_Barner_2021,English
+214,041719-CC,4.049281314,F,2,1,Schneider_Barner_2021,English
+215,041719-BD,3.939767283,M,CP,25,Schneider_Barner_2021,English
+216,one-one_4,4.101300479,M,CP,12,Schneider_Barner_UnderReview,English
+217,one-one_7,3.920602327,M,5,7,Schneider_Barner_UnderReview,English
+218,one-one_8,3.58110883,F,4,19,Schneider_Barner_UnderReview,English
+219,one-one_9,4.254620123,F,CP,28,Schneider_Barner_UnderReview,English
+220,one-one_10,3.849418207,F,CP,20,Schneider_Barner_UnderReview,English
+221,one-one_11,3.578370979,F,4,10,Schneider_Barner_UnderReview,English
+222,one-one_12,3.255304586,M,2,14,Schneider_Barner_UnderReview,English
+223,one-one_13,5.048596851,M,CP,19,Schneider_Barner_UnderReview,English
+224,one-one_14,3.986310746,F,3,12,Schneider_Barner_UnderReview,English
+225,one-one_15,4.013689254,F,4,14,Schneider_Barner_UnderReview,English
+226,one-one_16,4.361396304,M,CP,8,Schneider_Barner_UnderReview,English
+227,one-one_17,4.588637919,F,CP,18,Schneider_Barner_UnderReview,English
+228,one-one_18,3.638603696,F,3,8,Schneider_Barner_UnderReview,English
+229,one-one_19,3.321013005,M,4,13,Schneider_Barner_UnderReview,English
+230,one-one_20,4.41889117,F,CP,14,Schneider_Barner_UnderReview,English
+231,one-one_21,3.627652293,M,1,1,Schneider_Barner_UnderReview,English
+232,one-one_22,3.715263518,M,CP,12,Schneider_Barner_UnderReview,English
+233,one-one_26,4.531143053,M,CP,14,Schneider_Barner_UnderReview,English
+234,one-one_27,4.145106092,M,CP,13,Schneider_Barner_UnderReview,English
+235,one-one_28,4.670773443,M,CP,44,Schneider_Barner_UnderReview,English
+236,one-one_30,4.62696783,M,CP,22,Schneider_Barner_UnderReview,English
+237,one-one_31,4.944558522,M,CP,11,Schneider_Barner_UnderReview,English
+238,one-one_32,3.255304586,F,3,10,Schneider_Barner_UnderReview,English
+239,one-one_33,4.925393566,F,CP,NA,Schneider_Barner_UnderReview,English
+240,one-one_34,3.356605065,M,CP,10,Schneider_Barner_UnderReview,English
+241,one-one_35,3.624914442,M,CP,29,Schneider_Barner_UnderReview,English
+242,one-one_36,3.800136893,F,CP,14,Schneider_Barner_UnderReview,English
+243,one-one_37,3.950718686,M,CP,15,Schneider_Barner_UnderReview,English
+244,one-one_38,4.07118412,F,CP,3,Schneider_Barner_UnderReview,English
+245,one-one_39,4.073921971,F,2,10,Schneider_Barner_UnderReview,English
+246,one-one_40,4.10403833,M,CP,9,Schneider_Barner_UnderReview,English
+247,one-one_41,4.963723477,M,CP,13,Schneider_Barner_UnderReview,English
+248,one-one_42,5.067761807,M,CP,39,Schneider_Barner_UnderReview,English
+249,one-one_43,4.43,F,CP,14,Schneider_Barner_UnderReview,English
+250,one-one_44,4.339493498,M,3,12,Schneider_Barner_UnderReview,English
+251,one-one_45,4.235455168,M,CP,12,Schneider_Barner_UnderReview,English
+252,one-one_46,3.698836413,F,CP,11,Schneider_Barner_UnderReview,English
+253,one-one_49,3.917864476,M,4,15,Schneider_Barner_UnderReview,English
+254,one-one_50,3.074606434,F,2,2,Schneider_Barner_UnderReview,English
+255,one-one_51,4.574948665,M,CP,15,Schneider_Barner_UnderReview,English
+256,one-one_52,3.490759754,M,2,15,Schneider_Barner_UnderReview,English
+257,one-one_54,3.509924709,F,2,10,Schneider_Barner_UnderReview,English
+258,one-one_55,3.72347707,M,1,NA,Schneider_Barner_UnderReview,English
+259,one-one_56,3.728952772,M,CP,13,Schneider_Barner_UnderReview,English
+260,one-one_57,4.465434634,M,4,11,Schneider_Barner_UnderReview,English
+261,one-one_58,4.440793977,M,CP,49,Schneider_Barner_UnderReview,English
+262,one-one_59,4.832306639,M,CP,23,Schneider_Barner_UnderReview,English
+263,one-one_60,4.744695414,F,CP,28,Schneider_Barner_UnderReview,English
+264,one-one_61,4.394250513,M,CP,12,Schneider_Barner_UnderReview,English
+265,one-one_62,3.51266256,M,CP,NA,Schneider_Barner_UnderReview,English
+266,one-one_63,3.991786448,M,CP,26,Schneider_Barner_UnderReview,English
+267,one-one_64,4.804928131,M,CP,14,Schneider_Barner_UnderReview,English
+268,one-one_65,4.804928131,F,CP,9,Schneider_Barner_UnderReview,English
+269,one-one_66,3.986310746,M,CP,79,Schneider_Barner_UnderReview,English
+270,one-one_68,4.156057495,F,1,5,Schneider_Barner_UnderReview,English
+271,one-one_69,3.674195756,M,2,NA,Schneider_Barner_UnderReview,English
+272,one-one_69,3.674195756,M,22,NA,Schneider_Barner_UnderReview,English
+273,one-one_70,3.660506502,F,3,10,Schneider_Barner_UnderReview,English
+274,one-one_71,4.41889117,F,CP,39,Schneider_Barner_UnderReview,English
+275,one-one_72,3.329226557,M,4,NA,Schneider_Barner_UnderReview,English
+276,one-one_73,4.596851472,M,CP,101,Schneider_Barner_UnderReview,English
+277,one-one_74,3.329226557,M,5,NA,Schneider_Barner_UnderReview,English
+278,one-one_75,4.216290212,M,CP,20,Schneider_Barner_UnderReview,English
+279,one-one_77,3.953456537,F,1,6,Schneider_Barner_UnderReview,English
+280,one-one_78,3.879534565,M,1,16,Schneider_Barner_UnderReview,English
+281,one-one_79,3.890485969,M,1,6,Schneider_Barner_UnderReview,English
+282,one-one_80,3.118412047,F,2,8,Schneider_Barner_UnderReview,English
+283,one-one_80,3.118412047,F,22,8,Schneider_Barner_UnderReview,English
+284,one-one_81,3.520876112,M,CP,NA,Schneider_Barner_UnderReview,English
+285,one-one_82,3.211498973,M,CP,10,Schneider_Barner_UnderReview,English
+286,one-one_83,3.879534565,M,3,4,Schneider_Barner_UnderReview,English
+287,one-one_84,4.925393566,F,CP,10,Schneider_Barner_UnderReview,English
+288,one-one_85,3.882272416,F,2,6,Schneider_Barner_UnderReview,English
+289,one-one_87,3.493497604,F,2,12,Schneider_Barner_UnderReview,English
+290,one-one_88,3.679671458,F,5,6,Schneider_Barner_UnderReview,English
+291,one-one_89,4.1724846,F,CP,39,Schneider_Barner_UnderReview,English
+292,one-one_90,3.748117728,M,2,10,Schneider_Barner_UnderReview,English
+293,one-one_91,3.613963039,M,2,13,Schneider_Barner_UnderReview,English
+294,one-one_92,3.022587269,F,1,4,Schneider_Barner_UnderReview,English
+295,one-one_93,4.851471595,F,CP,9,Schneider_Barner_UnderReview,English
+296,one-one_94,4.947296372,F,CP,24,Schneider_Barner_UnderReview,English
+297,one-one_96,4.944558522,M,CP,29,Schneider_Barner_UnderReview,English
+298,one-one_97,3.227926078,M,2,10,Schneider_Barner_UnderReview,English
+299,one-one_98,4.167008898,F,CP,14,Schneider_Barner_UnderReview,English
+300,one-one_99,3.641341547,F,CP,10,Schneider_Barner_UnderReview,English
+301,one-one_100,3.436002738,M,2,10,Schneider_Barner_UnderReview,English
+302,one-one_104,4.106776181,M,CP,29,Schneider_Barner_UnderReview,English
+303,one-one_105,3.575633128,M,3,12,Schneider_Barner_UnderReview,English
+304,one-one_106,3.890485969,M,3,1,Schneider_Barner_UnderReview,English
+305,one-one_107,4.62696783,M,5,9,Schneider_Barner_UnderReview,English
+306,one-one_108,4.429842574,F,CP,12,Schneider_Barner_UnderReview,English
+307,one-one_109,4.145106092,M,CP,13,Schneider_Barner_UnderReview,English
+308,one-one_110,3.455167693,F,3,13,Schneider_Barner_UnderReview,English
+309,one-one_111,4.191649555,F,2,5,Schneider_Barner_UnderReview,English
+310,one-one_112,3.23613963,M,2,8,Schneider_Barner_UnderReview,English
+311,one-one_113,4.380561259,M,3,13,Schneider_Barner_UnderReview,English
+312,one-one_113,4.380561259,M,4,13,Schneider_Barner_UnderReview,English
+313,one-one_114,3.383983573,M,2,6,Schneider_Barner_UnderReview,English
+314,one-one_115,4.728268309,F,CP,12,Schneider_Barner_UnderReview,English
+315,one-one_116,4.224503765,M,CP,5,Schneider_Barner_UnderReview,English
+316,one-one_117,3.668720055,M,2,3,Schneider_Barner_UnderReview,English
+317,one-one_118,4.503764545,M,CP,13,Schneider_Barner_UnderReview,English
+318,one-one_119,3.72347707,F,2,11,Schneider_Barner_UnderReview,English
+319,one-one_120,3.564681725,M,2,9,Schneider_Barner_UnderReview,English
+320,one-one_121,3.646817248,F,3,5,Schneider_Barner_UnderReview,English
+321,one-one_122,3.170431211,F,2,10,Schneider_Barner_UnderReview,English
+322,one-one_123,3.561943874,M,4,13,Schneider_Barner_UnderReview,English
+323,one-one_124,3.397672827,M,2,10,Schneider_Barner_UnderReview,English
+324,one-one_125,3.12936345,M,0,10,Schneider_Barner_UnderReview,English
+325,one-one_126,3.58110883,F,2,6,Schneider_Barner_UnderReview,English
+326,one-one_127,3.718001369,M,0,1,Schneider_Barner_UnderReview,English
+327,one-one_129,3.622176591,F,CP,4,Schneider_Barner_UnderReview,English
+328,one-one_130,4.517453799,F,2,12,Schneider_Barner_UnderReview,English
+329,one-one_131,3.367556468,M,2,5,Schneider_Barner_UnderReview,English
+330,one-one_132,3.701574264,F,CP,14,Schneider_Barner_UnderReview,English
+331,one-one_133,4.273785079,F,4,104,Schneider_Barner_UnderReview,English
+332,one-one_134,3.879534565,F,2,12,Schneider_Barner_UnderReview,English
+333,one-one_136,3.219712526,M,2,4,Schneider_Barner_UnderReview,English
+334,one-one_137,4.169746749,F,3,5,Schneider_Barner_UnderReview,English
+335,one-one_138,3.871321013,M,2,9,Schneider_Barner_UnderReview,English
+336,one-one_139,5.054072553,M,4,5,Schneider_Barner_UnderReview,English
+337,one-one_140,3.885010267,F,3,12,Schneider_Barner_UnderReview,English
+338,one-one_141,3.578370979,F,CP,14,Schneider_Barner_UnderReview,English
+339,one-one_142,3.159479808,F,1,3,Schneider_Barner_UnderReview,English
+340,one-one_143,3.455167693,M,CP,10,Schneider_Barner_UnderReview,English
+341,one-one_144,3.89596167,F,3,10,Schneider_Barner_UnderReview,English
+342,one-one_145,4.336755647,M,CP,12,Schneider_Barner_UnderReview,English
+343,one-one_146,3.540041068,F,2,13,Schneider_Barner_UnderReview,English
+344,one-one_147,3.255304586,F,3,13,Schneider_Barner_UnderReview,English
+345,one-one_148,3.520876112,M,4,1,Schneider_Barner_UnderReview,English
+346,one-one_149,4.076659822,M,3,1,Schneider_Barner_UnderReview,English
+347,one-one_150,3.4770705,F,0,6,Schneider_Barner_UnderReview,English
+348,one-one_151,4.355920602,F,5,29,Schneider_Barner_UnderReview,English
+349,one-one_153,3.852156057,M,CP,15,Schneider_Barner_UnderReview,English
+350,one-one_154,3.353867214,F,1,7,Schneider_Barner_UnderReview,English
+351,one-one_155,3.345653662,M,0,10,Schneider_Barner_UnderReview,English
+352,one-one_157,3.496235455,M,1,5,Schneider_Barner_UnderReview,English
+353,one-one_159,3.206023272,M,CP,11,Schneider_Barner_UnderReview,English
+354,one-one_160,3.008898015,F,CP,20,Schneider_Barner_UnderReview,English
+355,one-one_162,4.325804244,M,CP,19,Schneider_Barner_UnderReview,English
+356,one-one_164,4.413415469,F,CP,13,Schneider_Barner_UnderReview,English
+357,one-one_165,3.947980835,M,CP,10,Schneider_Barner_UnderReview,English
+358,one-one_166,3.696098563,M,CP,59,Schneider_Barner_UnderReview,English
+359,one-one_168,4.049281314,F,CP,30,Schneider_Barner_UnderReview,English
+360,one-one_169,4.692676249,F,CP,29,Schneider_Barner_UnderReview,English
+361,one-one_172,3.734428474,M,CP,13,Schneider_Barner_UnderReview,English
+362,one-one_173,3.427789185,M,CP,6,Schneider_Barner_UnderReview,English
+363,060619-V,3.039014374,F,2,4,Schneider_Barner_UnderReview,English
+364,60619-CH,3.101984942,F,1,12,Schneider_Barner_UnderReview,English
+365,060419-CS,3.02532512,M,0,10,Schneider_Barner_UnderReview,English
+366,060719-MV,3.110198494,F,CP,10,Schneider_Barner_UnderReview,English
+367,061119-RB,3.148528405,M,2,7,Schneider_Barner_UnderReview,English
+368,061119-AB,4.087611225,F,2,3,Schneider_Barner_UnderReview,English
+369,061119-LB,4.087611225,M,3,5,Schneider_Barner_UnderReview,English
+370,061219-WM,3.23613963,M,2,13,Schneider_Barner_UnderReview,English
+371,062519-AD,3.208761123,F,2,10,Schneider_Barner_UnderReview,English
+372,062419-MB,3.603011636,F,CP,14,Schneider_Barner_UnderReview,English
+373,071519-MT,3.151266256,F,CP,8,Schneider_Barner_UnderReview,English
+374,072319-EW,3.523613963,F,CP,15,Schneider_Barner_UnderReview,English
+375,072319-EA,4.098562628,F,CP,38,Schneider_Barner_UnderReview,English
+376,072919-EF,4.752908966,F,CP,40,Schneider_Barner_UnderReview,English
+377,080119-VM,4.065708419,F,CP,19,Schneider_Barner_UnderReview,English
+378,080119-IW,4.010951403,F,NA,NA,Schneider_Barner_UnderReview,English
+379,080519-IH,4.079397673,F,CP,14,Schneider_Barner_UnderReview,English
+380,080719-TJ ,3.679671458,F,0,7,Schneider_Barner_UnderReview,English
+381,081419-AW,3.96440794,F,CP,14,Schneider_Barner_UnderReview,English
+382,090319-E,3.315537303,F,CP,NA,Schneider_Barner_UnderReview,English
+383,090319-M,4.670773443,F,CP,50,Schneider_Barner_UnderReview,English
+384,090319-G,4.427104723,F,4,15,Schneider_Barner_UnderReview,English
+385,090319-R,3.51266256,M,1,12,Schneider_Barner_UnderReview,English
+386,090319-A,3.529089665,F,0,11,Schneider_Barner_UnderReview,English
+387,090319-F,3.509924709,M,3,15,Schneider_Barner_UnderReview,English
+388,090319-C,3.696098563,M,CP,13,Schneider_Barner_UnderReview,English
+389,090419-CC,3.901437372,F,3,NA,Schneider_Barner_UnderReview,English
+390,090419-R,3.685147159,M,2,15,Schneider_Barner_UnderReview,English
+391,090419-E,4.260095825,M,CP,10,Schneider_Barner_UnderReview,English
+392,090419-JE,4.511978097,M,4,12,Schneider_Barner_UnderReview,English
+393,090419-H,3.797399042,M,CP,10,Schneider_Barner_UnderReview,English
+394,083019-EA,4.563997262,M,3,15,Schneider_Barner_UnderReview,English
+395,083019-EL,3.843942505,F,NA,NA,Schneider_Barner_UnderReview,English
+396,091419-J,3.485284052,M,NA,NA,Schneider_Barner_UnderReview,English
+397,091419-A2,4.616016427,F,CP,NA,Schneider_Barner_UnderReview,English
+398,091419-O,3.293634497,F,2,NA,Schneider_Barner_UnderReview,English
+399,091419-P,4.492813142,F,3,NA,Schneider_Barner_UnderReview,English
+400,091419-N,5.483915127,F,CP,29,Schneider_Barner_UnderReview,English
+401,091419-A,3.956194387,F,2,19,Schneider_Barner_UnderReview,English
+402,091419-L,3.241615332,M,0,NA,Schneider_Barner_UnderReview,English
+403,091419-T,4.616016427,F,CP,NA,Schneider_Barner_UnderReview,English
+404,091419-S,4.999315537,F,CP,12,Schneider_Barner_UnderReview,English
+405,091319-S,3.307323751,M,1,3,Schneider_Barner_UnderReview,English
+406,091319-FL,NA,ChangeMe,NA,NA,Schneider_Barner_UnderReview,English
+407,091319-A,4.142368241,M,CP,4,Schneider_Barner_UnderReview,English
+408,091319-JE,5.377138946,M,CP,29,Schneider_Barner_UnderReview,English
+409,100519-E,4.651608487,F,CP,100,Schneider_Barner_UnderReview,English
+410,100519-S,5.464750171,F,CP,37,Schneider_Barner_UnderReview,English
+411,100519-E2,3.244353183,F,CP,4,Schneider_Barner_UnderReview,English
+412,100519-CN,NA,F,4,9,Schneider_Barner_UnderReview,English
+413,100519-C,5.171800137,F,CP,100,Schneider_Barner_UnderReview,English
+414,100619-A,5.620807666,F,CP,29,Schneider_Barner_UnderReview,English
+415,100619-G,4.210814511,M,CP,20,Schneider_Barner_UnderReview,English
+416,100619-LY,3.151266256,M,2,10,Schneider_Barner_UnderReview,English
+417,100619-J,3.646817248,M,3,10,Schneider_Barner_UnderReview,English
+418,100619-E,5.700205339,M,CP,19,Schneider_Barner_UnderReview,English
+419,100619-EV,3.290896646,F,CP,9,Schneider_Barner_UnderReview,English
+420,101419-L,4.873374401,M,NA,NA,Schneider_Barner_UnderReview,English
+421,101419-AR,4.629705681,F,CP,11,Schneider_Barner_UnderReview,English
+422,101419-CP,3.575633128,M,1,6,Schneider_Barner_UnderReview,English
+423,102019-AJ,4.651608487,F,NA,NA,Schneider_Barner_UnderReview,English
+424,102019-C,5.930184805,F,CP,110,Schneider_Barner_UnderReview,English
+425,101919-MW,3.93155373,F,CP,29,Schneider_Barner_UnderReview,English
+426,101919-MN,3.882272416,F,CP,20,Schneider_Barner_UnderReview,English
+427,101919-L,4.20807666,F,CP,NA,Schneider_Barner_UnderReview,English
+428,101919-E,4.97467488,F,CP,70,Schneider_Barner_UnderReview,English
+429,101919-I,4.728268309,F,CP,39,Schneider_Barner_UnderReview,English
+430,101919-SL,4.553045859,M,4,30,Schneider_Barner_UnderReview,English
+431,102019-S,5.785078713,Male,CP,100,Schneider_Barner_UnderReview,English
+432,102619-NC,3.055441478,F,1,9,Schneider_Barner_UnderReview,English
+433,102719-I,4.703627652,F,CP,12,Schneider_Barner_UnderReview,English
+434,102619-C2,5.546885695,F,CP,NA,Schneider_Barner_UnderReview,English
+435,102619-C,5.363449692,M,CP,59,Schneider_Barner_UnderReview,English
+436,102619-M,4.052019165,M,CP,10,Schneider_Barner_UnderReview,English
+437,102619-H,4.377823409,F,CP,20,Schneider_Barner_UnderReview,English
+438,102619-LR,5.399041752,F,CP,49,Schneider_Barner_UnderReview,English
+439,102619-J,3.559206023,M,NA,NA,Schneider_Barner_UnderReview,English
+440,102719-E,4.399726215,F,CP,49,Schneider_Barner_UnderReview,English
+441,102719-S,5.117043121,F,CP,39,Schneider_Barner_UnderReview,English
+442,110219-LC,3.403148528,M,CP,29,Schneider_Barner_UnderReview,English
+443,110219-S,5.790554415,M,CP,100,Schneider_Barner_UnderReview,English
+444,110219-KS,4.309377139,M,4,12,Schneider_Barner_UnderReview,English
+445,110219-MH,4.859685147,F,CP,36,Schneider_Barner_UnderReview,English
+446,110319-A,3.427789185,M,3,15,Schneider_Barner_UnderReview,English
+447,110219-K,4.605065024,F,CP,20,Schneider_Barner_UnderReview,English
+448,110219-G,4.301163587,M,CP,100,Schneider_Barner_UnderReview,English
+449,110219-MR,4.284736482,F,CP,100,Schneider_Barner_UnderReview,English
+450,110219-E ,4.27652293,M,NA,NA,Schneider_Barner_UnderReview,English
+451,110219-ZL,4.325804244,F,CP,100,Schneider_Barner_UnderReview,English
+452,111019-L,4.358658453,M,4,13,Schneider_Barner_UnderReview,English
+453,111019-M,4.501026694,F,CP,20,Schneider_Barner_UnderReview,English
+454,111019-C,3.197809719,F,CP,10,Schneider_Barner_UnderReview,English
+455,112219-D,4.928131417,M,CP,39,Schneider_Barner_UnderReview,English
+456,112219-F,4.358658453,M,2,6,Schneider_Barner_UnderReview,English
+457,112219-L,4.167008898,M,3,29,Schneider_Barner_UnderReview,English
+458,112219-E,4.613278576,M,CP,49,Schneider_Barner_UnderReview,English
+459,112319-NM,3.707049966,F,CP,29,Schneider_Barner_UnderReview,English
+460,112319-LM,3.707049966,F,4,29,Schneider_Barner_UnderReview,English
+461,112319-A,4.971937029,F,CP,10,Schneider_Barner_UnderReview,English
+462,112319-LD,4.640657084,M,CP,20,Schneider_Barner_UnderReview,English
+463,112319-J,3.208761123,M,2,5,Schneider_Barner_UnderReview,English
+464,112319-LW,3.422313484,F,1,7,Schneider_Barner_UnderReview,English
+465,112319-E,5.541409993,F,CP,39,Schneider_Barner_UnderReview,English
+466,102619-NI,4.082135524,F,CP,12,Schneider_Barner_UnderReview,English
+467,102619-DR,5.371663244,F,CP,37,Schneider_Barner_UnderReview,English
+468,112419-V,5.968514716,F,CP,100,Schneider_Barner_UnderReview,English
+469,112419-C,4.375085558,F,CP,10,Schneider_Barner_UnderReview,English
+470,112419-W,3.953456537,F,CP,39,Schneider_Barner_UnderReview,English
+471,112419-D,4.210814511,M,NA,NA,Schneider_Barner_UnderReview,English
+472,113019-S,3.61670089,F,NA,NA,Schneider_Barner_UnderReview,English
+473,113019-K,3.627652293,M,CP,11,Schneider_Barner_UnderReview,English
+474,113019-LR,5.544147844,F,CP,100,Schneider_Barner_UnderReview,English
+475,113019-E,5.880903491,F,CP,29,Schneider_Barner_UnderReview,English
+476,113019-G,4.292950034,M,CP,24,Schneider_Barner_UnderReview,English
+477,113019-M,4.525667351,F,3,6,Schneider_Barner_UnderReview,English
+478,113019-LK,5.059548255,M,CP,14,Schneider_Barner_UnderReview,English
+479,113019-S2,4.032854209,F,5,13,Schneider_Barner_UnderReview,English
+480,113019-MD,4.388774812,M,CP,28,Schneider_Barner_UnderReview,English
+481,112119-LM,3.189596167,F,2,25,Schneider_Barner_UnderReview,English
+482,112119-SK,4.59137577,F,0,20,Schneider_Barner_UnderReview,English
+483,112119-ZM,3.3045859,F,CP,13,Schneider_Barner_UnderReview,English
+484,112119-RM,4.254620123,M,CP,29,Schneider_Barner_UnderReview,English
+485,112619-NM,4.353182752,M,CP,100,Schneider_Barner_UnderReview,English
+486,112619-NiM,4.216290212,F,CP,22,Schneider_Barner_UnderReview,English
+487,112619-LG,4.169746749,M,CP,20,Schneider_Barner_UnderReview,English
+488,112619-AS,4.057494867,F,4,10,Schneider_Barner_UnderReview,English
+489,121519-A,5.648186174,M,NA,NA,Schneider_Barner_UnderReview,English
+490,121519-JD,3.074606434,M,NA,NA,Schneider_Barner_UnderReview,English
+491,121519-BG,5.245722108,M,CP,34,Schneider_Barner_UnderReview,English
+492,121519-L,3.592060233,F,NA,NA,Schneider_Barner_UnderReview,English
+493,121519-GG,3.854893908,F,CP,NA,Schneider_Barner_UnderReview,English
+494,121519-J,4.095824778,F,CP,NA,Schneider_Barner_UnderReview,English
+495,11220-C,5,M,CP,100,Schneider_Barner_UnderReview,English
+496,11220-I,4.249144422,F,CP,40,Schneider_Barner_UnderReview,English
+497,11220-A,5.423682409,M,CP,100,Schneider_Barner_UnderReview,English
+498,11220-A2,5.437371663,F,CP,17,Schneider_Barner_UnderReview,English
+499,11220-P,4.495550992,F,NA,NA,Schneider_Barner_UnderReview,English
+500,11220-B (no video),4.944558522,M,CP,100,Schneider_Barner_UnderReview,English
+501,11220-A3,NA,F,3,12,Schneider_Barner_UnderReview,English
+502,11220-?,NA,M,2,4,Schneider_Barner_UnderReview,English
+503,11920-NP,3.071868583,F,2,NA,Schneider_Barner_UnderReview,English
+504,YES,3.274469541,M,CP,21,Schneider_Barner_UnderReview,English
+505,011920-B,3.876796715,F,NA,NA,Schneider_Barner_UnderReview,English
+506,11920-G,3.296372348,M,CP,34,Schneider_Barner_UnderReview,English
+507,11920-S,3.668720055,F,3,NA,Schneider_Barner_UnderReview,English
+508,11920-J,3.644079398,M,2,6,Schneider_Barner_UnderReview,English
+509,11920-R,4.692676249,M,CP,29,Schneider_Barner_UnderReview,English
+510,11920-A2,5.905544148,F,CP,60,Schneider_Barner_UnderReview,English
+511,12620-Z,4.531143053,F,CP,100,Schneider_Barner_UnderReview,English
+512,12620-J,3.953456537,M,5,39,Schneider_Barner_UnderReview,English
+513,12620-H,4.41615332,F,CP,25,Schneider_Barner_UnderReview,English
+514,12620-H2,3.989048597,F,CP,12,Schneider_Barner_UnderReview,English
+515,12620-A,6.428473648,F,CP,100,Schneider_Barner_UnderReview,English
+516,12620-L,4.076659822,F,4,29,Schneider_Barner_UnderReview,English
+517,2220-A,3.832991102,F,CP,19,Schneider_Barner_UnderReview,English
+518,2220-I,4.928131417,M,CP,11,Schneider_Barner_UnderReview,English
+519,2220-P,3.214236824,F,CP,20,Schneider_Barner_UnderReview,English
+520,2220-H,3.646817248,M,NA,NA,Schneider_Barner_UnderReview,English
+521,020520-JB,3.61670089,F,1,12,Schneider_Barner_UnderReview,English
+522,020520-AM,3.712525667,F,0,8,Schneider_Barner_UnderReview,English
+523,020520-EM,3.704312115,M,0,25,Schneider_Barner_UnderReview,English
+524,020520-DE,3.808350445,M,3,10,Schneider_Barner_UnderReview,English
+525,020520-EMH,4.030116359,F,1,10,Schneider_Barner_UnderReview,English
+526,020520-JB2,3.195071869,M,3,6,Schneider_Barner_UnderReview,English
+527,020520-DL,3.956194387,M,1,13,Schneider_Barner_UnderReview,English
+528,020520-JZ,3.865845311,F,1,11,Schneider_Barner_UnderReview,English
+529,020520-SJ,3.978097194,F,0,8,Schneider_Barner_UnderReview,English
+530,020520-EC,4.717316906,F,CP,30,Schneider_Barner_UnderReview,English
+531,020520-AS,5.002053388,F,CP,39,Schneider_Barner_UnderReview,English
+532,020720-Q,4.922655715,F,CP,22,Schneider_Barner_UnderReview,English
+533,020720-J,4.328542094,M,CP,100,Schneider_Barner_UnderReview,English
+534,020720-T,3.956194387,M,CP,6,Schneider_Barner_UnderReview,English
+535,020720-T2,4.438056126,M,CP,100,Schneider_Barner_UnderReview,English
+536,020720-K,5.081451061,M,CP,25,Schneider_Barner_UnderReview,English
+537,020720-E,4.648870637,F,CP,39,Schneider_Barner_UnderReview,English
+538,020720-JO,4.065708419,M,4,29,Schneider_Barner_UnderReview,English
+539,020720-M,5.544147844,F,CP,100,Schneider_Barner_UnderReview,English
+540,020720-AM,3.956194387,F,2,13,Schneider_Barner_UnderReview,English
+541,020720-LM,4.065708419,M,5,29,Schneider_Barner_UnderReview,English
+542,020720-TS,3.956194387,F,3,14,Schneider_Barner_UnderReview,English
+543,020720-CVC,5.453798768,M,CP,29,Schneider_Barner_UnderReview,English
+544,020720-SM,4.624229979,F,NA,NA,Schneider_Barner_UnderReview,English
+545,020720-SJ,4.34770705,M,CP,10,Schneider_Barner_UnderReview,English
+546,020720-PT,4.640657084,F,CP,16,Schneider_Barner_UnderReview,English
+547,120519-WD,4.783025325,M,CP,59,Schneider_Barner_Unpublished,English
+548,120519-MN,4.681724846,F,CP,19,Schneider_Barner_Unpublished,English
+549,120519-AY,4.45174538,F,CP,30,Schneider_Barner_Unpublished,English
+550,120519-AS,4.777549624,M,CP,59,Schneider_Barner_Unpublished,English
+551,120519-CZ,4.52019165,F,CP,29,Schneider_Barner_Unpublished,English
+552,120519-BP,4.380561259,F,CP,30,Schneider_Barner_Unpublished,English
+553,120519-BR,4.66255989,M,4,20,Schneider_Barner_Unpublished,English
+554,120519-N,5.229295003,M,CP,50,Schneider_Barner_Unpublished,English
+555,120519-IP,5.256673511,M,4,10,Schneider_Barner_Unpublished,English
+556,120719-125,4.153319644,ChangeMe,2,5,Schneider_Barner_Unpublished,English
+557,120719-63,3.709787817,ChangeMe,1,6,Schneider_Barner_Unpublished,English
+558,120719-110,6.042436687,F,CP,100,Schneider_Barner_Unpublished,English
+559,120719-116,5.686516085,ChangeMe,CP,10,Schneider_Barner_Unpublished,English
+560,120719-83,4.295687885,M,CP,26,Schneider_Barner_Unpublished,English
+561,120719-54,6.064339493,M,CP,29,Schneider_Barner_Unpublished,English
+562,120719-?,5.527720739,F,CP,100,Schneider_Barner_Unpublished,English
+563,120719-2,5.998631075,M,CP,100,Schneider_Barner_Unpublished,English
+564,120719-32,4.865160849,F,NA,13,Schneider_Barner_Unpublished,English
+565,120719-30,2.792607803,ChangeMe,CP,30,Schneider_Barner_Unpublished,English
+566,120719-18,5.867214237,F,CP,100,Schneider_Barner_Unpublished,English
+567,120719-12,3.945242984,M,CP,10,Schneider_Barner_Unpublished,English
+568,120719-6,6.168377823,M,CP,10,Schneider_Barner_Unpublished,English
+569,120719-62,4.873374401,NA,CP,49,Schneider_Barner_Unpublished,English
+570,121619-OP,5.828884326,M,CP,100,Schneider_Barner_Unpublished,English
+571,010720-S2,3.550992471,M,4,10,Schneider_Barner_Unpublished,English
+572,010720-M,4.438056126,M,CP,56,Schneider_Barner_Unpublished,English
+573,010720-C,5.472963723,F,CP,36,Schneider_Barner_Unpublished,English
+574,010620-S,4.366872005,M,CP,5,Schneider_Barner_Unpublished,English
+575,010620-C,4.892539357,M,CP,12,Schneider_Barner_Unpublished,English
+576,010620-L,4.180698152,M,CP,10,Schneider_Barner_Unpublished,English
+577,010620-C2,5.908281999,M,CP,15,Schneider_Barner_Unpublished,English
+578,010620-M,4.057494867,F,CP,10,Schneider_Barner_Unpublished,English
+579,010620-E,4.599589322,M,CP,12,Schneider_Barner_Unpublished,English
+580,010620-J,5.11430527,M,CP,59,Schneider_Barner_Unpublished,English
+581,11120-B,3.279945243,M,1,1,Schneider_Barner_Unpublished,English
+582,11120-W,5.856262834,M,CP,59,Schneider_Barner_Unpublished,English
+583,011620-EP,3.794661191,F,3,8,Schneider_Barner_Unpublished,English
+584,011620-OC,3.950718686,F,CP,10,Schneider_Barner_Unpublished,English
+585,011620-BT,4.90349076,F,4,16,Schneider_Barner_Unpublished,English
+586,011620-TR,3.411362081,M,3,10,Schneider_Barner_Unpublished,English
+587,011620-CF,4.128678987,F,4,19,Schneider_Barner_Unpublished,English
+588,011620-AA,5.032169747,M,CP,11,Schneider_Barner_Unpublished,English
+589,011620-EM,4.224503765,F,CP,20,Schneider_Barner_Unpublished,English
+590,011620-EC,4.377823409,F,5,11,Schneider_Barner_Unpublished,English
+591,011620-EB,4.20807666,M,4,17,Schneider_Barner_Unpublished,English
+592,011620-AM,4.432580424,F,CP,19,Schneider_Barner_Unpublished,English
+593,011620-AH,4.240930869,M,CP,25,Schneider_Barner_Unpublished,English
+594,011620-CH,3.247091034,F,CP,11,Schneider_Barner_Unpublished,English
+595,011620-BA,3.794661191,M,2,4,Schneider_Barner_Unpublished,English
+596,011820-EL,5.544147844,F,CP,89,Schneider_Barner_Unpublished,English
+597,010620-A,4.881587953,F,CP,12,Schneider_Barner_Unpublished,English
+598,020420-JZ,3.863107461,F,1,13,Schneider_Barner_Unpublished,English
+599,020420-DL,3.953456537,M,0,8,Schneider_Barner_Unpublished,English
+600,020420-JB,4.191649555,M,3,6,Schneider_Barner_Unpublished,English
+601,020420-FRJ,4.114989733,F,3,16,Schneider_Barner_Unpublished,English
+602,020420-EMH,4.027378508,F,1,10,Schneider_Barner_Unpublished,English
+603,020420-MK,4.542094456,F,2,29,Schneider_Barner_Unpublished,English
+604,020420-MV,4.947296372,M,CP,18,Schneider_Barner_Unpublished,English
+605,020420-AS,5.152635181,F,CP,48,Schneider_Barner_Unpublished,English
+606,020420-JB,3.613963039,F,2,10,Schneider_Barner_Unpublished,English
+607,020420-ZL,4.999315537,F,CP,19,Schneider_Barner_Unpublished,English
+608,020420-EC,4.687200548,F,CP,30,Schneider_Barner_Unpublished,English
+609,020420-GM,3.575633128,F,4,9,Schneider_Barner_Unpublished,English
+610,020420-EM,3.701574264,M,3,10,Schneider_Barner_Unpublished,English
+611,020420-AH,3.917864476,F,1,6,Schneider_Barner_Unpublished,English
+612,020420-DE,3.805612594,M,3,6,Schneider_Barner_Unpublished,English
+613,020420-NN,3.975359343,M,2,6,Schneider_Barner_Unpublished,English
+614,020420-SJ,3.975359343,F,0,5,Schneider_Barner_Unpublished,English
+615,020420-AM,3.709787817,F,0,10,Schneider_Barner_Unpublished,English
+616,020620-SP,5.303216975,F,CP,11,Schneider_Barner_Unpublished,English
+617,020620-CVC,5.451060917,M,CP,29,Schneider_Barner_Unpublished,English
+618,020620-ES,4.646132786,F,CP,39,Schneider_Barner_Unpublished,English
+619,020620-PT,4.637919233,F,CP,16,Schneider_Barner_Unpublished,English
+620,020620-AO,5.401779603,F,CP,29,Schneider_Barner_Unpublished,English
+621,020620-DH,4.114989733,M,CP,12,Schneider_Barner_Unpublished,English
+622,020620-TS,3.950718686,F,4,14,Schneider_Barner_Unpublished,English
+623,020620-TC,4.435318275,M,CP,11,Schneider_Barner_Unpublished,English
+624,020620-LH,4.76386037,M,CP,29,Schneider_Barner_Unpublished,English
+625,020620-SJ,4.344969199,M,CP,10,Schneider_Barner_Unpublished,English
+626,020620-KH,5.07871321,F,CP,29,Schneider_Barner_Unpublished,English
+627,020620-CD,4.284736482,F,CP,10,Schneider_Barner_Unpublished,English
+628,020620-LM,4.062970568,M,5,29,Schneider_Barner_Unpublished,English
+629,020620-JFM,4.325804244,M,CP,100,Schneider_Barner_Unpublished,English
+630,020720-J,3.882272416,M,4,30,Schneider_Barner_Unpublished,English
+631,020720-AM,3.956194387,F,2,14,Schneider_Barner_Unpublished,English
+632,020720-M,5.544147844,F,CP,100,Schneider_Barner_Unpublished,English
+633,020720-Q ,4.922655715,F,CP,22,Schneider_Barner_Unpublished,English
+634,020720-TS,3.956194387,M,CP,6,Schneider_Barner_Unpublished,English
+635,022920-LW,3.904175222,M,1,9,Schneider_Barner_Unpublished,English
+636,030120-LA,3.942505133,F,CP,15,Schneider_Barner_Unpublished,English
+637,030120-BC,3.008898015,M,4,9,Schneider_Barner_Unpublished,English
+638,030120-KK,3.969883641,F,2,7,Schneider_Barner_Unpublished,English
+639,030120-E,3.611225188,F,ChangeMe,NA,Schneider_Barner_Unpublished,English
+640,030120-TM,3.813826146,M,2,4,Schneider_Barner_Unpublished,English
+641,030120-JG,2.770704997,M,CP,20,Schneider_Barner_Unpublished,English
+642,030120-CW,3.23340178,F,4,30,Schneider_Barner_Unpublished,English
+643,030320-AS,3.978097194,M,3,12,Schneider_Barner_Unpublished,English
+644,030320-LL,3.403148528,F,4,20,Schneider_Barner_Unpublished,English
+645,030320-CR,3.704312115,F,3,23,Schneider_Barner_Unpublished,English
+646,030320-HK,3.909650924,F,CP,12,Schneider_Barner_Unpublished,English
+647,030320-HO,3.641341547,M,CP,21,Schneider_Barner_Unpublished,English
+648,121119-K,5.45927447,M,NA,50,Schneider_Barner_Unpublished,English
+649,121119-B,6.913073238,F,NA,60,Schneider_Barner_Unpublished,English
+650,030720-MK,3.356605065,F,3,15,Schneider_Barner_Unpublished,English
+651,030720-M,3.490759754,M,2,10,Schneider_Barner_Unpublished,English
+652,030720-JP,3.277207392,F,1,NA,Schneider_Barner_Unpublished,English
+653,031020-O,3.403148528,F,3,6,Schneider_Barner_Unpublished,English
+654,031020-A,4.073921971,F,5,11,Schneider_Barner_Unpublished,English
+655,031020-D,3.734428474,M,2,8,Schneider_Barner_Unpublished,English
+656,031020-H,3.288158795,F,3,12,Schneider_Barner_Unpublished,English
+657,031020-BN,4.5229295,M,4,12,Schneider_Barner_Unpublished,English
+658,031020-AH,3.279945243,F,2,10,Schneider_Barner_Unpublished,English
+659,Sol01,NA,NA,NA,29,Schneider_Barner_2020,Slovenian
+660,21062018-A,NA,NA,NA,15,Schneider_Barner_2020,Slovenian
+661,21062018E,NA,NA,NA,140,Schneider_Barner_2020,Slovenian
+662,21062018IZ,NA,NA,NA,53,Schneider_Barner_2020,Slovenian
+663,21062018IL,NA,NA,NA,17,Schneider_Barner_2020,Slovenian
+664,21062018Ž,NA,NA,NA,15,Schneider_Barner_2020,Slovenian
+665,21062018J,NA,NA,NA,28,Schneider_Barner_2020,Slovenian
+666,Sol02,NA,NA,NA,12,Schneider_Barner_2020,Slovenian
+667,Sol03,NA,NA,NA,13,Schneider_Barner_2020,Slovenian
+668,Sol04,NA,NA,NA,29,Schneider_Barner_2020,Slovenian
+669,Sol05,NA,NA,NA,18,Schneider_Barner_2020,Slovenian
+670,Sol06,NA,NA,NA,3,Schneider_Barner_2020,Slovenian
+671,Naj01,NA,NA,NA,29,Schneider_Barner_2020,Slovenian
+672,Naj02,NA,NA,NA,69,Schneider_Barner_2020,Slovenian
+673,Naj03,NA,NA,NA,46,Schneider_Barner_2020,Slovenian
+674,Naj04,NA,NA,NA,20,Schneider_Barner_2020,Slovenian
+675,Naj05,NA,NA,NA,70,Schneider_Barner_2020,Slovenian
+676,Naj06,NA,NA,NA,15,Schneider_Barner_2020,Slovenian
+677,Naj07,NA,NA,NA,47,Schneider_Barner_2020,Slovenian
+678,Naj08,NA,NA,NA,12,Schneider_Barner_2020,Slovenian
+679,21062018-DV,NA,NA,NA,27,Schneider_Barner_2020,Slovenian
+680,21062018-TE,NA,NA,NA,20,Schneider_Barner_2020,Slovenian
+681,21062018-U,NA,NA,NA,15,Schneider_Barner_2020,Slovenian
+682,21062018-PD,NA,NA,NA,64,Schneider_Barner_2020,Slovenian
+683,22062018-LV,NA,NA,NA,4,Schneider_Barner_2020,Slovenian
+684,22062018-MA,NA,NA,NA,15,Schneider_Barner_2020,Slovenian
+685,22062018-ER,NA,NA,NA,140,Schneider_Barner_2020,Slovenian
+686,22062018-DA,NA,NA,NA,64,Schneider_Barner_2020,Slovenian
+687,28062018-L,NA,NA,NA,76,Schneider_Barner_2020,Slovenian
+688,28062018-E,NA,NA,NA,58,Schneider_Barner_2020,Slovenian
+689,28062018-M,NA,NA,NA,13,Schneider_Barner_2020,Slovenian
+690,29062018-P,NA,NA,NA,8,Schneider_Barner_2020,Slovenian
+691,29062018-N,NA,NA,NA,79,Schneider_Barner_2020,Slovenian
+692,Cv01,NA,NA,NA,32,Schneider_Barner_2020,Slovenian
+693,Cv03,NA,NA,NA,32,Schneider_Barner_2020,Slovenian
+694,Cv04,NA,NA,NA,18,Schneider_Barner_2020,Slovenian
+695,Naj11,NA,NA,NA,14,Schneider_Barner_2020,Slovenian
+696,Naj12,NA,NA,NA,43,Schneider_Barner_2020,Slovenian
+697,Naj13,NA,NA,NA,13,Schneider_Barner_2020,Slovenian
+698,Naj15,NA,NA,NA,5,Schneider_Barner_2020,Slovenian
+699,Cv13,NA,NA,NA,28,Schneider_Barner_2020,Slovenian
+700,Cv12,NA,NA,NA,14,Schneider_Barner_2020,Slovenian
+701,Cv11,NA,NA,NA,13,Schneider_Barner_2020,Slovenian
+702,30062018-T,NA,NA,NA,12,Schneider_Barner_2020,Slovenian
+703,10072018-V,NA,NA,NA,12,Schneider_Barner_2020,Slovenian
+704,10072018-D,NA,NA,NA,69,Schneider_Barner_2020,Slovenian
+705,10072018-J,NA,NA,NA,5,Schneider_Barner_2020,Slovenian
+706,10072018-A,NA,NA,NA,10,Schneider_Barner_2020,Slovenian
+707,11072018-M,NA,NA,NA,69,Schneider_Barner_2020,Slovenian
+708,11072018-J,NA,NA,NA,10,Schneider_Barner_2020,Slovenian
+709,11072018-V,NA,NA,NA,15,Schneider_Barner_2020,Slovenian
+710,11072018-JU,NA,NA,NA,5,Schneider_Barner_2020,Slovenian
+711,11072018-T,NA,NA,NA,10,Schneider_Barner_2020,Slovenian
+712,12072018-M,NA,NA,NA,7,Schneider_Barner_2020,Slovenian
+713,12072018-J,NA,NA,NA,10,Schneider_Barner_2020,Slovenian
+714,Cv21,NA,NA,NA,10,Schneider_Barner_2020,Slovenian
+715,18072018-B,NA,NA,NA,5,Schneider_Barner_2020,Slovenian
+716,18072018-IZ,NA,NA,NA,12,Schneider_Barner_2020,Slovenian
+717,18072018-G,NA,NA,NA,12,Schneider_Barner_2020,Slovenian
+718,Vip01,NA,NA,NA,10,Schneider_Barner_2020,Slovenian
+719,Vip04,NA,NA,NA,14,Schneider_Barner_2020,Slovenian
+720,Vip05,NA,NA,NA,8,Schneider_Barner_2020,Slovenian
+721,18072018-D,NA,NA,NA,109,Schneider_Barner_2020,Slovenian
+722,19072018-T,NA,NA,NA,9,Schneider_Barner_2020,Slovenian
+723,19072018-E,NA,NA,NA,140,Schneider_Barner_2020,Slovenian
+724,19072018-B,NA,NA,NA,28,Schneider_Barner_2020,Slovenian
+725,20072018-Z,NA,NA,NA,4,Schneider_Barner_2020,Slovenian
+726,Sol21,NA,NA,NA,19,Schneider_Barner_2020,Slovenian
+727,RT01,NA,NA,NA,30,Schneider_Barner_2020,Slovenian
+728,RT02,NA,NA,NA,39,Schneider_Barner_2020,Slovenian
+729,RT03,NA,NA,NA,13,Schneider_Barner_2020,Slovenian
+730,RT04,NA,NA,NA,32,Schneider_Barner_2020,Slovenian
+731,RT05,NA,NA,NA,48,Schneider_Barner_2020,Slovenian
+732,RT06,NA,NA,NA,29,Schneider_Barner_2020,Slovenian
+733,RT07,NA,NA,NA,31,Schneider_Barner_2020,Slovenian
+734,RT08,NA,NA,NA,43,Schneider_Barner_2020,Slovenian
+735,RT09,NA,NA,NA,20,Schneider_Barner_2020,Slovenian
+736,05112018-ZA,NA,NA,NA,13,Schneider_Barner_2020,Slovenian
+737,05112018-T,NA,NA,NA,14,Schneider_Barner_2020,Slovenian
+738,SP02,NA,NA,NA,18,Schneider_Barner_2020,Slovenian
+739,SP03,NA,NA,NA,28,Schneider_Barner_2020,Slovenian
+740,Sol50,NA,NA,NA,10,Schneider_Barner_2020,Slovenian
+741,12112018-TM,NA,NA,NA,10,Schneider_Barner_2020,Slovenian
+742,Sol53,NA,NA,NA,10,Schneider_Barner_2020,Slovenian
+743,SP10,NA,NA,NA,13,Schneider_Barner_2020,Slovenian
+744,SP12,NA,NA,NA,13,Schneider_Barner_2020,Slovenian
+745,SP13,NA,NA,NA,14,Schneider_Barner_2020,Slovenian
+746,SP14,NA,NA,NA,13,Schneider_Barner_2020,Slovenian
+747,SP15,NA,NA,NA,32,Schneider_Barner_2020,Slovenian
+748,SP16,NA,NA,NA,10,Schneider_Barner_2020,Slovenian
+749,SP20,NA,NA,NA,9,Schneider_Barner_2020,Slovenian
+750,SP22,NA,NA,NA,19,Schneider_Barner_2020,Slovenian
+751,SP23,NA,NA,NA,9,Schneider_Barner_2020,Slovenian
+752,SP24,NA,NA,NA,5,Schneider_Barner_2020,Slovenian
+753,Krom01,NA,NA,NA,15,Schneider_Barner_2020,Slovenian
+754,Krom02,NA,NA,NA,32,Schneider_Barner_2020,Slovenian
+755,Krom03,NA,NA,NA,12,Schneider_Barner_2020,Slovenian
+756,Krom04,NA,NA,NA,14,Schneider_Barner_2020,Slovenian
+757,Krom05,NA,NA,NA,15,Schneider_Barner_2020,Slovenian
+758,070218-CW-01,NA,NA,NA,10,Schneider_Barner_2020,Cantonese
+759,070218-CW-02,NA,NA,NA,29,Schneider_Barner_2020,Cantonese
+760,070218-CW-03,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+761,070218-CW-05,NA,NA,NA,49,Schneider_Barner_2020,Cantonese
+762,070218-CW-06,NA,NA,NA,47,Schneider_Barner_2020,Cantonese
+763,070218-CW-08,NA,NA,NA,49,Schneider_Barner_2020,Cantonese
+764,070218-CW-09,NA,NA,NA,39,Schneider_Barner_2020,Cantonese
+765,070218-CW-10,NA,NA,NA,19,Schneider_Barner_2020,Cantonese
+766,070218-CW-11,NA,NA,NA,21,Schneider_Barner_2020,Cantonese
+767,070218-CW-12,NA,NA,NA,28,Schneider_Barner_2020,Cantonese
+768,070218-CW-14,NA,NA,NA,23,Schneider_Barner_2020,Cantonese
+769,070218-CW-17,NA,NA,NA,59,Schneider_Barner_2020,Cantonese
+770,070218-CW-18,NA,NA,NA,30,Schneider_Barner_2020,Cantonese
+771,070218-CW-21,NA,NA,NA,39,Schneider_Barner_2020,Cantonese
+772,070218-CW-22,NA,NA,NA,30,Schneider_Barner_2020,Cantonese
+773,070218-CW-23,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+774,070318-CW-13,NA,NA,NA,20,Schneider_Barner_2020,Cantonese
+775,070318-CW-15,NA,NA,NA,49,Schneider_Barner_2020,Cantonese
+776,070318-CW-16,NA,NA,NA,12,Schneider_Barner_2020,Cantonese
+777,070318-CW-19,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+778,070318-CW-24,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+779,070318-CW-25,NA,NA,NA,28,Schneider_Barner_2020,Cantonese
+780,070318-CW-26,NA,NA,NA,28,Schneider_Barner_2020,Cantonese
+781,070318-CW-27,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+782,070318-CW-28,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+783,070318-CW-29,NA,NA,NA,19,Schneider_Barner_2020,Cantonese
+784,070318-CW-30,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+785,070318-CW-31,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+786,070318-CW-32,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+787,070318-CW-33,NA,NA,NA,75,Schneider_Barner_2020,Cantonese
+788,070318-CW-34,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+789,070318-CW-35,NA,NA,NA,60,Schneider_Barner_2020,Cantonese
+790,070318-CW-36,NA,NA,NA,110,Schneider_Barner_2020,Cantonese
+791,070318-CW-37,NA,NA,NA,140,Schneider_Barner_2020,Cantonese
+792,070318-CW-38,NA,NA,NA,36,Schneider_Barner_2020,Cantonese
+793,070318-CW-39,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+794,070318-CW-43,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+795,070918-LF-01,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+796,070918-LF-02,NA,NA,NA,119,Schneider_Barner_2020,Cantonese
+797,070918-LF-03,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+798,070918-LF-04,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+799,070918-LF-05,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+800,070918-LF-06,NA,NA,NA,140,Schneider_Barner_2020,Cantonese
+801,070918-LF-07,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+802,071018-LF-08,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+803,071018-LF-09,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+804,071018-LF-10,NA,NA,NA,111,Schneider_Barner_2020,Cantonese
+805,071018-LF-11,NA,NA,NA,140,Schneider_Barner_2020,Cantonese
+806,071018-LF-12,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+807,071018-LF-13,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+808,071018-LF-14,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+809,071018-LF-15,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+810,071018-LF-16,NA,NA,NA,39,Schneider_Barner_2020,Cantonese
+811,071018-LF-17,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+812,071118-LF-22,NA,NA,NA,29,Schneider_Barner_2020,Cantonese
+813,071118-LF-23,NA,NA,NA,39,Schneider_Barner_2020,Cantonese
+814,071118-LF-25,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+815,071118-LF-26,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+816,071118-LF-27,NA,NA,NA,29,Schneider_Barner_2020,Cantonese
+817,070618-SWH-04,NA,NA,NA,9,Schneider_Barner_2020,Cantonese
+818,070618-SWH-05,NA,NA,NA,20,Schneider_Barner_2020,Cantonese
+819,070618-SWH-09,NA,NA,NA,49,Schneider_Barner_2020,Cantonese
+820,070618-SWH-11,NA,NA,NA,10,Schneider_Barner_2020,Cantonese
+821,070618-SWH-14,NA,NA,NA,11,Schneider_Barner_2020,Cantonese
+822,070618-SWH-15,NA,NA,NA,29,Schneider_Barner_2020,Cantonese
+823,070618-SWH-16,NA,NA,NA,39,Schneider_Barner_2020,Cantonese
+824,070618-SWH-17,NA,NA,NA,30,Schneider_Barner_2020,Cantonese
+825,070618-SWH-19,NA,NA,NA,18,Schneider_Barner_2020,Cantonese
+826,070518-SWH-20,NA,NA,NA,99,Schneider_Barner_2020,Cantonese
+827,070518-SWH-21,NA,NA,NA,39,Schneider_Barner_2020,Cantonese
+828,070618-SWH-22,NA,NA,NA,140,Schneider_Barner_2020,Cantonese
+829,070618-SWH-23,NA,NA,NA,29,Schneider_Barner_2020,Cantonese
+830,070618-SWH-24,NA,NA,NA,65,Schneider_Barner_2020,Cantonese
+831,070618-SWH-25,NA,NA,NA,140,Schneider_Barner_2020,Cantonese
+832,070618-SWH-26,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+833,070518-SWH-27,NA,NA,NA,19,Schneider_Barner_2020,Cantonese
+834,070518-SWH-28,NA,NA,NA,59,Schneider_Barner_2020,Cantonese
+835,070618-SWH-29,NA,NA,NA,11,Schneider_Barner_2020,Cantonese
+836,070618-SWH-31,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+837,070518-SWH-32,NA,NA,NA,59,Schneider_Barner_2020,Cantonese
+838,070618-SWH-33,NA,NA,NA,140,Schneider_Barner_2020,Cantonese
+839,070618-SWH-34,NA,NA,NA,39,Schneider_Barner_2020,Cantonese
+840,070518-SWH-35,NA,NA,NA,77,Schneider_Barner_2020,Cantonese
+841,070618-SWH-36,NA,NA,NA,59,Schneider_Barner_2020,Cantonese
+842,070518-SWH-38,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+843,070618-SWH-39,NA,NA,NA,54,Schneider_Barner_2020,Cantonese
+844,070618-SWH-40,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+845,070518-SWH-41,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+846,070618-SWH-42,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+847,070518-SWH-43,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+848,070518-SWH-44,NA,NA,NA,140,Schneider_Barner_2020,Cantonese
+849,070518-SWH-45,NA,NA,NA,119,Schneider_Barner_2020,Cantonese
+850,070518-SWH-46,NA,NA,NA,140,Schneider_Barner_2020,Cantonese
+851,070518-SWH-47,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+852,070518-SWH-49,NA,NA,NA,120,Schneider_Barner_2020,Cantonese
+853,070518-SWH-50,NA,NA,NA,119,Schneider_Barner_2020,Cantonese
+854,070518-SWH-51,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+855,070518-SWH-54,NA,NA,NA,119,Schneider_Barner_2020,Cantonese
+856,070518-SWH-55,NA,NA,NA,101,Schneider_Barner_2020,Cantonese
+857,070518-SWH-56,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+858,070518-SWH-57,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+859,070518-SWH-58,NA,NA,NA,140,Schneider_Barner_2020,Cantonese
+860,070518-SWH-59,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+861,070518-SWH-60,NA,NA,NA,110,Schneider_Barner_2020,Cantonese
+862,070518-SWH-62,NA,NA,NA,68,Schneider_Barner_2020,Cantonese
+863,070918-SWH-01,NA,NA,NA,39,Schneider_Barner_2020,Cantonese
+864,070918-SWH-02,NA,NA,NA,15,Schneider_Barner_2020,Cantonese
+865,070918-SWH-03,NA,NA,NA,10,Schneider_Barner_2020,Cantonese
+866,070918-SWH-06,NA,NA,NA,29,Schneider_Barner_2020,Cantonese
+867,070918-SWH-07,NA,NA,NA,20,Schneider_Barner_2020,Cantonese
+868,070918-SWH-08,NA,NA,NA,29,Schneider_Barner_2020,Cantonese
+869,070918-SWH-10,NA,NA,NA,14,Schneider_Barner_2020,Cantonese
+870,070918-SWH-12,NA,NA,NA,29,Schneider_Barner_2020,Cantonese
+871,070918-SWH-13,NA,NA,NA,18,Schneider_Barner_2020,Cantonese
+872,070918-SWH-18,NA,NA,NA,19,Schneider_Barner_2020,Cantonese
+873,070918-SWH-37,NA,NA,NA,109,Schneider_Barner_2020,Cantonese
+874,070918-SWH-53,NA,NA,NA,100,Schneider_Barner_2020,Cantonese
+875,070918-SWH-61,NA,NA,NA,50,Schneider_Barner_2020,Cantonese
+876,061318-JE,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+877,061318-MP,NA,NA,NA,28,Schneider_Barner_2020,English (US)
+878,071218-GJ,NA,NA,NA,140,Schneider_Barner_2020,English (US)
+879,072318-JN,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+880,072318-KJ,NA,NA,NA,10,Schneider_Barner_2020,English (US)
+881,072318-XA,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+882,072418-AE,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+883,072418-GH,NA,NA,NA,13,Schneider_Barner_2020,English (US)
+884,072418-RS,NA,NA,NA,55,Schneider_Barner_2020,English (US)
+885,072518-CP,NA,NA,NA,33,Schneider_Barner_2020,English (US)
+886,072518-KY,NA,NA,NA,19,Schneider_Barner_2020,English (US)
+887,072518-LT,NA,NA,NA,12,Schneider_Barner_2020,English (US)
+888,072518-RM,NA,NA,NA,12,Schneider_Barner_2020,English (US)
+889,072618-BS,NA,NA,NA,116,Schneider_Barner_2020,English (US)
+890,072618-RH,NA,NA,NA,19,Schneider_Barner_2020,English (US)
+891,072718-JDT,NA,NA,NA,89,Schneider_Barner_2020,English (US)
+892,072718-NP,NA,NA,NA,100,Schneider_Barner_2020,English (US)
+893,072718-SJ,NA,NA,NA,109,Schneider_Barner_2020,English (US)
+894,073018-LD,NA,NA,NA,140,Schneider_Barner_2020,English (US)
+895,073018-M,NA,NA,NA,49,Schneider_Barner_2020,English (US)
+896,073118-BD,NA,NA,NA,59,Schneider_Barner_2020,English (US)
+897,073118-EC,NA,NA,NA,49,Schneider_Barner_2020,English (US)
+898,073118-EC2,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+899,073118-EF,NA,NA,NA,12,Schneider_Barner_2020,English (US)
+900,073118-LM,NA,NA,NA,31,Schneider_Barner_2020,English (US)
+901,080118-EM,NA,NA,NA,35,Schneider_Barner_2020,English (US)
+902,080118-TF,NA,NA,NA,13,Schneider_Barner_2020,English (US)
+903,080218-CK,NA,NA,NA,12,Schneider_Barner_2020,English (US)
+904,080218-JC,NA,NA,NA,109,Schneider_Barner_2020,English (US)
+905,080218-NO,NA,NA,NA,140,Schneider_Barner_2020,English (US)
+906,080218-RB,NA,NA,NA,110,Schneider_Barner_2020,English (US)
+907,080318-AT,NA,NA,NA,13,Schneider_Barner_2020,English (US)
+908,080318-BT,NA,NA,NA,12,Schneider_Barner_2020,English (US)
+909,080318-DG,NA,NA,NA,12,Schneider_Barner_2020,English (US)
+910,080318-DN,NA,NA,NA,7,Schneider_Barner_2020,English (US)
+911,080318-JG,NA,NA,NA,19,Schneider_Barner_2020,English (US)
+912,080318-LT,NA,NA,NA,14,Schneider_Barner_2020,English (US)
+913,080318-RG,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+914,080618-AD,NA,NA,NA,13,Schneider_Barner_2020,English (US)
+915,080618-CR,NA,NA,NA,140,Schneider_Barner_2020,English (US)
+916,080618-JR,NA,NA,NA,12,Schneider_Barner_2020,English (US)
+917,080618-PA,NA,NA,NA,109,Schneider_Barner_2020,English (US)
+918,080718-ER,NA,NA,NA,12,Schneider_Barner_2020,English (US)
+919,080718-SS,NA,NA,NA,10,Schneider_Barner_2020,English (US)
+920,080818-EG,NA,NA,NA,39,Schneider_Barner_2020,English (US)
+921,080818-MG,NA,NA,NA,140,Schneider_Barner_2020,English (US)
+922,080818-TM,NA,NA,NA,20,Schneider_Barner_2020,English (US)
+923,080918-AR,NA,NA,NA,140,Schneider_Barner_2020,English (US)
+924,080918-DC,NA,NA,NA,7,Schneider_Barner_2020,English (US)
+925,080918-LC,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+926,080918-SR,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+927,081018-DM,NA,NA,NA,100,Schneider_Barner_2020,English (US)
+928,081018-KF,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+929,081018-WW,NA,NA,NA,120,Schneider_Barner_2020,English (US)
+930,081318-DH,NA,NA,NA,120,Schneider_Barner_2020,English (US)
+931,081318-NT,NA,NA,NA,28,Schneider_Barner_2020,English (US)
+932,081318-PT,NA,NA,NA,20,Schneider_Barner_2020,English (US)
+933,081418-ER,NA,NA,NA,109,Schneider_Barner_2020,English (US)
+934,081418-LH,NA,NA,NA,10,Schneider_Barner_2020,English (US)
+935,081518-RL,NA,NA,NA,12,Schneider_Barner_2020,English (US)
+936,081718-EA,NA,NA,NA,49,Schneider_Barner_2020,English (US)
+937,081718-SG,NA,NA,NA,19,Schneider_Barner_2020,English (US)
+938,082018-HA,NA,NA,NA,19,Schneider_Barner_2020,English (US)
+939,082018-SV,NA,NA,NA,109,Schneider_Barner_2020,English (US)
+940,082118-AS,NA,NA,NA,59,Schneider_Barner_2020,English (US)
+941,082118-GS,NA,NA,NA,20,Schneider_Barner_2020,English (US)
+942,082118-SB,NA,NA,NA,14,Schneider_Barner_2020,English (US)
+943,082218-AC,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+944,082218-CC,NA,NA,NA,88,Schneider_Barner_2020,English (US)
+945,082418-JC,NA,NA,NA,119,Schneider_Barner_2020,English (US)
+946,082818-OW,NA,NA,NA,100,Schneider_Barner_2020,English (US)
+947,083118-SJ,NA,NA,NA,12,Schneider_Barner_2020,English (US)
+948,091818-JB,NA,NA,NA,49,Schneider_Barner_2020,English (US)
+949,091918-JT,NA,NA,NA,6,Schneider_Barner_2020,English (US)
+950,092018-DH,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+951,092018-GG,NA,NA,NA,5,Schneider_Barner_2020,English (US)
+952,092018-K,NA,NA,NA,14,Schneider_Barner_2020,English (US)
+953,092018-WB,NA,NA,NA,15,Schneider_Barner_2020,English (US)
+954,092718-BB,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+955,092718-WB,NA,NA,NA,10,Schneider_Barner_2020,English (US)
+956,092818-EA,NA,NA,NA,14,Schneider_Barner_2020,English (US)
+957,092818-OM,NA,NA,NA,14,Schneider_Barner_2020,English (US)
+958,092818-WB,NA,NA,NA,7,Schneider_Barner_2020,English (US)
+959,101518-AS,NA,NA,NA,14,Schneider_Barner_2020,English (US)
+960,101518-CK,NA,NA,NA,10,Schneider_Barner_2020,English (US)
+961,101518-JM,NA,NA,NA,7,Schneider_Barner_2020,English (US)
+962,101518-JP,NA,NA,NA,14,Schneider_Barner_2020,English (US)
+963,101518-PK,NA,NA,NA,11,Schneider_Barner_2020,English (US)
+964,101518-PN,NA,NA,NA,12,Schneider_Barner_2020,English (US)
+965,101518-RR,NA,NA,NA,9,Schneider_Barner_2020,English (US)
+966,101518-ZM,NA,NA,NA,14,Schneider_Barner_2020,English (US)
+967,101618-BW,NA,NA,NA,13,Schneider_Barner_2020,English (US)
+968,101618-FO,NA,NA,NA,14,Schneider_Barner_2020,English (US)
+969,101618-GB,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+970,101618-IP,NA,NA,NA,2,Schneider_Barner_2020,English (US)
+971,101618-JJ,NA,NA,NA,14,Schneider_Barner_2020,English (US)
+972,101618-PM,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+973,101618-SW,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+974,101618-WD,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+975,101718-BW,NA,NA,NA,140,Schneider_Barner_2020,English (US)
+976,101718-CA,NA,NA,NA,30,Schneider_Barner_2020,English (US)
+977,101718-EW,NA,NA,NA,59,Schneider_Barner_2020,English (US)
+978,101818-AS,NA,NA,NA,11,Schneider_Barner_2020,English (US)
+979,101818-K,NA,NA,NA,28,Schneider_Barner_2020,English (US)
+980,101818-LP,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+981,101818-LR,NA,NA,NA,14,Schneider_Barner_2020,English (US)
+982,101818-PH,NA,NA,NA,29,Schneider_Barner_2020,English (US)
+983,102418-FT,NA,NA,NA,110,Schneider_Barner_2020,English (US)
+984,102418-JP,NA,NA,NA,12,Schneider_Barner_2020,English (US)
+985,102418-JP1,NA,NA,NA,10,Schneider_Barner_2020,English (US)
+986,102618-CP,NA,NA,NA,13,Schneider_Barner_2020,English (US)
+987,AM-10,NA,NA,NA,10,Schneider_Barner_2020,English (India)
+988,AM-11,NA,NA,NA,4,Schneider_Barner_2020,English (India)
+989,AM-13-RS,NA,NA,NA,11,Schneider_Barner_2020,English (India)
+990,AM-14,NA,NA,NA,10,Schneider_Barner_2020,English (India)
+991,AM-15,NA,NA,NA,10,Schneider_Barner_2020,English (India)
+992,AM-16,NA,NA,NA,39,Schneider_Barner_2020,English (India)
+993,AM-17,NA,NA,NA,10,Schneider_Barner_2020,English (India)
+994,AM-18,NA,NA,NA,15,Schneider_Barner_2020,English (India)
+995,AM-2,NA,NA,NA,18,Schneider_Barner_2020,English (India)
+996,AM-21,NA,NA,NA,85,Schneider_Barner_2020,English (India)
+997,AM-22,NA,NA,NA,39,Schneider_Barner_2020,English (India)
+998,AM-23,NA,NA,NA,100,Schneider_Barner_2020,English (India)
+999,AM-25,NA,NA,NA,110,Schneider_Barner_2020,English (India)
+1000,AM-26,NA,NA,NA,20,Schneider_Barner_2020,English (India)
+1001,AM-27,NA,NA,NA,33,Schneider_Barner_2020,English (India)
+1002,AM-3,NA,NA,NA,14,Schneider_Barner_2020,English (India)
+1003,AM-30,NA,NA,NA,14,Schneider_Barner_2020,English (India)
+1004,AM-31,NA,NA,NA,100,Schneider_Barner_2020,English (India)
+1005,AM-32,NA,NA,NA,100,Schneider_Barner_2020,English (India)
+1006,AM-33,NA,NA,NA,100,Schneider_Barner_2020,English (India)
+1007,AM-34,NA,NA,NA,39,Schneider_Barner_2020,English (India)
+1008,AM-35,NA,NA,NA,20,Schneider_Barner_2020,English (India)
+1009,AM-36,NA,NA,NA,59,Schneider_Barner_2020,English (India)
+1010,AM-38,NA,NA,NA,39,Schneider_Barner_2020,English (India)
+1011,AM-39,NA,NA,NA,24,Schneider_Barner_2020,English (India)
+1012,AM-4,NA,NA,NA,14,Schneider_Barner_2020,English (India)
+1013,AM-40,NA,NA,NA,100,Schneider_Barner_2020,English (India)
+1014,AM-41,NA,NA,NA,10,Schneider_Barner_2020,English (India)
+1015,AM-42,NA,NA,NA,79,Schneider_Barner_2020,English (India)
+1016,AM-43,NA,NA,NA,14,Schneider_Barner_2020,English (India)
+1017,AM-44,NA,NA,NA,19,Schneider_Barner_2020,English (India)
+1018,AM-45,NA,NA,NA,98,Schneider_Barner_2020,English (India)
+1019,AM-46,NA,NA,NA,29,Schneider_Barner_2020,English (India)
+1020,AM-47,NA,NA,NA,55,Schneider_Barner_2020,English (India)
+1021,AM-48,NA,NA,NA,22,Schneider_Barner_2020,English (India)
+1022,AM-49,NA,NA,NA,20,Schneider_Barner_2020,English (India)
+1023,AM-5,NA,NA,NA,18,Schneider_Barner_2020,English (India)
+1024,AM-52,NA,NA,NA,20,Schneider_Barner_2020,English (India)
+1025,AM-53,NA,NA,NA,23,Schneider_Barner_2020,English (India)
+1026,AM-54,NA,NA,NA,15,Schneider_Barner_2020,English (India)
+1027,AM-57,NA,NA,NA,10,Schneider_Barner_2020,English (India)
+1028,AM-65,NA,NA,NA,13,Schneider_Barner_2020,English (India)
+1029,AM-67,NA,NA,NA,100,Schneider_Barner_2020,English (India)
+1030,AM-7,NA,NA,NA,10,Schneider_Barner_2020,English (India)
+1031,AM-73,NA,NA,NA,62,Schneider_Barner_2020,English (India)
+1032,AM-74,NA,NA,NA,30,Schneider_Barner_2020,English (India)
+1033,AM-75,NA,NA,NA,14,Schneider_Barner_2020,English (India)
+1034,AM-76,NA,NA,NA,100,Schneider_Barner_2020,English (India)
+1035,AM-8,NA,NA,NA,11,Schneider_Barner_2020,English (India)
+1036,CH-AP-3,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1037,CH-AR-15,NA,NA,NA,5,Schneider_Barner_2020,Gujarati
+1038,CH-AS-67,NA,NA,NA,10,Schneider_Barner_2020,Gujarati
+1039,CH-BG-27,NA,NA,NA,13,Schneider_Barner_2020,Gujarati
+1040,CH-BS-35,NA,NA,NA,40,Schneider_Barner_2020,Gujarati
+1041,CH-DB-44,NA,NA,NA,34,Schneider_Barner_2020,Gujarati
+1042,CH-DM-19,NA,NA,NA,76,Schneider_Barner_2020,Gujarati
+1043,CH-DP-25,NA,NA,NA,15,Schneider_Barner_2020,Gujarati
+1044,CH-DP-45,NA,NA,NA,33,Schneider_Barner_2020,Gujarati
+1045,CH-DR-57,NA,NA,NA,32,Schneider_Barner_2020,Gujarati
+1046,CH-DS-48,NA,NA,NA,6,Schneider_Barner_2020,Gujarati
+1047,CH-DV-11,NA,NA,NA,19,Schneider_Barner_2020,Gujarati
+1048,CH-HC-43,NA,NA,NA,88,Schneider_Barner_2020,Gujarati
+1049,CH-HJ-37,NA,NA,NA,30,Schneider_Barner_2020,Gujarati
+1050,CH-HR-12,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1051,CH-JP-10,NA,NA,NA,68,Schneider_Barner_2020,Gujarati
+1052,CH-KB-42,NA,NA,NA,23,Schneider_Barner_2020,Gujarati
+1053,CH-KB-58,NA,NA,NA,13,Schneider_Barner_2020,Gujarati
+1054,CH-KC-17,NA,NA,NA,10,Schneider_Barner_2020,Gujarati
+1055,CH-KP-65,NA,NA,NA,10,Schneider_Barner_2020,Gujarati
+1056,CH-KU-13,NA,NA,NA,11,Schneider_Barner_2020,Gujarati
+1057,CH-KV-4,NA,NA,NA,13,Schneider_Barner_2020,Gujarati
+1058,CH-KV-8,NA,NA,NA,30,Schneider_Barner_2020,Gujarati
+1059,CH-MJ-6,NA,NA,NA,66,Schneider_Barner_2020,Gujarati
+1060,CH-MV-14,NA,NA,NA,48,Schneider_Barner_2020,Gujarati
+1061,CH-NC-9,NA,NA,NA,30,Schneider_Barner_2020,Gujarati
+1062,CH-NJ-20,NA,NA,NA,30,Schneider_Barner_2020,Gujarati
+1063,CH-NM-16,NA,NA,NA,22,Schneider_Barner_2020,Gujarati
+1064,CH-NP-68,NA,NA,NA,28,Schneider_Barner_2020,Gujarati
+1065,CH-PS-22,NA,NA,NA,19,Schneider_Barner_2020,Gujarati
+1066,CH-PS-23,NA,NA,NA,24,Schneider_Barner_2020,Gujarati
+1067,CH-PS-41,NA,NA,NA,14,Schneider_Barner_2020,Gujarati
+1068,CH-PV-36,NA,NA,NA,19,Schneider_Barner_2020,Gujarati
+1069,CH-PY-18,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1070,CH-RD-53,NA,NA,NA,54,Schneider_Barner_2020,Gujarati
+1071,CH-RH-31,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1072,CH-RM-7,NA,NA,NA,79,Schneider_Barner_2020,Gujarati
+1073,CH-RP-39,NA,NA,NA,25,Schneider_Barner_2020,Gujarati
+1074,CH-RS-52,NA,NA,NA,28,Schneider_Barner_2020,Gujarati
+1075,CH-RV-40,NA,NA,NA,25,Schneider_Barner_2020,Gujarati
+1076,CH-SC-2,NA,NA,NA,5,Schneider_Barner_2020,Gujarati
+1077,CH-SM-34,NA,NA,NA,26,Schneider_Barner_2020,Gujarati
+1078,CH-SP-51,NA,NA,NA,18,Schneider_Barner_2020,Gujarati
+1079,CH-SP-54,NA,NA,NA,18,Schneider_Barner_2020,Gujarati
+1080,CH-TK-63,NA,NA,NA,5,Schneider_Barner_2020,Gujarati
+1081,CH-VC-1,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1082,CH-VN-66,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1083,CH-VR-59,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1084,GV-12-HV,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1085,GV-16-KM,NA,NA,NA,15,Schneider_Barner_2020,Gujarati
+1086,GV-17-IP,NA,NA,NA,50,Schneider_Barner_2020,Gujarati
+1087,GV-19-KG,NA,NA,NA,38,Schneider_Barner_2020,Gujarati
+1088,GV-2-MP,NA,NA,NA,33,Schneider_Barner_2020,Gujarati
+1089,GV-21-SB,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1090,GV-25-JB,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1091,GV-31-NR,NA,NA,NA,58,Schneider_Barner_2020,Gujarati
+1092,GV-38-VL,NA,NA,NA,29,Schneider_Barner_2020,Gujarati
+1093,GV-4-RP,NA,NA,NA,9,Schneider_Barner_2020,Gujarati
+1094,GV-42-KA,NA,NA,NA,1,Schneider_Barner_2020,Gujarati
+1095,GV-43-MP,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1096,GV-44-DP,NA,NA,NA,29,Schneider_Barner_2020,Gujarati
+1097,GV-46-PP,NA,NA,NA,29,Schneider_Barner_2020,Gujarati
+1098,GV-47-LR,NA,NA,NA,38,Schneider_Barner_2020,Gujarati
+1099,GV-48-MR,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1100,GV-49-NR,NA,NA,NA,2,Schneider_Barner_2020,Gujarati
+1101,GV-50-MR,NA,NA,NA,54,Schneider_Barner_2020,Gujarati
+1102,GV-51-BR,NA,NA,NA,25,Schneider_Barner_2020,Gujarati
+1103,GV-52-KR,NA,NA,NA,30,Schneider_Barner_2020,Gujarati
+1104,GV-53-NR,NA,NA,NA,40,Schneider_Barner_2020,Gujarati
+1105,GV-54-KR,NA,NA,NA,38,Schneider_Barner_2020,Gujarati
+1106,GV-55-TR,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1107,GV-56-KS,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1108,GV-58-MU,NA,NA,NA,25,Schneider_Barner_2020,Gujarati
+1109,GV-59-PV,NA,NA,NA,19,Schneider_Barner_2020,Gujarati
+1110,GV-6-DP,NA,NA,NA,30,Schneider_Barner_2020,Gujarati
+1111,GV-60-TV,NA,NA,NA,10,Schneider_Barner_2020,Gujarati
+1112,GV-7-VS,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1113,GV-8-DS,NA,NA,NA,20,Schneider_Barner_2020,Gujarati
+1114,GV-9-PS,NA,NA,NA,56,Schneider_Barner_2020,Gujarati
+1115,SK-K-1-FP-G,NA,NA,NA,5,Schneider_Barner_2020,Gujarati
+1116,SK-K-11-SM,NA,NA,NA,19,Schneider_Barner_2020,Hindi
+1117,SK-K-12-RA,NA,NA,NA,10,Schneider_Barner_2020,Hindi
+1118,SK-K-12B-AA,NA,NA,NA,30,Schneider_Barner_2020,Hindi
+1119,SK-K-13-MP,NA,NA,NA,21,Schneider_Barner_2020,Hindi
+1120,SK-K-17-DP,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1121,SK-K-18-PY,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1122,SK-K-20-RP,NA,NA,NA,68,Schneider_Barner_2020,Hindi
+1123,SK-K-24-AS,NA,NA,NA,33,Schneider_Barner_2020,Hindi
+1124,SK-K-25-VV,NA,NA,NA,30,Schneider_Barner_2020,Hindi
+1125,SK-K-26-SS,NA,NA,NA,35,Schneider_Barner_2020,Hindi
+1126,SK-K-3-KK,NA,NA,NA,30,Schneider_Barner_2020,Hindi
+1127,SK-K-3B-RA,NA,NA,NA,22,Schneider_Barner_2020,Hindi
+1128,SK-K-4-KU,NA,NA,NA,15,Schneider_Barner_2020,Hindi
+1129,SK-K-6-SM,NA,NA,NA,16,Schneider_Barner_2020,Hindi
+1130,SK-K-7-AK,NA,NA,NA,16,Schneider_Barner_2020,Hindi
+1131,SK-K-7B-RK,NA,NA,NA,21,Schneider_Barner_2020,Hindi
+1132,SK-K-8-GP,NA,NA,NA,17,Schneider_Barner_2020,Hindi
+1133,SK-M-1-MP,NA,NA,NA,21,Schneider_Barner_2020,Hindi
+1134,SK-M-10-CK,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1135,SK-M-12-DR,NA,NA,NA,16,Schneider_Barner_2020,Hindi
+1136,SK-M-13-RK,NA,NA,NA,24,Schneider_Barner_2020,Hindi
+1137,SK-M-14-AG,NA,NA,NA,16,Schneider_Barner_2020,Hindi
+1138,SK-M-15-NK,NA,NA,NA,36,Schneider_Barner_2020,Hindi
+1139,SK-M-16-KR,NA,NA,NA,35,Schneider_Barner_2020,Hindi
+1140,SK-M-17-MG,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1141,SK-M-19-LK,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1142,SK-M-2-NK,NA,NA,NA,14,Schneider_Barner_2020,Hindi
+1143,SK-M-22-AP,NA,NA,NA,50,Schneider_Barner_2020,Hindi
+1144,SK-M-23-UP,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1145,SK-M-24-KP,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1146,SK-M-26-NS,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1147,SK-M-27-DJ,NA,NA,NA,22,Schneider_Barner_2020,Hindi
+1148,SK-M-28-VV,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1149,SK-M-30-NV,NA,NA,NA,24,Schneider_Barner_2020,Hindi
+1150,SK-M-32-PS,NA,NA,NA,36,Schneider_Barner_2020,Hindi
+1151,SK-M-38-AB,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1152,SK-M-39-SC,NA,NA,NA,7,Schneider_Barner_2020,Hindi
+1153,SK-M-4-GJ,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1154,SK-M-40-SP,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1155,SK-M-41-PR,NA,NA,NA,12,Schneider_Barner_2020,Hindi
+1156,SK-M-44-MV,NA,NA,NA,18,Schneider_Barner_2020,Hindi
+1157,SK-M-45-HP,NA,NA,NA,19,Schneider_Barner_2020,Hindi
+1158,SK-M-46-DP,NA,NA,NA,21,Schneider_Barner_2020,Hindi
+1159,SK-M-5-LS,NA,NA,NA,60,Schneider_Barner_2020,Hindi
+1160,SK-M-7-PK,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1161,SR-1-BS,NA,NA,NA,4,Schneider_Barner_2020,Hindi
+1162,SR-10B-NY,NA,NA,NA,6,Schneider_Barner_2020,Hindi
+1163,SR-11-DL,NA,NA,NA,48,Schneider_Barner_2020,Hindi
+1164,SR-14B-KS,NA,NA,NA,10,Schneider_Barner_2020,Hindi
+1165,SR-15B-SB,NA,NA,NA,19,Schneider_Barner_2020,Hindi
+1166,SR-16-KK,NA,NA,NA,16,Schneider_Barner_2020,Hindi
+1167,SR-16B-BS,NA,NA,NA,23,Schneider_Barner_2020,Hindi
+1168,SR-17B-SM,NA,NA,NA,34,Schneider_Barner_2020,Hindi
+1169,SR-18B-RS,NA,NA,NA,47,Schneider_Barner_2020,Hindi
+1170,SR-1B-SB,NA,NA,NA,24,Schneider_Barner_2020,Hindi
+1171,SR-2-PS,NA,NA,NA,30,Schneider_Barner_2020,Hindi
+1172,SR-20B-AP,NA,NA,NA,58,Schneider_Barner_2020,Hindi
+1173,SR-21B-JG,NA,NA,NA,6,Schneider_Barner_2020,Hindi
+1174,SR-23-BS,NA,NA,NA,9,Schneider_Barner_2020,Hindi
+1175,SR-24-VR,NA,NA,NA,25,Schneider_Barner_2020,Hindi
+1176,SR-28-KS,NA,NA,NA,24,Schneider_Barner_2020,Hindi
+1177,SR-29-TR,NA,NA,NA,35,Schneider_Barner_2020,Hindi
+1178,SR-3-RS,NA,NA,NA,12,Schneider_Barner_2020,Hindi
+1179,SR-30-RP,NA,NA,NA,21,Schneider_Barner_2020,Hindi
+1180,SR-32-UP,NA,NA,NA,30,Schneider_Barner_2020,Hindi
+1181,SR-33-AC,NA,NA,NA,30,Schneider_Barner_2020,Hindi
+1182,SR-34-VS,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1183,SR-35-KM,NA,NA,NA,48,Schneider_Barner_2020,Hindi
+1184,SR-37-JP,NA,NA,NA,30,Schneider_Barner_2020,Hindi
+1185,SR-38-JY,NA,NA,NA,21,Schneider_Barner_2020,Hindi
+1186,SR-39-AT,NA,NA,NA,13,Schneider_Barner_2020,Hindi
+1187,SR-3B-SY,NA,NA,NA,30,Schneider_Barner_2020,Hindi
+1188,SR-40-KS,NA,NA,NA,15,Schneider_Barner_2020,Hindi
+1189,SR-41-K,NA,NA,NA,14,Schneider_Barner_2020,Hindi
+1190,SR-43-GS,NA,NA,NA,6,Schneider_Barner_2020,Hindi
+1191,SR-45-HB,NA,NA,NA,28,Schneider_Barner_2020,Hindi
+1192,SR-46-MM,NA,NA,NA,17,Schneider_Barner_2020,Hindi
+1193,SR-49-RS,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1194,SR-4B-GB,NA,NA,NA,60,Schneider_Barner_2020,Hindi
+1195,SR-5-HS,NA,NA,NA,15,Schneider_Barner_2020,Hindi
+1196,SR-50-MS,NA,NA,NA,1,Schneider_Barner_2020,Hindi
+1197,SR-53-KG,NA,NA,NA,15,Schneider_Barner_2020,Hindi
+1198,SR-55-IS,NA,NA,NA,3,Schneider_Barner_2020,Hindi
+1199,SR-57-RN,NA,NA,NA,5,Schneider_Barner_2020,Hindi
+1200,SR-59-GP,NA,NA,NA,36,Schneider_Barner_2020,Hindi
+1201,SR-5B-RR,NA,NA,NA,10,Schneider_Barner_2020,Hindi
+1202,SR-6-MS,NA,NA,NA,26,Schneider_Barner_2020,Hindi
+1203,SR-6B-BY,NA,NA,NA,20,Schneider_Barner_2020,Hindi
+1204,SR-7B-RS,NA,NA,NA,29,Schneider_Barner_2020,Hindi
+1205,SR-8-MP,NA,NA,NA,19,Schneider_Barner_2020,Hindi
+1206,SR-9-RK,NA,NA,NA,66,Schneider_Barner_2020,Hindi
+1207,SW-AD-3,NA,NA,NA,100,Schneider_Barner_2020,English (India)
+1208,SW-AS-7,NA,NA,NA,100,Schneider_Barner_2020,English (India)
+1209,SW-AT-5,NA,NA,NA,100,Schneider_Barner_2020,English (India)
+1210,SW-DB-24,NA,NA,NA,20,Schneider_Barner_2020,English (India)
+1211,SW-DB-31,NA,NA,NA,16,Schneider_Barner_2020,English (India)
+1212,SW-DV-27,NA,NA,NA,15,Schneider_Barner_2020,English (India)
+1213,SW-JM-4,NA,NA,NA,100,Schneider_Barner_2020,English (India)
+1214,SW-KD-16,NA,NA,NA,98,Schneider_Barner_2020,English (India)
+1215,SW-KM-26,NA,NA,NA,24,Schneider_Barner_2020,English (India)
+1216,SW-KP-18,NA,NA,NA,121,Schneider_Barner_2020,English (India)
+1217,SW-MDH-8,NA,NA,NA,89,Schneider_Barner_2020,English (India)
+1218,SW-PS-2,NA,NA,NA,110,Schneider_Barner_2020,English (India)
+1219,SW-R-17,NA,NA,NA,29,Schneider_Barner_2020,English (India)
+1220,SW-RG-19,NA,NA,NA,43,Schneider_Barner_2020,English (India)
+1221,SW-SB-3B,NA,NA,NA,100,Schneider_Barner_2020,English (India)
+1222,SW-SM-13,NA,NA,NA,100,Schneider_Barner_2020,English (India)
+1223,SW-SS-33,NA,NA,NA,1,Schneider_Barner_2020,English (India)
+1224,SW-ST-20,NA,NA,NA,12,Schneider_Barner_2020,English (India)
+1225,SW-YD-10,NA,NA,NA,140,Schneider_Barner_2020,English (India)
+1226,SW-YT-1,NA,NA,NA,39,Schneider_Barner_2020,English (India)
+1227,SW-ZK-6,NA,NA,NA,94,Schneider_Barner_2020,English (India)

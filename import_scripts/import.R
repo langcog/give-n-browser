@@ -18,14 +18,21 @@ trial_level_data <- read_csv(here('data/processed-data/trial_level_processed_dat
 
 ## ------------------- reformat and factor data to schema
 
-# # delete processed data
+# # delete processed data in main data
 file.remove(here::here("data/processed-data/datasets.csv"))
 file.remove(here::here("data/processed-data/subjects.csv"))
 file.remove(here::here("data/processed-data/trials.csv"))
 
+# # delete processed data in shiny data
+file.remove(here::here("shiny_app/data/processed-data/datasets.csv"))
+file.remove(here::here("shiny_app/data/processed-data/subjects.csv"))
+file.remove(here::here("shiny_app/data/processed-data/trials.csv"))
+
 ## combine trial level and kl only data
 all_data <- combine_data(kl_only_data, trial_level_data)
 
+## Add highest count ====
+all_data <- add_hc(all_data)
 
 # Write data -----
 ##datasets
@@ -36,9 +43,8 @@ all_data %>%
   write_to_datasets()
 
 ##subjects
-##To-DO: Get Sex information
 all_data %>% 
-  select(Experiment, Subject, Language, Age_months, KL) %>%
+  select(Experiment, Subject, Language, Age_months, KL, Sex, highest_count) %>%
   distinct() %>%
   rename(dataset_id = Experiment, 
          subject_id = Subject, 
@@ -55,7 +61,8 @@ trial_level_data %>%
                 subject_id = Subject)%>%
   write_to_trials()
 
-# --- run KL models on everyone
+
+## Run KL models on everyone ====
 
 kl.dir = "import_scripts/KLmodels/"
 kl.sources = paste0(here(kl.dir),list.files(here(kl.dir)))
