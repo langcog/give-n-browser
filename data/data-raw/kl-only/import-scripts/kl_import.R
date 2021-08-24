@@ -116,7 +116,7 @@ data.raw %<>%
 data.raw %<>%
   mutate(Age_months = round(as.numeric(as.character(Age), 4)), 
          Age_years = floor(Age_months)/12)%>%
-  dplyr::select(Experiment, lab, Language, Subject, KL, Age_months, Age_years, method)%>%
+  dplyr::select(Experiment, lab, Language, Subject, Sex, KL, Age_months, Age_years, method)%>%
   mutate(cite = case_when(
     Experiment == "Almoammer_Barner_2013" ~ "Almoammer, A., Sullivan, J., Donlan, C., Marusic, F., O’Donnell, T., & Barner, D. (2013). Grammatical morphology as a source of early number word meanings. Proceedings of the National Academy of Sciences, 110(46), 18448-18453.", 
     Experiment == "Barner_Yang_2009" | Experiment == "BarnerChowYoungE2" ~ "Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.", 
@@ -134,4 +134,5 @@ data.raw %<>%
 
 
 # Save and export ----
-write_csv(data.raw, here::here("data/processed-data/kl_data_processed.csv"))
+write_csv(data.raw, here::here("data/processed-data/kl_data_processed.csv")) #to main data
+write_csv(data.raw, here::here("shiny_app/data/processed-data/kl_data_processed.csv")) #to main data

@@ -1,3 +1,7 @@
+## Helper functions for numberbank
+
+## Writing data ====
+
 # write_to_subjects
 write_to_subjects <- function(df) {
   # insert validations here
@@ -6,13 +10,14 @@ write_to_subjects <- function(df) {
   
   
   if (file.exists(here::here("data/processed-data/subjects.csv"))) {
-    subjects <- read_csv(here::here("data/processed-data/subjects.csv"))
+    subjects <- read_csv(here::here("data/processed-data/subjects.csv")) 
     subjects <- bind_rows(subjects, df)
   } else {
     subjects <- df 
   }
   
-  write_csv(subjects, here::here("data/processed-data/subjects.csv"))
+  write_csv(subjects, here::here("data/processed-data/subjects.csv")) # write to data/processed-data
+  write_csv(subjects, here::here("shiny_app/data/processed-data/subjects.csv")) # write to shiny app data/processed-data
 }
 
 # write_to_datasets
@@ -30,6 +35,7 @@ write_to_datasets <- function(df) {
   }
   
   write_csv(datasets, here::here("data/processed-data/datasets.csv"))
+  write_csv(datasets, here::here("shiny_app/data/processed-data/datasets.csv"))
 }
 
 
@@ -47,9 +53,11 @@ write_to_trials <- function(df) {
     trials <- df 
   }
   
-  write_csv(trials, here::here("data/processed-data/trials.csv"))
+  write_csv(trials, here::here("shiny_app/data/processed-data/trials.csv"))
 }
 
+
+## Wrangling data ====
 ## function for trial_id
 create_zero_index <- function(data, id_column_name="Subject") {
   data <- data %>%
@@ -78,4 +86,16 @@ combine_data <- function(df1, df2) {
   all_data <- full_join(trial_with_kl, kls_without_trial)
   
   return(all_data)
+}
+
+## Add in highest count data when appropriate ====
+add_hc <- function(df) {
+  ## read in highest count data
+  highest_count <- read_csv(here("shiny_app/data/processed-data/highest_count.csv"))%>%
+    distinct(SID, highest_count, Experiment)%>%
+    rename("Subject" = "SID")
+  
+  ## now combine this with all data when appropriate
+  df <- left_join(df, highest_count, by = c("Subject", "Experiment"))
+  return(df)
 }

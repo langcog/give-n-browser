@@ -498,10 +498,11 @@ all.data <- bind_rows(Almoammer_Barner_2013,
   mutate(Age_months = round(as.numeric(as.character(Age_months), 4)), 
          Age_years = floor(Age_months)/12)%>%
   mutate(typical = ifelse(Experiment == "SchneiderEtAl_2020", "non-typical", "typical"))%>%
-  dplyr::select(Experiment, lab, Language, Subject, Age_months, Age_years, method, Query, Response, cite, typical)
+  dplyr::select(Experiment, lab, Language, Subject, Age_months, Age_years, Sex, method, Query, Response, cite, typical)
 
 # Save and export ----
-write_csv(all.data, here::here('data/processed-data/trial_level_processed_data.csv'))
+write_csv(all.data, here::here('data/processed-data/trial_level_processed_data.csv')) # to main data
+write_csv(all.data, here::here('shiny_app/data/processed-data/trial_level_processed_data.csv')) # to shiny app
 
 
 # all.data <- read_csv('data/processed-data/trial_level_processed_data.csv')
