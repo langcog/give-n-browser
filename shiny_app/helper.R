@@ -7,7 +7,7 @@ library(haven)
 
 # read data
 trials <- read_csv(here::here("data/processed-data/trials.csv"))
-subjects <- read_csv(here::here("data/processed-data/subjects.csv"))
+subjects <- read_csv(here::here("data/processed-data/subjects.csv"), col_types = cols(highest_count = col_number()))
 datasets <- read_csv(here::here("data/processed-data/datasets.csv"))
 
 
@@ -33,7 +33,6 @@ all_data <- full_join(subjects, trials) %>%
          method = ifelse(method == "Non-titrated", "non-titrated", as.character(method)), 
          CP_subset = ifelse(KL == "CP-knower", "CP-knower", "Subset-knower"), 
          CP_subset = factor(CP_subset, levels = c("Subset-knower", "CP-knower")))
-
 
 # organize citations
 
