@@ -780,7 +780,7 @@ server <- function(input, output, session) {
         group_by(language)%>%
         summarise(n = n(), 
                   `Mean highest count` = round(mean(highest_count, na.rm = TRUE), 2),
-                  `SD highest_count` = round(sd(highest_count, na.rm = TRUE), 2),
+                  `SD highest count` = round(sd(highest_count, na.rm = TRUE), 2),
                   `MMean age` = round(mean(age_months, na.rm = TRUE), 2),
                   `SD age` = round(sd(age_months, na.rm = TRUE), 2))
  
