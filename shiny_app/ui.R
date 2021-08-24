@@ -133,14 +133,20 @@ ui = navbarPage(title = "Numberbank",
                              tags$style(type = "text/css",
                                         ".shiny-output-error { visibility: hidden; }",
                                         ".shiny-output-error:before { visibility: hidden; }"),
-                             tabsetPanel(selected = "Highest count by age, language", 
-                                         tabPanel("Highest count by age, language",
+                             tabsetPanel(selected = "Highest count by age", 
+                                         tabPanel("Highest count by age",
                                                   plotOutput("hc_age_language")), 
                                          tabPanel("Table", 
                                                   dataTableOutput('table_hc')),
                                          tabPanel("Datasets",
                                                   htmlOutput("citations_hc"))
-                             ) 
+                             ),
+                             tabsetPanel(selected = "Highest count by language", 
+                                         tabPanel("Highest count by language",
+                                                  plotOutput("hc_density")), 
+                                         tabPanel("Table", 
+                                                  dataTableOutput('table_language_hc'))
+                             )
                            )
                          )
                 ), 
