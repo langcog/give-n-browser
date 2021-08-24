@@ -5,6 +5,8 @@ library(leaflet)
 library(plotly)
 library(shinyjs)
 library(shinyBS)
+library(bslib)
+library(shinybusy)
 library(DT)
 
 ### . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ..
@@ -19,7 +21,10 @@ library(DT)
 
 # shinyUI(navbarPage())
 ui = navbarPage(title = "Numberbank",
-                theme = "spacelab",
+                theme = "css/customtheme.css",
+                # theme = "spacelab",
+                # theme = bs_theme(bg = "white", fg = "white",
+                #                  base_font = font_google("Space Mono")),
                 fluid = TRUE, 
                 collapsible = TRUE,
                 
@@ -38,10 +43,6 @@ ui = navbarPage(title = "Numberbank",
                                      type = "image/png",
                                      href = "img/fishwithears.png")
                          )
-                         # tags$style(type = "text/css",
-                         #            ".metaCol { float:left; font-size:24px; width:50%; text-align:center; }"),
-                         # tags$div(class="metaCol", htmlOutput("metaLangText"))
-                         
                 ),
                 
                 tabPanel("Knower levels", value = 'tabKL', fluid = TRUE,
@@ -68,7 +69,8 @@ ui = navbarPage(title = "Numberbank",
                                          tabPanel("Table", 
                                                   dataTableOutput('table')),
                                          tabPanel("Datasets",
-                                                  htmlOutput("citations"))
+                                                  htmlOutput("citations")),
+                                         add_busy_spinner(spin = "bounce") #trinity-rings, semipolar, circle, bounce
                              ), 
                              tabsetPanel(selected = "Cumulative probability of KL", 
                                          tabPanel("Cumulative probability of KL",
@@ -103,7 +105,8 @@ ui = navbarPage(title = "Numberbank",
                                                   tabPanel("Table", 
                                                            dataTableOutput('table_item')),
                                                   tabPanel("Datasets",
-                                                           htmlOutput("citationsItemAll"))
+                                                           htmlOutput("citationsItemAll")),
+                                                  add_busy_spinner(spin = "bounce")
                                       ), 
                                       tabsetPanel(selected = "Responses by language", 
                                                   tabPanel("Responses by language",
@@ -135,60 +138,51 @@ ui = navbarPage(title = "Numberbank",
                                   )
                          )
                 ), 
-                tabPanel("Submit Data", fluid = TRUE,
-                         tabPanel("Submit Data", fluid = TRUE,
-                                  sidebarLayout(
-                                    sidebarPanel(
-                                      fileInput("file1", "Choose File",
-                                                multiple = TRUE,
-                                                accept = c("text/csv",
-                                                           "text/comma-separated-values,text/plain",
-                                                           ".csv",
-                                                           ".sav")),
-
-                                      # Horizontal line ----
-                                      tags$hr(),
-
-                                      # Input: Checkbox if file has header ----
-                                      checkboxInput("header", "Header", TRUE),
-
-                                      # Input: Select separator ----
-                                      radioButtons("sep", "Separator",
-                                                   choices = c(Comma = ",",
-                                                               Semicolon = ";",
-                                                               Tab = "\t"),
-                                                   selected = ","),
-
-                                      # Input: Select quotes ----
-                                      radioButtons("quote", "Quote",
-                                                   choices = c(None = "",
-                                                               "Double Quote" = '"',
-                                                               "Single Quote" = "'"),
-                                                   selected = '"'),
-
-                                      # Horizontal line ----
-                                      tags$hr(),
-
-                                      # Input: Select number of rows to display ----
-                                      radioButtons("disp", "Display",
-                                                   choices = c(Head = "head",
-                                                               All = "all"),
-                                                   selected = "head")
-                                    ),
-
-                                    mainPanel(
-                                      # tags$head(tags$style(HTML('.shiny-html-output table td {width: 400px}'))),
-                                      # tags$iframe(HTML('.shiny-html-output table td {width: 400px}'),
-                                      #             width="100%",frameBorder="0",height="1000px")
-                                      # tableOutput("uploadContents")
-                                      
-                                      div(dataTableOutput("uploadContents"), style = "font-size: 75%; width: 75%;"),
-                                      tags$style(type = "text/css",
-                                                 ".shiny-table { width: 75%; }")
-                                    )
-                                  )
-                         )
-                ),
+                # tabPanel("Submit Data", fluid = TRUE,
+                #          tabPanel("Submit Data", fluid = TRUE,
+                #                   sidebarLayout(
+                #                     sidebarPanel(
+                #                       fileInput("file1", "Choose File",
+                #                                 multiple = TRUE,
+                #                                 accept = c("text/csv",
+                #                                            "text/comma-separated-values,text/plain",
+                #                                            ".csv",
+                #                                            ".sav")),
+                #                       tags$hr(),
+                # 
+                #                       # Input: Checkbox if file has header ----
+                #                       checkboxInput("header", "Header", TRUE),
+                # 
+                #                       # Input: Select separator ----
+                #                       radioButtons("sep", "Separator",
+                #                                    choices = c(Comma = ",",
+                #                                                Semicolon = ";",
+                #                                                Tab = "\t"),
+                #                                    selected = ","),
+                # 
+                #                       # Input: Select quotes ----
+                #                       radioButtons("quote", "Quote",
+                #                                    choices = c(None = "",
+                #                                                "Double Quote" = '"',
+                #                                                "Single Quote" = "'"),
+                #                                    selected = '"'),
+                #                       tags$hr(),
+                # 
+                #                       # Input: Select number of rows to display ----
+                #                       radioButtons("disp", "Display",
+                #                                    choices = c(Head = "head",
+                #                                                All = "all"),
+                #                                    selected = "head")
+                #                     ),
+                # 
+                #                     mainPanel(
+                #                       div(dataTableOutput("uploadContents"), style = "font-size: 75%; width: 75%;"),
+                #                       tags$style(type = "text/css",
+                #                                  ".shiny-table { width: 75%; }")
+                #                     )
+                #                   )
+                #          )
+                # ),
                 tabPanel("About Numberbank", fluid = TRUE,
                          tabPanel("About Numberbank", fluid = TRUE,
                                   includeHTML("about.html")
