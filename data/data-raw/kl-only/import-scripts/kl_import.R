@@ -9,7 +9,7 @@ library(magrittr)
 files = list.files(path = "data/data-raw/kl-only/data-raw",
                    pattern = "*.csv", 
                    full.names = T)
-files <- c(files[1:4], files[10:17])
+files <- c(files[1:3], files[6], files[13:20])
 
 # Read in all data from kl-only raw data ----
 ##TO-DO: add column for sex
@@ -88,13 +88,13 @@ glimpse(chernyak2019)
 
 #mostly renaming
 data.raw %<>%
-  mutate(Experiment = ifelse(Language == "Mandarin", "Almoammer2013", Experiment), 
+  mutate(Experiment = ifelse(Language == "Mandarin", "Almoammer_Barner_2013", Experiment), 
          Subject = case_when(
-            is.na(Subject) & !is.na(Subnum) ~ Subnum,
+            # is.na(Subject) & !is.na(Subnum) ~ Subnum, #subnum no longer included
             is.na(Subject) & !is.na(Participant) ~ Participant,
             TRUE ~ Subject
          ),
-         Age_months = ifelse((is.na(Age) & !is.na(Age.Mos)), Age.Mos, Age), 
+         # Age_months = ifelse((is.na(Age) & !is.na(Age.Mos)), Age.Mos, Age), ## looks like this is no longer an issue
          KL = ifelse((is.na(KL) & !is.na(Knower.Level)), Knower.Level, KL), 
          KL = ifelse(is.na(KL), Knower_level, KL), 
          KL = ifelse(is.na(KL), `Knower-level`, KL),
@@ -103,7 +103,7 @@ data.raw %<>%
          Sex = NA)%>%
   filter(KL != "ChangeMe", 
          KL != "X")%>%
-  mutate(KL = ifelse((KL == "5" & (Experiment == "Marusic2016" | Experiment == "Almoammer2013")), "CP", 
+  mutate(KL = ifelse((KL == "5" & (Experiment == "Marusic_Barner_2016" | Experiment == "Almoammer_Barner_2013")), "CP", 
                            as.character(KL)), 
          KL = ifelse(KL == "5K", "5", as.character(KL)),
          KL = ifelse(KL == "4K", "4", as.character(KL)), 
@@ -114,22 +114,23 @@ data.raw %<>%
 #select relevant columns, round for age and mutate years
 
 data.raw %<>%
-  mutate(Age_months = round(as.numeric(as.character(Age_months), 4)), 
+  mutate(Age_months = round(as.numeric(as.character(Age), 4)), 
          Age_years = floor(Age_months)/12)%>%
   dplyr::select(Experiment, lab, Language, Subject, KL, Age_months, Age_years, method)%>%
   mutate(cite = case_when(
-    Experiment == "Almoammer2013" ~ "Almoammer, A., Sullivan, J., Donlan, C., Marusic, F., O’Donnell, T., & Barner, D. (2013). Grammatical morphology as a source of early number word meanings. Proceedings of the National Academy of Sciences, 110(46), 18448-18453.", 
-    Experiment == "BarnerChowYoungE1" | Experiment == "BarnerChowYoungE2" ~ "Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.", 
-    Experiment == "BarnerTakasaki2009" ~ "Barner, D., Libenson, A., Cheung, P., & Takasaki, M. (2009). Cross-linguistic relations between quantifiers and numerals in language acquisition: Evidence from Japanese. Journal of experimental child psychology, 103(4), 421-440.", 
-    Experiment == "Marusic2016" ~ "Marusic, F., Zaucer, R., Plesnicar, V., Razborsek, T., Sullivan, J., & Barner, D. (2016). Does grammatical structure accelerate number word learning? Evidence from learners of dual and non-dual dialects of Slovenian. PloS one, 11(8), e0159208.", 
-    Experiment == "Piantadosi2014" ~ "Piantadosi, S. T., Jara‐Ettinger, J., & Gibson, E. (2014). Children's learning of number words in an indigenous farming‐foraging group. Developmental Science, 17(4), 553-563.", 
-    Experiment == "SchneiderBarner_2020" ~ "Schneider, R.M., & Barner, D. (2020). Children use one-to-one correspondence to establish equality after learning to count. 42nd Annual Meeting of the Cognitive Science Society.", #LAO: changed SchneiderBarner2020 to SchneiderBarner_2020; check
-    Experiment == "SchneiderBarner_20xx" ~ "Schneider, R.M., Feiman, R., & Barner, D. (unpublished dataset).", 
-    Experiment == "SchneiderEtAl_20xx" ~ "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.",
-    Experiment == "SchneiderEtAl_2020" ~ "Schneider, R. M., Sullivan, J., Marusic, F., Biswas, P., Mismas, P., Plesnicar, V., & Barner, D. (2020). Do children use language structure to discover the recursive rules of counting?. Cognitive psychology, 117, 101263.",
-    Experiment == "SchneiderYen_20xx" ~ "Schneider, R.M., Yen, A., & Barner, D. (unpublished dataset)."
+    Experiment == "Almoammer_Barner_2013" ~ "Almoammer, A., Sullivan, J., Donlan, C., Marusic, F., O’Donnell, T., & Barner, D. (2013). Grammatical morphology as a source of early number word meanings. Proceedings of the National Academy of Sciences, 110(46), 18448-18453.", 
+    Experiment == "Barner_Yang_2009" | Experiment == "BarnerChowYoungE2" ~ "Barner, D., Chow, K., & Yang, S. J. (2009). Finding one’s meaning: A test of the relation between quantifiers and integers in language development. Cognitive psychology, 58(2), 195-219.", 
+    Experiment == "Barner_Takasaki_2009" ~ "Barner, D., Libenson, A., Cheung, P., & Takasaki, M. (2009). Cross-linguistic relations between quantifiers and numerals in language acquisition: Evidence from Japanese. Journal of experimental child psychology, 103(4), 421-440.", 
+    Experiment == "Marusic_Barner_2016" ~ "Marusic, F., Zaucer, R., Plesnicar, V., Razborsek, T., Sullivan, J., & Barner, D. (2016). Does grammatical structure accelerate number word learning? Evidence from learners of dual and non-dual dialects of Slovenian. PloS one, 11(8), e0159208.", 
+    Experiment == "Piantadosi_Gibson_2014" ~ "Piantadosi, S. T., Jara‐Ettinger, J., & Gibson, E. (2014). Children's learning of number words in an indigenous farming‐foraging group. Developmental Science, 17(4), 553-563.", 
+    Experiment == "Schneider_Barner_UnderReview" ~ "Schneider, R.M., Brockbank, E., Feiman, R., & Barner, D. (under review). Counting and the ontogenetic origins of exact equality.", #LAO: changed SchneiderBarner2020 to SchneiderBarner_2020; check
+    Experiment == "Schneider_Barner_2021" ~ "Schneider, R. M., Pankonin, A. H., Schachner, A., & Barner, D. (2020, September 23). Starting small: Exploring the origins of successor function knowledge. https://doi.org/10.31234/osf.io/3zngr.",
+    Experiment == "Schneider_Barner_2020" ~ "Schneider, R. M., Sullivan, J., Marusic, F., Biswas, P., Mismas, P., Plesnicar, V., & Barner, D. (2020). Do children use language structure to discover the recursive rules of counting?. Cognitive psychology, 117, 101263.",
+    Experiment == "Schneider_Barner_Unpublished" ~ "Schneider, R.M., Yen, A., & Barner, D. (unpublished dataset).", 
+    Experiment == "Marchand2019" ~ "Marchand, E., & Barner, D. (2019). Acquisition of French Un. Proceedings of the 41st Annual Conference of the Cognitive Science Society.", 
+    Experiment == "MarchandUnderRev" ~ "Marchand, E., & Barner, D. (2020). How reliable if the Give-a-number task?. Proceedings of the 42nd Annual Conference of the Cognitive Science Society."
   )) %>%
-  mutate(typical = ifelse(Experiment == "SchneiderEtAl_2020", "non-typical", "typical"))
+  mutate(typical = ifelse(Experiment == "Schneider_Barner_2020", "non-typical", "typical"))
 
 
 # Save and export ----
