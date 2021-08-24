@@ -53,6 +53,7 @@ write_to_trials <- function(df) {
     trials <- df 
   }
   
+  write_csv(trials, here::here("data/processed-data/trials.csv"))
   write_csv(trials, here::here("shiny_app/data/processed-data/trials.csv"))
 }
 
