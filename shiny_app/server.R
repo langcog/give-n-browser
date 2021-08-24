@@ -169,7 +169,7 @@ server <- function(input, output, session) {
              if (is.null(inputKL)) KL %in% unique(all_data$KL) else KL %in% inputKL,
              if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
              if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat) %>%
-      distinct(subject_id, dataset_id, age_months, Sex, language, KL, shortCite, highest_count)
+      distinct(subject_id, dataset_id, age_months, Sex, language, KL, shortCite, highest_count, cite, orderCite)
     # method %in% input$method_choice_item)
   }, ignoreNULL=FALSE)
   
@@ -724,7 +724,7 @@ server <- function(input, output, session) {
   
 ### HIGHEST COUNT PLOTS ----
     
-  ## ---- HIGHEST COUNT DOT PLOTS ----
+  ## .... HIGHEST COUNT DOT PLOTS ----
   output$hc_age_language <- renderPlot({
     req(filtered_data_hc())
     
@@ -750,7 +750,7 @@ server <- function(input, output, session) {
     p
   })
   
-  ## ---- HIGHEST COUNT DENSITY PLOT ----
+  ## .... HIGHEST COUNT DENSITY PLOT ----
   output$hc_density <- renderPlot({
     req(filtered_data_hc())
     
@@ -771,6 +771,46 @@ server <- function(input, output, session) {
       labs(y = "Density", x = "Highest count")
     p
   })
+  
+  ## .... TABLE FOR HIGHEST COUNT DOT PLOT ----
+  
+  output$table_hc <- renderDataTable({
+    #first, if there is kl selected
+      table_hc <- filtered_data_hc() %>%
+        group_by(language)%>%
+        summarise(n = n(), 
+                  `Mean highest count` = round(mean(highest_count, na.rm = TRUE), 2),
+                  `SD highest_count` = round(sd(highest_count, na.rm = TRUE), 2),
+                  `MMean age` = round(mean(age_months, na.rm = TRUE), 2),
+                  `SD age` = round(sd(age_months, na.rm = TRUE), 2))
+ 
+    table_hc
+  })
+  
+  ## ---- DOWNLOADABLE DATA FOR HC ----
+  output$downloadData_hc <- downloadHandler(
+    filename = function() {
+      paste("highest-count-data-", Sys.Date(), ".csv", sep="")
+    }, 
+    content = function(file) {
+      write.csv(filtered_data_hc(), file)
+    }
+  )
+  
+  ## ---- CITATIONS FOR HC ANALYSES ----
+  output$citationsHCAll <- eventReactive(input$go_hc, {
+    req(filtered_data_hc())
+    
+    cites <- filtered_data_hc()%>%
+      distinct(cite, orderCite) %>%
+      arrange(orderCite) %>%
+      select(cite)
+    
+    cites_all <- paste(as.vector(unique(cites$cite)), collapse = " <br/><br/>")
+    
+    str2 <- as.character(cites_all)
+    HTML(paste("<b>Please cite:</b> <br/>", str2))
+  }, ignoreNULL=FALSE)
   
 
   ## ---- ALL CITATIONS ----

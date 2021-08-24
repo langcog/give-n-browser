@@ -125,8 +125,8 @@ ui = navbarPage(title = "Numberbank",
                              uiOutput("kl_range_selector_hc"),
                              # uiOutput("cp_subset_selector"),
                              uiOutput("dataset_include_selector_hc"),
-                             actionButton("go_hc", "Go")
-                             # downloadButton("downloadData_hc", "Download")
+                             actionButton("go_hc", "Go"),
+                             downloadButton("downloadData_hc", "Download")
                            ),
                            
                            mainPanel(
@@ -139,7 +139,7 @@ ui = navbarPage(title = "Numberbank",
                                          tabPanel("Table", 
                                                   dataTableOutput('table_hc')),
                                          tabPanel("Datasets",
-                                                  htmlOutput("citations_hc"))
+                                                  htmlOutput("citationsHCAll"))
                              ),
                              tabsetPanel(selected = "Highest count by language", 
                                          tabPanel("Highest count by language",
