@@ -115,6 +115,35 @@ ui = navbarPage(title = "Numberbank",
                                   )
                          ) 
                 ), 
+                
+                tabPanel("Highest count", value = 'tabHC', fluid = TRUE,
+                         # Sidebar layout with a input and output definitions
+                         sidebarLayout(
+                           sidebarPanel(
+                             uiOutput("age_range_selector_hc"),
+                             uiOutput("language_selector_hc"),
+                             uiOutput("kl_range_selector_hc"),
+                             # uiOutput("cp_subset_selector"),
+                             uiOutput("dataset_include_selector_hc"),
+                             actionButton("go_hc", "Go")
+                             # downloadButton("downloadData_hc", "Download")
+                           ),
+                           
+                           mainPanel(
+                             tags$style(type = "text/css",
+                                        ".shiny-output-error { visibility: hidden; }",
+                                        ".shiny-output-error:before { visibility: hidden; }"),
+                             tabsetPanel(selected = "Highest count by age, language", 
+                                         tabPanel("Highest count by age, language",
+                                                  plotOutput("hc_age_language")), 
+                                         tabPanel("Table", 
+                                                  dataTableOutput('table_hc')),
+                                         tabPanel("Datasets",
+                                                  htmlOutput("citations_hc"))
+                             ) 
+                           )
+                         )
+                ), 
                 tabPanel("About Give-N", fluid = TRUE,
                          includeHTML("about_given.html"),
                          tags$head(

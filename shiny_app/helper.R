@@ -112,8 +112,12 @@ all_datasets_short <- all_datasets$shortCite
 languages_KL <- c(unique(subset(all_data, !is.na(KL))$language))
 ##get only language for which we have Queries
 languages_item <- c(unique(subset(all_data, !is.na(Query))$language))
+##get only language for which we have highest_counts
+languages_hc <- c(unique(subset(all_data, !is.na(highest_count))$language))
 # #get only datasets for which we have KLs
 datasets_KL <- c(unique(subset(all_data, !is.na(KL))$dataset_id))
+# #get only datasets for which we have highest counts
+all_datasets_short_hc <- c(unique(subset(all_data, !is.na(highest_count))$shortCite))
 # #get only datasets for which we have queries
 # datasets_item <- c(unique(subset(all_data, !is.na(Query))$dataset_id))
 methods <- c("titrated", "non-titrated")

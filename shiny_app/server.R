@@ -1,4 +1,5 @@
-source(here::here("helper.R"))
+# source(here::here("helper.R"))
+source("helper.R")
 
 
 # MAIN SHINY SERVER
@@ -143,6 +144,35 @@ server <- function(input, output, session) {
     # method %in% input$method_choice_item)
   }, ignoreNULL=FALSE)
   
+  ## ... HIGHEST COUNT DATA -----
+  filtered_data_hc <- eventReactive(input$go_hc, {
+    inputAgeMin = input$age_range_hc[1]
+    inputAgeMax = input$age_range_hc[2]
+    inputKL = input$kl_range_hc
+    inputLang = input$language_choice_hc
+    inputDat = input$dataset_add_hc
+    
+    if(input$go_hc == 0){
+      inputAgeMin = 22
+      inputAgeMax = 144
+      inputKL = c("1-knower", "2-knower", "3-knower", "CP-knower")
+      inputLang = c(unique(subset(all_data, !is.na(highest_count))$language))
+      inputDat = unique(all_data$shortCite)
+    }
+    
+    all_data %>%
+      filter(!is.na(highest_count),
+             !is.na(age_months),
+             !is.na(KL),
+             age_months >= inputAgeMin,
+             age_months <= inputAgeMax,
+             if (is.null(inputKL)) KL %in% unique(all_data$KL) else KL %in% inputKL,
+             if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
+             if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat) %>%
+      distinct(subject_id, dataset_id, age_months, Sex, language, KL, shortCite, highest_count)
+    # method %in% input$method_choice_item)
+  }, ignoreNULL=FALSE)
+  
   
   
   
@@ -245,6 +275,47 @@ server <- function(input, output, session) {
     selectInput("dataset_add_item",
                 label = "Datasets to include:",
                 choices = all_datasets_short,
+                #selected = as.list(y),
+                multiple = TRUE)
+  })
+  
+  ## ... Highest count selectors####
+  output$age_range_selector_hc <- renderUI({
+    sliderInput("age_range_hc",
+                label = "Ages to include (months):",
+                value = c(age_min, age_max),
+                step = 1,
+                min = age_min, max = age_max)
+  })
+  
+  
+  output$language_selector_hc <- renderUI({
+    selectInput("language_choice_hc", 
+                label = "Languages to include:", 
+                choices = languages_hc, 
+                selected = languages_hc, 
+                multiple = TRUE)
+  })
+  
+  
+  output$kl_range_selector_hc <- renderUI({
+    selectInput("kl_range_item", 
+                label = "Knower levels to include:", 
+                choices = kls, 
+                selected = c("1-knower", "2-knower", "3-knower", "CP-knower"), 
+                multiple = TRUE)
+  })
+  
+  # output$kl_facet_selector <- renderUI({
+  #   prettySwitch("kl_selector", # HERE: should this be "kl_range_selector"?
+  #                label = "Facet by knower level",
+  #                value = FALSE)
+  # })
+  
+  output$dataset_include_selector_hc <- renderUI({
+    selectInput("dataset_add_item",
+                label = "Datasets to include:",
+                choices = all_datasets_short_hc,
                 #selected = as.list(y),
                 multiple = TRUE)
   })
@@ -651,6 +722,33 @@ server <- function(input, output, session) {
   }, ignoreNULL=FALSE)
   
   
+### HIGHEST COUNT PLOTS ----
+    
+  ## ---- HIGHEST COUNT DOT PLOTS ----
+  output$hc_age_language <- renderPlot({
+    req(filtered_data_hc())
+    
+      p <- ggplot(filtered_data_hc(), 
+                  aes(x = age_months, y = highest_count, 
+                      color = as.factor(language))) + 
+        geom_point() + 
+        geom_smooth(method = 'lm', se = FALSE) +
+        # geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+        # geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+        #                binwidth = 1) +
+        scale_y_continuous(breaks = seq(0, 150, 10), 
+                           limits = c(0, 150)) + 
+        # scale_fill_brewer(palette = "Dark2") +
+        scale_color_solarized() +
+        theme_bw(base_size=14) +
+        theme(legend.position = "right", 
+              legend.title = element_blank(),
+              panel.grid = element_blank()) +
+        labs(y = "Highest count", x = "Age") + 
+        coord_cartesian()
+    p
+  })
+
   ## ---- ALL CITATIONS ----
   output$citationsAll <- renderUI({
     
