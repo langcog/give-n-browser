@@ -125,21 +125,33 @@ div.desc {
 }
 
 
-.nbDescrip {
+#homeContent {
   float: left; 
+  margin: 2% 5% 2% 5%;
+}
+
+.nbDescrip {
   width: 60%;
 }
 
 #descrLg {
   font-size: 36px; 
+  line-height: 28pt;
+  font-family: bold;
 }
 
-#descrSm {
+.descrSm {
   font-size: 24px; 
+  padding: 5px 0px 5px 0px;
 }
 
 #descrImg {
-  float: right;
+  margin-top: -125px;
+  margin-left: 30%;
+  width: 70%;
 }
 
+.knowers {
+  margin-left: 5%;
+}
 

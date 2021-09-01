@@ -1,0 +1,33 @@
+
+body {
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > .active > a:hover,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > .active > a:hover {
+  color: white; 
+  background-color: #9CBF73;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:focus, 
+.navbar-default .navbar-nav > li > .dropdown-toggle,
+.navbar-default .navbar-nav > li > .dropdown-toggle:focus, 
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-brand:hover,
+.navbar,
+.dropdown-menu,
+.dropdown-menu > li > a,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:focus { 
+  color: white; 
+  background-color: #A5C581;
+}

@@ -5,32 +5,6 @@ source("helper.R")
 # MAIN SHINY SERVER
 server <- function(input, output, session) {
   
-  output$uploadContents <- renderDataTable({
-
-    # input$file1 will be NULL initially. After the user selects
-    # and uploads a file, head of that data file by default,
-    # or all rows if selected, will be shown.
-
-    req(input$file1)
-
-    filetype = str_sub(input$file1$datapath, -4)
-    print(input$file1$datapath)
-    if(filetype == ".csv"){
-      df <- read_csv(input$file1$datapath)
-    } else if(filetype == ".sav"){
-      df <- read_sav(input$file1$datapath)
-    }
-
-    if(input$disp == "head") {
-      previewdf <- head(df, 10)
-    } else {
-      previewdf <- df
-    }
-    return(previewdf)
-    # return(tags$iframe(src=previewdf, width="100%", frameBorder="0", height="1000px"))
-
-  })
-  
   ## ----------------------- DATA -----------------------
   
   ## ... KL DATA ----
@@ -170,7 +144,6 @@ server <- function(input, output, session) {
              if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
              if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat) %>%
       distinct(subject_id, dataset_id, age_months, Sex, language, KL, shortCite, highest_count, cite, orderCite)
-    # method %in% input$method_choice_item)
   }, ignoreNULL=FALSE)
   
   
@@ -422,12 +395,10 @@ server <- function(input, output, session) {
     ggplot(cumul_prob(), 
            aes(x = age_months, y = prop, colour=KL, fill=KL,
                group=KL))+
-      geom_line(size=1) + 
+      geom_line(size=2) + 
       xlab("Age (months)") + 
       geom_ribbon(aes(ymin = ci.low, ymax= ci.high), 
                   alpha = .2,show_guide=FALSE,linetype=0) + 
-      # geom_vline(aes(xintercept=age_months[prop>.75][1]), lty=3) +
-      # scale_x_continuous(breaks=seq(0,24,4))+
       scale_color_solarized("Knower level")+
       scale_fill_solarized()+
       scale_y_continuous(limits = c(0,1),
@@ -621,20 +592,6 @@ server <- function(input, output, session) {
   output$lang_histogram <- renderPlot({
     req(filtered_data_item())
     
-    # lang <- filtered_data_item() %>%
-    #   group_by(Query, Response, language)%>%
-    #   summarise(n = n())%>%
-    #   group_by(Query, language)%>%
-    #   mutate(total.n = sum(n), 
-    #          prop = n/total.n)
-    # 
-    # lang_kl <- filtered_data_item() %>%
-    #   group_by(Query, Response, language, KL)%>%
-    #   summarise(n = n())%>%
-    #   group_by(Query, KL, language)%>%
-    #   mutate(total.n = sum(n), 
-    #          prop = n/total.n)
-    
     if (input$kl_selector) {
       p <- ggplot(filtered_data_item(), 
                   aes(x = Response, fill = as.factor(language))) + 
@@ -757,12 +714,8 @@ server <- function(input, output, session) {
     p <- ggplot(filtered_data_hc(), 
                 aes(x = highest_count, color = as.factor(language))) + 
       geom_density(size = 2) +
-      # geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-      # geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
-      #                binwidth = 1) +
       scale_x_continuous(breaks = seq(0, 150, 10), 
                          limits = c(0, 150)) + 
-      # scale_fill_brewer(palette = "Dark2") +
       scale_color_solarized() +
       theme_bw(base_size=14) +
       theme(legend.position = "right", 
@@ -781,7 +734,7 @@ server <- function(input, output, session) {
         summarise(n = n(), 
                   `Mean highest count` = round(mean(highest_count, na.rm = TRUE), 2),
                   `SD highest count` = round(sd(highest_count, na.rm = TRUE), 2),
-                  `MMean age` = round(mean(age_months, na.rm = TRUE), 2),
+                  `Mean age` = round(mean(age_months, na.rm = TRUE), 2),
                   `SD age` = round(sd(age_months, na.rm = TRUE), 2))
  
     table_hc
@@ -818,8 +771,70 @@ server <- function(input, output, session) {
     
     cites_all <- paste(all_datasets_full$htmlTxt, collapse = " <br/><br/>")
     
-    str2 <- paste(as.character(cites_all), "<br><br>")
+    str2 <- paste("<br><br><h3>Current Datasets</h3><br>", as.character(cites_all), "<br><br>")
     HTML(str2)
+  })
+  
+  
+  
+  ## ---- INPUT DATA ----
+  output$addDat_header <- renderUI({
+    prettySwitch("header",
+                 label = "Header",
+                 value = TRUE)
+  })
+  
+  output$addDat_separator <- renderUI({
+    radioButtons("sep",
+                label = "Separator",
+                choices = c(Comma = ",",
+                            Semicolon = ";",
+                            Tab = "\t"),
+                selected = ",")
+  })
+  
+  output$addDat_quote <- renderUI({
+    radioButtons("quote", "Quote", 
+                 choices = c(None = "",
+                            "Double Quote" = '"',
+                            "Single Quote" = "'"),
+                 selected = '"')
+  })
+  
+  readin_newdat <- reactive({
+    req(input$file1)
+    filetype = sub(".*\\.", "", input$file1$datapath)
+    if(filetype == "csv"){
+      dat <- read_csv(input$file1$datapath)
+    } else if(filetype == "sav"){
+      dat <- read_sav(input$file1$datapath)
+    }
+    dat
+  })
+  
+  this_newdat <- reactive({data=NULL})
+  
+  
+  output$uploadContents <- DT::renderDataTable({
+    readin_newdat()
+  }, 
+  # callback = JS(callback.colnames),
+    options=list(
+      # ordering=FALSE,
+      # autoWidth=TRUE,
+      scrollX=TRUE
+    )
+  )
+  
+  conversion <- eventReactive(input$convert, {
+    req(readin_newdat())
+    convertedDat <- readin_newdat() %>%
+      rename(Subject = SubjID)
+    convertedDat
+  })
+  
+  output$convertContents <- DT::renderDataTable({
+    conversion()
   })
 }
 
