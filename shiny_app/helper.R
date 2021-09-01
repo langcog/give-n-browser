@@ -170,6 +170,40 @@ n_all <- get_all_data %<>%
 n_all <- left_join(n_all, sample.n_all)
 
 
+# flexible reformatting of submitted data
+
+callback.colnames <- c(
+  "table.on('dblclick.dt', 'thead th', function(e) {",
+  "  var $th = $(this);",
+  "  var index = $th.index();",
+  "  var colname = $th.text(), newcolname = colname;",
+  "  var $input = $('<input type=\"text\">')",
+  "  $input.val(colname);",
+  "  $th.empty().append($input);",
+  "  $input.on('change', function(){",
+  "    newcolname = $input.val();",
+  "    if(newcolname != colname){",
+  "      $(table.column(index).header()).text(newcolname);",
+  "    }",
+  "    $input.remove();",
+  "  }).on('blur', function(){",
+  "    $(table.column(index).header()).text(newcolname);",
+  "    $input.remove();",
+  "  });",
+  "});"
+)
+
+
+## trial level data
+convert_trialLevel <- function(df){
+  
+}
+
+
+
+
+
+
 
 
 

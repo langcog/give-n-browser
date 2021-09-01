@@ -272,7 +272,7 @@ server <- function(input, output, session) {
   
   
   output$kl_range_selector_hc <- renderUI({
-    selectInput("kl_range_item", 
+    selectInput("kl_range_hc", 
                 label = "Knower levels to include:", 
                 choices = kls, 
                 selected = c("1-knower", "2-knower", "3-knower", "CP-knower"), 
@@ -691,12 +691,8 @@ server <- function(input, output, session) {
         geom_point(position = position_jitter(width = .4), alpha = .6, 
                    size = 2.5) + 
         geom_smooth(method = 'lm', se = FALSE, size = 2) +
-        # geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-        # geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
-        #                binwidth = 1) +
         scale_y_continuous(breaks = seq(0, 150, 10), 
                            limits = c(0, 150)) + 
-        # scale_fill_brewer(palette = "Dark2") +
         scale_color_solarized() +
         theme_bw(base_size=14) +
         theme(legend.position = "right", 
