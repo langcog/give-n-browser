@@ -4,16 +4,26 @@ library(langcog)
 library(shinyWidgets)
 library(DT)
 library(haven)
+library(showtext)
+font_add_google("Roboto")
+showtext_auto()
+fig.font = "Roboto"
+fig.fontsize = 16
+# tab.font = "Roboto"
+# fig.font = "Arial"
 
 # read data
 trials <- read_csv(here::here("data/processed-data/trials.csv"))
 subjects <- read_csv(here::here("data/processed-data/subjects.csv"), col_types = cols(highest_count = col_number()))
+subjects %>%
+  distinct(language)
 datasets <- read_csv(here::here("data/processed-data/datasets.csv"))
 
 
 ## join the data, rename KLs
 all_data <- full_join(subjects, trials) %>%
-  left_join(datasets)%>%
+  left_join(datasets) %>%
+  rename(age_months = Age_months) %>%
   mutate(Response = ifelse(Response > 10, 10, as.numeric(Response)), 
          KL = case_when(
            KL == "Non" | KL == "0" ~ "0-knower", 
@@ -28,6 +38,10 @@ all_data <- full_join(subjects, trials) %>%
          language = case_when(
            str_detect(language, "English") ~ "English", 
            language == "Saudi" ~ "Arabic", 
+           language == "Français" ~ "French",
+           language == "Anglais" ~ "English",
+           language == "Slovenian_dual" ~ "Slovenian (dual)",
+           language %in% c("Serbian/Slovenian", "Slovenian", "Slovenian_nonDual") ~ "Slovenian (non-dual)",
            TRUE ~ as.character(language)
          ), 
          method = ifelse(method == "Non-titrated", "non-titrated", as.character(method)), 
@@ -59,19 +73,18 @@ langMetaData <- all_data %>%
   
 
 metaData <- all_data %>%
-  distinct(cite, subject_id, age_months) %>%
+  distinct(cite, subject_id_nb, age_months) %>%
   group_by(cite) %>%
   summarise(min.age = min(age_months, na.rm = TRUE),
             max.age = max(age_months, na.rm = TRUE),
             n = n())
-
 citeMap <- all_data %>%
   distinct(cite) %>%
   mutate(beforeYear = gsub("^(.*?)[(].*", "\\1", cite), # get content before first parenthesis
          beforeYear = sapply(beforeYear, getLastNames), # pull out just the last names
          inYear = str_extract(cite, "[(].*?[)]"), # get content between parentheses
          inYear = str_replace_all(inYear, "[[:punct:]]", ""), # remove punctuations -- parentheses & commas
-         inYear = word(inYear, 1), # get first word
+         inYear = ifelse(inYear == "under review", inYear, word(inYear, 1)), # get first word (unless it is 'under review')
          shortCite = paste0(beforeYear, " (", inYear, ")"), # paste together with parentheses around year
          firstAuthor = str_replace_all(word(beforeYear, 1), "[[:punct:]]", ""),
          otherAuthors = str_replace_all(word(beforeYear, 2, -1), "[[:punct:]]", ""),
@@ -90,22 +103,29 @@ all_datasets <- all_data %>%
   distinct(cite, shortCite, orderCite) %>%
   arrange(orderCite) %>%
   mutate(cite_id = paste0("cite",1:n()))
+
 all_datasets_full <- tibble(cite = all_datasets$cite,
                             cite_id = all_datasets$cite_id) %>%
   left_join(methodMetaData) %>%
   left_join(langMetaData) %>%
   left_join(metaData) %>%
-  mutate(htmlTxt = paste0("<button class='collapsed' id='", cite_id, "' onclick='show(\"", cite_id, "\");'>", 
+  mutate(htmlTxt = paste0("<button class='collapsed' id='", cite_id, "' onclick='show(\"", cite_id, "\");' data-active=\"off\">", 
                           cite,
                           "</button>",
                           "<div class='content' id='", cite_id, "_content'>",
-                          "<p>",
-                          "N = ", n, "<br>",
-                          "Min age (months) = ", min.age, "<br>",
-                          "Max age (months) = ", max.age, "<br>",
-                          "Method(s) = ", method, "<br>",
-                          "Language(s) = ", language,
-                          "</p></div>"))
+                            "<div class='contLab'>N</div>",
+                            "<div class='contVal'>", n, "</div><br>",
+                            "<div class='contLab'>Min age (months)</div>", 
+                            "<div class='contVal'>", min.age, "</div><br>",
+                            "<div class='contLab'>Max age (months)</div>", 
+                            "<div class='contVal'>", max.age, "</div><br>",
+                            "<div class='contLab'>Method(s)</div>", 
+                            "<div class='contVal'>", method, "</div><br>",
+                            "<div class='contLab'>Language(s)</div>", 
+                            "<div class='contVal'>", language, "</div>",
+                          "</div>"))
+cites_all <- paste(all_datasets_full$htmlTxt, collapse = " <br/><br/>")
+citationsAll <- paste("<div class='contrCol'><div class='head'>Current Datasets</div><br>", as.character(cites_all), "<br><br></div>")
   
 all_datasets_short <- all_datasets$shortCite
 ##get only language for which we have KLs
@@ -193,65 +213,3 @@ callback.colnames <- c(
   "});"
 )
 
-
-## trial level data
-convert_trialLevel <- function(df){
-  
-}
-
-
-
-
-
-
-
-
-
-
-
-#brainstorm plots
-
-darken <- function(color, factor=1.4){
-  col <- col2rgb(color)
-  col <- col/factor
-  col <- rgb(t(col), maxColorValue=255)
-  col
-}
-
-
-lang_data <- all_data %>%
-  mutate(language = ifelse(str_detect(language, "Slovenian"), "Slovenian", language)) %>%
-  distinct(dataset_id, subject_id, language) %>%
-  count(language) %>%
-  arrange(desc(n)) %>%
-  filter(n > 1)
-lang_data_lab <- lang_data %>%
-  mutate(i = 1:n(),
-         angle = 90 - 360 * (i-0.5) / n(),
-         hjust = ifelse( angle < -90, 1, 0),
-         angle = ifelse(angle < -90, angle+180, angle),
-         n = ifelse(language=="French", log2(n)-4, log2(n)-5))
-
-
-
-langPlot <- ggplot(lang_data, aes(x=reorder(language, -n), y=log2(n), fill=reorder(language, -n))) +
-  geom_bar(stat="identity") +
-  geom_text(data=lang_data_lab,
-            aes(x=reorder(language, -n), y=n, label=language, hjust=hjust), 
-            color="white", fontface="bold",alpha=0.8, size=5.5, 
-            angle=lang_data_lab$angle, inherit.aes = FALSE) + 
-  ylim(-10,15) +
-  scale_fill_manual(values=darken(
-    rainbow(nrow(lang_data_lab)),
-    1.2
-    )) +
-  guides(fill="none") +
-  theme_minimal() +
-  theme(
-    axis.text = element_blank(),
-    axis.title = element_blank(),
-    panel.grid = element_blank(),
-    plot.margin = unit(rep(-2,4), "cm")
-  ) +
-  coord_polar(start = 0)
-# ggsave("www/img/langPlot.png", langPlot, width=14, height=14)

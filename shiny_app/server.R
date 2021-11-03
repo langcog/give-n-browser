@@ -25,7 +25,7 @@ server <- function(input, output, session) {
     }
     
     all_data %>%
-      distinct(dataset_id, subject_id, age_months, KL, method, language, cite, shortCite, orderCite, CP_subset)%>%
+      distinct(dataset_id, subject_id_nb, age_months, KL, method, language, cite, shortCite, orderCite, CP_subset)%>%
       filter(!is.na(age_months), 
              !is.na(KL),
              age_months >= inputAgeMin,
@@ -111,10 +111,11 @@ server <- function(input, output, session) {
              !is.na(KL),
              age_months >= inputAgeMin,
              age_months <= inputAgeMax,
-             Query %in% as.numeric(inputQuery), 
+             if (is.null(inputQuery)) Query %in% unique(all_data$Query) else Query %in% as.numeric(inputQuery), 
              if (is.null(inputKL)) KL %in% unique(all_data$KL) else KL %in% inputKL,
              if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
-             if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat)
+             if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat
+             )
     # method %in% input$method_choice_item)
   }, ignoreNULL=FALSE)
   
@@ -143,7 +144,7 @@ server <- function(input, output, session) {
              if (is.null(inputKL)) KL %in% unique(all_data$KL) else KL %in% inputKL,
              if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
              if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat) %>%
-      distinct(subject_id, dataset_id, age_months, Sex, language, KL, shortCite, highest_count, cite, orderCite)
+      distinct(subject_id_nb, dataset_id, age_months, Sex, language, KL, shortCite, highest_count, cite, orderCite)
   }, ignoreNULL=FALSE)
   
   
@@ -325,7 +326,8 @@ server <- function(input, output, session) {
       theme_bw(base_size=14) +
       labs(x = 'Language',
            y = "Age (months)") +
-      coord_flip()
+      coord_flip() +
+      theme(text = element_text(family=fig.font, size=fig.fontsize))
     
     if(input$method_choice_kl){ #facet_wrap by titrated vs not-titrated
       p <- p + facet_grid(~method)
@@ -404,7 +406,9 @@ server <- function(input, output, session) {
       scale_y_continuous(limits = c(0,1),
                          name = "Cumulative Probability of Knower Level")+
       theme_bw(base_size=14) +
-      theme(legend.position="right") + 
+      theme(legend.position="right",
+            text = element_text(family=fig.font, size=fig.fontsize)
+            ) + 
       facet_wrap(~language, scales = "free_x") + 
       guides(color = guide_legend(reverse = TRUE))
   })
@@ -462,11 +466,15 @@ server <- function(input, output, session) {
           scale_fill_solarized("Method") +
           theme_bw(base_size=14) +
           theme(legend.position = "right",
-                panel.grid = element_blank()) +
+                panel.grid = element_blank(),
+                text = element_text(family=fig.font, size=fig.fontsize)
+                ) +
           labs(y = "Proportion of responses", x = "Number given")+
           facet_grid(KL~Query) + 
-          geom_text(data = counts, aes(x = max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
-                    size = 5, inherit.aes = FALSE, parse = FALSE)
+          geom_text(data = counts, aes(x = max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+                    size = 5, inherit.aes = FALSE, parse = FALSE, 
+                    family = fig.font
+                    )
       } else {
         counts <- kl_hist %>%
           group_by(Query, KL)%>%
@@ -481,11 +489,15 @@ server <- function(input, output, session) {
           scale_fill_solarized() +
           theme_bw(base_size=14) +
           theme(legend.position = "none", 
-                panel.grid = element_blank()) +
+                panel.grid = element_blank(),
+                text = element_text(family=fig.font, size=fig.fontsize)
+                ) +
           labs(y = "Proportion of responses", x = "Number given")+
           facet_grid(KL~Query) + 
-          geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
-                    size = 5, inherit.aes = FALSE, parse = FALSE)
+          geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+                    size = 5, inherit.aes = FALSE, parse = FALSE, 
+                    family = fig.font
+                    )
       }
     } else {
       if (input$method_choice_item) {
@@ -502,11 +514,15 @@ server <- function(input, output, session) {
           scale_fill_solarized("Method") +
           theme_bw(base_size=14) +
           theme(legend.position = "right",
-                panel.grid = element_blank()) +
+                panel.grid = element_blank(),
+                text = element_text(family=fig.font, size=fig.fontsize)
+                ) +
           labs(y = "Proportion of responses", x = "Number given")+
           facet_grid(~Query) + 
-          geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
-                    size = 5, inherit.aes = FALSE, parse = FALSE) 
+          geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+                    size = 5, inherit.aes = FALSE, parse = FALSE, 
+                    family = fig.font
+                    ) 
       } else {
         counts <- avg_item %>%
           group_by(Query)%>%
@@ -521,11 +537,15 @@ server <- function(input, output, session) {
           scale_fill_solarized() +
           theme_bw(base_size=14) +
           theme(legend.position = "none",
-                panel.grid = element_blank()) +
+                panel.grid = element_blank(),
+                text = element_text(family=fig.font, size=fig.fontsize)
+                ) +
           labs(y = "Density of responses", x = "Number given")+
           facet_wrap(~Query) + 
-          geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n = ", full.n)), 
-                    size = 5, inherit.aes = FALSE, parse = FALSE) 
+          geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+                    size = 5, inherit.aes = FALSE, parse = FALSE, 
+                    family = fig.font
+                    ) 
       }
     } 
     p
@@ -603,7 +623,9 @@ server <- function(input, output, session) {
         theme_bw(base_size=14) +
         theme(legend.position = "top", 
               legend.title = element_blank(),
-              panel.grid = element_blank()) +
+              panel.grid = element_blank(),
+              text = element_text(family=fig.font, size=fig.fontsize)
+              ) +
         labs(y = "Density of responses", x = "Number given")+
         facet_grid(KL~Query, scale = "free_x")
     } else {
@@ -616,7 +638,9 @@ server <- function(input, output, session) {
         scale_fill_solarized() +
         theme_bw(base_size=14) +
         theme(legend.position = "none", 
-              panel.grid = element_blank()) +
+              panel.grid = element_blank(),
+              text = element_text(family=fig.font, size=fig.fontsize)
+              ) +
         labs(y = "Density of responses", x = "Number given")+
         facet_grid(language~Query)
     }
@@ -697,7 +721,9 @@ server <- function(input, output, session) {
         theme_bw(base_size=14) +
         theme(legend.position = "right", 
               legend.title = element_blank(),
-              panel.grid = element_blank()) +
+              panel.grid = element_blank(),
+              text = element_text(family=fig.font, size=fig.fontsize)
+              ) +
         labs(y = "Highest count", x = "Age") + 
         coord_cartesian()
     p
@@ -716,7 +742,9 @@ server <- function(input, output, session) {
       theme_bw(base_size=14) +
       theme(legend.position = "right", 
             legend.title = element_blank(),
-            panel.grid = element_blank()) +
+            panel.grid = element_blank(),
+            text = element_text(family=fig.font, size=fig.fontsize)
+            ) +
       labs(y = "Density", x = "Highest count")
     p
   })
@@ -767,71 +795,71 @@ server <- function(input, output, session) {
     
     cites_all <- paste(all_datasets_full$htmlTxt, collapse = " <br/><br/>")
     
-    str2 <- paste("<br><br><h3>Current Datasets</h3><br>", as.character(cites_all), "<br><br>")
+    str2 <- paste("<div class='contrCol'><div class='head'>Current Datasets</div><br>", as.character(cites_all), "<br><br></div>")
     HTML(str2)
   })
   
   
   
   ## ---- INPUT DATA ----
-  output$addDat_header <- renderUI({
-    prettySwitch("header",
-                 label = "Header",
-                 value = TRUE)
-  })
-  
-  output$addDat_separator <- renderUI({
-    radioButtons("sep",
-                label = "Separator",
-                choices = c(Comma = ",",
-                            Semicolon = ";",
-                            Tab = "\t"),
-                selected = ",")
-  })
-  
-  output$addDat_quote <- renderUI({
-    radioButtons("quote", "Quote", 
-                 choices = c(None = "",
-                            "Double Quote" = '"',
-                            "Single Quote" = "'"),
-                 selected = '"')
-  })
-  
-  readin_newdat <- reactive({
-    req(input$file1)
-    filetype = sub(".*\\.", "", input$file1$datapath)
-    if(filetype == "csv"){
-      dat <- read_csv(input$file1$datapath)
-    } else if(filetype == "sav"){
-      dat <- read_sav(input$file1$datapath)
-    }
-    dat
-  })
-  
-  this_newdat <- reactive({data=NULL})
-  
-  
-  output$uploadContents <- DT::renderDataTable({
-    readin_newdat()
-  }, 
-  # callback = JS(callback.colnames),
-    options=list(
-      # ordering=FALSE,
-      # autoWidth=TRUE,
-      scrollX=TRUE
-    )
-  )
-  
-  conversion <- eventReactive(input$convert, {
-    req(readin_newdat())
-    convertedDat <- readin_newdat() %>%
-      rename(Subject = SubjID)
-    convertedDat
-  })
-  
-  output$convertContents <- DT::renderDataTable({
-    conversion()
-  })
+  # output$addDat_header <- renderUI({
+  #   prettySwitch("header",
+  #                label = "Header",
+  #                value = TRUE)
+  # })
+  # 
+  # output$addDat_separator <- renderUI({
+  #   radioButtons("sep",
+  #               label = "Separator",
+  #               choices = c(Comma = ",",
+  #                           Semicolon = ";",
+  #                           Tab = "\t"),
+  #               selected = ",")
+  # })
+  # 
+  # output$addDat_quote <- renderUI({
+  #   radioButtons("quote", "Quote", 
+  #                choices = c(None = "",
+  #                           "Double Quote" = '"',
+  #                           "Single Quote" = "'"),
+  #                selected = '"')
+  # })
+  # 
+  # readin_newdat <- reactive({
+  #   req(input$file1)
+  #   filetype = sub(".*\\.", "", input$file1$datapath)
+  #   if(filetype == "csv"){
+  #     dat <- read_csv(input$file1$datapath)
+  #   } else if(filetype == "sav"){
+  #     dat <- read_sav(input$file1$datapath)
+  #   }
+  #   dat
+  # })
+  # 
+  # this_newdat <- reactive({data=NULL})
+  # 
+  # 
+  # output$uploadContents <- DT::renderDataTable({
+  #   readin_newdat()
+  # }, 
+  # # callback = JS(callback.colnames),
+  #   options=list(
+  #     # ordering=FALSE,
+  #     # autoWidth=TRUE,
+  #     scrollX=TRUE
+  #   )
+  # )
+  # 
+  # conversion <- eventReactive(input$convert, {
+  #   req(readin_newdat())
+  #   convertedDat <- readin_newdat() %>%
+  #     rename(Subject = SubjID)
+  #   convertedDat
+  # })
+  # 
+  # output$convertContents <- DT::renderDataTable({
+  #   conversion()
+  # })
 }
 
 # shinyApp(ui=ui, server=server)

@@ -14,8 +14,22 @@ div.gallery img {
 }
 
 div.desc {
-  padding: 15px;
-  text-align: center;
+  padding: 5px;
+  text-align: left;
+}
+
+a.descLink {
+	color: black;
+}
+
+a.descLink:hover {
+  color: #859900;
+  text-decoration: none;
+}
+
+a.descLink:active {
+  color: #859900;
+  text-decoration: none;
 }
 
 * {
@@ -25,7 +39,7 @@ div.desc {
 .responsive {
   padding: 0 6px;
   float: left;
-  width: 24.99999%;
+  width: 50%;
 }
 
 @media only screen and (max-width: 700px) {
@@ -46,45 +60,47 @@ div.desc {
   display: table;
   clear: both;
 }
+
+.teamImg {
+	width: 100%;
+	max-width: 150px;
+}
+
 </style>
 </head>
 <body>
-	<div>
-		<h3>The Numberbank Team</h3>
-		<center>
+	<div class="tabContent">
+		<div class="teamCol">
+			<div class="head">The Numberbank Team</div>
 			<br>
 			<div class = "responsive">
 				<div class="gallery">
-					<img src="img/oey.png" alt="Oey" style="width:250px">
-					<div class="desc"><h4><a href = "https://la-oey.github.io/">Lauren Oey</a></h4></div>
+					<img src="img/oey.png" alt="Oey" class="teamImg">
+					<div class="desc"><a class="descLink" href="https://la-oey.github.io/" target="_blank" rel="noopener noreferrer">Lauren Oey</a></div>
 				</div>
 			</div>
 
 			<div class = "responsive">
 				<div class="gallery">
-					<img src="img/schneider.jpeg" alt="Schneider" style="width:250px">
-					<div class="desc"><h4><a href = "https://rosemschneider.github.io/">Rose Schneider</a></h4></div>
+					<img src="img/schneider.jpeg" alt="Schneider" class="teamImg">
+					<div class="desc"><a class="descLink" href="https://rosemschneider.github.io/" target="_blank" rel="noopener noreferrer">Rose Schneider</a></div>
 				</div>
 			</div>
 
 			<div class = "responsive">
 				<div class="gallery">
-					<img src="img/barner.jpeg" alt="Barner" style="width:250px">
-					<div class="desc"><h4><a href = "https://www.ladlab.com/barner">David Barner</a></h4></div>
+					<img src="img/barner.jpeg" alt="Barner" class="teamImg">
+					<div class="desc"><a class="descLink" href="https://www.ladlab.com/barner" target="_blank" rel="noopener noreferrer">David Barner</a></div>
 				</div>
 			</div>
 
 			<div class = "responsive">
 				<div class="gallery">
-					<img src="img/mike.jpg" alt="Frank" style="width:250px">
-					<div class="desc"><h4><a href = "https://web.stanford.edu/~mcfrank/">Mike Frank</a></h4></div>
+					<img src="img/mike.jpg" alt="Frank" class="teamImg">
+					<div class="desc"><a class="descLink" href="https://web.stanford.edu/~mcfrank/" target="_blank" rel="noopener noreferrer">Mike Frank</a></div>
 				</div>
 			</div>
-
-		</center>
-
-		<div class="clearfix"></div>
-
+		</div>
 	</div>
 </body>
 

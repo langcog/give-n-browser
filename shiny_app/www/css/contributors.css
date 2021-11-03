@@ -1,24 +1,67 @@
+.row {
+  display: flex;
+  /*align-items: flex-end;*/
+  margin: 2% 5% 2% 5%;
+}
+
+.contrCol {
+  flex: 65%;
+  padding: 20px;
+}
+
+.teamCol {
+  flex: 35%;
+  overflow: hidden;
+}
+
+.tabContent {
+  float: right;
+}
+
+
+
+
+
 .collapsed {
-  /*background-color: #777;*/
-  background-color: #A5C581;
-  color: white;
+  background-color: white;
   cursor: pointer;
-  padding: 18px;
   width: 100%;
   border: none;
   text-align: left;
   outline: none;
   font-size: 15px;
+  padding: 0px;
 }
 
 .collapsed:hover {
-  /*background-color: #555;*/
-  background-color: #9CBF73;
+  color: #859900;
+}
+
+.collapsed[data-active="on"] {
+  color: #859900;
+}
+
+.collapsed[data-active="off"] {
+  color: black;
+}
+
+.collapsed[data-active="off"]:hover {
+  color: #859900;
 }
 
 .content {
-  padding: 0 18px;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
+}
+
+.contLab {
+  width: 25%;
+  float: left;
+  font-weight: bold;
+}
+
+.contVal {
+  /*width: 75%;*/
+  float: left;
+  font-weight: normal;
 }

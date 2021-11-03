@@ -43,7 +43,7 @@ ui = navbarPage(title = "Numberbank",
                                      type = "image/png",
                                      href = "img/fishwithears.png")#,
                            # tags$style(HTML("
-                           #            .dropdown-toggle { color: white; background-color: #A5C581; }
+                           #            .navbar-default .navbar-nav > li > a:focus { font-weight: bold; }
                            #            "))
                          )
                 ),
@@ -176,11 +176,13 @@ ui = navbarPage(title = "Numberbank",
                 ), 
                 tabPanel("Contributors", fluid = TRUE,
                          tabPanel("Contributors", fluid = TRUE,
-                                  includeHTML("about.html"),
-                                  htmlOutput("citationsAll"),
                                   tags$head(
                                     tags$link(rel = "stylesheet", type = "text/css", href = "css/contributors.css"),
                                     tags$script(src = "js/contributorFunctions.js")
+                                  ),
+                                  tags$div(class="row",
+                                           htmlOutput("citationsAll"),
+                                           includeHTML("about.html")
                                   )
                          )
                 )

@@ -11,7 +11,7 @@ body {
 .dropdown-menu > li > a:hover,
 .dropdown-menu > .active > a:hover {
   color: white; 
-  background-color: #9CBF73;
+  background-color: #859200;
 }
 
 .navbar-default .navbar-brand,
@@ -29,5 +29,6 @@ body {
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:focus { 
   color: white; 
-  background-color: #A5C581;
+  background-color: #859900;
 }
+
