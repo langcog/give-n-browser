@@ -129,17 +129,42 @@ citationsAll <- paste("<div class='contrCol'><div class='head'>Current Datasets<
   
 all_datasets_short <- all_datasets$shortCite
 ##get only language for which we have KLs
-languages_KL <- c(unique(subset(all_data, !is.na(KL))$language))
+languages_KL <- all_data %>%
+  filter(!is.na(KL)) %>%
+  distinct(language) %>%
+  arrange(language) %>%
+  pull(language)
 ##get only language for which we have Queries
-languages_item <- c(unique(subset(all_data, !is.na(Query))$language))
+languages_item <- all_data %>%
+  filter(!is.na(Query)) %>%
+  distinct(language) %>%
+  arrange(language) %>%
+  pull(language)
 ##get only language for which we have highest_counts
-languages_hc <- c(unique(subset(all_data, !is.na(highest_count))$language))
+languages_hc <- all_data %>%
+  filter(!is.na(highest_count)) %>%
+  distinct(language) %>%
+  arrange(language) %>%
+  pull(language)
 # #get only datasets for which we have KLs
-datasets_KL <- c(unique(subset(all_data, !is.na(KL))$dataset_id))
-# #get only datasets for which we have highest counts
-all_datasets_short_hc <- c(unique(subset(all_data, !is.na(highest_count))$shortCite))
+datasets_KL <- all_data %>%
+  filter(!is.na(KL)) %>%
+  distinct(shortCite, orderCite) %>%
+  arrange(orderCite) %>%
+  pull(shortCite)
 # #get only datasets for which we have queries
-# datasets_item <- c(unique(subset(all_data, !is.na(Query))$dataset_id))
+datasets_item <- all_data %>%
+  filter(!is.na(Query)) %>%
+  distinct(shortCite, orderCite) %>%
+  arrange(orderCite) %>%
+  pull(shortCite)
+# #get only datasets for which we have highest counts
+datasets_hc <- all_data %>%
+  filter(!is.na(highest_count)) %>%
+  distinct(shortCite, orderCite) %>%
+  arrange(orderCite) %>%
+  pull(shortCite)
+
 methods <- c("titrated", "non-titrated")
 queries <- c(as.character(sort(unique(all_data$Query))))
 n.samps <- 100

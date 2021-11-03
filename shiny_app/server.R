@@ -194,7 +194,7 @@ server <- function(input, output, session) {
   output$dataset_include_selector <- renderUI({
     selectInput("dataset_add_kl",
                 label = "Datasets to include:",
-                choices = all_datasets_short,
+                choices = datasets_KL,
                 multiple = TRUE)
   })
   
@@ -248,7 +248,7 @@ server <- function(input, output, session) {
   output$dataset_include_selector_item <- renderUI({
     selectInput("dataset_add_item",
                 label = "Datasets to include:",
-                choices = all_datasets_short,
+                choices = datasets_item,
                 #selected = as.list(y),
                 multiple = TRUE)
   })
@@ -287,9 +287,9 @@ server <- function(input, output, session) {
   # })
   
   output$dataset_include_selector_hc <- renderUI({
-    selectInput("dataset_add_item",
+    selectInput("dataset_add_hc",
                 label = "Datasets to include:",
-                choices = all_datasets_short_hc,
+                choices = datasets_hc,
                 #selected = as.list(y),
                 multiple = TRUE)
   })
