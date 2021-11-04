@@ -17,11 +17,11 @@ server <- function(input, output, session) {
     inputDat = input$dataset_add_kl
     
     if(input$go_kl == 0){
-      inputAgeMin = 22
-      inputAgeMax = 144
-      inputKL = c("1-knower", "2-knower", "3-knower", "CP-knower")
-      inputLang = "English"
-      inputDat = unique(all_data$shortCite)
+      inputAgeMin = defaultParams[[1]]
+      inputAgeMax = defaultParams[[2]]
+      inputKL = defaultParams[[3]]
+      inputLang = defaultParams[[4]]
+      inputDat = defaultParams[[5]]
     }
     
     all_data %>%
@@ -97,12 +97,12 @@ server <- function(input, output, session) {
     inputDat = input$dataset_add_item
     
     if(input$go_item == 0){
-      inputAgeMin = 22
-      inputAgeMax = 144
+      inputAgeMin = defaultParams[[1]]
+      inputAgeMax = defaultParams[[2]]
+      inputKL = defaultParams[[3]]
+      inputLang = defaultParams[[4]]
+      inputDat = defaultParams[[5]]
       inputQuery = c(1,2,3)
-      inputKL = c("1-knower", "2-knower", "3-knower", "CP-knower")
-      inputLang = "English"
-      inputDat = unique(all_data$shortCite)
     }
     
     all_data %>%
@@ -128,11 +128,11 @@ server <- function(input, output, session) {
     inputDat = input$dataset_add_hc
     
     if(input$go_hc == 0){
-      inputAgeMin = 22
-      inputAgeMax = 144
-      inputKL = c("1-knower", "2-knower", "3-knower", "CP-knower")
-      inputLang = c(unique(subset(all_data, !is.na(highest_count))$language))
-      inputDat = unique(all_data$shortCite)
+      inputAgeMin = defaultParams[[1]]
+      inputAgeMax = defaultParams[[2]]
+      inputKL = defaultParams[[3]]
+      inputLang = defaultParams[[4]]
+      inputDat = defaultParams[[5]]
     }
     
     all_data %>%
@@ -307,33 +307,45 @@ server <- function(input, output, session) {
     # LAO: streamlining boxplot; replacing old ifelse statement
     p <- filtered_data_kl()
     
-    if(input$cp_subset_kl){ #check if grouping by CP vs non-CP knower
-      p <- p %>% ggplot(aes(x = language, y=age_months, fill = CP_subset, color = CP_subset)) +
-        scale_fill_solarized("CP-/Subset-knower", rev) +
-        scale_color_solarized("CP-/Subset-knower") +
-        guides(fill = guide_legend(reverse = FALSE))
-    } else{
-      p <- p %>% ggplot(aes(x = language, y=age_months, fill = KL, color = KL)) +
-        scale_fill_solarized("Knower level") +
-        scale_color_solarized("Knower level") +
-        guides(fill = guide_legend(reverse = TRUE))
+    if(nrow(p) > 0){
+      if(input$cp_subset_kl){ #check if grouping by CP vs non-CP knower
+        p <- p %>% ggplot(aes(x = language, y=age_months, fill = CP_subset, color = CP_subset)) +
+          scale_fill_solarized("CP-/Subset-knower", rev) +
+          scale_color_solarized("CP-/Subset-knower") +
+          guides(fill = guide_legend(reverse = FALSE))
+      } else{
+        p <- p %>% ggplot(aes(x = language, y=age_months, fill = KL, color = KL)) +
+          scale_fill_solarized("Knower level") +
+          scale_color_solarized("Knower level") +
+          guides(fill = guide_legend(reverse = TRUE))
+      }
+      
+      p <- p + geom_boxplot(alpha = .7,
+                            color = "black") +
+        geom_point(position = position_jitterdodge(jitter.width=0.1), alpha=0.35, #LAO: removed dodge.width = 0.79
+                   show.legend = FALSE)+
+        theme_bw(base_size=14) +
+        labs(x = 'Language',
+             y = "Age (months)") +
+        coord_flip() +
+        theme(text = element_text(family=fig.font, size=fig.fontsize))
+      
+      if(input$method_choice_kl){ #facet_wrap by titrated vs not-titrated
+        p <- p + facet_grid(~method)
+      }
+      
+      p
+    } else{ # empty data frame
+      p %>%
+        ggplot(aes(x=age_months, y=language)) +
+        theme_bw(base_size=14) +
+        labs(x = 'Language',
+             y = "Age (months)") +
+        coord_flip() +
+        annotate(geom="text", label="Requested inputs yield no data. Try different inputs.", x="", y="") +
+        theme(text = element_text(family=fig.font, size=fig.fontsize))
     }
     
-    p <- p + geom_boxplot(alpha = .7,
-                          color = "black") +
-      geom_point(position = position_jitterdodge(jitter.width=0.1), alpha=0.35, #LAO: removed dodge.width = 0.79
-                 show.legend = FALSE)+
-      theme_bw(base_size=14) +
-      labs(x = 'Language',
-           y = "Age (months)") +
-      coord_flip() +
-      theme(text = element_text(family=fig.font, size=fig.fontsize))
-    
-    if(input$method_choice_kl){ #facet_wrap by titrated vs not-titrated
-      p <- p + facet_grid(~method)
-    }
-    
-    p
     
   })
   
@@ -394,23 +406,37 @@ server <- function(input, output, session) {
   output$cumulative_prob <- renderPlot({
     req(cumul_prob)
     
-    ggplot(cumul_prob(), 
-           aes(x = age_months, y = prop, colour=KL, fill=KL,
-               group=KL))+
-      geom_line(size=2) + 
-      xlab("Age (months)") + 
-      geom_ribbon(aes(ymin = ci.low, ymax= ci.high), 
-                  alpha = .2,show_guide=FALSE,linetype=0) + 
-      scale_color_solarized("Knower level")+
-      scale_fill_solarized()+
-      scale_y_continuous(limits = c(0,1),
-                         name = "Cumulative Probability of Knower Level")+
-      theme_bw(base_size=14) +
-      theme(legend.position="right",
-            text = element_text(family=fig.font, size=fig.fontsize)
-            ) + 
-      facet_wrap(~language, scales = "free_x") + 
-      guides(color = guide_legend(reverse = TRUE))
+    p <- cumul_prob()
+    if(nrow(p) > 0){
+      ggplot(p, 
+             aes(x = age_months, y = prop, colour=KL, fill=KL,
+                 group=KL))+
+        geom_line(size=2) + 
+        xlab("Age (months)") + 
+        geom_ribbon(aes(ymin = ci.low, ymax= ci.high), 
+                    alpha = .2,show_guide=FALSE,linetype=0) + 
+        scale_color_solarized("Knower level")+
+        scale_fill_solarized()+
+        scale_y_continuous(limits = c(0,1),
+                           name = "Cumulative Probability of Knower Level")+
+        theme_bw(base_size=14) +
+        theme(legend.position="right",
+              text = element_text(family=fig.font, size=fig.fontsize)
+              ) + 
+        facet_wrap(~language, scales = "free_x") + 
+        guides(color = guide_legend(reverse = TRUE))
+    } else{ # empty data frame
+      p %>%
+        ggplot(aes(x=age_months, y=language)) +
+        annotate(geom="text", label="Requested inputs yield no data. Try different inputs.", x="", y=0.5) +
+        scale_y_continuous(limits = c(0,1),
+                           name = "Cumulative Probability of Knower Level")+
+        theme_bw(base_size=14) +
+        theme(legend.position="right",
+              text = element_text(family=fig.font, size=fig.fontsize)
+        ) + 
+        guides(color = guide_legend(reverse = TRUE))
+    }
   })
   
   ## ... ITEM PLOTS ----
@@ -450,105 +476,118 @@ server <- function(input, output, session) {
       mutate(total.n = sum(n),
              prop = n/total.n)
     
-    ### Conditional for if KL if method is selected and v.v.
-    if (input$kl_selector) {
-      if (input$method_choice_item) {
-        counts <- method_df_kl %>%
-          group_by(Query, KL)%>%
-          summarise(full.n = sum(total.n))
-        
-        p <-  ggplot(method_df_kl, 
-                     aes(x = Response, y = prop, fill = method)) +
-          geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-          geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
-                   binwidth = 1) + 
-          scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-          scale_fill_solarized("Method") +
-          theme_bw(base_size=14) +
-          theme(legend.position = "right",
-                panel.grid = element_blank(),
-                text = element_text(family=fig.font, size=fig.fontsize)
-                ) +
-          labs(y = "Proportion of responses", x = "Number given")+
-          facet_grid(KL~Query) + 
-          geom_text(data = counts, aes(x = max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
-                    size = 5, inherit.aes = FALSE, parse = FALSE, 
-                    family = fig.font
-                    )
+    if(nrow(method_df_kl) > 0){
+      ### Conditional for if KL if method is selected and v.v.
+      if (input$kl_selector) {
+        if (input$method_choice_item) {
+          counts <- method_df_kl %>%
+            group_by(Query, KL)%>%
+            summarise(full.n = sum(total.n))
+          
+          p <-  ggplot(method_df_kl, 
+                       aes(x = Response, y = prop, fill = method)) +
+            geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+            geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                     binwidth = 1) + 
+            scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+            scale_fill_solarized("Method") +
+            theme_bw(base_size=14) +
+            theme(legend.position = "right",
+                  panel.grid = element_blank(),
+                  text = element_text(family=fig.font, size=fig.fontsize)
+                  ) +
+            labs(y = "Proportion of responses", x = "Number given")+
+            facet_grid(KL~Query) + 
+            geom_text(data = counts, aes(x = max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+                      size = 5, inherit.aes = FALSE, parse = FALSE, 
+                      family = fig.font
+                      )
+        } else {
+          counts <- kl_hist %>%
+            group_by(Query, KL)%>%
+            summarise(full.n = sum(total.n))
+          
+          p <- ggplot(kl_hist, 
+                      aes(x = Response, y = prop, fill = as.factor(Query))) + 
+            geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+            geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                     binwidth = 1) +
+            scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+            scale_fill_solarized() +
+            theme_bw(base_size=14) +
+            theme(legend.position = "none", 
+                  panel.grid = element_blank(),
+                  text = element_text(family=fig.font, size=fig.fontsize)
+                  ) +
+            labs(y = "Proportion of responses", x = "Number given")+
+            facet_grid(KL~Query) + 
+            geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+                      size = 5, inherit.aes = FALSE, parse = FALSE, 
+                      family = fig.font
+                      )
+        }
       } else {
-        counts <- kl_hist %>%
-          group_by(Query, KL)%>%
-          summarise(full.n = sum(total.n))
-        
-        p <- ggplot(kl_hist, 
-                    aes(x = Response, y = prop, fill = as.factor(Query))) + 
-          geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-          geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
-                   binwidth = 1) +
-          scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-          scale_fill_solarized() +
-          theme_bw(base_size=14) +
-          theme(legend.position = "none", 
-                panel.grid = element_blank(),
-                text = element_text(family=fig.font, size=fig.fontsize)
-                ) +
-          labs(y = "Proportion of responses", x = "Number given")+
-          facet_grid(KL~Query) + 
-          geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
-                    size = 5, inherit.aes = FALSE, parse = FALSE, 
-                    family = fig.font
-                    )
-      }
+        if (input$method_choice_item) {
+          counts <- method_df %>%
+            group_by(Query)%>%
+            summarise(full.n = sum(total.n))
+          
+          p <- ggplot(method_df, 
+                      aes(x = Response, y = prop, fill = method)) +
+            geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+            geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                     binwidth = 1) +
+            scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+            scale_fill_solarized("Method") +
+            theme_bw(base_size=14) +
+            theme(legend.position = "right",
+                  panel.grid = element_blank(),
+                  text = element_text(family=fig.font, size=fig.fontsize)
+                  ) +
+            labs(y = "Proportion of responses", x = "Number given")+
+            facet_grid(~Query) + 
+            geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+                      size = 5, inherit.aes = FALSE, parse = FALSE, 
+                      family = fig.font
+                      ) 
+        } else {
+          counts <- avg_item %>%
+            group_by(Query)%>%
+            summarise(full.n = sum(total.n))
+          
+          p <- ggplot(filtered_data_item(),
+                      aes(x = Response, fill = as.factor(Query))) +
+            geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+            geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+                           binwidth = 1) +
+            scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+            scale_fill_solarized() +
+            theme_bw(base_size=14) +
+            theme(legend.position = "none",
+                  panel.grid = element_blank(),
+                  text = element_text(family=fig.font, size=fig.fontsize)
+                  ) +
+            labs(y = "Density of responses", x = "Number given")+
+            facet_wrap(~Query) + 
+            geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+                      size = 5, inherit.aes = FALSE, parse = FALSE, 
+                      family = fig.font
+                      ) 
+        }
+      } 
+      p
     } else {
-      if (input$method_choice_item) {
-        counts <- method_df %>%
-          group_by(Query)%>%
-          summarise(full.n = sum(total.n))
-        
-        p <- ggplot(method_df, 
-                    aes(x = Response, y = prop, fill = method)) +
-          geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-          geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
-                   binwidth = 1) +
-          scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-          scale_fill_solarized("Method") +
-          theme_bw(base_size=14) +
-          theme(legend.position = "right",
-                panel.grid = element_blank(),
-                text = element_text(family=fig.font, size=fig.fontsize)
-                ) +
-          labs(y = "Proportion of responses", x = "Number given")+
-          facet_grid(~Query) + 
-          geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
-                    size = 5, inherit.aes = FALSE, parse = FALSE, 
-                    family = fig.font
-                    ) 
-      } else {
-        counts <- avg_item %>%
-          group_by(Query)%>%
-          summarise(full.n = sum(total.n))
-        
-        p <- ggplot(filtered_data_item(),
-                    aes(x = Response, fill = as.factor(Query))) +
-          geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-          geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
-                         binwidth = 1) +
-          scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-          scale_fill_solarized() +
-          theme_bw(base_size=14) +
-          theme(legend.position = "none",
-                panel.grid = element_blank(),
-                text = element_text(family=fig.font, size=fig.fontsize)
-                ) +
-          labs(y = "Density of responses", x = "Number given")+
-          facet_wrap(~Query) + 
-          geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
-                    size = 5, inherit.aes = FALSE, parse = FALSE, 
-                    family = fig.font
-                    ) 
-      }
-    } 
-    p
+      ggplot(filtered_data_item(),
+             aes(x = Response, fill = as.factor(Query))) +
+        annotate(geom="text", label="Requested inputs yield no data. Try different inputs.", x=5, y="") +
+        scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+        theme_bw(base_size=14) +
+        theme(legend.position = "none",
+              panel.grid = element_blank(),
+              text = element_text(family=fig.font, size=fig.fontsize)
+        ) +
+        labs(y = "Density of responses", x = "Number given")
+    }
   })
   
   ## .... TABLE FOR ITEM HISTOGRAM ----
@@ -612,39 +651,54 @@ server <- function(input, output, session) {
   output$lang_histogram <- renderPlot({
     req(filtered_data_item())
     
-    if (input$kl_selector) {
-      p <- ggplot(filtered_data_item(), 
-                  aes(x = Response, fill = as.factor(language))) + 
-        geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-        geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
-                       binwidth = 1) +
+    p <- filtered_data_item()
+    if(nrow(p) > 0){
+      if (input$kl_selector) {
+        p <- ggplot(p, 
+                    aes(x = Response, fill = as.factor(language))) + 
+          geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+          geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+                         binwidth = 1) +
+          scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+          scale_fill_brewer(palette = "Dark2") +
+          theme_bw(base_size=14) +
+          theme(legend.position = "top", 
+                legend.title = element_blank(),
+                panel.grid = element_blank(),
+                text = element_text(family=fig.font, size=fig.fontsize)
+                ) +
+          labs(y = "Density of responses", x = "Number given")+
+          facet_grid(KL~Query, scale = "free_x")
+      } else {
+        p <- ggplot(p, 
+                    aes(x = Response,  fill = as.factor(Query))) + 
+          geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+          geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+                         binwidth = 1) +
+          scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+          scale_fill_solarized() +
+          theme_bw(base_size=14) +
+          theme(legend.position = "none", 
+                panel.grid = element_blank(),
+                text = element_text(family=fig.font, size=fig.fontsize)
+                ) +
+          labs(y = "Density of responses", x = "Number given")+
+          facet_grid(language~Query)
+      }
+      p
+    } else {
+      ggplot(p, 
+             aes(x = Response, fill = as.factor(language))) + 
+        annotate(geom="text", label="Requested inputs yield no data. Try different inputs.", x=5, y="") +
         scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-        scale_fill_brewer(palette = "Dark2") +
         theme_bw(base_size=14) +
         theme(legend.position = "top", 
               legend.title = element_blank(),
               panel.grid = element_blank(),
               text = element_text(family=fig.font, size=fig.fontsize)
-              ) +
-        labs(y = "Density of responses", x = "Number given")+
-        facet_grid(KL~Query, scale = "free_x")
-    } else {
-      p <- ggplot(filtered_data_item(), 
-                  aes(x = Response,  fill = as.factor(Query))) + 
-        geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-        geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
-                       binwidth = 1) +
-        scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-        scale_fill_solarized() +
-        theme_bw(base_size=14) +
-        theme(legend.position = "none", 
-              panel.grid = element_blank(),
-              text = element_text(family=fig.font, size=fig.fontsize)
-              ) +
-        labs(y = "Density of responses", x = "Number given")+
-        facet_grid(language~Query)
+        ) +
+        labs(y = "Density of responses", x = "Number given")
     }
-    p
   })
   
   ## .... TABLE FOR ITEM LANGUAGE HISTOGRAM ----
@@ -708,8 +762,9 @@ server <- function(input, output, session) {
   ## .... HIGHEST COUNT DOT PLOTS ----
   output$hc_age_language <- renderPlot({
     req(filtered_data_hc())
-    
-      p <- ggplot(filtered_data_hc(), 
+    p <- filtered_data_hc()
+    if(nrow(p) > 0){
+      p <- ggplot(p, 
                   aes(x = age_months, y = highest_count, 
                       color = as.factor(language))) + 
         geom_point(position = position_jitter(width = .4), alpha = .6, 
@@ -726,27 +781,58 @@ server <- function(input, output, session) {
               ) +
         labs(y = "Highest count", x = "Age") + 
         coord_cartesian()
-    p
+      p
+    } else{
+      ggplot(p, 
+             aes(x = age_months, y = highest_count, 
+                 color = as.factor(language))) + 
+        annotate(geom="text", label="Requested inputs yield no data. Try different inputs.", x="", y=75) +
+        scale_y_continuous(breaks = seq(0, 150, 10), 
+                           limits = c(0, 150)) + 
+        theme_bw(base_size=14) +
+        theme(legend.position = "right", 
+              legend.title = element_blank(),
+              panel.grid = element_blank(),
+              text = element_text(family=fig.font, size=fig.fontsize)
+        ) +
+        labs(y = "Highest count", x = "Age") + 
+        coord_cartesian()
+    }
   })
   
   ## .... HIGHEST COUNT DENSITY PLOT ----
   output$hc_density <- renderPlot({
     req(filtered_data_hc())
-    
-    p <- ggplot(filtered_data_hc(), 
-                aes(x = highest_count, color = as.factor(language))) + 
-      geom_density(size = 2) +
-      scale_x_continuous(breaks = seq(0, 150, 10), 
-                         limits = c(0, 150)) + 
-      scale_color_solarized() +
-      theme_bw(base_size=14) +
-      theme(legend.position = "right", 
-            legend.title = element_blank(),
-            panel.grid = element_blank(),
-            text = element_text(family=fig.font, size=fig.fontsize)
-            ) +
-      labs(y = "Density", x = "Highest count")
-    p
+    p <- filtered_data_hc()
+    if(nrow(p) > 0){
+      p <- ggplot(p, 
+                  aes(x = highest_count, color = as.factor(language))) + 
+        geom_density(size = 2) +
+        scale_x_continuous(breaks = seq(0, 150, 10), 
+                           limits = c(0, 150)) + 
+        scale_color_solarized() +
+        theme_bw(base_size=14) +
+        theme(legend.position = "right", 
+              legend.title = element_blank(),
+              panel.grid = element_blank(),
+              text = element_text(family=fig.font, size=fig.fontsize)
+              ) +
+        labs(y = "Density", x = "Highest count")
+      p
+    } else {
+      ggplot(p, 
+             aes(x = highest_count, color = as.factor(language))) + 
+        annotate(geom="text", label="Requested inputs yield no data. Try different inputs.", x=75, y="") +
+        scale_x_continuous(breaks = seq(0, 150, 10), 
+                           limits = c(0, 150)) + 
+        theme_bw(base_size=14) +
+        theme(legend.position = "right", 
+              legend.title = element_blank(),
+              panel.grid = element_blank(),
+              text = element_text(family=fig.font, size=fig.fontsize)
+        ) +
+        labs(y = "Density", x = "Highest count")
+    }
   })
   
   ## .... TABLE FOR HIGHEST COUNT DOT PLOT ----

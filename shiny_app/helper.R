@@ -237,4 +237,3 @@ callback.colnames <- c(
   "  });",
   "});"
 )
-
