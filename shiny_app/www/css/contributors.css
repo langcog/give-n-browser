@@ -4,20 +4,21 @@
   margin: 2% 5% 2% 5%;
 }
 
+#citationsAll {
+  width: 65%;
+}
+
 .contrCol {
-  flex: 65%;
   padding: 20px;
 }
 
 .teamCol {
-  flex: 35%;
   overflow: hidden;
 }
 
-.tabContent {
-  float: right;
+#authorsCol {
+  width: 35%;
 }
-
 
 
 

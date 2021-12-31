@@ -181,8 +181,8 @@ ui = navbarPage(title = "Numberbank",
                                     tags$script(src = "js/contributorFunctions.js")
                                   ),
                                   tags$div(class="row",
-                                           htmlOutput("citationsAll"),
-                                           includeHTML("about.html")
+                                           includeHTML("about.html"),
+                                           htmlOutput("citationsAll")
                                   )
                          )
                 )
