@@ -10,6 +10,7 @@ library(shinybusy)
 library(shinycssloaders)
 library(DT)
 
+
 ### . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ..
 ### Colors                                                                  ####
 
@@ -115,12 +116,10 @@ ui = navbarPage(title = "Numberbank",
                                                     tabPanel("Datasets",
                                                              htmlOutput("citationsItemAll"))
                                         ), 
-                                        tabsetPanel(selected = "Responses by language", 
+                                        tabsetPanel(selected = "Responses by language", id = "tabs", 
                                                     tabPanel("Responses by language",
                                                              plotOutput("lang_histogram") %>% withSpinner(color="#A5C581")
-                                                             ), 
-                                                    tabPanel("Table", 
-                                                             dataTableOutput('table_language_item'))
+                                                             )
                                         )
                                       )
                                     )
@@ -186,34 +185,35 @@ ui = navbarPage(title = "Numberbank",
                                   )
                          )
                 )
-                # ,
-                # tabPanel("Submit Data", fluid = TRUE,
-                #          tabPanel("Submit Data", fluid = TRUE,
-                #                   sidebarLayout(
-                #                     sidebarPanel(
-                #                       fileInput("file1", "Choose File",
-                #                                 multiple = TRUE,
-                #                                 accept = c("text/csv",
-                #                                            "text/comma-separated-values,text/plain",
-                #                                            ".csv",
-                #                                            ".sav")),
-                #                       uiOutput("addDat_header"),
-                #                       uiOutput("addDat_separator"),
-                #                       uiOutput("addDat_quote"),
-                #                       actionButton("convert", "Convert"),
-                #                       downloadButton("downloadConvert", "Download")
-                #                     ),
-                # 
-                #                     mainPanel(
-                #                       # actionButton("reset", "Reset"),
-                #                       DT::dataTableOutput("uploadContents"),
-                #                       DT::dataTableOutput("convertContents") #,
-                #                       # tags$style(type = "text/css",
-                #                       #            ".shiny-table { width: 75%; overflow-x: auto; }")
-                #                     )
-                #                   )
-                #          )
-                # )
+                ,
+                tabPanel("Submit Data", fluid = TRUE,
+                         includeHTML("datatemplate.html")
+                         # tabPanel("Submit Data", fluid = TRUE,
+                                  # sidebarLayout(
+                                  #   sidebarPanel(
+                                  #     fileInput("file1", "Choose File",
+                                  #               multiple = TRUE,
+                                  #               accept = c("text/csv",
+                                  #                          "text/comma-separated-values,text/plain",
+                                  #                          ".csv",
+                                  #                          ".sav")),
+                                  #     uiOutput("addDat_header"),
+                                  #     uiOutput("addDat_separator"),
+                                  #     uiOutput("addDat_quote"),
+                                  #     actionButton("convert", "Convert"),
+                                  #     downloadButton("downloadConvert", "Download")
+                                  #   ),
+                                  # 
+                                  #   mainPanel(
+                                  #     # actionButton("reset", "Reset"),
+                                  #     DT::dataTableOutput("uploadContents"),
+                                  #     DT::dataTableOutput("convertContents") #,
+                                  #     # tags$style(type = "text/css",
+                                  #     #            ".shiny-table { width: 75%; overflow-x: auto; }")
+                                  #   )
+                                  # )
+                         # )
+                )
 )
 
 # shinyApp(ui=ui, server=server)

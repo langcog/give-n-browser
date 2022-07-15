@@ -5,6 +5,16 @@ source("helper.R")
 # MAIN SHINY SERVER
 server <- function(input, output, session) {
   
+  # observe({
+  #   query <- parseQueryString(session$clientData$url_search)
+  #   if(!is.null(query$url)) {
+  #     url <- strsplit(query$url,"\"")[[1]][2]
+  #     species <- strsplit(query$species, "\"")[[1]][2]
+  #     updateTabsetPanel(session, 'nav', url)
+  #     updateSelectInput(session, 'species',selected = species)
+  #   }
+  # })
+  
   ## ----------------------- DATA -----------------------
   
   ## ... KL DATA ----
@@ -650,10 +660,11 @@ server <- function(input, output, session) {
   ## .... LANG HISTOGRAM ----
   output$lang_histogram <- renderPlot({
     req(filtered_data_item())
-    
     p <- filtered_data_item()
+    
     if(nrow(p) > 0){
       if (input$kl_selector) {
+        showTab(inputId = "tabs", target = "Responses by language")
         p <- ggplot(p, 
                     aes(x = Response, fill = as.factor(language))) + 
           geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
@@ -666,27 +677,33 @@ server <- function(input, output, session) {
                 legend.title = element_blank(),
                 panel.grid = element_blank(),
                 text = element_text(family=fig.font, size=fig.fontsize)
-                ) +
+          ) +
           labs(y = "Density of responses", x = "Number given")+
           facet_grid(KL~Query, scale = "free_x")
       } else {
-        p <- ggplot(p, 
-                    aes(x = Response,  fill = as.factor(Query))) + 
-          geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-          geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
-                         binwidth = 1) +
-          scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-          scale_fill_solarized() +
-          theme_bw(base_size=14) +
-          theme(legend.position = "none", 
-                panel.grid = element_blank(),
-                text = element_text(family=fig.font, size=fig.fontsize)
-                ) +
-          labs(y = "Density of responses", x = "Number given")+
-          facet_grid(language~Query)
+        if (length(unique(p$language)) == 1){
+          hideTab(inputId = "tabs", target = "Responses by language")
+        } else{
+          showTab(inputId = "tabs", target = "Responses by language")
+          p <- ggplot(p, 
+                      aes(x = Response,  fill = as.factor(Query))) + 
+            geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+            geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
+                           binwidth = 1) +
+            scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+            scale_fill_solarized() +
+            theme_bw(base_size=14) +
+            theme(legend.position = "none", 
+                  panel.grid = element_blank(),
+                  text = element_text(family=fig.font, size=fig.fontsize)
+            ) +
+            labs(y = "Density of responses", x = "Number given")+
+            facet_grid(language~Query)
+        }
       }
       p
     } else {
+      showTab(inputId = "tabs", target = "Responses by language")
       ggplot(p, 
              aes(x = Response, fill = as.factor(language))) + 
         annotate(geom="text", label="Requested inputs yield no data. Try different inputs.", x=5, y="") +
@@ -699,36 +716,6 @@ server <- function(input, output, session) {
         ) +
         labs(y = "Density of responses", x = "Number given")
     }
-  })
-  
-  ## .... TABLE FOR ITEM LANGUAGE HISTOGRAM ----
-  
-  output$table_language_item <- renderDataTable({
-    #first, if there is kl selected
-    if(input$kl_selector) {
-      item_table_language <- filtered_data_item() %>%
-        mutate(Query = as.integer(Query))%>%
-        group_by(Query, language, KL)%>%
-        summarise(n = n(), 
-                  `Mean age` = round(mean(age_months, na.rm = TRUE), 2), 
-                  `SD age` = round(sd(age_months, na.rm = TRUE), 2), 
-                  `Median age` = round(median(age_months, na.rm = TRUE), 2), 
-                  `Mean response` = round(mean(Response, na.rm = TRUE), 2), 
-                  `SD response` = round(sd(Response, na.rm = TRUE), 2), 
-                  `Median response` = round(median(Response, na.rm = TRUE), 2))
-    } else {
-      item_table_language <- filtered_data_item() %>%
-        mutate(Query = as.integer(Query))%>%
-        group_by(Query, language)%>%
-        summarise(n = n(), 
-                  `Mean age` = round(mean(age_months, na.rm = TRUE), 2), 
-                  `SD age` = round(sd(age_months, na.rm = TRUE), 2), 
-                  `Median age` = round(median(age_months, na.rm = TRUE), 2), 
-                  `Mean response` = round(mean(Response, na.rm = TRUE), 2), 
-                  `SD response` = round(sd(Response, na.rm = TRUE), 2), 
-                  `Median response` = round(median(Response, na.rm = TRUE), 2))
-    }
-    item_table_language
   })
   
   ## ---- DOWNLOADABLE DATA FOR ITEM-level ----
