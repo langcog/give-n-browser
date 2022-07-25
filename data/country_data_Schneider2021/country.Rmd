@@ -1,0 +1,31 @@
+---
+title: "country_processing"
+output: html_document
+date: "2022-07-20"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list = ls())
+library(here)
+library(magrittr)
+library(tidyverse)
+```
+
+```{r get data}
+data <- read_csv(here("data/country_data_Schneider2021/study1.csv")) %>% 
+  rbind(read_csv(here("data/country_data_Schneider2021/study2.csv")))
+
+location <- read_csv(here("data/country_data_Schneider2021/country_info.csv"))
+
+data <- left_join(data, location, by="Location")
+country_by_subj <- data %>% 
+  distinct(SID, Country) %>%
+  rename(Subject = SID) %>%
+  mutate(Experiment = "Schneider_Barner_2021")
+
+## Refactor so that one file is not saved in multiple locations
+write_csv(country_by_subj, here("data/country_data_Schneider2021/country_by_subj.csv"))
+write_csv(country_by_subj, here("data/processed-data/country_by_subj.csv"))
+write_csv(country_by_subj, here("shiny_app/data/processed-data/country_by_subj.csv"))
+```

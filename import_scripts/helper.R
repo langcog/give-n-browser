@@ -100,3 +100,15 @@ add_hc <- function(df) {
   df <- left_join(df, highest_count, by = c("Subject", "Experiment"))
   return(df)
 }
+
+## Add in country information
+add_country <- function(df) {
+  country <- read_csv(here("shiny_app/data/processed-data/country.csv"))
+  country_by_subj <- read_csv(here("shiny_app/data/processed-data/country_by_subj.csv"))
+  df1 <- filter(df, Experiment %in% country$Experiment)
+  df2 <- filter(df, Experiment %in% country_by_subj$Experiment)
+  df1 <- left_join(df1, country, by = c("Experiment", "Language"))
+  df2 <- left_join(df2, country_by_subj, by = c("Experiment", "Subject"))
+  df <- rbind(df1, df2)
+  return(df)
+}

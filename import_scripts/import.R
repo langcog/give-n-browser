@@ -12,7 +12,7 @@ source(here("import_scripts/helper.R"))
 
 ## NB: in some cases, KL for participants will have to be added later. This will be done via Wynn KL (included at the end of this script)
 
-## read in processed data fdsak
+## read in processed data 
 kl_only_data <- read_csv(here("data/processed-data/kl_data_processed.csv")) #data is cleaned and processed in another script
 trial_level_data <- read_csv(here('data/processed-data/trial_level_processed_data.csv'))
 
@@ -23,7 +23,7 @@ file.remove(here::here("data/processed-data/datasets.csv"))
 file.remove(here::here("data/processed-data/subjects.csv"))
 file.remove(here::here("data/processed-data/trials.csv"))
 
-# # delete processed data in shiny data
+# # delete processed data in shiny data 
 file.remove(here::here("shiny_app/data/processed-data/datasets.csv"))
 file.remove(here::here("shiny_app/data/processed-data/subjects.csv"))
 file.remove(here::here("shiny_app/data/processed-data/trials.csv"))
@@ -34,6 +34,9 @@ all_data <- combine_data(kl_only_data, trial_level_data)
 ## Add highest count ====
 all_data <- add_hc(all_data)
 
+## Add country information ====
+all_data <- add_country(all_data)
+
 # Write data -----
 ##datasets
 all_data %>%
@@ -42,9 +45,9 @@ all_data %>%
   rename(dataset_id = Experiment) %>%
   write_to_datasets()
 
-##subjects
+##subjects ## CHANGED
 all_data %>% 
-  select(Experiment, Subject, Language, Age_months, KL, Sex, highest_count) %>%
+  select(Experiment, Subject, Language, Country, Age_months, KL, Sex, highest_count) %>%
   distinct() %>%
   rename(dataset_id = Experiment, 
          subject_id = Subject, 
