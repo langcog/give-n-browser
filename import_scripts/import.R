@@ -36,6 +36,8 @@ all_data <- add_hc(all_data)
 
 ## Add country information ====
 all_data <- add_country(all_data)
+## have to add country info separately for trial level data because of how trial_index is calculated
+trial_level_data <- add_country(trial_level_data) 
 
 # Write data -----
 ##datasets
@@ -52,16 +54,18 @@ all_data %>%
   rename(dataset_id = Experiment, 
          subject_id = Subject, 
          language = Language, 
-         age_months = Age_months) %>%
+         age_months = Age_months, 
+         country = Country) %>%
   write_to_subjects()
 
 ## trials -- this isn't working rn?
 trial_level_data <- create_zero_index(trial_level_data)
 
 trial_level_data %>%
-  select(Experiment, trial_id, Subject, Query, Response)%>%
+  select(Experiment, trial_id, Subject, Country, Query, Response)%>%
   rename(dataset_id = Experiment, 
-                subject_id = Subject)%>%
+         subject_id = Subject,
+         country = Country)%>%
   write_to_trials()
 
 

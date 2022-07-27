@@ -24,6 +24,7 @@ server <- function(input, output, session) {
     inputAgeMax = input$age_range_kl[2]
     inputKL = input$kl_range_kl
     inputLang = input$language_choice_kl
+    inputCountry = input$country_choice_kl
     inputDat = input$dataset_add_kl
     
     if(input$go_kl == 0){
@@ -35,13 +36,14 @@ server <- function(input, output, session) {
     }
     
     all_data %>%
-      distinct(dataset_id, subject_id_nb, age_months, KL, method, language, cite, shortCite, orderCite, CP_subset)%>%
+      distinct(dataset_id, subject_id_nb, age_months, KL, method, language, country, cite, shortCite, orderCite, CP_subset)%>%
       filter(!is.na(age_months), 
              !is.na(KL),
              age_months >= inputAgeMin,
              age_months <= inputAgeMax,
              if (is.null(inputKL)) KL %in% unique(all_data$KL) else KL %in% inputKL,
              if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
+             if (is.null(inputCountry)) country %in% unique(all_data$country) else country %in% inputCountry,
              if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat)
   }, ignoreNULL=FALSE)
   
@@ -53,6 +55,7 @@ server <- function(input, output, session) {
     inputAgeMax = input$age_range_kl[2]
     inputKL = input$kl_range_kl
     inputLang = input$language_choice_kl
+    inputCountry = input$country_choice_kl
     inputDat = input$dataset_add_kl
     
     if(input$go_kl == 0){
@@ -64,7 +67,7 @@ server <- function(input, output, session) {
     }
     ### CDF ###
     if(identical(defaultParams,
-                 list(inputAgeMin, inputAgeMax, inputKL, inputLang, inputDat))) {
+                 list(inputAgeMin, inputAgeMax, inputKL, inputLang, inputCountry, inputDat))) {
       ns <- n_all
     } else{
       ##static data that will be filtered below for sampling
@@ -75,6 +78,7 @@ server <- function(input, output, session) {
                age_months <= inputAgeMax,
                if (is.null(inputKL)) KL %in% unique(all_data$KL) else KL %in% inputKL,
                if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
+               if (is.null(inputCountry)) country %in% unique(all_data$country) else country %in% inputCountry,
                if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat)%>%
         select(KL, language, age_months)
       
@@ -104,6 +108,7 @@ server <- function(input, output, session) {
     inputQuery = input$query_range_item
     inputKL = input$kl_range_item
     inputLang = input$language_choice_item
+    inputCountry = input$country_choice_item
     inputDat = input$dataset_add_item
     
     if(input$go_item == 0){
@@ -124,6 +129,7 @@ server <- function(input, output, session) {
              if (is.null(inputQuery)) Query %in% unique(all_data$Query) else Query %in% as.numeric(inputQuery), 
              if (is.null(inputKL)) KL %in% unique(all_data$KL) else KL %in% inputKL,
              if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
+             if (is.null(inputCountry)) country %in% unique(all_data$country) else country %in% inputCountry,
              if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat
              )
     # method %in% input$method_choice_item)
@@ -135,6 +141,7 @@ server <- function(input, output, session) {
     inputAgeMax = input$age_range_hc[2]
     inputKL = input$kl_range_hc
     inputLang = input$language_choice_hc
+    inputCountry = input$country_choice_hc
     inputDat = input$dataset_add_hc
     
     if(input$go_hc == 0){
@@ -153,6 +160,7 @@ server <- function(input, output, session) {
              age_months <= inputAgeMax,
              if (is.null(inputKL)) KL %in% unique(all_data$KL) else KL %in% inputKL,
              if (is.null(inputLang)) language %in% unique(all_data$language) else language %in% inputLang,
+             if (is.null(inputCountry)) country %in% unique(all_data$country) else country %in% inputCountry,
              if (is.null(inputDat)) shortCite %in% unique(all_data$shortCite) else shortCite %in% inputDat) %>%
       distinct(subject_id_nb, dataset_id, age_months, Sex, language, KL, shortCite, highest_count, cite, orderCite)
   }, ignoreNULL=FALSE)
@@ -179,6 +187,23 @@ server <- function(input, output, session) {
                 choices = languages_KL, 
                 selected = "English", 
                 multiple = TRUE)
+  })
+  
+  output$country_selector <- renderUI({
+    country_list <- all_data %>% filter(language %in% input$language_choice_kl) %>%
+      distinct(country) %>%
+      pull(country)
+    conditionalPanel(condition = "input.language_choice_kl.length != 0",
+                      pickerInput("country_choice_kl", 
+                                  label = "Countries to include:", 
+                                  choices = country_list,
+                                  selected = country_list, #default is to select everything
+                                  multiple = TRUE, 
+                                  options = pickerOptions(
+                                    actionsBox = TRUE,
+                                    title = "Select a country"
+                                  ))
+                     )
   })
   
   output$method_selector <- renderUI({
@@ -225,6 +250,23 @@ server <- function(input, output, session) {
                 choices = languages_item, 
                 selected = "English", 
                 multiple = TRUE)
+  })
+  
+  output$country_selector_item <- renderUI({
+    country_list <- all_data %>% filter(language %in% input$language_choice_item) %>%
+      distinct(country) %>%
+      pull(country)
+    conditionalPanel(condition = "input.language_choice_item.length != 0",
+                     pickerInput("country_choice_item", 
+                                 label = "Countries to include:", 
+                                 choices = country_list,
+                                 selected = country_list, #default is to select everything
+                                 multiple = TRUE, 
+                                 options = pickerOptions(
+                                   actionsBox = TRUE,
+                                   title = "Select a country"
+                                 ))
+    )
   })
   
   output$query_range_selector_item <- renderUI({
@@ -281,6 +323,22 @@ server <- function(input, output, session) {
                 multiple = TRUE)
   })
   
+  output$country_selector_hc <- renderUI({
+    country_list <- all_data %>% filter(language %in% input$language_choice_hc) %>%
+      distinct(country) %>%
+      pull(country)
+    conditionalPanel(condition = "input.language_choice_hc.length != 0",
+                     pickerInput("country_choice_hc", 
+                                 label = "Countries to include:", 
+                                 choices = country_list,
+                                 selected = country_list, #default is to select everything
+                                 multiple = TRUE, 
+                                 options = pickerOptions(
+                                   actionsBox = TRUE,
+                                   title = "Select a country"
+                                 ))
+    )
+  })
   
   output$kl_range_selector_hc <- renderUI({
     selectInput("kl_range_hc", 

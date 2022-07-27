@@ -23,7 +23,7 @@ datasets <- read_csv(here::here("data/processed-data/datasets.csv"))
 ## join the data, rename KLs
 all_data <- full_join(subjects, trials) %>%
   left_join(datasets) %>%
-  rename(age_months = Age_months) %>%
+  ##rename(age_months = Age_months) %>%
   mutate(Response = ifelse(Response > 10, 10, as.numeric(Response)), 
          KL = case_when(
            KL == "Non" | KL == "0" ~ "0-knower", 
@@ -44,9 +44,10 @@ all_data <- full_join(subjects, trials) %>%
            language %in% c("Serbian/Slovenian", "Slovenian", "Slovenian_nonDual") ~ "Slovenian (non-dual)",
            TRUE ~ as.character(language)
          ), 
-         method = ifelse(method == "Non-titrated", "non-titrated", as.character(method)), 
+         method = ifelse(method %in% c("Non-titrated", "nontitrated"), "non-titrated", as.character(method)), 
          CP_subset = ifelse(KL == "CP-knower", "CP-knower", "Subset-knower"), 
-         CP_subset = factor(CP_subset, levels = c("Subset-knower", "CP-knower")))
+         CP_subset = factor(CP_subset, levels = c("Subset-knower", "CP-knower"))) %>%
+  mutate(subject_id_nb = subject_id)
 
 # organize citations
 
@@ -73,6 +74,7 @@ langMetaData <- all_data %>%
   
 
 metaData <- all_data %>%
+  ##distinct(cite, subject_id, age_months) %>%
   distinct(cite, subject_id_nb, age_months) %>%
   group_by(cite) %>%
   summarise(min.age = min(age_months, na.rm = TRUE),
@@ -128,6 +130,8 @@ cites_all <- paste(all_datasets_full$htmlTxt, collapse = " <br/><br/>")
 citationsAll <- paste("<div class='contrCol'><div class='head'>Current Datasets</div><br>", as.character(cites_all), "<br><br></div>")
   
 all_datasets_short <- all_datasets$shortCite
+
+#------LANGUAGE SELECTORS-------#
 ##get only language for which we have KLs
 languages_KL <- all_data %>%
   filter(!is.na(KL)) %>%
@@ -146,6 +150,28 @@ languages_hc <- all_data %>%
   distinct(language) %>%
   arrange(language) %>%
   pull(language)
+
+#------COUNTRY SELECTORS-------#
+##get only country for which we have KLs
+countries_KL <- all_data %>%
+  filter(!is.na(KL)) %>%
+  distinct(country) %>%
+  arrange(country) %>%
+  pull(country)
+##get only language for which we have Queries
+countries_item <- all_data %>%
+  filter(!is.na(Query)) %>%
+  distinct(country) %>%
+  arrange(country) %>%
+  pull(country)
+##get only language for which we have highest_counts
+countries_hc <- all_data %>%
+  filter(!is.na(highest_count)) %>%
+  distinct(country) %>%
+  arrange(country) %>%
+  pull(country)
+
+#------DATASET SELECTORS-------#
 # #get only datasets for which we have KLs
 datasets_KL <- all_data %>%
   filter(!is.na(KL)) %>%
