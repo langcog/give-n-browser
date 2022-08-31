@@ -5,6 +5,8 @@ library(shinyWidgets)
 library(DT)
 library(haven)
 library(showtext)
+library(ggpubr)
+
 font_add_google("Roboto")
 showtext_auto()
 fig.font = "Roboto"

@@ -202,14 +202,22 @@ server <- function(input, output, session) {
                                   options = pickerOptions(
                                     actionsBox = TRUE,
                                     title = "Select a country"
-                                  ))
-                     )
+                                  )),
+                     prettySwitch("country_facet_choice_kl",
+                                  label = "Facet by country",
+                                  value = FALSE, 
+                                  width="5px") #should wrap text
+                     ) 
   })
+  
+  
   
   output$method_selector <- renderUI({
     prettySwitch("method_choice_kl",
-                 label = "Facet by method",
-                 value = FALSE)
+                 #TODO: fix overflow text
+                 label = "Facet by method \n(titrated vs non-titrated)",
+                 value = FALSE, 
+                 width="100%") #should wrap text
   })
   
   output$age_range_selector <- renderUI({
@@ -265,7 +273,10 @@ server <- function(input, output, session) {
                                  options = pickerOptions(
                                    actionsBox = TRUE,
                                    title = "Select a country"
-                                 ))
+                                 )), 
+                     prettySwitch("country_facet_choice_item",
+                                  label = "Country plotted as colors",
+                                  value = FALSE)
     )
   })
   
@@ -279,7 +290,7 @@ server <- function(input, output, session) {
   
   output$method_selector_item <- renderUI({
     prettySwitch("method_choice_item",
-                 label = "Method plotted as colors",
+                 label = "Separate by method (titrated vs non-titrated)",
                  value = FALSE)
   })
   
@@ -336,7 +347,11 @@ server <- function(input, output, session) {
                                  options = pickerOptions(
                                    actionsBox = TRUE,
                                    title = "Select a country"
-                                 ))
+                                 )), 
+                     # TODO: ADD AFTER HIGHEST COUNT DATA IS FIXED
+                     # prettySwitch("country_facet_choice_hc",
+                     #              label = "Facet by country",
+                     #              value = FALSE)
     )
   })
   
@@ -398,8 +413,14 @@ server <- function(input, output, session) {
         coord_flip() +
         theme(text = element_text(family=fig.font, size=fig.fontsize))
       
-      if(input$method_choice_kl){ #facet_wrap by titrated vs not-titrated
+      if (input$method_choice_kl & input$country_facet_choice_kl){
+        p <- p + facet_grid(method~country)
+      }
+      else if(input$method_choice_kl){ #facet_wrap by titrated vs not-titrated
         p <- p + facet_grid(~method)
+      }
+      else if(input$country_facet_choice_kl){
+        p <- p + facet_grid(~country)
       }
       
       p
@@ -426,6 +447,9 @@ server <- function(input, output, session) {
     
     if(input$method_choice_kl){
       kl_table <- kl_table %>% group_by(method)
+    }
+    if(input$country_facet_choice_kl){
+      kl_table <- kl_table %>% group_by(country)
     }
     
     if (input$cp_subset_kl){
@@ -515,135 +539,423 @@ server <- function(input, output, session) {
     
     #different dataframes for different plots
     
+
+    
     #full data
     avg_item <- filtered_data_item() %>%
       group_by(Query, Response)%>%
       summarise(n = n())%>%
       mutate(total.n = sum(n),
              prop = n/total.n)
-    #full data - method
-    method_df <- filtered_data_item() %>%
-      group_by(Query, Response, method)%>%
+  
+    avg_item_method <- list(
+      df1 <- filtered_data_item() %>%
+        filter(method == "titrated") %>%
+        group_by(Query, Response) %>%
+        summarise(n = n())%>%
+        mutate(total.n = sum(n),
+               prop = n/total.n), 
+      df2 <- filtered_data_item() %>%
+        filter(method == "non-titrated") %>%
+        group_by(Query, Response) %>%
+        summarise(n = n())%>%
+        mutate(total.n = sum(n),
+               prop = n/total.n))
+    
+    avg_item_country <- filtered_data_item() %>% 
+      group_by(Query, Response, country) %>%
       summarise(n = n())%>%
-      group_by(method)%>%
+      group_by(Query, country)%>%
       mutate(total.n = sum(n),
              prop = n/total.n)
-    #full data - kl
-    kl_hist <- filtered_data_item() %>%
+    
+    avg_item_country_method <- list(
+      df1 <- filtered_data_item() %>%
+        filter(method == "titrated") %>%
+        group_by(Query, Response, country) %>%
+        summarise(n = n())%>%
+        group_by(Query, country)%>%
+        mutate(total.n = sum(n),
+               prop = n/total.n), 
+      df2 <- filtered_data_item() %>%
+        filter(method == "non-titrated") %>%
+        group_by(Query, Response, country) %>%
+        summarise(n = n())%>%
+        group_by(Query, country)%>%
+        mutate(total.n = sum(n),
+               prop = n/total.n))
+    
+    avg_item_kl <- filtered_data_item() %>%
       group_by(Query, Response, KL)%>%
       summarise(n = n())%>%
       group_by(Query, KL)%>%
       mutate(total.n = sum(n),
              prop = n/total.n)
+    avg_item_kl_method <- list(
+      df1 <- filtered_data_item() %>%
+        filter(method == "titrated") %>%
+        group_by(Query, Response, KL)%>%
+        summarise(n = n())%>%
+        group_by(Query, KL)%>%
+        mutate(total.n = sum(n),
+               prop = n/total.n), 
+      df2 <- filtered_data_item() %>%
+        filter(method == "non-titrated") %>%
+        group_by(Query, Response, KL)%>%
+        summarise(n = n())%>%
+        group_by(Query, KL)%>%
+        mutate(total.n = sum(n),
+               prop = n/total.n))
     
-    #full data - method
-    method_df_kl <- filtered_data_item() %>%
-      group_by(Query, Response, method, KL)%>%
+    avg_item_kl_country <- filtered_data_item() %>%
+      group_by(Query, Response, KL, country)%>%
       summarise(n = n())%>%
-      group_by(Query, KL, method)%>%
+      group_by(Query, KL, country)%>%
       mutate(total.n = sum(n),
              prop = n/total.n)
+    avg_item_kl_country_method <- list(
+      df1 <- filtered_data_item() %>%
+        filter(method == "titrated") %>%
+        group_by(Query, Response, KL, country)%>%
+        summarise(n = n())%>%
+        group_by(Query, KL, country)%>%
+        mutate(total.n = sum(n),
+               prop = n/total.n), 
+      df2 <- filtered_data_item() %>%
+        filter(method == "non-titrated") %>%
+        group_by(Query, Response, KL, country)%>%
+        summarise(n = n())%>%
+        group_by(Query, KL, country)%>%
+        mutate(total.n = sum(n),
+               prop = n/total.n))
     
-    if(nrow(method_df_kl) > 0){
+
+    if(nrow(avg_item_kl_country) > 0){
       ### Conditional for if KL if method is selected and v.v.
       if (input$kl_selector) {
-        if (input$method_choice_item) {
-          counts <- method_df_kl %>%
-            group_by(Query, KL)%>%
-            summarise(full.n = sum(total.n))
+        #### KL & country selected
+        if (input$country_facet_choice_item) {
+          ##### KL & country & method selected
+          if (input$method_choice_item) {
+            counts1 <- filtered_data_item() %>%
+              filter(method == "titrated") %>%
+              group_by(Query, KL)%>%
+              summarise(full.n = n())
+            p1 <- ggplot(avg_item_kl_country_method[[1]], 
+                         aes(x = Response, y = prop, fill = country)) +
+              geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+              geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                       binwidth = 1) + 
+              scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+              scale_fill_solarized("Country") +
+              theme_bw(base_size=14) +
+              theme(legend.position = "right",
+                    panel.grid = element_blank(),
+                    text = element_text(family=fig.font, size=fig.fontsize)
+              ) +
+              labs(y = "Proportion of responses", x = "Number given")+
+              facet_grid(KL~Query) + 
+              geom_text(data = counts1, aes(x = max(avg_item_kl_country$Response - 2), y = .9, label = paste("n =", full.n)), 
+                        size = 5, inherit.aes = FALSE, parse = FALSE, 
+                        family = fig.font) +
+              ggtitle("Titrated")
+            counts2 <- filtered_data_item() %>%
+              filter(method == "non-titrated") %>%
+              group_by(Query, KL)%>%
+              summarise(full.n = n())
+            p2 <- ggplot(avg_item_kl_country_method[[2]], 
+                         aes(x = Response, y = prop, fill = country)) +
+              geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+              geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                       binwidth = 1) + 
+              scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+              scale_fill_solarized("Country") +
+              theme_bw(base_size=14) +
+              theme(legend.position = "right",
+                    panel.grid = element_blank(),
+                    text = element_text(family=fig.font, size=fig.fontsize)
+              ) +
+              labs(y = "Proportion of responses", x = "Number given")+
+              facet_grid(KL~Query) + 
+              geom_text(data = counts2, aes(x = max(avg_item_kl_country$Response - 2), y = .9, label = paste("n =", full.n)), 
+                        size = 5, inherit.aes = FALSE, parse = FALSE, 
+                        family = fig.font) +
+              ggtitle("Non-titrated")
+            p <- ggarrange(p1, p2, 
+                      nrow = 2)
+            p
+          } else {  ##### KL & country selected, method not selected
+            counts <- filtered_data_item() %>%
+              group_by(Query, KL)%>%
+              summarise(full.n = n())
+            
+            p <-  ggplot(avg_item_kl_country, 
+                         aes(x = Response, y = prop, fill = country)) +
+              geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+              geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                       binwidth = 1) + 
+              scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+              scale_fill_solarized("Country") +
+              theme_bw(base_size=14) +
+              theme(legend.position = "right",
+                    panel.grid = element_blank(),
+                    text = element_text(family=fig.font, size=fig.fontsize)
+                    ) +
+              labs(y = "Proportion of responses", x = "Number given")+
+              facet_grid(KL~Query) + 
+              geom_text(data = counts, aes(x = max(avg_item_kl_country$Response - 2), y = .9, label = paste("n =", full.n)), 
+                        size = 5, inherit.aes = FALSE, parse = FALSE, 
+                        family = fig.font
+                        )
+            p
+          }
           
-          p <-  ggplot(method_df_kl, 
-                       aes(x = Response, y = prop, fill = method)) +
-            geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-            geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
-                     binwidth = 1) + 
-            scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-            scale_fill_solarized("Method") +
-            theme_bw(base_size=14) +
-            theme(legend.position = "right",
-                  panel.grid = element_blank(),
-                  text = element_text(family=fig.font, size=fig.fontsize)
-                  ) +
-            labs(y = "Proportion of responses", x = "Number given")+
-            facet_grid(KL~Query) + 
-            geom_text(data = counts, aes(x = max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
-                      size = 5, inherit.aes = FALSE, parse = FALSE, 
-                      family = fig.font
-                      )
-        } else {
-          counts <- kl_hist %>%
-            group_by(Query, KL)%>%
-            summarise(full.n = sum(total.n))
-          
-          p <- ggplot(kl_hist, 
-                      aes(x = Response, y = prop, fill = as.factor(Query))) + 
-            geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-            geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
-                     binwidth = 1) +
-            scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-            scale_fill_solarized() +
-            theme_bw(base_size=14) +
-            theme(legend.position = "none", 
-                  panel.grid = element_blank(),
-                  text = element_text(family=fig.font, size=fig.fontsize)
-                  ) +
-            labs(y = "Proportion of responses", x = "Number given")+
-            facet_grid(KL~Query) + 
-            geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
-                      size = 5, inherit.aes = FALSE, parse = FALSE, 
-                      family = fig.font
-                      )
+        } else { #### KL selected, country not selected
+          ##### KL selected, country not selected, method selected
+          if (input$method_choice_item) {
+            counts1 <- filtered_data_item() %>%
+              filter(method == "titrated") %>%
+              group_by(Query, KL)%>%
+              summarise(full.n = n())
+            p1 <- ggplot(avg_item_kl_method[[1]], 
+                        aes(x = Response, y = prop, fill = as.factor(Query))) + 
+              geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+              geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
+              scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+              scale_fill_solarized() +
+              theme_bw(base_size=14) +
+              theme(legend.position = "none", 
+                    panel.grid = element_blank(),
+                    text = element_text(family=fig.font, size=fig.fontsize)
+              ) +
+              labs(y = "Proportion of responses", x = "Number given")+
+              facet_grid(KL~Query) + 
+              geom_text(data = counts1, aes(max(avg_item_kl_country$Response - 2), y = .9, label = paste("n =", full.n)), 
+                        size = 5, inherit.aes = FALSE, parse = FALSE, 
+                        family = fig.font
+              ) + 
+              ggtitle("Titrated")
+            counts2 <- filtered_data_item() %>%
+              filter(method == "non-titrated") %>%
+              group_by(Query, KL)%>%
+              summarise(full.n = n())
+            p2 <- ggplot(avg_item_kl_method[[2]], 
+                         aes(x = Response, y = prop, fill = as.factor(Query))) + 
+              geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+              geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
+              scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+              scale_fill_solarized() +
+              theme_bw(base_size=14) +
+              theme(legend.position = "none", 
+                    panel.grid = element_blank(),
+                    text = element_text(family=fig.font, size=fig.fontsize)
+              ) +
+              labs(y = "Proportion of responses", x = "Number given")+
+              facet_grid(KL~Query) + 
+              geom_text(data = counts2, aes(max(avg_item_kl_country$Response - 2), y = .9, label = paste("n =", full.n)), 
+                        size = 5, inherit.aes = FALSE, parse = FALSE, 
+                        family = fig.font
+              ) + 
+              ggtitle("Non-titrated")
+            p <- ggarrange(p1, p2, 
+                           nrow = 2)
+            p
+          } else {  ##### KL selected, country & method not selected
+            counts <- filtered_data_item() %>%
+              group_by(Query, KL)%>%
+              summarise(full.n = n())
+            
+            p <- ggplot(avg_item_kl, 
+                        aes(x = Response, y = prop, fill = as.factor(Query))) + 
+              geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+              geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
+              scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+              scale_fill_solarized() +
+              theme_bw(base_size=14) +
+              theme(legend.position = "none", 
+                    panel.grid = element_blank(),
+                    text = element_text(family=fig.font, size=fig.fontsize)
+                    ) +
+              labs(y = "Proportion of responses", x = "Number given")+
+              facet_grid(KL~Query) + 
+              geom_text(data = counts, aes(max(avg_item_kl_country$Response - 2), y = .9, label = paste("n =", full.n)), 
+                        size = 5, inherit.aes = FALSE, parse = FALSE, 
+                        family = fig.font
+                        )
+            p
+          }
         }
-      } else {
-        if (input$method_choice_item) {
-          counts <- method_df %>%
-            group_by(Query)%>%
-            summarise(full.n = sum(total.n))
+      } else { 
+        #### KL not selected, country selected
+        if (input$country_facet_choice_item) {
+          #### KL not selected, country selected, method selected
+          if (input$method_choice_item) {
+            counts1 <- filtered_data_item() %>%
+              filter(method == "titrated") %>%
+              group_by(Query)%>%
+              summarise(full.n = n())
           
-          p <- ggplot(method_df, 
-                      aes(x = Response, y = prop, fill = method)) +
-            geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-            geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
-                     binwidth = 1) +
-            scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-            scale_fill_solarized("Method") +
-            theme_bw(base_size=14) +
-            theme(legend.position = "right",
-                  panel.grid = element_blank(),
-                  text = element_text(family=fig.font, size=fig.fontsize)
-                  ) +
-            labs(y = "Proportion of responses", x = "Number given")+
-            facet_grid(~Query) + 
-            geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
-                      size = 5, inherit.aes = FALSE, parse = FALSE, 
-                      family = fig.font
-                      ) 
+            p1 <- ggplot(avg_item_country_method[[1]], 
+                        aes(x = Response, y = prop, fill = country)) +
+              geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+              geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
+              scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+              scale_fill_solarized("Country") +
+              theme_bw(base_size=14) +
+              theme(legend.position = "right",
+                    panel.grid = element_blank(),
+                    text = element_text(family=fig.font, size=fig.fontsize)
+                    ) +
+              labs(y = "Proportion of responses", x = "Number given")+
+              facet_grid(~Query) + 
+              geom_text(data = counts1, aes(max(avg_item$Response - 2), y = .9, label = paste("n =", full.n)), 
+                        size = 5, inherit.aes = FALSE, parse = FALSE, 
+                        family = fig.font
+                        ) +
+              ggtitle("Titrated")
+            counts2 <- filtered_data_item() %>%
+              filter(method == "non-titrated") %>%
+              group_by(Query)%>%
+              summarise(full.n = n())
+            
+            p2 <- ggplot(avg_item_country_method[[2]], 
+                         aes(x = Response, y = prop, fill = country)) +
+              geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+              geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
+              scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+              scale_fill_solarized("Country") +
+              theme_bw(base_size=14) +
+              theme(legend.position = "right",
+                    panel.grid = element_blank(),
+                    text = element_text(family=fig.font, size=fig.fontsize)
+              ) +
+              labs(y = "Proportion of responses", x = "Number given")+
+              facet_grid(~Query) + 
+              geom_text(data = counts2, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+                        size = 5, inherit.aes = FALSE, parse = FALSE, 
+                        family = fig.font
+              ) +
+              ggtitle("Non-titrated")
+            p <- ggarrange(p1, p2, 
+                           nrow = 2)
+            p
+          } else {
+            #### KL not selected, country selected, method not selected
+            counts <- filtered_data_item() %>%
+              group_by(Query)%>%
+              summarise(full.n = n())
+            
+            p <- ggplot(avg_item_country, 
+                         aes(x = Response, y = prop, fill = country)) +
+              geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+              geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
+              scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+              scale_fill_solarized("Country") +
+              theme_bw(base_size=14) +
+              theme(legend.position = "right",
+                    panel.grid = element_blank(),
+                    text = element_text(family=fig.font, size=fig.fontsize)
+              ) +
+              labs(y = "Proportion of responses", x = "Number given")+
+              facet_grid(~Query) + 
+              geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+                        size = 5, inherit.aes = FALSE, parse = FALSE, 
+                        family = fig.font
+              )
+            p
+          }
         } else {
-          counts <- avg_item %>%
-            group_by(Query)%>%
-            summarise(full.n = sum(total.n))
+          #### KL and country NOT selected
+          ##### KL and country not selected, method selected
+          if (input$method_choice_item) {
+            counts1 <- filtered_data_item() %>%
+              filter(method == "titrated") %>%
+              group_by(Query)%>%
+              summarise(full.n = n())
           
-          p <- ggplot(filtered_data_item(),
-                      aes(x = Response, fill = as.factor(Query))) +
-            geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
-            geom_histogram(aes(y = ..density..), position = position_dodge(), color = 'black', 
-                           binwidth = 1) +
-            scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
-            scale_fill_solarized() +
-            theme_bw(base_size=14) +
-            theme(legend.position = "none",
-                  panel.grid = element_blank(),
-                  text = element_text(family=fig.font, size=fig.fontsize)
-                  ) +
-            labs(y = "Density of responses", x = "Number given")+
-            facet_wrap(~Query) + 
-            geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
-                      size = 5, inherit.aes = FALSE, parse = FALSE, 
-                      family = fig.font
-                      ) 
+            p1 <- ggplot(avg_item_method[[1]], ## used to be filtered_data_item(), not sure why
+                        aes(x = Response, y = prop, fill = as.factor(Query))) +
+              geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+              geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
+              scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+              scale_fill_solarized() +
+              theme_bw(base_size=14) +
+              theme(legend.position = "none",
+                    panel.grid = element_blank(),
+                    text = element_text(family=fig.font, size=fig.fontsize)
+                    ) +
+              labs(y = "Proportion of responses", x = "Number given")+
+              facet_wrap(~Query) + 
+              geom_text(data = counts1, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+                        size = 5, inherit.aes = FALSE, parse = FALSE, 
+                        family = fig.font
+                        ) +
+              ggtitle("Titrated")
+            
+            counts2 <- filtered_data_item() %>%
+              filter(method == "non-titrated") %>%
+              group_by(Query)%>%
+              summarise(full.n = n())
+            
+            p2 <- ggplot(avg_item_method[[2]], ## used to be filtered_data_item(), not sure why
+                         aes(x = Response, y = prop, fill = as.factor(Query))) +
+              geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+        
+              geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
+              scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+              scale_fill_solarized() +
+              theme_bw(base_size=14) +
+              theme(legend.position = "none",
+                    panel.grid = element_blank(),
+                    text = element_text(family=fig.font, size=fig.fontsize)
+              ) +
+              labs(y = "Proportion of responses", x = "Number given")+
+              facet_wrap(~Query) + 
+              geom_text(data = counts2, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+                        size = 5, inherit.aes = FALSE, parse = FALSE, 
+                        family = fig.font
+              ) +
+              ggtitle("Non-titrated")
+            p <- ggarrange(p1, p2, 
+                           nrow = 2)
+            p
+          } else {
+            
+            counts <- filtered_data_item() %>%
+              group_by(Query)%>%
+              summarise(full.n = n())
+            
+            p <- ggplot(avg_item, ## used to be filtered_data_item(), not sure why
+                         aes(x = Response, y = prop, fill = as.factor(Query))) +
+              geom_vline(aes(xintercept = Query), linetype = "dashed", color = 'black') +
+              geom_bar(stat = 'identity', position = position_dodge(), color = 'black', 
+                       binwidth = 1) +
+              scale_x_continuous(breaks = seq(1, 10, 1)) + #hardcoded, needs to change to reflect max in df
+              scale_fill_solarized() +
+              theme_bw(base_size=14) +
+              theme(legend.position = "none",
+                    panel.grid = element_blank(),
+                    text = element_text(family=fig.font, size=fig.fontsize)
+              ) +
+              labs(y = "Proportion of responses", x = "Number given")+
+              facet_wrap(~Query) + 
+              geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+                        size = 5, inherit.aes = FALSE, parse = FALSE, 
+                        family = fig.font
+              )
+            p
+          }
         }
-      } 
-      p
+      }
+      
     } else {
       ggplot(filtered_data_item(),
              aes(x = Response, fill = as.factor(Query))) +
@@ -654,12 +966,12 @@ server <- function(input, output, session) {
               panel.grid = element_blank(),
               text = element_text(family=fig.font, size=fig.fontsize)
         ) +
-        labs(y = "Density of responses", x = "Number given")
+        labs(y = "Proportion of responses", x = "Number given")
     }
   })
   
   ## .... TABLE FOR ITEM HISTOGRAM ----
-  
+  ####TODO:add in country
   output$table_item <- renderDataTable({
     #first, if there is kl selected
     if(input$kl_selector) {
