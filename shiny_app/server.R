@@ -534,12 +534,11 @@ server <- function(input, output, session) {
   ## ... ITEM PLOTS ----
   
   ## .... AVG HISTOGRAM ----
+
   output$avg_histogram <- renderPlot({
     req(filtered_data_item())
     
     #different dataframes for different plots
-    
-
     
     #full data
     avg_item <- filtered_data_item() %>%
@@ -630,6 +629,8 @@ server <- function(input, output, session) {
                prop = n/total.n))
     
 
+
+    
     if(nrow(avg_item_kl_country) > 0){
       ### Conditional for if KL if method is selected and v.v.
       if (input$kl_selector) {
@@ -658,7 +659,7 @@ server <- function(input, output, session) {
               geom_text(data = counts1, aes(x = max(avg_item_kl_country$Response - 2), y = .9, label = paste("n =", full.n)), 
                         size = 5, inherit.aes = FALSE, parse = FALSE, 
                         family = fig.font) +
-              ggtitle("Titrated")
+              ggtitle("Titrated") 
             counts2 <- filtered_data_item() %>%
               filter(method == "non-titrated") %>%
               group_by(Query, KL)%>%
@@ -681,8 +682,8 @@ server <- function(input, output, session) {
                         size = 5, inherit.aes = FALSE, parse = FALSE, 
                         family = fig.font) +
               ggtitle("Non-titrated")
-            p <- ggarrange(p1, p2, 
-                      nrow = 2)
+            p <- ggarrange(p1, p2,
+                           nrow = 2)
             p
           } else {  ##### KL & country selected, method not selected
             counts <- filtered_data_item() %>%
@@ -759,7 +760,7 @@ server <- function(input, output, session) {
                         family = fig.font
               ) + 
               ggtitle("Non-titrated")
-            p <- ggarrange(p1, p2, 
+            p <- ggarrange(p1, p2,
                            nrow = 2)
             p
           } else {  ##### KL selected, country & method not selected
@@ -836,12 +837,12 @@ server <- function(input, output, session) {
               ) +
               labs(y = "Proportion of responses", x = "Number given")+
               facet_grid(~Query) + 
-              geom_text(data = counts2, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+              geom_text(data = counts2, aes(max(avg_item$Response - 2), y = .9, label = paste("n =", full.n)), 
                         size = 5, inherit.aes = FALSE, parse = FALSE, 
                         family = fig.font
               ) +
               ggtitle("Non-titrated")
-            p <- ggarrange(p1, p2, 
+            p <- ggarrange(p1, p2,
                            nrow = 2)
             p
           } else {
@@ -864,7 +865,7 @@ server <- function(input, output, session) {
               ) +
               labs(y = "Proportion of responses", x = "Number given")+
               facet_grid(~Query) + 
-              geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+              geom_text(data = counts, aes(max(avg_item$Response - 2), y = .9, label = paste("n =", full.n)), 
                         size = 5, inherit.aes = FALSE, parse = FALSE, 
                         family = fig.font
               )
@@ -893,7 +894,7 @@ server <- function(input, output, session) {
                     ) +
               labs(y = "Proportion of responses", x = "Number given")+
               facet_wrap(~Query) + 
-              geom_text(data = counts1, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+              geom_text(data = counts1, aes(max(avg_item$Response - 2), y = .9, label = paste("n =", full.n)), 
                         size = 5, inherit.aes = FALSE, parse = FALSE, 
                         family = fig.font
                         ) +
@@ -919,12 +920,12 @@ server <- function(input, output, session) {
               ) +
               labs(y = "Proportion of responses", x = "Number given")+
               facet_wrap(~Query) + 
-              geom_text(data = counts2, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+              geom_text(data = counts2, aes(max(avg_item$Response - 2), y = .9, label = paste("n =", full.n)), 
                         size = 5, inherit.aes = FALSE, parse = FALSE, 
                         family = fig.font
               ) +
               ggtitle("Non-titrated")
-            p <- ggarrange(p1, p2, 
+            p <- ggarrange(p1, p2,
                            nrow = 2)
             p
           } else {
@@ -947,7 +948,7 @@ server <- function(input, output, session) {
               ) +
               labs(y = "Proportion of responses", x = "Number given")+
               facet_wrap(~Query) + 
-              geom_text(data = counts, aes(max(method_df_kl$Response - 2), y = .9, label = paste("n =", full.n)), 
+              geom_text(data = counts, aes(max(avg_item$Response - 2), y = .9, label = paste("n =", full.n)), 
                         size = 5, inherit.aes = FALSE, parse = FALSE, 
                         family = fig.font
               )
@@ -968,7 +969,7 @@ server <- function(input, output, session) {
         ) +
         labs(y = "Proportion of responses", x = "Number given")
     }
-  })
+  }, height = function(){ifelse(input$method_choice_item, 900, 450)})
   
   ## .... TABLE FOR ITEM HISTOGRAM ----
   ####TODO:add in country
