@@ -39,12 +39,13 @@ Almoammer_Barner_2013 <- read_csv(here::here('data/data-raw/trial-level/data-raw
                values_to = "Response")%>%
   dplyr::select(Experiment, Participant, Language, Age_months, method, cite, SEX, Query, Response)%>%
   mutate(lab = "Barner", 
-         cite = "Almoammer, A., Sullivan, J., Donlan, C., Marusic, F., O’Donnell, T., & Barner, D. (2013). Grammatical morphology as a source of early number word meanings. Proceedings of the National Academy of Sciences, 110(46), 18448-18453.")%>%
+         cite = "Almoammer, A., Sullivan, J., Donlan, C., Marusic, F., O'Donnell, T., & Barner, D. (2013). Grammatical morphology as a source of early number word meanings. Proceedings of the National Academy of Sciences, 110(46), 18448-18453.")%>%
   rename("Subject" = "Participant", 
          "Age" = "Age_months", 
          "Sex" = "SEX") %>%
   dplyr::mutate(Query = as.integer(Query), 
                 Response = as.integer(Response))
+
 
 
 # ...piantadosi2014 ----
@@ -119,8 +120,8 @@ Boni_Piantadosi_2022_ordered <- read_csv(here::here('data/data-raw/trial-level/d
                values_to = "Response")%>%
   dplyr::select(-`Location Code`, -Education, -QueryOrder)%>%
   mutate(Age = 12*Age, 
-         Query = str_extract(Response, "[^_]"),
-         Response = str_remove(str_extract(Response,"\\d_*$"), "_"),
+         Query = as.integer(str_extract(Response, "[^_]")),
+         Response = as.integer(str_remove(str_extract(Response,"\\d_*$"), "_")),
          Subject = as.character(Subject), 
          lab= "Piantadosi", 
          cite = "Boni, I., Jara-Ettinger, J., Sackstein, S., & Piantadosi (2022). Verbal counting and the timing of number acquisition in an indigenous Amazonian group. PLoS One, 17(8), e0270739.")%>%
@@ -138,8 +139,8 @@ Boni_Piantadosi_2022_random <- read_csv(here::here('data/data-raw/trial-level/da
                values_to = "Response")%>%
   dplyr::select(-`Location Code`, -Education, -QueryOrder)%>%
   mutate(Age = 12*Age, 
-         Query = str_extract(Response, "[^_]"),
-         Response = str_remove(str_extract(Response,"\\d_*$"), "_"),
+         Query = as.integer(str_extract(Response, "[^_]")),
+         Response = as.integer(str_remove(str_extract(Response,"\\d_*$"), "_")),
          Subject = as.character(Subject), 
          lab= "Piantadosi", 
          cite = "Boni, I., Jara-Ettinger, J., Sackstein, S., & Piantadosi (2022). Verbal counting and the timing of number acquisition in an indigenous Amazonian group. PLoS One, 17(8), e0270739.")%>%
@@ -174,30 +175,30 @@ Sarnecka_Negen_2019 <- read_csv(here::here('data/data-raw/trial-level/data-raw/S
 
 ## ... schneider & barner --- 
 ##1-1 sharing
-Schneider_Barner_UnderReview <- read_csv(here::here('data/data-raw/trial-level/data-raw/Schneider_Barner_UnderReview.csv'))%>%
+Schneider_Barner_2022 <- read_csv(here::here('data/data-raw/trial-level/data-raw/Schneider_Barner_UnderReview.csv'))%>%
   mutate(method = 'titrated', 
-         Experiment = 'Schneider_Barner_UnderReview',
+         Experiment = 'Schneider_Barner_2022',
          Age = Age*12, 
          Task_item = as.integer(Task_item), 
          Response = as.integer(Response), 
          lab = "Barner", 
-         cite = "Schneider, R.M., Brockbank, E., Feiman, R., & Barner, D. (under review). Counting and the ontogenetic origins of exact equality. ")%>%
+         cite = "Schneider, R.M., Brockbank, E., Feiman, R., & Barner, D. (2022). Counting and the ontogenetic origins of exact equality. Cognition, 218, 104952.")%>%
   filter(!is.na(Task_item))%>%
   dplyr::select(-Task, -Trial_number, -Knower_level)%>%
   rename("Query" = "Task_item", 
          "Subject" = "SID")
 
 ## .....output KL data to data-raw -----
-Schneider_Barner_UnderReview_KL <- read_csv(here::here('data/data-raw/trial-level/data-raw/Schneider_Barner_UnderReview.csv'))%>%
+Schneider_Barner_2022_KL <- read_csv(here::here('data/data-raw/trial-level/data-raw/Schneider_Barner_UnderReview.csv'))%>%
   mutate(method = 'titrated', 
-         Experiment = 'Schneider_Barner_UnderReview',
+         Experiment = 'Schneider_Barner_2022',
          Age = Age*12, 
          lab = "Barner", 
-         cite = "Schneider, R.M., Brockbank, E., Feiman, R., & Barner, D. (under review). Counting and the ontogenetic origins of exact equality. ")%>%
+         cite = "Schneider, R.M., Brockbank, E., Feiman, R., & Barner, D. (2022). Counting and the ontogenetic origins of exact equality. Cognition, 218, 104952.")%>%
   rename("Subject" = "SID")%>%
   distinct(Experiment, lab, Subject, Age, Sex, Language, Knower_level, method, cite)
 
-write_csv(Schneider_Barner_UnderReview_KL, here::here('data/data-raw/kl-only/data-raw/Schneider_Barner_UnderReview.csv'))
+write_csv(Schneider_Barner_2022_KL, here::here('data/data-raw/kl-only/data-raw/Schneider_Barner_2022.csv'))
 
 
 
@@ -266,7 +267,7 @@ Schneider_Barner_2020 <- read.csv(here::here('data/data-raw/trial-level/data-raw
   mutate(Age = 12*as.numeric(as.character(Age)), 
          Query = as.numeric(as.character(Query)), 
          method = "Non-titrated", 
-         cite = "Schneider, R. M., Sullivan, J., Marusic, F., Biswas, P., Mismas, P., Plesnicar, V., & Barner, D. (2020). Do children use language structure to discover the recursive rules of counting?. Cognitive psychology, 117, 101263.", 
+         cite = "Schneider, R. M., Sullivan, J., Marusic, F., Biswas, P., Mismas, P., Plesnicar, V., & Barner, D. (2020). Do children use language structure to discover the recursive rules of counting? Cognitive Psychology, 117, 101263.", 
          lab = "Barner")
 
 #calculate KL - this is either subset or CP
@@ -287,7 +288,7 @@ write.csv(Schneider_Barner_2020_KL, here::here("data/data-raw/kl-only/data-raw/S
 
 ## ....Marchand and Barner ====
 ## marchand barner titrated
-Marchand_Barner_2020_Titrated <- read.csv(here::here("data/data-raw/trial-level/data-raw/Marchand_Barner_2020_Titrated.csv")) %>%
+Marchand_Barner_2022_Titrated <- read.csv(here::here("data/data-raw/trial-level/data-raw/Marchand_Barner_2022_Titrated.csv")) %>%
   gather(turn, "Query", ends_with("request")) %>%
   gather(turn2, "Response", ends_with("answer")) %>%
   gather(turn3, "KL", ends_with("KL"))  %>%
@@ -301,22 +302,22 @@ Marchand_Barner_2020_Titrated <- read.csv(here::here("data/data-raw/trial-level/
   mutate(Subject = as.factor(paste0(as.character(Subject), "_", substr(method,2,2))), # each subject counted twice
          KL = str_remove(KL, "k"),
          Language = "English",
-         Experiment = "Marchand_Barner_2020_Titrated",
+         Experiment = "Marchand_Barner_2022_Titrated",
          lab = "Barner",
-         cite = "Marchand, E., & Barner, D. (2020). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.") %>%
+         cite = "Marchand, E., Lovelett, J. T., Kendro, K., & Barner, D. (2022). Assessing the knower-level framework: How reliable is the Give-a-Number task? Cognition, 222, 104998.") %>%
   select(Experiment, Subject, Language, Age, method, cite, Sex, Query, Response, lab, KL)
 
 ##write KLs
-Marchand_Barner_2020_Titrated_kl <- Marchand_Barner_2020_Titrated %>%
+Marchand_Barner_2022_Titrated_kl <- Marchand_Barner_2022_Titrated %>%
   distinct(Subject, Experiment, Age, KL, method, Language, Sex, cite, lab)
-write.csv(Marchand_Barner_2020_Titrated_kl, here::here("data/data-raw/kl-only/data-raw/Marchand_Barner_2020_Titrated.csv"))
+write.csv(Marchand_Barner_2022_Titrated_kl, here::here("data/data-raw/kl-only/data-raw/Marchand_Barner_2022_Titrated.csv"))
 
 #remove KLs from the above
-Marchand_Barner_2020_Titrated <- Marchand_Barner_2020_Titrated %>%
+Marchand_Barner_2022_Titrated <- Marchand_Barner_2022_Titrated %>%
   select(-KL)
 
 ## marchand barner non-titrated
-Marchand_Barner_2020_NonTitrated <- read.csv(here::here("data/data-raw/trial-level/data-raw/Marchand_Barner_2020_NonTitrated.csv")) %>%
+Marchand_Barner_2022_NonTitrated <- read.csv(here::here("data/data-raw/trial-level/data-raw/Marchand_Barner_2022_NonTitrated.csv")) %>%
   gather(turn, "Query", ends_with("request")) %>%
   gather(turn2, "Response", ends_with("answer")) %>%
   gather(turn3, "KL", ends_with("KL"))  %>%
@@ -330,24 +331,24 @@ Marchand_Barner_2020_NonTitrated <- read.csv(here::here("data/data-raw/trial-lev
          method = "non-titrated",
          KL = str_remove(KL, "k"),
          Language = "English",
-         Experiment = "Marchand_Barner_2020_NonTitrated",
+         Experiment = "Marchand_Barner_2022_NonTitrated",
          lab = "Barner",
-         cite = "Marchand, E., & Barner, D. (2020). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.") %>%
+         cite = "Marchand, E., Lovelett, J. T., Kendro, K., & Barner, D. (2022). Assessing the knower-level framework: How reliable is the Give-a-Number task? Cognition, 222, 104998.") %>%
   select(Experiment, Subject, Language, Age, method, cite, Sex, Query, Response, lab, KL)
 
 ##write KLs
-Marchand_Barner_2020_NonTitrated_kl <- Marchand_Barner_2020_NonTitrated %>%
+Marchand_Barner_2022_NonTitrated_kl <- Marchand_Barner_2022_NonTitrated %>%
   distinct(Subject, Experiment, Age, KL, method, Language, Sex, cite, lab)
-write.csv(Marchand_Barner_2020_NonTitrated_kl, here::here("data/data-raw/kl-only/data-raw/Marchand_Barner_2020_NonTitrated.csv"))
+write.csv(Marchand_Barner_2022_NonTitrated_kl, here::here("data/data-raw/kl-only/data-raw/Marchand_Barner_2022_NonTitrated.csv"))
 
 #remove KLs from the above
-Marchand_Barner_2020_NonTitrated <- Marchand_Barner_2020_NonTitrated %>%
+Marchand_Barner_2022_NonTitrated <- Marchand_Barner_2022_NonTitrated %>%
   select(-KL)
 
 
 ### Marchand barner mixed
 # file equivalent to marchand_barner_mixed_REDUNDANT.csv
-Marchand_Barner_2020_Mixed <- read_csv(here::here("data/data-raw/trial-level/data-raw/Marchand_Barner_2020_Mixed.csv")) %>%
+Marchand_Barner_2022_Mixed <- read_csv(here::here("data/data-raw/trial-level/data-raw/Marchand_Barner_2022_Mixed.csv")) %>%
   filter(is.na(Exclusion_Reason) || Exclusion_Reason == "5k") %>%
   rename(Subject = SubjID,
          Age = Age_Mo,
@@ -362,17 +363,17 @@ Marchand_Barner_2020_Mixed <- read_csv(here::here("data/data-raw/trial-level/dat
   select(-method2, -method3) %>%
   mutate_at(c("Query", "Response"), as.numeric) %>%
   mutate(method = tolower(str_remove(method, "_request")),
-         Experiment = "Marchand_Barner_2020_Mixed",
+         Experiment = "Marchand_Barner_2022_Mixed",
          lab = "Barner",
-         cite = "Marchand, E., & Barner, D. (2020). How Reliable is the Give-a-Number task?. 42nd Meeting of the Annual Cognitive Sciences Society.") %>%
+         cite = "Marchand, E., Lovelett, J. T., Kendro, K., & Barner, D. (2022). Assessing the knower-level framework: How reliable is the Give-a-Number task? Cognition, 222, 104998.") %>%
   select(Experiment, Subject, Language, Age, method, cite, Sex, Query, Response, lab, KL)
 
-Marchand_Barner_2020_Mixed_kl <- Marchand_Barner_2020_Mixed %>%
+Marchand_Barner_2022_Mixed_kl <- Marchand_Barner_2022_Mixed %>%
   distinct(Subject, Experiment, Age, KL, method, Language, Sex, cite, lab) %>%
   mutate(KL = str_remove(KL, "k"))
-write.csv(Marchand_Barner_2020_Mixed_kl, here::here("data/data-raw/kl-only/data-raw/Marchand_Barner_2020_Mixed.csv"))
+write.csv(Marchand_Barner_2022_Mixed_kl, here::here("data/data-raw/kl-only/data-raw/Marchand_Barner_2022_Mixed.csv"))
 
-Marchand_Barner_2020_Mixed <- select(Marchand_Barner_2020_Mixed, -KL)
+Marchand_Barner_2022_Mixed <- select(Marchand_Barner_2022_Mixed, -KL)
 
 
 Marchand_Barner_2019 <- read_csv(here::here("data/data-raw/trial-level/data-raw/Marchand_Barner_2019.csv")) %>%
@@ -389,7 +390,7 @@ Marchand_Barner_2019 <- read_csv(here::here("data/data-raw/trial-level/data-raw/
          Response = as.numeric(Response),
          Experiment = "Marchand_Barner_2019",
          lab = "Barner",
-         cite = "Marchand, E., & Barner, D. (2019). The acquisition of French Un. 41st Meeting of the Annual Cognitive Sciences Society.",
+         cite = "Marchand, E., & Barner, D. (2019). The acquisition of French Un. 41st Meeting of the Annual Cognitive Sciences Society (pp. 756-762).",
          method = "titrated") %>%
   select(Experiment, Subject, Language, Age, method, cite, Sex, Query, Response, lab, KL)
 
@@ -427,14 +428,14 @@ all.data <- bind_rows(Almoammer_Barner_2013,
                       Sarnecka_Yudovina_2007, 
                       Sarnecka_Negen_2019, 
                       Krajcsi_2018, 
-                      Boni_Unpublished,
-                      Schneider_Barner_UnderReview,
+                      Boni_Piantadosi_2022,
+                      Schneider_Barner_2022,
                       Schneider_Barner_2021, 
                       Schneider_Barner_Unpublished, 
                       Schneider_Barner_2020, 
-                      Marchand_Barner_2020_Titrated, 
-                      Marchand_Barner_2020_NonTitrated,
-                      Marchand_Barner_2020_Mixed,
+                      Marchand_Barner_2022_Titrated, 
+                      Marchand_Barner_2022_NonTitrated,
+                      Marchand_Barner_2022_Mixed,
                       Marchand_Barner_2019) %>%
   filter(!is.na(Response), ##get rid of NAs
          !is.na(Age),
