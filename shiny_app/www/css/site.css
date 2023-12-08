@@ -161,6 +161,18 @@ div.desc:hover {
   width: 65%;
 }
 
+.disclaimer { 
+  display:flex; 
+  align-items: center;
+  font-size: 0.9em;
+}
+
+#disclaimerImg {
+  float: left;
+  margin-right: 20px;
+  width: 75px;
+}
+
 .knowers {
   margin-left: 5%;
 }
